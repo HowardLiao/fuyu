@@ -918,6 +918,11 @@
           智生活功能體系
           <span style="background: rgba(16, 185, 129, 0.25); color: var(--accent-emerald); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">AIoT</span>
         </button>
+                <button id="navBtnGapAnalysis" class="main-nav-btn" onclick="switchMainView('gapanalysis')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+          52項檔卷差距分析
+          <span style="background: rgba(244, 63, 94, 0.25); color: var(--accent-rose); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">缺位 71%</span>
+        </button>
         <button id="navBtnAdmin" class="main-nav-btn btn-admin" onclick="switchMainView('admin')">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           後端上稿管理
@@ -1852,6 +1857,496 @@
         </div>
       </div>
 
+    
+      <!-- Section: 52項法定檔卷 vs 智生活系統能力差距分析 (GAP ANALYSIS) -->
+      <section id="gapAnalysisSection" class="section sd-card" data-category="roi" style="margin-top: 50px; border-top: 2px dashed rgba(56, 189, 248, 0.3); padding-top: 40px;">
+        <div class="section-header">
+          <div class="section-eyebrow">Statutory Compliance Gap Analysis</div>
+          <h2 class="section-title">六、富宇大地 52 項法定檔卷 vs. 智生活系統能力差距穿透分析</h2>
+          <p class="section-subtitle">
+            依據現行《公寓大廈管理條例》、內政部定型化受任契約規範，深度檢視智生活（Smart Daily）在 7 大類 52 項法定檔卷之真實覆蓋度與能力邊界。
+          </p>
+        </div>
+
+        <!-- 3 Bento Metric Cards -->
+        <div class="grid-3" style="margin-bottom: 24px;">
+          <div class="card" style="border-top: 4px solid var(--accent-rose); background: linear-gradient(180deg, rgba(244, 63, 94, 0.05) 0%, var(--card-bg) 100%);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-rose); text-transform: uppercase;">核心風控缺位</span>
+              <span class="tag" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3);">高法律風險</span>
+            </div>
+            <div style="font-size: 2.2rem; font-weight: 900; color: var(--text-primary); margin: 6px 0;">
+              37 <span style="font-size: 1.1rem; color: var(--accent-rose); font-weight: 700;">項 (71.1%)</span>
+            </div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: #fca5a5; margin-bottom: 6px;">智生活完全沒有 (Missing)</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
+              建築竣工圖資、外包採購比價合約、複式簿記會計傳票總帳、公安消防申報書、發電機量測卡、三級運維彙報表。<strong>智生活非 EDMS 與 ERP，無法承擔法定資產管理。</strong>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--accent-amber); background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, var(--card-bg) 100%);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase;">被動公告形式</span>
+              <span class="tag" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);">僅供閱覽</span>
+            </div>
+            <div style="font-size: 2.2rem; font-weight: 900; color: var(--text-primary); margin: 6px 0;">
+              7 <span style="font-size: 1.1rem; color: var(--accent-amber); font-weight: 700;">項 (13.5%)</span>
+            </div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: #fcd34d; margin-bottom: 6px;">智生活部分支援 (Partial)</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
+              管理規約、管委會月會紀錄、報備證明函、資產負債損益月報表。<strong>系統無專業編輯與審計功能，僅能由管委會做好後以 PDF/圖片上傳公佈欄供住戶下載。</strong>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--accent-emerald); background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--card-bg) 100%);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-emerald); text-transform: uppercase;">前端原生模組</span>
+              <span class="tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">自動化</span>
+            </div>
+            <div style="font-size: 2.2rem; font-weight: 900; color: var(--text-primary); margin: 6px 0;">
+              8 <span style="font-size: 1.1rem; color: var(--accent-emerald); font-weight: 700;">項 (15.4%)</span>
+            </div>
+            <div style="font-size: 0.95rem; font-weight: 700; color: #6ee7b7; margin-bottom: 6px;">智生活已有 (Native)</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
+              包裹掛號秒讀核銷、管理費代收自動銷帳、住戶名冊開通、公設預約扣點、瓦斯線上抄表、修繕報修工單、住戶意見問卷。<strong>屬於住戶第一線高頻生活作業。</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Buttons for 52 Items Table -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+          <div class="category-pills" id="gapFilterPills">
+            <button class="cat-pill active" onclick="filterGapRows('all', this)">全部 52 項總表 (52)</button>
+            <button class="cat-pill" style="color: #f87171;" onclick="filterGapRows('missing', this)">❌ 智生活完全沒有 (37項)</button>
+            <button class="cat-pill" style="color: #fbbf24;" onclick="filterGapRows('partial', this)">◐ 部分支援/僅供公告 (7項)</button>
+            <button class="cat-pill" style="color: #34d399;" onclick="filterGapRows('native', this)">● 智生活已有 (8項)</button>
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            點選上方按鈕可即時切換篩選條件
+          </div>
+        </div>
+
+        <!-- 52 Items Comprehensive Penetration Table -->
+        <div class="table-responsive" style="margin-top: 0;">
+          <table id="gapAnalysisTable">
+            <thead>
+              <tr>
+                <th style="width: 8%;">編號</th>
+                <th style="width: 22%;">檔卷名稱</th>
+                <th style="width: 16%; text-align: center;">智生活系統現況</th>
+                <th style="width: 40%;">差距深度剖析與富宇大地實務處置措施</th>
+                <th style="width: 14%; text-align: center;">法定保管年限</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 類別一：法定資產與原始建置 (全6項皆缺) -->
+              <tr class="gap-cat-header" style="background: rgba(56, 189, 248, 0.08);">
+                <td colspan="5" style="font-weight: 700; color: var(--accent-cyan);">
+                  一、法定資產與原始建置檔卷（共 6 項，智生活支援率：0%）
+                </td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>1-1</strong></td>
+                <td><strong>使用執照謄本及全套竣工圖說</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>屬超大尺寸建築 CAD 圖、藍晒圖說與結構載重圖。智生活非工程圖資系統，<strong>必須由物業以實體防火防潮圖櫃與保密硬碟專卷封存</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>1-2</strong></td>
+                <td><strong>機電／水電／管線竣工圖說</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>強電、高低壓管路、給排水及消防管線路由圖，日後修繕找漏水必備。智生活無圖面檢索功能，<strong>須交由機電主任專冊保管</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>1-3</strong></td>
+                <td><strong>公設點交結案報告書</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>建商與管委會點交之現場缺失改善、公積金撥付驗收憑據。智生活無點交模組，<strong>為日後追究建商瑕疵擔保之司法關鍵事證</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>1-4</strong></td>
+                <td><strong>設施設備原廠維護手冊</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>發電機、高低壓配電盤、電梯等原廠維修手冊與操作說明書。智生活無設備資產資料庫，<strong>須建立設備紙本與電子操作總冊</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>1-5</strong></td>
+                <td><strong>原始設備保固書與廠商清冊</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>起造人移交之防水、機電保固期程、緊急維修窗口與零件料號清單。智生活無廠商資料庫，<strong>須登錄於管委會設備台帳</strong>。</td>
+                <td style="text-align: center;">保固期滿後備查</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>1-6</strong></td>
+                <td><strong>地籍圖與共用部分測繪圖</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>基地地號界線、共用部分與約定專用（車位、約定露台）之測繪界線圖。涉及住戶產權邊界爭議，<strong>智生活無法提供法定產權測繪憑證</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別二：組織架構、規約與會議 (7項: 1已有, 4部分, 2沒有) -->
+              <tr class="gap-cat-header" style="background: rgba(16, 185, 129, 0.08);">
+                <td colspan="5" style="font-weight: 700; color: var(--accent-emerald);">
+                  二、組織架構、規約與會議檔卷（共 7 項，智生活支援率：14.3% 原生 + 57.1% 部分）
+                </td>
+              </tr>
+              <tr class="gap-row" data-support="partial">
+                <td><strong>2-1</strong></td>
+                <td><strong>富宇大地社區管理規約</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
+                <td>智生活僅能以 PDF 檔案供住戶在 App 閱覽；<strong>無規約條款動態編修與版本修訂審查功能，正式紙本規約正本仍須管委會蓋印保存</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr class="gap-row" data-support="partial">
+                <td><strong>2-2</strong></td>
+                <td><strong>管委會組織報備證明函</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
+                <td>主管機關（台中市建管處）核准之公文報備函，智生活僅能當成圖片張貼公告；<strong>向銀行辦理管委會換屆印鑑變更必須出具政府公文正本</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr class="gap-row" data-support="native">
+                <td><strong>2-3</strong></td>
+                <td><strong>區分所有權人及住戶名冊</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
+                <td>智生活具備「住戶開通管理」模組，支援戶號、手機號碼、同住者身分綁定與動態更新；符合實務通訊需求（個資須注意權限授權）。</td>
+                <td style="text-align: center;">即時動態更新</td>
+              </tr>
+              <tr class="gap-row" data-support="partial">
+                <td><strong>2-4</strong></td>
+                <td><strong>區分所有權人會議完整卷宗</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
+                <td>智生活提供線上投票/大會視訊串接，但<strong>無法留存實體簽到簿正本、法定出席委託書簽章聯與表決選票實體卷宗（建管報備法定必備）</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr class="gap-row" data-support="partial">
+                <td><strong>2-5</strong></td>
+                <td><strong>管委會歷次常會／臨會紀錄</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
+                <td>智生活可當公告附件張貼，但<strong>無法進行歷次議案執行進度追蹤（Workflow）與委員出席簽到表驗證</strong>。</td>
+                <td style="text-align: center;">至少保存 5 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>2-6</strong></td>
+                <td><strong>核決權限表 (DOA 授權規章)</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>小額零用金、常委請修、重大工程之簽核額度規則。智生活無內部審批簽核工作流，<strong>須依管委會正式會議紀錄與紙本簽呈落實</strong>。</td>
+                <td style="text-align: center;">現行有效版</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>2-7</strong></td>
+                <td><strong>法定印鑑清冊與換屆移交清單</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>管委會大小章、發票章之印模留存卡與新舊任主委、監委簽名交接清冊。智生活無此功能，<strong>印鑑實體移交為釐清掏空舞弊責任之防線</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別三：外包採購與契約管理 (全6項皆缺) -->
+              <tr class="gap-cat-header" style="background: rgba(168, 85, 247, 0.08);">
+                <td colspan="5" style="font-weight: 700; color: var(--accent-purple);">
+                  三、外包採購與契約管理檔卷（共 6 項，智生活支援率：0%）
+                </td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>3-1</strong></td>
+                <td><strong>物業管理維護委任合約書</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>依內政部定型化範本簽訂之管理委託合約（含 5 大附件工項、15 日違約終止條款）。智生活僅是軟體平台，<strong>完全不涉管委會對物業之契約監督</strong>。</td>
+                <td style="text-align: center;">約滿後 5 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>3-2</strong></td>
+                <td><strong>留駐從業人員證照登錄清冊</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>總幹事事務認可證、保全員良民證、體檢合格表。智生活無人員資歷庫，<strong>管委會須由監委審查物業留駐人員是否具法定合格認可證</strong>。</td>
+                <td style="text-align: center;">履約期間備查</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>3-3</strong></td>
+                <td><strong>各專業設施設備保養合約</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>電梯月保、緊急發電機、消防、弱電監控定期維護合約。智生活無法管理外部協力廠商合約之罰則、時限與保固條款。</td>
+                <td style="text-align: center;">約滿後 3 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>3-4</strong></td>
+                <td><strong>環衛委外合約（水塔/消毒/清潔）</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>智生活雖有自身媒合的生活服務，但<strong>無法管理社區既有外部清潔公司、水塔清洗與化糞池清運之法定委託合約與派工審核</strong>。</td>
+                <td style="text-align: center;">約滿後 3 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>3-5</strong></td>
+                <td><strong>重大工程招標比價評選卷宗</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>外牆修繕、車道瀝青鋪設之 3 家比價單、規格效益分析表及管委會招標決標紀錄。智生活無採購發包流程，<strong>此卷宗為防止貪瀆之關鍵審計憑據</strong>。</td>
+                <td style="text-align: center;">保固期滿後 5 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>3-6</strong></td>
+                <td><strong>外包廠商月度 KPI 考評與扣款單</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>保全夜巡打卡率（目標 &ge;98%）、清潔衛生抽驗計罰單。智生活無外包人員 KPI 稽核系統，<strong>須由物業經理每週造冊提報</strong>。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+
+              <!-- 類別四：財務會計與公共基金 (6項: 1已有, 1部分, 4沒有) -->
+              <tr class="gap-cat-header" style="background: rgba(245, 158, 11, 0.08);">
+                <td colspan="5" style="font-weight: 700; color: var(--accent-amber);">
+                  四、財務會計與公共基金檔卷（共 6 項，智生活支援率：16.7% 原生 + 16.7% 部分）
+                </td>
+              </tr>
+              <tr class="gap-row" data-support="native">
+                <td><strong>4-1</strong></td>
+                <td><strong>管理費收繳與未繳催告名冊</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
+                <td>智生活的強項！支援超商、虛擬帳號、信用卡繳納，金流即時連線自動銷帳，可產出欠費催繳清單與推播提醒；大幅節省對帳時間。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>4-2</strong></td>
+                <td><strong>會計原始憑證（發票／收據）</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>所有經常門、資本門支出發票、請款單、驗收核銷單。智生活非 ERP 系統，<strong>管委會必須落實主委、財委、監委實體「三章分立」核銷簽章</strong>。</td>
+                <td style="text-align: center;"><span class="tag tag-cyan">法定 5 年</span></td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>4-3</strong></td>
+                <td><strong>會計傳票、日記帳與總分類帳</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>智生活只有「代收流水帳」，<strong>完全不是符合商業會計法之複式簿記傳票系統</strong>。管委會必須使用專業會計軟體編製總帳、日記帳與各科目分戶帳。</td>
+                <td style="text-align: center;"><span class="tag tag-cyan">法定 10 年</span></td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>4-4</strong></td>
+                <td><strong>金融機構存摺與對帳單</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>台灣銀行公共基金專戶、定存單、營運專戶之存摺與月結對帳單。智生活無法整合社區多元銀行專戶，<strong>監委每月須實體核對存摺餘額</strong>。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr class="gap-row" data-support="partial">
+                <td><strong>4-5</strong></td>
+                <td><strong>財務收支月報表與公告底稿</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
+                <td>智生活僅能將財委編製完成之資產負債表以圖片公告；<strong>無法自動生成符合公寓大廈管理條例規範之標準財務報表</strong>。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>4-6</strong></td>
+                <td><strong>年度預算書與決算審計報告</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>經區權大會審議之年度預算書、經常門執行差異分析及監察委員查核報告。智生活無預算編制與審計追蹤模組。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別五：公共安全、消防與機電運維 (全8項皆缺) -->
+              <tr class="gap-cat-header" style="background: rgba(244, 63, 94, 0.08);">
+                <td colspan="5" style="font-weight: 700; color: var(--accent-rose);">
+                  五、法定公共安全、消防與機電運維檔卷（共 8 項，智生活支援率：0%）
+                </td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>5-1</strong></td>
+                <td><strong>建築物公共安全檢查申報書</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>建築法第 77 條法定每 2~4 年專業機構簽證申報書與工務局合格標章。智生活無公安申報管理，<strong>未依限申報面臨 6~30 萬元罰鍰</strong>。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>5-2</strong></td>
+                <td><strong>消防安全設備檢修申報書</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>消防法第 9 條每年消防設備師性能測試申報書與消防局複查合格函。智生活無此功能，<strong>物業必須專案建檔列管改善進度</strong>。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>5-3</strong></td>
+                <td><strong>消防防護計畫書與演練紀錄</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>自衛消防編組名冊、滅火/通報/避難引導班每半年演練相片與成果報告。智生活無演練管理，<strong>消防檢查必抽查此項</strong>。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>5-4</strong></td>
+                <td><strong>昇降設備（電梯）安全許可證</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>中華民國昇降設備安檢協會每年換發之電梯合格證正本。智生活無證照有效期限到期警示功能，<strong>過期運轉涉嚴重法律刑責</strong>。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>5-5</strong></td>
+                <td><strong>緊急發電機運轉測試紀錄卡</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>發電機每週無載運轉、每月 ATS 負載切換、電瓶水與油位記錄卡。智生活無機電設備巡檢表，<strong>須由機電人員定期手寫簽章於機房紀錄卡</strong>。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>5-6</strong></td>
+                <td><strong>水質檢驗報告與清洗消毒紀錄</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>每半年蓄水池清洗合格照片、環保署認可實驗室餘氯及大腸桿菌檢測數據。智生活無水質報告庫，<strong>為住戶飲用水安全之法定背書</strong>。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>5-7</strong></td>
+                <td><strong>高低壓電氣定期檢測量測卡</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>特約電氣技術人員對變壓器絕緣阻抗、接地電阻之法定年度測試申報表。智生活無法記錄電氣數值，<strong>此為預防配電盤火災之核心</strong>。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>5-8</strong></td>
+                <td><strong>機械停車設備定期安全許可證</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>立體機械車位每月保養紀錄、安全開關檢查表與年度合格使用執照。智生活無機械車位證照維護管理。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+
+              <!-- 類別六：住戶服務、裝潢施工與違規爭議 (7項: 3已有, 1部分, 3沒有) -->
+              <tr class="gap-cat-header" style="background: rgba(56, 189, 248, 0.08);">
+                <td colspan="5" style="font-weight: 700; color: var(--accent-cyan);">
+                  六、住戶服務、裝潢施工與違規爭議檔卷（共 7 項，智生活支援率：42.9% 原生 + 14.3% 部分）
+                </td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>6-1</strong></td>
+                <td><strong>室內裝修施工申請與切結書</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>台北/台中市政府室內裝修許可證、施工圖說、施工防護切結與裝潢保證金收據。智生活無裝潢管制模組，<strong>須由物業經理專卷管理</strong>。</td>
+                <td style="text-align: center;">退保後 2 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>6-2</strong></td>
+                <td><strong>裝修每日巡檢與退場驗收表</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>每日梯廳保護巡查、違規施工扣點單、清運廢料查驗與退場無公設損壞點交單。智生活無巡查表，<strong>為退還裝修保證金之必備檢核表</strong>。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr class="gap-row" data-support="native">
+                <td><strong>6-3</strong></td>
+                <td><strong>公共設施借用登記與維護表</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
+                <td>智生活原生強項！支援交誼廳、KTV、健身房 24 小時線上預約、點數自動扣抵、超額收費，完全取代紙本登記本。</td>
+                <td style="text-align: center;">1 年</td>
+              </tr>
+              <tr class="gap-row" data-support="native">
+                <td><strong>6-4</strong></td>
+                <td><strong>掛號包裹快遞代收領取登錄</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
+                <td>智生活核心功能！包裹掛號條碼掃描入庫、App 即時推播、出示個人 QR Code 免簽名 3 秒快速取件，徹底取代紙本簽收簿。</td>
+                <td style="text-align: center;">1 年</td>
+              </tr>
+              <tr class="gap-row" data-support="native">
+                <td><strong>6-5</strong></td>
+                <td><strong>住戶報修工單與追蹤反饋單</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
+                <td>住戶可在手機 App 拍照回報公共修繕，系統具備「受理中、叫修待料、完工」即時狀態追蹤條與住戶滿意度評價。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr class="gap-row" data-support="partial">
+                <td><strong>6-6</strong></td>
+                <td><strong>違規勸導單與拍照存證卷宗</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
+                <td>住戶意見反映可上傳照片，但<strong>缺乏正式具備公信力之管委會「違規改善勸導單」格式與送達簽收存證功能</strong>。</td>
+                <td style="text-align: center;">3 年（爭訟永久）</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>6-7</strong></td>
+                <td><strong>存證信函與訴訟法催公文卷</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>催討管理費逾 2 期之法催存證信函、法院支付命令、民事判決書與強制執行聲請卷宗。智生活無法進行司法公文歸檔管理。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別七：日常現場作業與三級週期性彙報 (6項: 1已有, 5沒有) -->
+              <tr class="gap-cat-header" style="background: rgba(16, 185, 129, 0.08);">
+                <td colspan="5" style="font-weight: 700; color: var(--accent-emerald);">
+                  七、日常現場作業與三級週期性彙報檔卷（共 6 項，智生活支援率：16.7%）
+                </td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>7-1</strong></td>
+                <td><strong>保全／物業交接班工作日誌</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>24 小時勤務交代簿、備用公用鑰匙借還登記、現場突發速記。智生活無後台值班日誌，<strong>物業現場仍須維護實體交接日誌</strong>。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>7-2</strong></td>
+                <td><strong>物業營運「日報表（Daily）」</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>每日人員哨點出勤、機房日巡、工單閉環、異常處置的標準日報產生器。智生活無此模組，<strong>物業主任須每日彙整發送管委會群組</strong>。</td>
+                <td style="text-align: center;">1 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>7-3</strong></td>
+                <td><strong>物業營運「週報表（Weekly）」</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>常會決議落實率（%）、滯留工單深究、保全巡檢打卡率稽核統計。智生活無法追蹤決議進度，<strong>須按手冊週報範本產出</strong>。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>7-4</strong></td>
+                <td><strong>物業營運「月報表（Monthly）」</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>管委會每月定期常會專用的審議提案資料包、全景營運體檢報告。智生活無會務審議系統，<strong>須由物業提報常會審核</strong>。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr class="gap-row" data-support="missing">
+                <td><strong>7-5</strong></td>
+                <td><strong>緊急重大事故處置調查報告</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
+                <td>重大管線破裂、火警、電梯受困之 12 小時時序處置與照片報告書。智生活無事故調查模組，<strong>為管委會常會追認與釐清責任依據</strong>。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr class="gap-row" data-support="native">
+                <td><strong>7-6</strong></td>
+                <td><strong>住戶陳情案件與滿意度問卷</strong></td>
+                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
+                <td>智生活提供住戶 App 意見反映管道，並內建社區問卷調查工具，可針對管理服務進行量化滿意度問卷統計。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 雙軌治理架構建議卡片 -->
+        <div class="card" style="margin-top: 30px; border: 1px solid rgba(56, 189, 248, 0.3); background: #080e1d;">
+          <h3 style="font-size: 1.25rem; color: var(--accent-cyan); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            富宇大地社區「雙軌治理落地策略」（Dual-Track Governance Strategy）
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+            鑑於智生活在<strong>前端住戶服務（包裹/代收/預約）</strong>極為敏捷，但在<strong>後端法定檔卷（圖資/會計/公安/外包合約）</strong>覆蓋率不足 30%，富宇大地應採取清晰的「雙軌運作架構」，杜絕「把 App 當作社區治理全部」之重大風控盲區：
+          </p>
+
+          <div class="grid-2">
+            <div style="background: var(--card-bg-subtle); padding: 18px; border-radius: 10px; border-left: 4px solid var(--accent-emerald);">
+              <h4 style="color: var(--accent-emerald); font-size: 1.02rem; margin-bottom: 8px;">軌道一：前台住戶體驗層（全面導入智生活 App）</h4>
+              <ul style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; padding-left: 16px;">
+                <li>全面開通<strong>包裹郵務 QR Code 掃描核銷</strong>，大幅解放管理員櫃檯排隊壓力。</li>
+                <li>管理費啟動<strong>超商、虛擬帳號多元代收</strong>，每日自動入帳沖銷，收繳率提升至 99%。</li>
+                <li>導入<strong>公設線上預約扣點</strong>、<strong>瓦斯手機拍照抄表</strong>與<strong>公共修繕進度工單</strong>。</li>
+                <li><strong>住戶感受：</strong>操作智慧化、免出門跑銀行繳費、生活便利度滿分。</li>
+              </ul>
+            </div>
+
+            <div style="background: var(--card-bg-subtle); padding: 18px; border-radius: 10px; border-left: 4px solid var(--accent-cyan);">
+              <h4 style="color: var(--accent-cyan); font-size: 1.02rem; margin-bottom: 8px;">軌道二：後台法定治理風控層（實體 52 項檔卷庫）</h4>
+              <ul style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; padding-left: 16px;">
+                <li><strong>財務風控：</strong>堅持實體<strong>「主委、財委、監委三章分立」</strong>，不得單憑 App 報表核銷公款。</li>
+                <li><strong>外包採購：</strong>重大修繕嚴格落實<strong>「3 家廠商報價比價表」</strong>與管委會決議發包。</li>
+                <li><strong>公共安全：</strong>每年實體驗收<strong>「消防檢修申報書」、「公安合格證」、「電梯使用證」</strong>。</li>
+                <li><strong>運籌閉環：</strong>物業經理依手冊落實<strong>「日報、週報、月報」</strong>，資訊透明對齊。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
@@ -2253,6 +2748,27 @@
       });
     }
 
+    
+    // Filter Gap Analysis Rows
+    function filterGapRows(type, btn) {
+      document.querySelectorAll('#gapFilterPills .cat-pill').forEach(el => el.classList.remove('active'));
+      btn.classList.add('active');
+
+      const rows = document.querySelectorAll('.gap-row');
+      rows.forEach(row => {
+        const support = row.getAttribute('data-support');
+        if (type === 'all' || support === type) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+      // Show/hide category headers if all rows hidden
+      document.querySelectorAll('.gap-cat-header').forEach(header => {
+        header.style.display = (type === 'all') ? '' : '';
+      });
+    }
+
     // Initialize LocalStorage
     function initData() {
       const stored = localStorage.getItem('fuyu_dadi_announcements_v1');
@@ -2300,7 +2816,16 @@
       document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active-view'));
       document.querySelectorAll('.main-nav-btn').forEach(btn => btn.classList.remove('active'));
 
-      if (viewId === 'smartdaily') {
+      if (viewId === 'gapanalysis') {
+        document.getElementById('viewSmartDaily').classList.add('active-view');
+        document.getElementById('navBtnGapAnalysis').classList.add('active');
+        const gapTarget = document.getElementById('gapAnalysisSection');
+        if (gapTarget) {
+          const navHeight = document.querySelector('.navbar').offsetHeight;
+          const pos = gapTarget.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
+        }
+      } else if (viewId === 'smartdaily') {
         document.getElementById('viewSmartDaily').classList.add('active-view');
         document.getElementById('navBtnSmartDaily').classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
