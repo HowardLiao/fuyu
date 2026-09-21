@@ -913,6 +913,11 @@
           數位公佈欄
           <span id="bulletinCountBadge" style="background: rgba(56, 189, 248, 0.25); color: var(--accent-cyan); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">5</span>
         </button>
+                <button id="navBtnSmartDaily" class="main-nav-btn" onclick="switchMainView('smartdaily')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          智生活功能體系
+          <span style="background: rgba(16, 185, 129, 0.25); color: var(--accent-emerald); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">AIoT</span>
+        </button>
         <button id="navBtnAdmin" class="main-nav-btn btn-admin" onclick="switchMainView('admin')">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           後端上稿管理
@@ -1512,6 +1517,344 @@
     </main>
   </div>
 
+  
+  <!-- ========================================================================= -->
+  <!-- VIEW 4: 智生活功能體系 (Smart Daily Ecosystem & Features)                 -->
+  <!-- ========================================================================= -->
+  <div id="viewSmartDaily" class="view-container">
+    <header class="hero">
+      <div class="container">
+        <div class="hero-tags">
+          <span class="tag tag-cyan">智生活 Smart Daily (今網科技)</span>
+          <span class="tag tag-emerald">全台 10,000+ 社區採用實績</span>
+          <span class="tag tag-amber">156 萬+ 月活用戶體系</span>
+          <span class="tag tag-purple">社區物業管理 + AIoT 智慧建築 + O2O生活服務</span>
+        </div>
+        <h1>智生活（Smart Daily）智慧社區全功能體系架構</h1>
+        <p class="hero-lead">
+          整合台灣智慧社區第一品牌「智生活」之完整功能矩陣。涵蓋<strong>免費基礎物業行政後台</strong>、<strong>AIoT 智慧建築物聯網應用</strong>（雲端對講機、充電樁EMS）以及<strong>居家生活到府服務生態圈</strong>，提供富宇大地社區數位升級之權威功能索引與導入評估。
+        </p>
+
+        <!-- Quick 4 Pillars -->
+        <div class="grid-4" style="margin-top: 20px;">
+          <div class="card" style="margin-bottom: 0;">
+            <div style="font-size: 0.8rem; color: var(--accent-cyan); text-transform: uppercase; font-weight: 700;">維度 01・物業行政</div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 4px 0;">數位管理平台</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">包裹秒讀核銷、管理費代收自動沖銷、公設預約、瓦斯抄表、區權線上大會。</div>
+          </div>
+          <div class="card" style="margin-bottom: 0;">
+            <div style="font-size: 0.8rem; color: var(--accent-emerald); text-transform: uppercase; font-weight: 700;">維度 02・智慧建築</div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 4px 0;">AIoT 智聯設備</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">雲端對講機免拉線、手機遠端視訊開門、車道辨識、充電樁 EMS 負載平衡。</div>
+          </div>
+          <div class="card" style="margin-bottom: 0;">
+            <div style="font-size: 0.8rem; color: var(--accent-amber); text-transform: uppercase; font-weight: 700;">維度 03・生活服務</div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 4px 0;">O2O 到府生態</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">冷氣洗衣機拆洗保固60天、社區收送洗衣、管理室寄件、今網對稱光纖寬頻。</div>
+          </div>
+          <div class="card" style="margin-bottom: 0;">
+            <div style="font-size: 0.8rem; color: var(--accent-purple); text-transform: uppercase; font-weight: 700;">維度 04・導入效益</div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 4px 0;">富宇大地效益</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">管理室行政工時節省 70%、管理費呆帳率 &lt; 1%、對講機免拉線省百萬工程款。</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-top: 36px;">
+
+      <!-- Filter Chips for SmartDaily Features -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div class="category-pills">
+          <button class="cat-pill active" onclick="filterSmartDaily('all', this)">全部功能 (14項)</button>
+          <button class="cat-pill" onclick="filterSmartDaily('admin', this)">物業行政與會務</button>
+          <button class="cat-pill" onclick="filterSmartDaily('aiot', this)">智慧建築 AIoT 設備</button>
+          <button class="cat-pill" onclick="filterSmartDaily('living', this)">居家生活 O2O 生態</button>
+          <button class="cat-pill" onclick="filterSmartDaily('roi', this)">導入效益評估</button>
+        </div>
+        <div style="font-size: 0.82rem; color: var(--text-muted);">
+          支援：iOS / Android App 及 Web 管理後台
+        </div>
+      </div>
+
+      <!-- Feature Grid -->
+      <div class="grid-3" id="smartDailyGrid">
+
+        <!-- 1. 包裹管理 -->
+        <div class="card sd-card" data-category="admin">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-cyan">物業行政・基本版免費</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">日常高頻</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">1. 智慧包裹與郵務核銷管理</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            管理人員透過條碼槍或手機鏡頭直接掃描快遞、掛號條碼，系統自動辨識並秒速建檔。住戶手機 App 即時收到推播通知，出示個人專屬條碼即可「零接觸免簽名」秒速核銷領取。
+          </p>
+          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
+            ✔ 支援物品寄放、鑰匙轉交、冷藏包裹警示與代領授權
+          </div>
+        </div>
+
+        <!-- 2. 管理費代收 -->
+        <div class="card sd-card" data-category="admin">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-cyan">物業行政・基本版免費</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">核心金流</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">2. 管理費多元代收與自動沖銷對帳</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            提供四大超商條碼繳費、ATM 虛擬專屬帳號、信用卡線上刷卡及行動支付。銀行金流即時與系統連線自動沖銷，徹底告別人工作業、核對單據與刷存摺對帳之繁重負擔。
+          </p>
+          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
+            ✔ 欠繳名冊自動產出、一鍵發送催繳推播、銀行專屬刷卡回饋
+          </div>
+        </div>
+
+        <!-- 3. 數位公佈欄 -->
+        <div class="card sd-card" data-category="admin">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-cyan">物業行政・基本版免費</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">資訊傳遞</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">3. 數位公佈欄與分眾即時推播</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            社區會議紀錄、財務報表、停水停電重要公告一鍵上傳。支援棟別、樓層分眾推播，並提供住戶已讀率精準統計，確保社區政令訊息 100% 傳達不遺漏。
+          </p>
+          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
+            ✔ 分類標籤檢索、置頂公告、緊急重大事故跑馬燈廣播
+          </div>
+        </div>
+
+        <!-- 4. 公設預約點數 -->
+        <div class="card sd-card" data-category="admin">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-cyan">物業行政・基本版免費</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">資產活化</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">4. 公設線上預約與點數儲值管理</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            交誼廳、KTV、視聽室、健身房與多功能教室線上 24H 預約。系統自動扣抵每戶配額點數，設備保養時後台可動態閉館防呆，杜絕現場登記撞期與爭端。
+          </p>
+          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
+            ✔ 預約取消費用扣抵、違約記點限制預約、使用人次統計分析
+          </div>
+        </div>
+
+        <!-- 5. 瓦斯線上抄表 -->
+        <div class="card sd-card" data-category="admin">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-cyan">物業行政・基本版免費</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">日常減紙</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">5. 瓦斯線上度數填報與報表匯出</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            告別樓梯間紙本瓦斯登記表！住戶在 App 輸入瓦斯度數（可拍照存證防爭議），抄表截止日後台一鍵匯出符合各家天然氣公司格式之總表，直接送件。
+          </p>
+          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
+            ✔ 自動防呆過低/過高跳度警示、未填報戶一鍵推播提醒
+          </div>
+        </div>
+
+        <!-- 6. 修繕工單與意見 -->
+        <div class="card sd-card" data-category="admin">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-cyan">物業行政・基本版免費</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">住戶溝通</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">6. 公共修繕工單與住戶意見反映</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            住戶發現公共設備損壞（如路燈不亮、水管微漏），可拍照透過 App 回報；後台轉化為工單指派物業追蹤。住戶可即時查看「受理、待料、完工」閉環進度。
+          </p>
+          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
+            ✔ 意見分類歸檔、避免櫃檯口頭爭執、完工住戶星級滿意度回饋
+          </div>
+        </div>
+
+        <!-- 7. 區權大會視訊投票 -->
+        <div class="card sd-card" data-category="admin">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-cyan">物業行政・進階版</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">會務治理</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">7. 區權大會線上視訊與電子投票</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            符合《公寓大廈管理條例》法令規範之線上會議輔助工具。支援住戶身分電子認證、出席委託書審查、議案電子表決與區權比例自動試算，大幅提升成會率。
+          </p>
+          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
+            ✔ 表決票密碼防偽驗證、票數及區權比例即時動態加總
+          </div>
+        </div>
+
+        <!-- 8. 雲端對講機 -->
+        <div class="card sd-card" data-category="aiot">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-emerald">智慧建築 AIoT 設備</span>
+            <span style="font-size: 0.78rem; color: #10b981; font-weight: 700;">旗艦熱門</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">8. 智生活雲端對講機（Smart Intercom）</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            徹底顛覆傳統壁掛室內機！<strong>免敲牆、免拉室內實體弱電線</strong>。訪客在大門對講機撥號，住戶手機 App 即時視訊響鈴，無論在客廳或出差在外，都能手機一鍵遠端為訪客開門。
+          </p>
+          <div style="background: rgba(16, 185, 129, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #10b981;">
+            ★ 老舊大樓節省數百萬重新抽線工程費、支援多位同住家人同時接聽
+          </div>
+        </div>
+
+        <!-- 9. 車道門禁與訪客碼 -->
+        <div class="card sd-card" data-category="aiot">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-emerald">智慧建築 AIoT 設備</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">安全出入</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">9. 智慧車道 eTag 與動態訪客通行證</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            車道柵欄整合遠距 eTag 與車牌辨識自動起落。住戶可針對預約來訪親友產製具時效性（如2小時有效）之專屬 QR Code 訪客碼，訪客在大門刷碼即可放行，保全後台完整紀錄。
+          </p>
+          <div style="background: rgba(16, 185, 129, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #10b981;">
+            ★ 杜絕外車違停混入、訪客出入軌跡電子化、兼顧隱私與維安
+          </div>
+        </div>
+
+        <!-- 10. 充電樁 EMS -->
+        <div class="card sd-card" data-category="aiot">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-emerald">智慧建築 AIoT 設備</span>
+            <span style="font-size: 0.78rem; color: #10b981; font-weight: 700;">電車首選</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">10. 社區充電樁 EMS 智能能源管理</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            專為集合住宅設計之電動車充電方案。具備台電專用電表規劃、EMS 動態電力負載平衡，避免多車同時快充導致社區跳電；支援插槍即充，電費自動計費對帳。
+          </p>
+          <div style="background: rgba(16, 185, 129, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #10b981;">
+            ★ 充電電費直接併入住戶次月管理費帳單代收，免管委會人工對帳
+          </div>
+        </div>
+
+        <!-- 11. 家電清洗 -->
+        <div class="card sd-card" data-category="living">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-amber">居家生活 O2O 生態</span>
+            <span style="font-size: 0.78rem; color: #f59e0b; font-weight: 700;">口碑服務</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">11. 專業到府家電清洗（冷氣/洗衣機）</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            全台清洗超過 10 萬台家電！原廠直營技師全台到府拆機高溫清洗與醫療級消毒殺菌。提供冷氣機清洗業界最長 60 天保固與投保責任險，住戶在社區 App 直接預約享專案價。
+          </p>
+          <div style="background: rgba(245, 158, 11, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #f59e0b;">
+            ★ 分離式冷氣/滾筒與直立洗衣機/抽油煙機拆洗、滿意度 4.9 顆星
+          </div>
+        </div>
+
+        <!-- 12. 生活便利代辦 -->
+        <div class="card sd-card" data-category="living">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-amber">居家生活 O2O 生態</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">便利到家</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">12. 社區到府衣物收洗與包裹寄送</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            衣物不用親自搬去洗衣店，放在管理室即可代收送乾洗水洗、整燙送回；個人寄件不用跑郵局超商，直接在管理中心交寄快遞，享受社區專屬優惠運價。
+          </p>
+          <div style="background: rgba(245, 158, 11, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #f59e0b;">
+            ★ 整合計程車叫車合作、居家清潔到府媒合、社區集氣團購優惠
+          </div>
+        </div>
+
+        <!-- 13. 今網寬頻光纖 -->
+        <div class="card sd-card" data-category="living">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-amber">居家生活 O2O 生態</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">原廠網路</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">13. 今網社區專用光纖寬頻網路</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            智生活母公司「今網資訊」提供之專屬光纖對稱頻寬。免綁長約、低月費高網速，配備 24H 真人客服與快速到府障礙排除，為社區公設與住戶提供高品質上網方案。
+          </p>
+          <div style="background: rgba(245, 158, 11, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #f59e0b;">
+            ★ 公設免費 Wi-Fi 熱點贊助專案、住戶光纖飆網超值回饋
+          </div>
+        </div>
+
+        <!-- 14. 純享免廣告模式 -->
+        <div class="card sd-card" data-category="living">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+            <span class="tag tag-purple">個人化加值訂閱</span>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">$30/月</span>
+          </div>
+          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">14. App 住戶純享模式（廣告隱藏）</h3>
+          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
+            針對追求極致簡約乾淨體驗之住戶，可於 App Store / Google Play 訂閱「純享方案」。全面屏蔽所有生活商業促銷推播，只保留 100% 純淨之社區管理與包裹通知。
+          </p>
+          <div style="background: rgba(168, 85, 247, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #c084fc;">
+            ★ 首月免費試用、個人化關閉廣告版面、專屬紅利積點回饋
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section: 富宇大地導入效益與評估矩陣 (ROI) -->
+      <div id="sdRoiSection" style="margin-top: 40px;" class="sd-card" data-category="roi">
+        <div class="section-header">
+          <div class="section-eyebrow">Implementation Assessment & ROI Matrix</div>
+          <h2 class="section-title">五、富宇大地社區導入智生活之效益試算與治理評估</h2>
+          <p class="section-subtitle">對比傳統紙本人工管理 vs 導入智生活智慧平台之量化成效。</p>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 20%;">營運治理指標</th>
+                <th style="width: 28%;">傳統社區人工管理現況</th>
+                <th style="width: 32%;">導入智生活系統後之成效</th>
+                <th style="width: 20%; text-align: center;">量化改善幅度</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>包裹掛號收發核銷</strong></td>
+                <td>紙本簽名簿手寫登錄，下班尖峰期排隊找信耗時 3~5 分鐘/件。</td>
+                <td>條碼槍掃碼入庫推播，住戶出示手機 QR Code 3 秒嗶卡領取。</td>
+                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">領件時效 +80%</td>
+              </tr>
+              <tr>
+                <td><strong>管理費收繳與對帳</strong></td>
+                <td>物業人員每月刷存摺人工核對單據、開立手工收據，核銷耗費數天。</td>
+                <td>銀行金流直連超商與虛擬帳號，系統每日即時自動沖銷入帳。</td>
+                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">對帳工時 -90%</td>
+              </tr>
+              <tr>
+                <td><strong>管理費欠繳率控制</strong></td>
+                <td>人工翻找歷史帳冊，容易遺漏催收時效，累積呆帳率 3~5%。</td>
+                <td>系統設定逾期自動 App 推播提醒，一鍵匯出法催名冊與存證信函。</td>
+                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">收繳率 99%+</td>
+              </tr>
+              <tr>
+                <td><strong>社區對講機老舊維護</strong></td>
+                <td>弱電配線老化雜音大，重新敲牆拉線工程報價動輒 80~150 萬元。</td>
+                <td>採用雲端對講機，免敲牆免拉線，住戶手機直接視訊接聽開門。</td>
+                <td style="text-align: center; color: var(--accent-cyan); font-weight: 700;">節省 CapEx 70%</td>
+              </tr>
+              <tr>
+                <td><strong>公設撞期與投訴爭議</strong></td>
+                <td>管理室紙本預約登記本，容易漏記、撞期或產生口角質疑。</td>
+                <td>App 即時查看時段、點數自動抵扣、維護期自動關閉防呆。</td>
+                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">撞期糾紛 0 件</td>
+              </tr>
+              <tr>
+                <td><strong>瓦斯每月抄表統計</strong></td>
+                <td>樓梯間張貼紙本報表，住戶字跡不清、物業手動逐一鍵入電腦。</td>
+                <td>住戶在手機填寫拍照，截止日後台一鍵匯出瓦斯公司報表。</td>
+                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">謄寫錯誤 0%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
   <!-- ========================================================================= -->
   <!-- VIEW 2: 數位公佈欄 (Public Community Bulletin)                            -->
   <!-- ========================================================================= -->
@@ -1893,6 +2236,23 @@
     let articles = [];
     let currentCategory = 'all';
 
+    
+    // Filter Smart Daily Cards
+    function filterSmartDaily(category, btn) {
+      document.querySelectorAll('#viewSmartDaily .cat-pill').forEach(el => el.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.sd-card');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (category === 'all' || cat === category) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
     // Initialize LocalStorage
     function initData() {
       const stored = localStorage.getItem('fuyu_dadi_announcements_v1');
@@ -1940,7 +2300,11 @@
       document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active-view'));
       document.querySelectorAll('.main-nav-btn').forEach(btn => btn.classList.remove('active'));
 
-      if (viewId === 'manual') {
+      if (viewId === 'smartdaily') {
+        document.getElementById('viewSmartDaily').classList.add('active-view');
+        document.getElementById('navBtnSmartDaily').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (viewId === 'manual') {
         document.getElementById('viewManual').classList.add('active-view');
         document.getElementById('navBtnManual').classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
