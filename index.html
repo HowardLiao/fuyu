@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>富宇大地社區 | 治理規章權責手冊暨智慧公佈欄系統</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #020617;
+      --card-bg: #0F172A;
+      --card-bg-subtle: #1E293B;
+      --card-hover: #162032;
+      --border-color: rgba(226, 232, 240, 0.12);
+      --border-focus: #38BDF8;
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --accent-cyan: #38BDF8;
+      --accent-blue: #3B82F6;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-rose: #F43F5E;
+      --accent-purple: #A855F7;
+      --font-stack: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-stack);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 90px;
+    }
+
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #7dd3fc;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Ticker / Marquee */
+    .top-ticker {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.15), rgba(56, 189, 248, 0.15));
+      border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 8px 0;
+      font-size: 0.82rem;
+      color: #F8FAFC;
+    }
+    .top-ticker-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .ticker-tag {
+      background: var(--accent-amber);
+      color: #020617;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Sticky Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 0;
+    }
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .nav-brand .community-badge {
+      font-size: 0.75rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.8);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .main-nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 7px 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .main-nav-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .main-nav-btn.active {
+      color: #020617;
+      background: var(--accent-cyan);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(56, 189, 248, 0.35);
+    }
+
+    .main-nav-btn.active.btn-admin {
+      background: var(--accent-amber);
+      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.35);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-cyan);
+    }
+
+    /* Main View Containers */
+    .view-container {
+      display: none;
+    }
+    .view-container.active-view {
+      display: block;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 44px 0 32px;
+      border-bottom: 1px solid var(--border-color);
+      background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-cyan { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25); }
+    .tag-emerald { background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.25); }
+    .tag-amber { background: rgba(245, 158, 11, 0.12); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.25); }
+    .tag-purple { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25); }
+
+    .hero h1 {
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 1080px;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    /* Section & Cards */
+    .section {
+      padding: 46px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header {
+      margin-bottom: 24px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+
+    .section-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      margin: 18px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: #1e293b;
+      color: #f8fafc;
+      font-weight: 600;
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 13px 16px;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.06);
+      color: var(--text-secondary);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+    /* RACI Badges */
+    .badge-raci {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-right: 6px;
+    }
+    .raci-r { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; }
+    .raci-a { background: rgba(244, 63, 94, 0.2); color: #f43f5e; border: 1px solid #f43f5e; }
+    .raci-c { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid #f59e0b; }
+    .raci-i { background: rgba(148, 163, 184, 0.2); color: #94a3b8; border: 1px solid #94a3b8; }
+
+    /* Tab Buttons for Subviews */
+    .tabs-nav {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 22px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 9px 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover { color: var(--text-primary); background: rgba(255, 255, 255, 0.05); }
+    .tab-btn.active {
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+
+    /* Template Copy Boxes */
+    .template-box {
+      background: #090e1a;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 22px;
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .template-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .template-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-copy:hover { background: rgba(56, 189, 248, 0.25); }
+
+    .template-content {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      font-family: inherit;
+    }
+
+    /* =================================================== */
+    /* BULLETIN BOARD STYLING (公佈欄視覺系統)               */
+    /* =================================================== */
+    .bulletin-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .category-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .cat-pill {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .cat-pill:hover, .cat-pill.active {
+      color: #020617;
+      background: var(--accent-cyan);
+      border-color: var(--accent-cyan);
+      font-weight: 700;
+    }
+
+    .bulletin-search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 8px 14px;
+      min-width: 280px;
+    }
+
+    .bulletin-search-input {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-size: 0.88rem;
+      width: 100%;
+      outline: none;
+    }
+
+    /* Announcement Cards Grid */
+    .announcements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 20px;
+    }
+
+    .announcement-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .announcement-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .announcement-card.pinned {
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.04) 0%, var(--card-bg) 100%);
+    }
+
+    .pin-badge {
+      position: absolute;
+      top: -10px;
+      right: 18px;
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      color: #020617;
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      border-radius: 6px;
+      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+    }
+
+    .cat-tag {
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+    .cat-tag-major { background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3); }
+    .cat-tag-finance { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .cat-tag-works { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .cat-tag-rules { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .cat-tag-routine { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .card-date {
+      color: var(--text-muted);
+    }
+
+    .card-publisher {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .card-excerpt {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-footer-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(226, 232, 240, 0.08);
+      padding-top: 12px;
+      margin-top: auto;
+    }
+
+    .card-views {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-read-more {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--accent-cyan);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-read-more:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-cyan);
+    }
+
+    /* =================================================== */
+    /* ADMIN CMS STYLING (後端上稿管理介面)                 */
+    /* =================================================== */
+    .admin-auth-banner {
+      background: var(--card-bg-subtle);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .auth-status-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .auth-badge {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--accent-emerald);
+      border: 1px solid var(--accent-emerald);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: #090e1a;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      outline: none;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+
+    .form-checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #020617;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.92rem;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-reset {
+      background: var(--card-bg-subtle);
+      color: var(--text-secondary);
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-left: 10px;
+    }
+
+    .btn-reset:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Modal Styling */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .modal-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 14px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .modal-content-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #E2E8F0;
+      white-space: pre-wrap;
+    }
+
+    .modal-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 30px;
+      padding: 12px 18px;
+      border: 1px dashed rgba(56, 189, 248, 0.4);
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.05);
+      font-size: 0.84rem;
+      color: var(--accent-cyan);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--accent-emerald);
+      color: #020617;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      display: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      z-index: 9999;
+      animation: toastIn 0.3s forwards;
+    }
+
+    @keyframes toastIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Footer */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.8rem; }
+      .announcements-grid { grid-template-columns: 1fr; }
+      .nav-tabs { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Ticker -->
+  <aside class="top-ticker" aria-label="社區重要即時推播">
+    <div class="container top-ticker-inner">
+      <div style="display: flex; align-items: center; gap: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+        <span class="ticker-tag">最新重大推播</span>
+        <span id="tickerText">【富宇大地】本週四實施全區蓄水池高壓清洗消毒，作業期間將暫時減壓供水，請住戶預先儲水備用。</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 0.78rem; color: var(--text-muted); white-space: nowrap;">
+        <span>社區代號：FY-01</span>
+        <span>管理委員會官方認證系統</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <div class="nav-brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>富宇大地社區</span>
+        <span class="community-badge">管理資訊中心</span>
+      </div>
+
+      <!-- Main Navigation Tabs -->
+      <div class="nav-tabs">
+        <button id="navBtnManual" class="main-nav-btn active" onclick="switchMainView('manual')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          權責規範手冊
+        </button>
+        <button id="navBtnBulletin" class="main-nav-btn" onclick="switchMainView('bulletin')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M21 9H3M9 21V9"/></svg>
+          數位公佈欄
+          <span id="bulletinCountBadge" style="background: rgba(56, 189, 248, 0.25); color: var(--accent-cyan); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">5</span>
+        </button>
+        <button id="navBtnAdmin" class="main-nav-btn btn-admin" onclick="switchMainView('admin')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          後端上稿管理
+        </button>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn-action" onclick="window.print()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+          列印存檔
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 1: 權責規範與治理規章手冊 (Governance Manual)                        -->
+  <!-- ========================================================================= -->
+  <div id="viewManual" class="view-container active-view">
+    <header class="hero">
+      <div class="container">
+        <div class="hero-tags">
+          <span class="tag tag-cyan">富宇大地管理委員會</span>
+          <span class="tag tag-emerald">公寓大廈管理條例 §3 / §36</span>
+          <span class="tag tag-amber">內政部定型契約 (台內營字8771990號)</span>
+          <span class="tag tag-purple">DOA 授權核決體系</span>
+        </div>
+        <h1>富宇大地社區・物業管理與管委會權責手冊</h1>
+        <p class="hero-lead">
+          貫徹「<strong>物業經理負責把事情做好、做透明；管委會負責決定做什麼、並承擔法定決策責任</strong>」。本手冊依據內政部《公寓大廈管理服務人管理辦法》與定型化契約範本五大工作重點附件，明定富宇大地社區之權責分立、3 大實務爭端處置SOP、RACI 矩陣及三級週期性彙報標準。
+        </p>
+
+        <!-- Quick Highlight Grid -->
+        <div class="grid-4" style="margin-top: 20px;">
+          <div class="card" style="margin-bottom: 0;">
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">法定決策主體</div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-emerald); margin: 4px 0;">富宇大地管委會</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">公積金動支、合約簽訂、修繕工程發包、罰則規約解釋，依法專屬管委會。</div>
+          </div>
+          <div class="card" style="margin-bottom: 0;">
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">專業執行與幕僚</div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-cyan); margin: 4px 0;">物業經理 / 服務人</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">現場巡檢、外包監督、請修追蹤、帳務造冊，善盡善良管理人注意義務。</div>
+          </div>
+          <div class="card" style="margin-bottom: 0;">
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">法定工項基準</div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-purple); margin: 4px 0;">內政部契約 5 附件</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">一般事務、基地維修、附屬設施設備、環境衛生清潔、安全防災維護。</div>
+          </div>
+          <div class="card" style="margin-bottom: 0;">
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">定期營運透明度</div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-amber); margin: 4px 0;">日報・週報・月報</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">現場即時監控、專案進度追蹤、月會全景財務與公安體檢，落實數據化治理。</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Section 1: 權責分立與法理 -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Core Governance & Legal Framework</div>
+          <h2 class="section-title">一、富宇大地核心定位與權責分立原則</h2>
+          <p class="section-subtitle">依據《公寓大廈管理條例》第 3 條與第 36 條，明確切割決策者與受任執行者角色。</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card" style="border-top: 4px solid var(--accent-cyan);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="font-size: 1.15rem; color: var(--text-primary);">物業經理／管理維護團隊</h3>
+              <span class="tag tag-cyan">受任專業執行者・幕僚長</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
+              依富宇大地管委會之決議、合約委任授權及管理規約，負責社區日常運轉、外包廠商督考、現場機電巡檢、住戶報修工單落實，並就專業維養提出建議。
+            </p>
+            <ul style="list-style: none; font-size: 0.86rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+              <li>• <strong>日常巡檢與工單：</strong>公設機房每日巡視、水電電梯即時叫修追蹤。</li>
+              <li>• <strong>外包廠商管理：</strong>督導保全崗哨出勤打卡、清潔週期作業驗收。</li>
+              <li>• <strong>專業幕僚分析：</strong>遇設備故障，提供 2~3 家報價效益比較表供常會審議。</li>
+              <li>• <strong style="color: var(--accent-rose);">嚴禁自行決定：</strong>重大修繕、發包工程、動支公積金或向住戶開罰。</li>
+            </ul>
+          </div>
+
+          <div class="card" style="border-top: 4px solid var(--accent-emerald);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="font-size: 1.15rem; color: var(--text-primary);">富宇大地管理委員會</h3>
+              <span class="tag tag-emerald">社區自治決策與責任主體</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
+              由全體區分所有權人選任，依法負有公共基金運用、管理服務人選聘與監督、修繕工程定約等法定職責，向全體住戶負管理成敗之民刑事責任。
+            </p>
+            <ul style="list-style: none; font-size: 0.86rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
+              <li>• <strong>實質審議表決：</strong>審核預算合理性、決定動支科目、評選合格廠商。</li>
+              <li>• <strong>對外代表簽約：</strong>由主任委員代表管委會簽署對外合約與行使訴訟權。</li>
+              <li>• <strong>規約違規處分：</strong>違規住戶之限期催告與主管機關裁罰之函請程序。</li>
+              <li>• <strong style="color: var(--accent-amber);">注意義務不轉嫁：</strong>管委會不可將法定決策責任實質移轉給物業經理。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: RACI 矩陣與核決權限 (DOA) -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">RACI Matrix & Delegation of Authority</div>
+          <h2 class="section-title">二、富宇大地營運 RACI 權責矩陣對照表</h2>
+          <p class="section-subtitle">
+            <span class="badge-raci raci-a">A</span>最終拍板責任 &nbsp;|&nbsp;
+            <span class="badge-raci raci-r">R</span>推動執行落實 &nbsp;|&nbsp;
+            <span class="badge-raci raci-c">C</span>專業諮詢建議 &nbsp;|&nbsp;
+            <span class="badge-raci raci-i">I</span>通報與公告知悉
+          </p>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 25%;">業務管理類別</th>
+                <th style="width: 18%; text-align: center;">區權人會議 (大會)</th>
+                <th style="width: 18%; text-align: center;">管理委員會 (全體)</th>
+                <th style="width: 18%; text-align: center;">主任委員 / 常委</th>
+                <th style="width: 21%; text-align: center;">物業經理 / 服務團隊</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>重大工程修繕 / 規約修訂</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">動支公共基金逾規約門檻</span></td>
+                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 決議核定</td>
+                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> 審議提案</td>
+                <td style="text-align: center;"><span class="badge-raci raci-c">C</span> 督導籌備</td>
+                <td style="text-align: center;"><span class="badge-raci raci-c">C</span> / <span class="badge-raci raci-i">I</span> 幕僚準備與會務</td>
+              </tr>
+              <tr>
+                <td><strong>外包年度維保續約 / 招標</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">保全、清潔、機電、電梯年約</span></td>
+                <td style="text-align: center;"><span class="badge-raci raci-i">I</span> 會後公告</td>
+                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 審核決標</td>
+                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> 代表簽約</td>
+                <td style="text-align: center;"><span class="badge-raci raci-c">C</span> / <span class="badge-raci raci-r">R</span> 招標訪價與履約查驗</td>
+              </tr>
+              <tr>
+                <td><strong>小額例行維修 (授權限額內)</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">燈泡更換、零星耗材、零用金</span></td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;"><span class="badge-raci raci-i">I</span> 月報查核</td>
+                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 抽查核銷</td>
+                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> 現場叫修驗收</td>
+              </tr>
+              <tr>
+                <td><strong>突發緊急事故搶修 (防險止損)</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">給水幹管爆管、配電異常、困人</span></td>
+                <td style="text-align: center;">-</td>
+                <td style="text-align: center;"><span class="badge-raci raci-i">I</span> 事後追認</td>
+                <td style="text-align: center;"><span class="badge-raci raci-i">I</span> 即時通報</td>
+                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> / <span class="badge-raci raci-a">A</span> 現場先行止損處置</td>
+              </tr>
+              <tr>
+                <td><strong>住戶違規催告與訴訟處置</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">欠繳管理費逾 2 期、佔用梯廳</span></td>
+                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 強制遷離決議</td>
+                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 決議法催起訴</td>
+                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> 代表具名發函</td>
+                <td style="text-align: center;"><span class="badge-raci raci-c">C</span> / <span class="badge-raci raci-r">R</span> 現場拍照蒐證與催告</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 3: 三級週期性彙報體系 -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Tiered Reporting Operations</div>
+          <h2 class="section-title">三、三級週期性彙報體系（日報・週報・月報）</h2>
+          <p class="section-subtitle">落實「凡走過必留下痕跡」之數據化運籌回報標準。</p>
+        </div>
+
+        <div class="tabs-nav">
+          <button class="tab-btn active" onclick="switchReportTab('daily', this)">日報 (Daily Report)</button>
+          <button class="tab-btn" onclick="switchReportTab('weekly', this)">週報 (Weekly Report)</button>
+          <button class="tab-btn" onclick="switchReportTab('monthly', this)">月報 (Monthly Report)</button>
+        </div>
+
+        <div id="tab-daily" class="tab-pane active">
+          <div class="card">
+            <h4 style="color: var(--accent-cyan); font-size: 1.05rem; margin-bottom: 8px;">日報：現場即時監控與事件閉環</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">每日呈報主任委員及當值值班委員，內容涵蓋：</p>
+            <div class="grid-3">
+              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
+                <strong style="color: var(--text-primary); font-size: 0.85rem;">1. 哨位出勤：</strong>物業人員、保全各崗哨、清潔人員打卡與代班確認。
+              </div>
+              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
+                <strong style="color: var(--text-primary); font-size: 0.85rem;">2. 機房巡檢：</strong>發電機待機、蓄水池水位、消防主機運轉燈號排查。
+              </div>
+              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
+                <strong style="color: var(--text-primary); font-size: 0.85rem;">3. 住戶請修：</strong>當日新增工單、當日結案數、待料追蹤案件進度。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-weekly" class="tab-pane">
+          <div class="card">
+            <h4 style="color: var(--accent-emerald); font-size: 1.05rem; margin-bottom: 8px;">週報：專案推進、預算追蹤與風險預警</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">每週五發送全體委員，內容涵蓋：</p>
+            <div class="grid-3">
+              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
+                <strong style="color: var(--text-primary); font-size: 0.85rem;">1. 決議交辦：</strong>前期管委會交辦事項完成度（已完成/進行中/卡點）。
+              </div>
+              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
+                <strong style="color: var(--text-primary); font-size: 0.85rem;">2. 廠商稽核：</strong>保全夜巡打卡率（&ge;98%）、清潔大項施作照片檢驗。
+              </div>
+              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
+                <strong style="color: var(--text-primary); font-size: 0.85rem;">3. 工單時效：</strong>週工單結案率分析，滯留逾 5 日案件之專案檢視。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-monthly" class="tab-pane">
+          <div class="card">
+            <h4 style="color: var(--accent-amber); font-size: 1.05rem; margin-bottom: 8px;">月報：全景治理體檢、財務結算與常會提案</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">管委會常會專用資料包並公告全體區權人，內容涵蓋：</p>
+            <div class="grid-3">
+              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
+                <strong style="color: var(--text-primary); font-size: 0.85rem;">1. 財務報表：</strong>管理費收繳率（目標98%+）、公積金存款及孳息對帳。
+              </div>
+              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
+                <strong style="color: var(--text-primary); font-size: 0.85rem;">2. 設備公安：</strong>公安消檢申報排程、機電保養紀錄與修繕比價案。
+              </div>
+              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
+                <strong style="color: var(--text-primary); font-size: 0.85rem;">3. 外包考評：</strong>協力廠商月度 KPI 綜合評鑑與續約建議。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <!-- Section 4: 物業管理 7 大類別 52 項必備法定檔卷清冊 -->
+      <section class="section" id="fuyu-documents">
+        <div class="section-header">
+          <div class="section-eyebrow">Statutory Archives & Records Management</div>
+          <h2 class="section-title">四、富宇大地物業管理 7 大類別 52 項必備法定檔卷清冊</h2>
+          <p class="section-subtitle">依據《公寓大廈管理條例》第 36 條第 8 款及內政部受任契約規範，社區換屆移交、年度審計與建管抽查之必備檔案總目錄。</p>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 10%;">分類編號</th>
+                <th style="width: 26%;">檔案卷宗名稱</th>
+                <th style="width: 46%;">核心內容重點與規範標準</th>
+                <th style="width: 18%; text-align: center;">法定 / 建議保管年限</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 類別一 -->
+              <tr style="background: rgba(56, 189, 248, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-cyan);">【第一類：法定資產與原始建置檔卷（社區產權與起造人移交基石）】</td>
+              </tr>
+              <tr>
+                <td><strong>1-1</strong></td>
+                <td><strong>使用執照謄本及全套竣工圖說</strong></td>
+                <td>建築執照、使用執照、全區建築平面圖、立面圖、各樓層結構圖說。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>1-2</strong></td>
+                <td><strong>機電／水電／管線竣工圖說</strong></td>
+                <td>強電、弱電、給水、排水、消防、通風排煙及地下管網走向竣工圖。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>1-3</strong></td>
+                <td><strong>公設點交結案報告書</strong></td>
+                <td>起造人（建商）與第一屆管委會共同現勘檢測、缺失複驗改善及簽收清冊。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>1-4</strong></td>
+                <td><strong>設施設備原廠維護手冊</strong></td>
+                <td>電梯、發電機、高低壓配電盤、ATS、中水過濾、門禁監控操作與維保說明書。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>1-5</strong></td>
+                <td><strong>原始設備保固書與廠商清冊</strong></td>
+                <td>起造人移交之各項機電設備保固年限合約、原廠緊急窗口與零件料號清單。</td>
+                <td style="text-align: center;">保固期滿後備查</td>
+              </tr>
+              <tr>
+                <td><strong>1-6</strong></td>
+                <td><strong>地籍圖與共用部分測繪圖</strong></td>
+                <td>基地地號地籍圖、專有部分、共用部分及約定專用部分（車位、露台）標示圖。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別二 -->
+              <tr style="background: rgba(16, 185, 129, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-emerald);">【第二類：組織架構、規約與會議檔卷（治理決策與法制核心）】</td>
+              </tr>
+              <tr>
+                <td><strong>2-1</strong></td>
+                <td><strong>富宇大地社區管理規約</strong></td>
+                <td>經區權大會決議通過之規約本文，含停車位管理、裝潢施工、寵物管理附則。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>2-2</strong></td>
+                <td><strong>管委會組織報備證明函</strong></td>
+                <td>直轄市/縣市主管機關核發之公寓大廈管理組織報備證明（換屆登記依據）。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>2-3</strong></td>
+                <td><strong>區分所有權人及住戶名冊</strong></td>
+                <td>各棟戶號、產權人姓名、通訊地、緊急電話、承租人資料（依個資法防護）。</td>
+                <td style="text-align: center;">即時動態更新</td>
+              </tr>
+              <tr>
+                <td><strong>2-4</strong></td>
+                <td><strong>區分所有權人會議完整卷宗</strong></td>
+                <td>召集通知、簽到名冊、出席委託書、表決票、會議紀錄及建管備查公文。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>2-5</strong></td>
+                <td><strong>管委會歷次常會／臨會紀錄</strong></td>
+                <td>每月管委會例會會議紀錄、簽到表、各項審議提案附件與執行追蹤管制表。</td>
+                <td style="text-align: center;">至少保存 5 年</td>
+              </tr>
+              <tr>
+                <td><strong>2-6</strong></td>
+                <td><strong>核決權限表 (DOA 授權規章)</strong></td>
+                <td>管委會核定之小額動支、緊急防險、重大修繕比價發包簽核額度與授權書。</td>
+                <td style="text-align: center;">現行有效版</td>
+              </tr>
+              <tr>
+                <td><strong>2-7</strong></td>
+                <td><strong>法定印鑑清冊與換屆移交清單</strong></td>
+                <td>管委會大章、主委小章印模存查卡，歷屆新舊主委、監委移交點收簽認表。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別三 -->
+              <tr style="background: rgba(168, 85, 247, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-purple);">【第三類：外包採購與契約管理檔卷（履約督導與法律憑據）】</td>
+              </tr>
+              <tr>
+                <td><strong>3-1</strong></td>
+                <td><strong>物業管理維護委任合約書</strong></td>
+                <td>依內政部定型化契約範本簽署，含服務範圍、附件一至五標準工項、違約退場條款。</td>
+                <td style="text-align: center;">約滿後 5 年</td>
+              </tr>
+              <tr>
+                <td><strong>3-2</strong></td>
+                <td><strong>留駐從業人員證照登錄清冊</strong></td>
+                <td>總幹事（事務管理人員認可證）、防火避難證照、保全員良民證與體檢報告。</td>
+                <td style="text-align: center;">履約期間備查</td>
+              </tr>
+              <tr>
+                <td><strong>3-3</strong></td>
+                <td><strong>各專業設施設備保養合約</strong></td>
+                <td>電梯定期保養、緊急發電機季度維護、消防系統季檢、弱電門禁監視合約。</td>
+                <td style="text-align: center;">約滿後 3 年</td>
+              </tr>
+              <tr>
+                <td><strong>3-4</strong></td>
+                <td><strong>環衛委外合約（水塔/消毒/清潔）</strong></td>
+                <td>駐點清潔服務、每半年蓄水池高壓清洗、每半年滅鼠滅蟑消毒、化糞池抽運合約。</td>
+                <td style="text-align: center;">約滿後 3 年</td>
+              </tr>
+              <tr>
+                <td><strong>3-5</strong></td>
+                <td><strong>重大工程招標比價評選卷宗</strong></td>
+                <td>外牆修繕、地坪防水、主機汰換之 3 家廠商報價單、規格效益比較表、發包合約。</td>
+                <td style="text-align: center;">保固期滿後 5 年</td>
+              </tr>
+              <tr>
+                <td><strong>3-6</strong></td>
+                <td><strong>外包廠商月度 KPI 考評與扣款單</strong></td>
+                <td>保全巡邏打卡率統計（目標98%+）、清潔抽驗評分表、違約記點與扣款單據。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+
+              <!-- 類別四 -->
+              <tr style="background: rgba(245, 158, 11, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-amber);">【第四類：財務會計與公共基金檔卷（法定審計與金流憑證）】</td>
+              </tr>
+              <tr>
+                <td><strong>4-1</strong></td>
+                <td><strong>管理費收繳與未繳催告名冊</strong></td>
+                <td>每月各戶應收、實收金額、繳款虛擬帳號明細及積欠管理費法催催告存證清單。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>4-2</strong></td>
+                <td><strong>會計原始憑證（發票／收據）</strong></td>
+                <td>支出發票、收據、廠商勞務請款單、支出核銷單、支票領取簽收回執（三章分立）。</td>
+                <td style="text-align: center;"><span class="tag tag-cyan">法定 5 年</span></td>
+              </tr>
+              <tr>
+                <td><strong>4-3</strong></td>
+                <td><strong>會計傳票、日記帳與總分類帳</strong></td>
+                <td>收支轉帳傳票、會計總帳、各明細科目分戶帳簿與電腦資料庫加密備份。</td>
+                <td style="text-align: center;"><span class="tag tag-cyan">法定 10 年</span></td>
+              </tr>
+              <tr>
+                <td><strong>4-4</strong></td>
+                <td><strong>金融機構存摺與對帳單</strong></td>
+                <td>公共基金專戶活存、定存單影本、經常門營運帳戶存摺及每月銀行對帳單。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>4-5</strong></td>
+                <td><strong>財務收支月報表與公告底稿</strong></td>
+                <td>每月損益表、資產負債表、公共基金餘額表及公佈欄張貼拍照存查存證檔。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>4-6</strong></td>
+                <td><strong>年度預算書與決算審計報告</strong></td>
+                <td>經區權大會核定之年度經常門、資本門預算書及監委查核審計完畢之決算總表。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別五 -->
+              <tr style="background: rgba(244, 63, 94, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-rose);">【第五類：法定公共安全、消防與機電運維檔卷（法定義務申報）】</td>
+              </tr>
+              <tr>
+                <td><strong>5-1</strong></td>
+                <td><strong>建築物公共安全檢查申報書</strong></td>
+                <td>依法定期限委託專業建築公安機構簽證申報書、建築管理處核發之合格證明。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+              <tr>
+                <td><strong>5-2</strong></td>
+                <td><strong>消防安全設備檢修申報書</strong></td>
+                <td>每年消防設備師實施外觀、性能、綜合測試申報書、消防局受理與複查合格函。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+              <tr>
+                <td><strong>5-3</strong></td>
+                <td><strong>消防防護計畫書與演練紀錄</strong></td>
+                <td>自衛消防編組名冊、滅火班/通報班/避難引導班每年 2 次實體演練成果相片。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr>
+                <td><strong>5-4</strong></td>
+                <td><strong>昇降設備（電梯）安全許可證</strong></td>
+                <td>中華民國昇降設備安全檢查協會核發之有效使用許可證（梯廂張貼、正本建檔）。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+              <tr>
+                <td><strong>5-5</strong></td>
+                <td><strong>緊急發電機運轉測試紀錄卡</strong></td>
+                <td>每週常態無載試運轉、每月 ATS 負載切換測試、油位與電瓶液位檢查卡。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr>
+                <td><strong>5-6</strong></td>
+                <td><strong>水質檢驗報告與清洗消毒紀錄</strong></td>
+                <td>認可檢驗機構出具之總溶解固體、餘氯、大腸桿菌群檢測報告與施工全景相片。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr>
+                <td><strong>5-7</strong></td>
+                <td><strong>高低壓電氣定期檢測量測卡</strong></td>
+                <td>特約電氣技術人員對變壓器絕緣、高壓斷路器、接地電阻之定期量測報告。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr>
+                <td><strong>5-8</strong></td>
+                <td><strong>機械停車設備定期安全許可證</strong></td>
+                <td>立體機械車位定期維護保養卡與檢查機構每年換發之安全檢查合格證。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+
+              <!-- 類別六 -->
+              <tr style="background: rgba(56, 189, 248, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-cyan);">【第六類：住戶服務、裝潢施工與違規爭議檔卷（第一線維運作業）】</td>
+              </tr>
+              <tr>
+                <td><strong>6-1</strong></td>
+                <td><strong>室內裝修施工申請與切結書</strong></td>
+                <td>裝修圖說、台北/台中室內裝修許可證、施工保護計畫、保證金繳納收據存根。</td>
+                <td style="text-align: center;">退保後 2 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-2</strong></td>
+                <td><strong>裝修每日巡檢與退場驗收表</strong></td>
+                <td>物業人員每日梯廳公設保護巡查、清運廢料查驗及完工無損退場點交單。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-3</strong></td>
+                <td><strong>公共設施借用登記與維護表</strong></td>
+                <td>多功能交誼廳、視聽室、韻律教室之租借預約表、保證金收付與復原查核。</td>
+                <td style="text-align: center;">1 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-4</strong></td>
+                <td><strong>掛號包裹快遞代收領取登錄</strong></td>
+                <td>郵局掛號、低溫宅配、外送餐點之條碼建檔、住戶 App 簽收或領取流水紀錄。</td>
+                <td style="text-align: center;">1 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-5</strong></td>
+                <td><strong>住戶報修工單與追蹤反饋單</strong></td>
+                <td>報修受理時間、現場勘查、外包叫修、完工檢驗及住戶簽章滿意度閉環表。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-6</strong></td>
+                <td><strong>違規勸導單與拍照存證卷宗</strong></td>
+                <td>公共走道堆放鞋櫃雜物、違規喧囂噪音、冷氣滴水之拍照存證與違規簽收單。</td>
+                <td style="text-align: center;">3 年（爭訟永久）</td>
+              </tr>
+              <tr>
+                <td><strong>6-7</strong></td>
+                <td><strong>存證信函與訴訟法催公文卷</strong></td>
+                <td>積欠管理費法催存證信函、法院支付命令、民事裁定書及聲請強制執行卷宗。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別七 -->
+              <tr style="background: rgba(16, 185, 129, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-emerald);">【第七類：日常現場作業與三級週期性彙報檔卷（管理閉環紀錄）】</td>
+              </tr>
+              <tr>
+                <td><strong>7-1</strong></td>
+                <td><strong>保全／物業交接班工作日誌</strong></td>
+                <td>24小時勤務交代簿、備份鑰匙借還登記簿、臨時突發事件現場處置速記。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-2</strong></td>
+                <td><strong>物業營運「日報表（Daily）」</strong></td>
+                <td>人員哨位出勤、機房日巡、當日工單處理狀況、突發異常通報處置表。</td>
+                <td style="text-align: center;">1 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-3</strong></td>
+                <td><strong>物業營運「週報表（Weekly）」</strong></td>
+                <td>管委會決議交辦進度（%）、滯留工單深究分析、保全打卡巡檢達成率統計。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-4</strong></td>
+                <td><strong>物業營運「月報表（Monthly）」</strong></td>
+                <td>常會專用全景審議資料包（財務報表、機電巡檢、外包考評、議案提案稿）。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-5</strong></td>
+                <td><strong>緊急重大事故處置調查報告</strong></td>
+                <td>自來水幹管爆裂、電梯困人、火警誤鳴等之現場處置時序、相片與善後報告。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-6</strong></td>
+                <td><strong>住戶陳情案件與滿意度問卷</strong></td>
+                <td>住戶意見箱處理回覆紀錄、年度物業管理服務滿意度統計問卷與改善方案。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 5: 規章範本 (可一鍵複製) -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-eyebrow">Ready-to-use Bylaws</div>
+          <h2 class="section-title">五、富宇大地社區規章正式條款範本</h2>
+          <p class="section-subtitle">點擊一鍵複製，可直接作為會議紀錄或正式公告文字。</p>
+        </div>
+
+        <div class="template-box">
+          <div class="template-header">
+            <div class="template-title">富宇大地社區物業經理與管委會權責正式定位條款</div>
+            <button class="btn-copy" onclick="copyTemplate('tpl-fuyu-1', this)">複製條款</button>
+          </div>
+          <pre class="template-content" id="tpl-fuyu-1">【富宇大地社區物業經理與管理委員會權責定位規範】
+
+一、定位劃分：
+本社區物業經理（管理服務人）係受富宇大地管理委員會之委任與監督，依公寓大廈管理條例、受任管理維護業務契約及本社區規約，專責社區日常管理事務之執行、協調、現場巡檢、請修追蹤與定期回報，並就專業管理維護事項提出專業評估與建議。
+
+二、決策權限：
+凡涉及公共基金動支、各項預算支出、外包廠商評選與定約、重大工程修繕、住戶權益處置、規約條款適用與解釋、違規爭議處置及其他重大管理維護決策，均應提請管理委員會討論並作成正式會議決議；其判斷、最終決策與法定管理責任仍由管理委員會主責承擔。
+
+三、三級彙報機制：
+物業經理應落實日報、週報、月報之三級資訊回報機制，處理相關事務應留下書面紀錄與報告，建議事項一律以書面提出，確保資訊透明對齊。</pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 2: 數位公佈欄 (Public Community Bulletin)                            -->
+  <!-- ========================================================================= -->
+  <div id="viewBulletin" class="view-container">
+    <div class="container" style="padding-top: 36px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
+        <div>
+          <div class="section-eyebrow">Community Official Bulletin</div>
+          <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--text-primary);">富宇大地社區・官方數位公佈欄</h2>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 4px;">最新規章、會議決議、工程停水通知及財務月報即時公布專區</p>
+        </div>
+        <div>
+          <button class="btn-submit" onclick="switchMainView('admin')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            管理員快速上稿
+          </button>
+        </div>
+      </div>
+
+      <!-- Toolbar: Categories & Search -->
+      <div class="bulletin-toolbar">
+        <div class="category-pills" id="categoryPills">
+          <button class="cat-pill active" onclick="filterBulletinCat('all', this)">全部公告 (<span id="count-all">0</span>)</button>
+          <button class="cat-pill" onclick="filterBulletinCat('重大決議', this)">重大決議 (<span id="count-major">0</span>)</button>
+          <button class="cat-pill" onclick="filterBulletinCat('財務收支', this)">財務收支 (<span id="count-finance">0</span>)</button>
+          <button class="cat-pill" onclick="filterBulletinCat('機電工程', this)">機電工程 (<span id="count-works">0</span>)</button>
+          <button class="cat-pill" onclick="filterBulletinCat('日常庶務', this)">日常庶務 (<span id="count-routine">0</span>)</button>
+          <button class="cat-pill" onclick="filterBulletinCat('法規規章', this)">法規規章 (<span id="count-rules">0</span>)</button>
+        </div>
+
+        <div class="bulletin-search-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="bulletinSearchInput" class="bulletin-search-input" placeholder="搜尋公告標題、編號或關鍵字..." oninput="renderBulletinList()">
+        </div>
+      </div>
+
+      <!-- Announcement Cards Grid -->
+      <div id="announcementsGrid" class="announcements-grid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 3: 後端上稿中心 (Admin CMS Publishing Interface)                      -->
+  <!-- ========================================================================= -->
+  <div id="viewAdmin" class="view-container">
+    <div class="container" style="padding-top: 36px;">
+      
+      <!-- Admin Role Bar -->
+      <div class="admin-auth-banner">
+        <div class="auth-status-info">
+          <div class="auth-badge" id="currentRoleBadge">已認證發布權限</div>
+          <div>
+            <div style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">
+              當前發布身分：<span id="currentRoleName" style="color: var(--accent-cyan);">富宇大地管理委員會 / 主任委員</span>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">
+              權限級別：Level 3（正式決策與公告核准發布）
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <span style="font-size: 0.82rem; color: var(--text-muted);">切換身分：</span>
+          <select id="roleSelector" class="form-select" style="width: auto; padding: 6px 10px; font-size: 0.82rem;" onchange="changeAdminRole()">
+            <option value="主任委員">主任委員 (全權限)</option>
+            <option value="監察委員">監察委員 (審計與公告)</option>
+            <option value="物業經理">物業經理 (現場草擬與發布)</option>
+            <option value="財務委員">財務委員 (財報公告)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- Left: Publishing Form -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              <span id="formModeTitle">新增社區官方公告</span>
+            </h3>
+            <span id="editModeIndicator" style="display: none; background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); font-size: 0.75rem; padding: 2px 8px; border-radius: 4px;">編輯模式中</span>
+          </div>
+
+          <form id="announcementForm" onsubmit="handleFormSubmit(event)">
+            <input type="hidden" id="editArticleId" value="">
+
+            <div class="form-group">
+              <label class="form-label" for="formTitle">公告標題 <span style="color: var(--accent-rose);">*</span></label>
+              <input type="text" id="formTitle" class="form-input" placeholder="例如：【工程】富宇大地全區蓄水池高壓清洗停水通知" required>
+            </div>
+
+            <div class="grid-2" style="gap: 14px;">
+              <div class="form-group">
+                <label class="form-label" for="formCategory">公告分類 <span style="color: var(--accent-rose);">*</span></label>
+                <select id="formCategory" class="form-select" required>
+                  <option value="重大決議">重大決議 (重要決策)</option>
+                  <option value="機電工程">機電工程 (修繕/保養/停水電)</option>
+                  <option value="財務收支">財務收支 (月報/公積金)</option>
+                  <option value="日常庶務">日常庶務 (活動/公設/收發)</option>
+                  <option value="法規規章">法規規章 (規約/管理辦法)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formPublisher">發布單位 <span style="color: var(--accent-rose);">*</span></label>
+                <input type="text" id="formPublisher" class="form-input" value="富宇大地管理委員會" required>
+              </div>
+            </div>
+
+            <div class="grid-2" style="gap: 14px;">
+              <div class="form-group">
+                <label class="form-label" for="formSigner">簽核 / 決策人 <span style="color: var(--accent-rose);">*</span></label>
+                <input type="text" id="formSigner" class="form-input" value="主任委員 廖倫豪 博士" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formDate">發布日期 <span style="color: var(--accent-rose);">*</span></label>
+                <input type="date" id="formDate" class="form-input" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="formSummary">摘要簡述 (列表預覽顯示，50-80字)</label>
+              <input type="text" id="formSummary" class="form-input" placeholder="簡短說明本公告重點，供住戶在列表中快速掌握...">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="formContent">公告正式全文內容 <span style="color: var(--accent-rose);">*</span></label>
+              <textarea id="formContent" class="form-textarea" rows="8" placeholder="請填寫完整公告內容，可分段編寫..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-checkbox-row">
+                <input type="checkbox" id="formPinned" style="width: 16px; height: 16px; accent-color: var(--accent-amber);">
+                <span style="font-weight: 600; color: var(--text-primary);">將本篇公告【置頂顯示】於公佈欄最上方</span>
+              </label>
+            </div>
+
+            <div style="margin-top: 24px; display: flex; align-items: center;">
+              <button type="submit" class="btn-submit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                確認送出發布
+              </button>
+              <button type="button" class="btn-reset" onclick="resetForm()">重設清空</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Published List Management -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">
+              已發布公告管理清單 (<span id="adminListCount">0</span> 篇)
+            </h3>
+            <button class="btn-action" style="font-size: 0.76rem;" onclick="resetToDefaultArticles()">
+              重設官方預設範本
+            </button>
+          </div>
+
+          <div class="table-responsive" style="max-height: 520px; overflow-y: auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 45%;">公告標題</th>
+                  <th style="width: 20%;">分類</th>
+                  <th style="width: 15%;">發布日期</th>
+                  <th style="width: 20%; text-align: center;">操作</th>
+                </tr>
+              </thead>
+              <tbody id="adminArticlesTbody">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted);">
+            <span>資料自動儲存於瀏覽器 LocalStorage</span>
+            <button class="btn-copy" style="padding: 3px 8px; font-size: 0.75rem;" onclick="exportArticlesJSON()">匯出 JSON 備份</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Announcement Reading Modal -->
+  <div id="readModal" class="modal-backdrop" onclick="closeReadModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeReadModal()">&times;</button>
+      <div id="modalCategoryTag" class="cat-tag" style="display: inline-block; margin-bottom: 10px;">分類</div>
+      <h2 id="modalTitle" class="modal-title">公告標題</h2>
+      <div class="modal-meta">
+        <span>發布單位：<strong id="modalPublisher" style="color: var(--text-primary);">富宇大地管理委員會</strong></span>
+        <span>發布日期：<span id="modalDate">2026-09-21</span></span>
+        <span>簽核主管：<span id="modalSigner" style="color: var(--accent-cyan);">廖倫豪 博士</span></span>
+        <span>瀏覽人次：<span id="modalViews">0</span> 次</span>
+      </div>
+      <div id="modalContent" class="modal-content-body">
+        公告內容載入中...
+      </div>
+      <div class="modal-stamp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>富宇大地管理委員會官方防偽電子戳記・決議已留存管委會檔卷</span>
+      </div>
+      <div style="margin-top: 24px; text-align: right;">
+        <button class="btn-action" onclick="window.print()">列印此公告</button>
+        <button class="btn-action" style="margin-left: 8px;" onclick="closeReadModal()">關閉視窗</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p style="margin-bottom: 6px; color: var(--text-secondary); font-weight: 600;">
+        富宇大地社區管理維護治理體系・物業權責手冊暨官方數位公佈欄
+      </p>
+      <p style="color: var(--text-muted); font-size: 0.8rem;">
+        合規依據：《公寓大廈管理條例》第 3 條、第 10 條、第 20 條、第 36 條及內政部定型化管理維護契約範本。
+      </p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast">操作已成功完成！</div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    // Initial Seed Data for "富宇大地"
+    const DEFAULT_ARTICLES = [
+      {
+        id: "FY-2026-001",
+        title: "【重要公告】富宇大地物業管理經理與管委會權責定位及三級彙報機制正式實施公告",
+        category: "重大決議",
+        publisher: "富宇大地管理委員會",
+        signer: "主任委員 廖倫豪 博士",
+        date: "2026-09-21",
+        pinned: true,
+        summary: "為確立本社區「物業經理負責把事情做好做透明；管委會負責決定做什麼並承擔決策責任」之治理原則，全面實施日報、週報、月報制度與核決權限 (DOA) 規範。",
+        content: `全體區分所有權人與住戶女士、先生：
+
+為提升本社區管理服務品質、落實權責劃分並維護全體區權人共有資產，富宇大地管理委員會經第十屆第三次常會決議，正式頒布實施《物業管理經理與管理委員會權責界線與治理作業規範》：
+
+一、權責劃分核心：
+1. 物業經理（管理服務人）：係依管委會決議、合約委任授權及管理規約，負責日常庶務執行、廠商聯繫、機電巡檢、報修追蹤與定期回報，並就專業維護提供方案建議。
+2. 管理委員會：承擔公共基金運用、重大工程修繕決策、合約簽署、規約適用與違規處分之最終決定與法定管理責任。
+
+二、三級彙報機制：
+1. 日報：每日現場即時監控、機房巡檢及工單閉環紀錄。
+2. 週報：專案工程推進、外包廠商履約稽核（保全打卡率目標 98%+）。
+3. 月報：財務收支報表、公共安全與消防申報、廠商月度 KPI 綜合考評。
+
+三、核決權限 (DOA) 限額標準：
+- 零用金小額採購：單筆 3,000 元以下由物業依法定科目核實動銷。
+- 限額請修：單筆 3,001~20,000 元須報請常務委員或主委核准。
+- 重大工程：逾 20,000 元以上須經管委會全體會議比價審議表決。
+
+本辦法自即日起正式施行，特此公告。
+
+富宇大地管理委員會 敬啟`,
+        views: 342
+      },
+      {
+        id: "FY-2026-002",
+        title: "【機電工程】富宇大地 115 年度全區地下蓄水池與屋頂水塔高壓清洗消毒停水作業通知",
+        category: "機電工程",
+        publisher: "富宇大地物業管理處",
+        signer: "物業經理 / 機電安全組",
+        date: "2026-09-24",
+        pinned: true,
+        summary: "依內政部定型化契約範本附件四規定，每六個月實施全區蓄水池高壓清洗及水質消毒，施作期間將暫停加壓供水，請各棟住戶預先儲水備用。",
+        content: `富宇大地全體住戶您好：
+
+依據內政部《公寓大廈管理維護契約範本》環境清潔維護規定，為維護全體住戶生活飲用水之衛生與安全，本處將辦理 115 年度第二次全區蓄水池及屋頂水塔高壓清洗與水質檢驗工程，作業期間將暫停供水，敬請查照配合：
+
+一、施工時程與影響範圍：
+1. 施作日期：民國 115 年 9 月 28 日（星期四）
+2. 停水時段：上午 08:30 至 下午 16:30（工程提早完成則提前恢復供水）
+3. 停水範圍：富宇大地 A棟、B棟、C棟全區專有及共用部分。
+
+二、住戶配合注意事項：
+1. 敬請於停水前預先儲備當日所需飲用及生活用水。
+2. 停水期間請務必關閉抽水馬達及熱水器電源開關，避免因管線無水空轉導致設備損壞燒毀。
+3. 恢復供水初期，出水可能夾帶些微管路氣泡或微量沉積物，請先開啟水龍頭排放約 1~2 分鐘即可正常使用。
+
+如遇不可抗力之天候因素（如颱風豪雨），施工期程將順延並另行發布公告通知。
+
+緊急聯繫電話：
+富宇大地物業服務中心：(04) 2345-6789 分機 101
+
+富宇大地物業管理處 敬啟`,
+        views: 289
+      },
+      {
+        id: "FY-2026-003",
+        title: "【財務收支】富宇大地 115 年 8 月份管理費收繳成果與公共基金專戶結算月報",
+        category: "財務收支",
+        publisher: "富宇大地管理委員會",
+        signer: "財務委員 / 主任委員",
+        date: "2026-09-10",
+        pinned: false,
+        summary: "8 月份管理費準時收繳率達 98.4%，公共基金專戶活存與定存孳息結算正常，各項經常門支出均在預算限額之內，原始憑證已完成查核。",
+        content: `富宇大地全體區分所有權人公鑒：
+
+依《公寓大廈管理條例》第 20 條及第 36 條規定，茲公告本社區民國 115 年 8 月份管理費收支與公共基金帳務結算概況：
+
+一、管理費收繳狀況：
+- 應收管理費總額：新台幣 826,000 元整
+- 當月實收金額：新台幣 812,784 元整（收繳率 98.4%）
+- 逾期未繳戶數：3 戶（物業中心已寄發第一次催繳通知函）
+
+二、經常門主要支出項目：
+1. 物業、保全與清潔外包服務費：新台幣 480,000 元
+2. 公共水電設施費：新台幣 112,450 元
+3. 電梯定期保養合約費：新台幣 42,000 元
+4. 園藝與例行耗材維修：新台幣 18,320 元
+- 本月經常門結餘款：新台幣 160,014 元整（全數轉撥公共基金帳戶）
+
+三、公共基金專戶資產結算：
+- 台灣銀行專戶活期存款：新台幣 3,421,890 元整
+- 台灣銀行定存定期專戶：新台幣 12,000,000 元整（年利率 1.72%）
+- 本月利息孳息收入：新台幣 17,200 元整
+
+以上各項收支憑證、原始發票與金融機構對帳單，業經監察委員與財務委員共同抽查審核無誤，放置於管理中心供全體區權人閱覽。
+
+富宇大地管理委員會 敬啟`,
+        views: 198
+      },
+      {
+        id: "FY-2026-004",
+        title: "【會務公告】富宇大地第十屆管理委員會第 3 次定期常會決議事項摘要",
+        category: "重大決議",
+        publisher: "富宇大地管理委員會",
+        signer: "主任委員 廖倫豪 博士",
+        date: "2026-09-05",
+        pinned: false,
+        summary: "本次常會全票通過外牆磁磚安全防墜拉力檢測案、B2停車場道閘感應天線更換案，並核定中秋社區聯誼園遊會活動企劃。",
+        content: `富宇大地全體住戶您好：
+
+富宇大地管理委員會於 115 年 9 月 3 日晚間 19:30 假社區多功能會議廳召開第十屆第 3 次定期常會，全體委員應到 11 位，實到 10 位，法定人數合規。會中審議重點決議如下：
+
+【第一案】外牆飾面安全防墜與拉拔測試委外檢驗案。
+- 決議：經比價 3 家合格營建專業檢測機構，全票通過由「全安結構科技」以新台幣 75,000 元承作，工期預計 10 個工作天，排定於 10 月初進行。
+
+【第二案】B2 地下室車道門禁 eTag 感應天線老化更新案。
+- 決議：考量近期住戶進出讀取靈敏度下降，決議動用維修準備金 18,500 元，由原廠「富捷智能弱電」進行感應模組汰換。
+
+【第三案】115 年中秋住戶聯歡園遊會籌辦案。
+- 決議：核定預算新台幣 60,000 元，定於 10 月 2 日（五）晚間於中庭花園舉辦，委由物業中心規劃互動遊戲與應景餐點。
+
+各案完整會議紀錄已依規約張貼於各梯廳公佈欄，住戶如需影本可向管理中心申請。
+
+富宇大地管理委員會 敬啟`,
+        views: 156
+      },
+      {
+        id: "FY-2026-005",
+        title: "【日常庶務】秋季社區走廊梯廳雜物清理勸導期公告",
+        category: "日常庶務",
+        publisher: "富宇大地物業管理處",
+        signer: "管理主任 / 防火避難組",
+        date: "2026-09-01",
+        pinned: false,
+        summary: "為落實消防逃生安全，提醒住戶切勿於各樓層公共走道、安全梯間堆置鞋櫃、嬰兒車或雜物，勸導期滿未改善者將通報工務機關處置。",
+        content: `富宇大地全體住戶女士、先生：
+
+依據《公寓大廈管理條例》第 16 條第 2 項明定：「住戶不得於樓梯間、共同走廊、防空避難設備等處所堆置雜物、設置柵欄或妨礙出入。」
+
+近期物業人員巡檢發現，部分樓層梯廳走道有堆置鞋盒、戶外腳踏車及私人物品之現象，不僅有礙社區觀瞻，更嚴重妨礙緊急逃生動線。
+
+本處訂於即日起至 9 月 15 日止為自主改善宣導期，請堆置物品之住戶儘速移置專有部分室內。宣導期滿後，物業將進行拍照存證並張貼個別限期勸導單；經制止仍不遵從者，將依管委會決議報請台中市政府工務局依公寓條例第 49 條依法處新台幣 4 萬元以上 20 萬元以下罰鍰。
+
+敬請各位芳鄰共同維護富宇大地之公共安全與優質居住環境！
+
+富宇大地物業管理處 敬啟`,
+        views: 220
+      }
+    ];
+
+    // State
+    let articles = [];
+    let currentCategory = 'all';
+
+    // Initialize LocalStorage
+    function initData() {
+      const stored = localStorage.getItem('fuyu_dadi_announcements_v1');
+      if (stored) {
+        try {
+          articles = JSON.parse(stored);
+        } catch (e) {
+          articles = DEFAULT_ARTICLES;
+        }
+      } else {
+        articles = DEFAULT_ARTICLES;
+        saveData();
+      }
+      // Set today's date in form
+      document.getElementById('formDate').value = new Date().toISOString().split('T')[0];
+      updateAllBadges();
+      renderBulletinList();
+      renderAdminList();
+    }
+
+    function saveData() {
+      localStorage.setItem('fuyu_dadi_announcements_v1', JSON.stringify(articles));
+      updateAllBadges();
+    }
+
+    function updateAllBadges() {
+      document.getElementById('bulletinCountBadge').innerText = articles.length;
+      document.getElementById('adminListCount').innerText = articles.length;
+      
+      // Counts per category
+      const counts = { '重大決議': 0, '財務收支': 0, '機電工程': 0, '日常庶務': 0, '法規規章': 0 };
+      articles.forEach(a => {
+        if (counts[a.category] !== undefined) counts[a.category]++;
+      });
+      document.getElementById('count-all').innerText = articles.length;
+      document.getElementById('count-major').innerText = counts['重大決議'] || 0;
+      document.getElementById('count-finance').innerText = counts['財務收支'] || 0;
+      document.getElementById('count-works').innerText = counts['機電工程'] || 0;
+      document.getElementById('count-routine').innerText = counts['日常庶務'] || 0;
+      document.getElementById('count-rules').innerText = counts['法規規章'] || 0;
+    }
+
+    // View Navigation
+    function switchMainView(viewId) {
+      document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active-view'));
+      document.querySelectorAll('.main-nav-btn').forEach(btn => btn.classList.remove('active'));
+
+      if (viewId === 'manual') {
+        document.getElementById('viewManual').classList.add('active-view');
+        document.getElementById('navBtnManual').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (viewId === 'bulletin') {
+        document.getElementById('viewBulletin').classList.add('active-view');
+        document.getElementById('navBtnBulletin').classList.add('active');
+        renderBulletinList();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (viewId === 'admin') {
+        document.getElementById('viewAdmin').classList.add('active-view');
+        document.getElementById('navBtnAdmin').classList.add('active');
+        renderAdminList();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Report Tab Switcher (Inside Manual)
+    function switchReportTab(tabId, btn) {
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      btn.classList.add('active');
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.add('active');
+    }
+
+    // Bulletin Category Filter
+    function filterBulletinCat(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(el => el.classList.remove('active'));
+      btn.classList.add('active');
+      renderBulletinList();
+    }
+
+    // Render Public Bulletin Grid
+    function renderBulletinList() {
+      const container = document.getElementById('announcementsGrid');
+      const query = (document.getElementById('bulletinSearchInput').value || '').trim().toLowerCase();
+
+      // Filter
+      let list = articles.filter(a => {
+        const matchesCat = (currentCategory === 'all' || a.category === currentCategory);
+        const matchesQuery = !query || a.title.toLowerCase().includes(query) || a.content.toLowerCase().includes(query) || a.publisher.toLowerCase().includes(query);
+        return matchesCat && matchesQuery;
+      });
+
+      // Sort: pinned first, then date descending
+      list.sort((a, b) => {
+        if (a.pinned && !b.pinned) return -1;
+        if (!a.pinned && b.pinned) return 1;
+        return new Date(b.date) - new Date(a.date);
+      });
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 12px; border: 1px dashed var(--border-color); color: var(--text-muted);">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 10px; opacity: 0.5;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p style="font-size: 1rem; color: var(--text-secondary);">查無符合條件之公告</p>
+            <p style="font-size: 0.85rem; margin-top: 4px;">請調整搜尋關鍵字或分類篩選條件</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(item => {
+        let catClass = 'cat-tag-routine';
+        if (item.category === '重大決議') catClass = 'cat-tag-major';
+        if (item.category === '財務收支') catClass = 'cat-tag-finance';
+        if (item.category === '機電工程') catClass = 'cat-tag-works';
+        if (item.category === '法規規章') catClass = 'cat-tag-rules';
+
+        return `
+          <div class="announcement-card ${item.pinned ? 'pinned' : ''}">
+            ${item.pinned ? `<div class="pin-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3l1 1-4 4 3 3-1 1-3-3-4 4-2-2 4-4-3-3 1-1 3 3 4-4 1 1z"/></svg> 置頂公告</div>` : ''}
+            <div>
+              <div class="card-meta-top">
+                <span class="cat-tag ${catClass}">${item.category}</span>
+                <span class="card-date">${item.date}</span>
+                <span style="color: var(--text-muted);">•</span>
+                <span class="card-publisher">${item.publisher}</span>
+              </div>
+              <h3 class="card-title">${escapeHtml(item.title)}</h3>
+              <p class="card-excerpt">${escapeHtml(item.summary || item.content.slice(0, 100))}</p>
+            </div>
+            <div class="card-footer-action">
+              <span class="card-views">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                ${item.views || 0} 人閱覽
+              </span>
+              <button class="btn-read-more" onclick="openReadModal('${item.id}')">閱讀全文 &rarr;</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Render Admin Articles Table
+    function renderAdminList() {
+      const tbody = document.getElementById('adminArticlesTbody');
+      if (articles.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 30px;">尚無任何公告，請自左側表單新增</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = articles.map(item => `
+        <tr>
+          <td>
+            <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">
+              ${item.pinned ? '<span style="color: var(--accent-amber); font-weight: 800;">[置頂] </span>' : ''}
+              ${escapeHtml(item.title)}
+            </div>
+            <div style="font-size: 0.76rem; color: var(--text-muted);">編號：${item.id} | 簽核：${escapeHtml(item.signer)}</div>
+          </td>
+          <td><span style="font-size: 0.8rem; color: var(--accent-cyan);">${item.category}</span></td>
+          <td style="font-size: 0.8rem;">${item.date}</td>
+          <td style="text-align: center; white-space: nowrap;">
+            <button class="btn-action" style="padding: 3px 8px; font-size: 0.74rem; margin-right: 4px;" onclick="editArticle('${item.id}')">編輯</button>
+            <button class="btn-action" style="padding: 3px 8px; font-size: 0.74rem; color: var(--accent-rose); border-color: rgba(244, 63, 94, 0.4);" onclick="deleteArticle('${item.id}')">刪除</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // Admin Role Switch
+    function changeAdminRole() {
+      const role = document.getElementById('roleSelector').value;
+      let pub = "富宇大地管理委員會";
+      let signer = "主任委員 廖倫豪 博士";
+      if (role === '主任委員') {
+        pub = "富宇大地管理委員會";
+        signer = "主任委員 廖倫豪 博士";
+      } else if (role === '監察委員') {
+        pub = "富宇大地管理委員會・監察小組";
+        signer = "監察委員 兼 審查召集人";
+      } else if (role === '物業經理') {
+        pub = "富宇大地物業服務中心";
+        signer = "物業主任 / 社區經理";
+      } else if (role === '財務委員') {
+        pub = "富宇大地管理委員會・財務組";
+        signer = "財務委員";
+      }
+
+      document.getElementById('currentRoleName').innerText = `${pub} / ${role}`;
+      document.getElementById('formPublisher').value = pub;
+      document.getElementById('formSigner').value = signer;
+      showToast(`已切換發布身分為：${role}`);
+    }
+
+    // Form Submit (Create or Update)
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const editId = document.getElementById('editArticleId').value;
+      const title = document.getElementById('formTitle').value.trim();
+      const category = document.getElementById('formCategory').value;
+      const publisher = document.getElementById('formPublisher').value.trim();
+      const signer = document.getElementById('formSigner').value.trim();
+      const date = document.getElementById('formDate').value;
+      const summary = document.getElementById('formSummary').value.trim();
+      const content = document.getElementById('formContent').value.trim();
+      const pinned = document.getElementById('formPinned').checked;
+
+      if (!title || !content) {
+        alert('請填寫公告標題與完整內容！');
+        return;
+      }
+
+      if (editId) {
+        // Update existing
+        const idx = articles.findIndex(a => a.id === editId);
+        if (idx !== -1) {
+          articles[idx] = {
+            ...articles[idx],
+            title, category, publisher, signer, date, summary, content, pinned
+          };
+          showToast("✓ 公告內容已成功更新！");
+        }
+      } else {
+        // Create new
+        const newId = 'FY-' + new Date().getFullYear() + '-' + String(articles.length + 1).padStart(3, '0');
+        const newArt = {
+          id: newId,
+          title, category, publisher, signer, date, summary, content, pinned,
+          views: 1
+        };
+        articles.unshift(newArt);
+        showToast("✓ 新公告已成功發布於官方公佈欄！");
+      }
+
+      saveData();
+      resetForm();
+      renderBulletinList();
+      renderAdminList();
+      // Update top ticker if pinned
+      if (pinned) {
+        document.getElementById('tickerText').innerText = `【富宇大地】${title}`;
+      }
+    }
+
+    function editArticle(id) {
+      const art = articles.find(a => a.id === id);
+      if (!art) return;
+
+      document.getElementById('editArticleId').value = art.id;
+      document.getElementById('formTitle').value = art.title;
+      document.getElementById('formCategory').value = art.category;
+      document.getElementById('formPublisher').value = art.publisher;
+      document.getElementById('formSigner').value = art.signer;
+      document.getElementById('formDate').value = art.date;
+      document.getElementById('formSummary').value = art.summary || '';
+      document.getElementById('formContent').value = art.content;
+      document.getElementById('formPinned').checked = !!art.pinned;
+
+      document.getElementById('formModeTitle').innerText = `編輯公告 (${art.id})`;
+      document.getElementById('editModeIndicator').style.display = 'inline-block';
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function deleteArticle(id) {
+      if (!confirm("確定要刪除這篇社區公告嗎？此動作將自系統中永久移除。")) return;
+      articles = articles.filter(a => a.id !== id);
+      saveData();
+      renderBulletinList();
+      renderAdminList();
+      showToast("✓ 該篇公告已成功刪除！");
+    }
+
+    function resetForm() {
+      document.getElementById('announcementForm').reset();
+      document.getElementById('editArticleId').value = '';
+      document.getElementById('formDate').value = new Date().toISOString().split('T')[0];
+      document.getElementById('formModeTitle').innerText = "新增社區官方公告";
+      document.getElementById('editModeIndicator').style.display = 'none';
+      changeAdminRole(); // restore default publisher/signer
+    }
+
+    function resetToDefaultArticles() {
+      if (!confirm("確定要將所有公告恢復為系統原廠預設範本嗎？目前修改的資料將被重置。")) return;
+      articles = JSON.parse(JSON.stringify(DEFAULT_ARTICLES));
+      saveData();
+      renderBulletinList();
+      renderAdminList();
+      showToast("✓ 公佈欄已重設為官方預設標準範本！");
+    }
+
+    function exportArticlesJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(articles, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `富宇大地社區公告備份_${new Date().toISOString().slice(0,10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast("✓ 已成功匯出公告資料 JSON 檔！");
+    }
+
+    // Modal Display
+    function openReadModal(id) {
+      const art = articles.find(a => a.id === id);
+      if (!art) return;
+
+      art.views = (art.views || 0) + 1;
+      saveData();
+
+      document.getElementById('modalTitle').innerText = art.title;
+      document.getElementById('modalCategoryTag').innerText = art.category;
+      document.getElementById('modalPublisher').innerText = art.publisher;
+      document.getElementById('modalDate').innerText = art.date;
+      document.getElementById('modalSigner').innerText = art.signer || '管委會主委';
+      document.getElementById('modalViews').innerText = art.views;
+      document.getElementById('modalContent').innerText = art.content;
+
+      document.getElementById('readModal').style.display = 'flex';
+      renderBulletinList(); // refresh views in background
+    }
+
+    function closeReadModal() {
+      document.getElementById('readModal').style.display = 'none';
+    }
+
+    // Copy Helper
+    function copyTemplate(elemId, btn) {
+      const text = document.getElementById(elemId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("✓ 已成功複製規章條款至剪貼簿！");
+      }).catch(err => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast("✓ 已成功複製規章條款至剪貼簿！");
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2500);
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    // Boot
+    window.addEventListener('DOMContentLoaded', () => {
+      initData();
+    });
+  </script>
+</body>
+</html>
