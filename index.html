@@ -1353,6 +1353,91 @@
       transform: scale(1.01);
     }
 
+  
+    /* Deep Obsidian Filter & Search Controls */
+    .bulletin-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-btn {
+      background: #0F172A !important;
+      border: 1px solid rgba(226, 232, 240, 0.18) !important;
+      color: #CBD5E1 !important;
+      padding: 8px 16px !important;
+      border-radius: 8px !important;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      outline: none !important;
+    }
+    .filter-btn:hover {
+      background: #1E293B !important;
+      color: #F8FAFC !important;
+      border-color: #38BDF8 !important;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.2) !important;
+    }
+    .filter-btn.active {
+      background: rgba(56, 189, 248, 0.18) !important;
+      border-color: #38BDF8 !important;
+      color: #38BDF8 !important;
+      font-weight: 700 !important;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.3) !important;
+    }
+    .search-box {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: #0F172A !important;
+      border: 1px solid rgba(226, 232, 240, 0.18) !important;
+      border-radius: 8px !important;
+      padding: 7px 14px !important;
+      transition: border-color 0.2s ease !important;
+    }
+    .search-box:focus-within {
+      border-color: #38BDF8 !important;
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2) !important;
+    }
+    .search-box input {
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      font-size: 0.88rem !important;
+      color: #F8FAFC !important;
+      min-width: 180px !important;
+    }
+    .search-box input::placeholder {
+      color: #64748B !important;
+    }
+
+    /* Schematic Badge */
+    .badge-schematic {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(245, 158, 11, 0.15);
+      color: #F59E0B;
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
   </style>
 </head>
 <body>
@@ -1363,7 +1448,7 @@
   <aside class="top-ticker" aria-label="社區重要即時推播">
     <div class="container top-ticker-inner">
       <div style="display: flex; align-items: center; gap: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-        <span class="ticker-tag">最新重大推播</span>
+        <span class="ticker-tag">最新重大推播</span> <span class="badge-schematic">【示意圖】</span>
         <span id="tickerText">【富宇大地】本週四實施全區蓄水池高壓清洗消毒，作業期間將暫時減壓供水，請住戶預先儲水備用。</span>
       </div>
       <div style="display: flex; align-items: center; gap: 12px; font-size: 0.78rem; color: var(--text-muted); white-space: nowrap;">
@@ -1383,7 +1468,7 @@
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
         </svg>
         <span>富宇大地社區</span>
-        <span class="community-badge">管理資訊中心</span>
+        <span class="community-badge">管理資訊中心</span> <span class="badge-schematic">系統示意圖</span>
         
       </div>
 
@@ -1434,7 +1519,7 @@
           <span class="tag tag-amber">富宇大地現況診斷</span>
           <span class="tag tag-cyan">落實雙軌治理・健全後台法度</span>
           </div>
-        <h1>富宇大地社區・物業現況深度體檢與關鍵改進方案</h1>
+        <h1>富宇大地社區・物業現況深度體檢與關鍵改進方案 <span class="badge-schematic" style="font-size: 0.9rem; vertical-align: middle;">規劃示意圖</span></h1>
         <p class="hero-lead">
           以國際物業管理與《公寓大廈管理條例》嚴謹標準檢視，富宇大地現今營運存在<strong>「實體後台法定檔卷庫尚有 71.1% 待立卷補位，亟需建立雙軌健全機制」</strong>等六大結構性痛點。本專區整合<strong>現況致命弱點剖析、法定 52 項檔卷缺位診斷、重要文件調閱合規防護</strong>，並向物業公司提出具法律約束力的<strong>【限期改善行動方案】</strong>。
         </p>
@@ -1493,7 +1578,7 @@
         <div class="section-header">
           <div>
             <div class="section-subtitle">SYSTEMIC WEAKNESS AUDIT</div>
-            <h2>一、富宇大地現今物業 6 大關鍵痛點與致命風險診斷</h2>
+            <h2>一、富宇大地現今物業 6 大關鍵痛點與致命風險診斷 <span class="badge-schematic">體檢示意圖</span></h2>
           </div>
           <span class="tag tag-rose">物業缺失紅線</span>
         </div>
@@ -1609,7 +1694,7 @@
         <div class="section-header">
           <div>
             <div class="section-subtitle">CRITICAL MISSING FORMS & REGULATIONS AUDIT</div>
-            <h2>二、物管最常缺位之 20 大標準實體表格與 10 大關鍵規章規範稽核總表</h2>
+            <h2>二、物管最常缺位之 20 大標準實體表格與 10 大關鍵規章規範稽核總表 <span class="badge-schematic">範本示意圖</span></h2>
           </div>
           <span class="tag tag-rose">物管合規必備</span>
         </div>
@@ -1870,7 +1955,7 @@ print("Done adding missing forms audit section!")
         <div class="section-header">
           <div>
             <div class="section-subtitle">THE 71.1% GAP IN DEPTH</div>
-            <h2>三、法定 52 項檔卷 vs 智生活 缺位穿透式診斷（後台真相）</h2>
+            <h2>三、法定 52 項檔卷 vs 智生活 缺位穿透式診斷（後台真相） <span class="badge-schematic">差距示意圖</span></h2>
           </div>
           <span class="tag tag-amber">實體檔案庫缺口</span>
         </div>
@@ -1951,7 +2036,7 @@ print("Done adding missing forms audit section!")
         <div class="section-header">
           <div>
             <div class="section-subtitle">MANDATORY RECTIFICATION ROADMAP</div>
-            <h2>四、管委會督導富宇物業「限期改善三階段行動通知」</h2>
+            <h2>四、管委會督導富宇物業「限期改善三階段行動通知」 <span class="badge-schematic">通知書示意圖</span></h2>
           </div>
           <span class="tag tag-rose">具法律退場約束力</span>
         </div>
@@ -2023,7 +2108,7 @@ print("Done adding missing forms audit section!")
           <span class="tag tag-amber">P0~P3 四級優先順序</span>
           <span class="tag tag-emerald">線上上傳・即時勾選・進度追蹤</span>
         </div>
-        <h1>富宇物業管理公司・優先文件點交上傳與查核系統</h1>
+        <h1>富宇物業管理公司・優先文件點交上傳與查核系統 <span class="badge-schematic" style="font-size: 0.9rem; vertical-align: middle;">流程示意圖</span></h1>
         <p class="hero-lead">
           管委會嚴格依據「<strong>法律刑責 ➔ 財務金流 ➔ 營運合約 ➔ 現場庶務</strong>」設立四級 14 項優先提報清冊。物業管理公司須於限期內於下方各項專屬上傳區上傳完整檔案，並由管理委員會（監委、財委、主委）逐項實體核驗後進行<strong>【線上勾選確認完成】</strong>，杜絕交接斷層與法律真空。
         </p>
@@ -2032,7 +2117,7 @@ print("Done adding missing forms audit section!")
         <div class="card" style="margin-top: 20px; background: #0b1324; border: 1px solid rgba(56, 189, 248, 0.3);">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
             <div>
-              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">總體點交查核進度</span>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">總體點交查核進度</span> <span class="badge-schematic">即時連動示意圖</span>
               <div style="font-size: 1.6rem; font-weight: 900; color: var(--text-primary); margin-top: 2px;">
                 <span id="overallCompletedCount">0</span> / 14 項完成
                 <span id="overallPercentText" style="font-size: 1.1rem; color: var(--accent-emerald); font-weight: 700; margin-left: 8px;">(0%)</span>
@@ -2123,7 +2208,7 @@ print("Done adding missing forms audit section!")
           <span class="tag tag-amber">重要文件調閱辦法本文 (115.10核定)</span>
           <span class="tag tag-purple">官方數位公佈欄 & 後端上稿中心</span>
           </div>
-        <h1>富宇大地社區管理維護治理體系・物業權責手冊暨官方數位公佈欄</h1>
+        <h1>富宇大地社區管理維護治理體系・物業權責手冊暨官方數位公佈欄 <span class="badge-schematic" style="font-size: 0.9rem; vertical-align: middle;">手冊示意圖</span></h1>
         <p class="hero-lead">
           整合社區核心治理法度：確立<strong>管委會法定決策權與物業執行義務（RACI/DOA）</strong>、內政部定型契約五大附件標準工項、<strong>7 大類別 52 項必備法定檔卷清冊</strong>，以及<strong>官方核定之重要文件調閱申請作業程序（含三大附表與規費試算）</strong>。下方亦提供即時公告閱覽與管理委員後端上稿發布中心。
         </p>
@@ -2157,7 +2242,7 @@ print("Done adding missing forms audit section!")
         <div class="section-header">
           <div>
             <div class="section-subtitle">RACI MATRIX & DOA FRAMEWORK</div>
-            <h2>一、權責分立、授權權限 (DOA) 與三級週期性彙報體系</h2>
+            <h2>一、權責分立、授權權限 (DOA) 與三級週期性彙報體系 <span class="badge-schematic">矩陣示意圖</span></h2>
           </div>
         </div>
 
@@ -2864,7 +2949,7 @@ print("Done adding missing forms audit section!")
         <div class="section-header">
           <div>
             <div class="section-subtitle">DOCUMENT INSPECTION REGULATIONS & SOP</div>
-            <h2>富宇大地社區相關資料閱覽（影印）申請管理辦法本文暨作業手冊</h2>
+            <h2>富宇大地社區相關資料閱覽（影印）申請管理辦法本文暨作業手冊 <span class="badge-schematic">SOP示意圖</span></h2>
           </div>
           <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
             <span class="tag tag-amber">115.10核定修訂版</span>
@@ -3283,7 +3368,7 @@ print("Done adding missing forms audit section!")
         <div class="section-header">
           <div>
             <div class="section-subtitle">OFFICIAL BULLETIN</div>
-            <h2>富宇大地官方數位公佈欄（即時公告）</h2>
+            <h2>富宇大地官方數位公佈欄（即時公告） <span class="badge-schematic">公文閱覽示意圖</span></h2>
           </div>
         </div>
 
@@ -3312,7 +3397,7 @@ print("Done adding missing forms audit section!")
         <div class="section-header">
           <div>
             <div class="section-subtitle">ADMIN CMS</div>
-            <h2>管理委員會後端上稿與發布中心 (<span id="adminListCount">5</span>)</h2>
+            <h2>管理委員會後端上稿與發布中心 (<span id="adminListCount">5</span>) <span class="badge-schematic">CMS操作示意圖</span></h2>
           </div>
           <span class="tag tag-amber">主管專屬</span>
         </div>
@@ -3422,7 +3507,7 @@ print("Done adding missing forms audit section!")
           <span class="tag tag-purple">ISO 27001 與 39 項資安防護複測</span>
           <span class="tag tag-rose">富宇大地雙軌治理戰略指引</span>
         </div>
-        <h1>智生活科技（SmartDaily）深度剖析與富宇大地雙軌治理評鑑報告</h1>
+        <h1>智生活科技（SmartDaily）深度剖析與富宇大地雙軌治理評鑑報告 <span class="badge-schematic" style="font-size: 0.9rem; vertical-align: middle;">調研示意圖</span></h1>
         <p class="hero-lead">
           本報告針對台灣智慧社區龍頭「智生活科技」（全台逾 10,000 社區、300 萬住戶）進行商業模式、核心產品線、2026 最新財務與資安歷程之穿透式調研。並立足於<strong>《公寓大廈管理條例》法定權責與法規合規維度</strong>，為富宇大地管理委員會制定<strong>「前台善用智慧便利、後台扎穩法定法度」</strong>之雙軌治理落地藍圖。
         </p>
@@ -3465,7 +3550,7 @@ print("Done adding missing forms audit section!")
         <div class="section-header">
           <div>
             <div class="section-subtitle">PRODUCT MATRIX & BUSINESS MODEL</div>
-            <h2>一、智生活核心產品矩陣與商業模式獲利邏輯穿透</h2>
+            <h2>一、智生活核心產品矩陣與商業模式獲利邏輯穿透 <span class="badge-schematic">商模示意圖</span></h2>
           </div>
           <span class="tag tag-cyan">軟硬一體生態系</span>
         </div>
@@ -3556,7 +3641,7 @@ print("Done adding missing forms audit section!")
         <div class="section-header">
           <div>
             <div class="section-subtitle">STRATEGIC SWOT ANALYSIS</div>
-            <h2>三、富宇大地引進與使用智生活之 SWOT 深入評鑑</h2>
+            <h2>三、富宇大地引進與使用智生活之 SWOT 深入評鑑 <span class="badge-schematic">分析示意圖</span></h2>
           </div>
         </div>
 
@@ -3621,7 +3706,7 @@ print("Done adding missing forms audit section!")
         <div class="section-header">
           <div>
             <div class="section-subtitle">ACTIONABLE GOVERNANCE BLUEPRINT</div>
-            <h2>四、富宇大地管委會「雙軌健全治理」五大實務行動指引</h2>
+            <h2>四、富宇大地管委會「雙軌健全治理」五大實務行動指引 <span class="badge-schematic">戰略示意圖</span></h2>
           </div>
           <span class="tag tag-emerald">執行指引</span>
         </div>
@@ -3702,7 +3787,7 @@ print("Done adding missing forms audit section!")
       </div>
       <div class="modal-stamp">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span>富宇大地管理委員會官方防偽電子戳記・決議已留存管委會檔卷</span>
+        <span>富宇大地管理委員會官方防偽電子戳記・決議已留存管委會檔卷 <span class="badge-schematic">公文格式示意圖</span></span>
       </div>
       <div style="margin-top: 24px; text-align: right;">
         <button class="btn-action" onclick="window.print()">列印此公告</button>
@@ -3725,7 +3810,7 @@ print("Done adding missing forms audit section!")
   <footer style="margin-top: 20px; padding: 30px 20px; border-top: 1px solid rgba(226, 232, 240, 0.1); background: #020617; text-align: center;">
     <div class="container">
       <div style="font-size: 1.05rem; font-weight: 800; color: #f8fafc; letter-spacing: 1px; margin-bottom: 8px;">
-        富宇大地智慧社區自治治理與數位公佈欄平台
+        富宇大地智慧社區自治治理與數位公佈欄平台 <span class="badge-schematic">系統架構展示示意圖</span>
       </div>
       <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35); padding: 6px 16px; border-radius: 9999px; margin-bottom: 10px;">
         <strong style="color: var(--accent-cyan); font-size: 0.95rem; letter-spacing: 0.5px;">社區治理志工：Howard Liao Ph.D.(A17)</strong>
