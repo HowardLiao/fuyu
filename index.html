@@ -866,12 +866,333 @@
       text-align: center;
     }
 
-    @media (max-width: 900px) {
-      .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 1.8rem; }
-      .announcements-grid { grid-template-columns: 1fr; }
-      .nav-tabs { width: 100%; justify-content: center; }
+
+    /* ========================================================================= */
+    /* COMPREHENSIVE MOBILE & TABLET RESPONSIVE SYSTEM (320px - 1024px)           */
+    /* ========================================================================= */
+
+    /* Universal Box Sizing & Anti-Overflow Containment */
+    *, *::before, *::after {
+      box-sizing: border-box !important;
     }
+
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100% !important;
+      position: relative;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* Mobile Table Hint */
+    .mobile-table-hint {
+      display: none;
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px dashed rgba(56, 189, 248, 0.3);
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Tablet & Small Desktop (max-width: 1024px) */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 18px !important;
+      }
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    /* Mobile & Small Tablet (max-width: 768px) */
+    @media (max-width: 768px) {
+      /* Mobile Table Hint Visible */
+      .mobile-table-hint {
+        display: flex !important;
+      }
+
+      /* Containers */
+      .container {
+        padding: 0 14px !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+      }
+
+      /* Top Announcement Ticker */
+      .top-ticker {
+        padding: 6px 0 !important;
+        font-size: 0.75rem !important;
+      }
+      .top-ticker-inner {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+      }
+      .top-ticker-inner > div {
+        width: 100% !important;
+        flex-wrap: wrap !important;
+        white-space: normal !important;
+      }
+      .ticker-tag {
+        font-size: 0.68rem !important;
+        padding: 2px 6px !important;
+      }
+
+      /* Sticky Navbar & Brand */
+      .navbar {
+        padding: 8px 0 !important;
+      }
+      .nav-content {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+      }
+      .nav-brand {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        white-space: normal !important;
+        gap: 6px !important;
+        font-size: 1.02rem !important;
+      }
+      .nav-brand .community-badge {
+        font-size: 0.7rem !important;
+        padding: 2px 6px !important;
+      }
+
+      /* Horizontal Scrolling Tabs (Native App-like Experience) */
+      .nav-tabs {
+        width: 100% !important;
+        overflow-x: auto !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        padding: 4px 6px !important;
+        gap: 6px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important; /* Firefox */
+      }
+      .nav-tabs::-webkit-scrollbar {
+        display: none !important; /* Chrome, Safari */
+      }
+      .main-nav-btn {
+        flex-shrink: 0 !important;
+        padding: 8px 13px !important;
+        font-size: 0.82rem !important;
+        white-space: nowrap !important;
+      }
+
+      .nav-actions {
+        display: none !important; /* Hide redundant desktop print button on mobile to save space */
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 24px 0 20px 0 !important;
+      }
+      .hero-tags {
+        gap: 6px !important;
+        margin-bottom: 12px !important;
+      }
+      .hero-tags .tag {
+        font-size: 0.72rem !important;
+        padding: 3px 8px !important;
+      }
+      .hero h1 {
+        font-size: 1.45rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 10px !important;
+        word-break: break-word !important;
+      }
+      .hero-lead {
+        font-size: 0.88rem !important;
+        line-height: 1.65 !important;
+      }
+
+      /* Foreword Card (溫暖前言) */
+      .card[style*="background: linear-gradient(135deg, rgba(245, 158, 11, 0.08)"] {
+        padding: 18px 14px !important;
+        margin-top: 18px !important;
+      }
+      .card[style*="background: linear-gradient(135deg, rgba(245, 158, 11, 0.08)"] h2 {
+        font-size: 1.1rem !important;
+      }
+      .card[style*="background: linear-gradient(135deg, rgba(245, 158, 11, 0.08)"] p {
+        font-size: 0.88rem !important;
+        line-height: 1.75 !important;
+      }
+
+      /* Grids -> Clean 1 Column */
+      .grid-2, .grid-3, .grid-4, .announcements-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+
+      /* Card Padding */
+      .card {
+        padding: 16px 14px !important;
+        margin-bottom: 16px !important;
+        border-radius: 10px !important;
+      }
+
+      /* Section Headers */
+      .section-header {
+        margin: 24px 0 16px 0 !important;
+      }
+      .section-header h2 {
+        font-size: 1.25rem !important;
+      }
+
+      /* Tables: Full Responsive Horizontal Scroll */
+      .table-responsive {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        display: block !important;
+        margin: 12px 0 18px 0 !important;
+        border-radius: 8px !important;
+      }
+      .table-responsive table {
+        min-width: 620px !important;
+        width: 100% !important;
+        font-size: 0.82rem !important;
+      }
+      th, td {
+        padding: 9px 10px !important;
+      }
+
+      /* Handover Upload & Verification Cards */
+      .handover-item-card {
+        padding: 14px 12px !important;
+      }
+      .handover-item-card h3 {
+        font-size: 1.05rem !important;
+        line-height: 1.4 !important;
+      }
+      .handover-item-card input[type="checkbox"] {
+        width: 20px !important;
+        height: 20px !important;
+      }
+      /* Upload & Action Buttons Stack on Mobile */
+      .handover-item-card div[style*="border-top"] {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+      }
+      .handover-item-card div[style*="min-width: 260px"] {
+        min-width: 0 !important;
+        width: 100% !important;
+      }
+      .handover-item-card div[style*="display: flex; gap: 10px; align-items: center;"] {
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+      }
+      .handover-item-card .btn-action {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 10px 14px !important;
+        font-size: 0.86rem !important;
+        min-height: 42px !important;
+      }
+
+      /* Progress Mini Badges on Mobile */
+      #viewHandover .grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      /* Bulletin Controls (Filter & Search) */
+      .bulletin-controls {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+      }
+      .filter-tabs {
+        width: 100% !important;
+        overflow-x: auto !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        padding-bottom: 4px !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+      .filter-btn {
+        flex-shrink: 0 !important;
+        padding: 6px 12px !important;
+        font-size: 0.8rem !important;
+      }
+      .search-box {
+        width: 100% !important;
+        min-width: 0 !important;
+      }
+
+      /* Form inputs on Mobile - prevent iOS auto-zoom */
+      .form-input, .form-select, .form-textarea {
+        font-size: 16px !important;
+        padding: 10px 12px !important;
+      }
+      .form-grid-2 {
+        grid-template-columns: 1fr !important;
+      }
+      .form-actions {
+        flex-direction: column !important;
+      }
+      .btn-submit {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 12px 18px !important;
+        min-height: 44px !important;
+      }
+
+      /* Modal Boxes on Mobile */
+      .modal-box {
+        padding: 18px 14px !important;
+        margin: 10px !important;
+        max-height: 92vh !important;
+        border-radius: 12px !important;
+        width: calc(100vw - 20px) !important;
+      }
+      .modal-title {
+        font-size: 1.2rem !important;
+        line-height: 1.35 !important;
+      }
+      .modal-meta {
+        flex-direction: column !important;
+        gap: 4px !important;
+      }
+
+      /* Watermark on Mobile: lighter opacity to not obstruct reading on small screens */
+      .watermark-overlay {
+        opacity: 0.04 !important;
+      }
+    }
+
+    /* Extra Small Mobile (max-width: 420px) */
+    @media (max-width: 420px) {
+      .container {
+        padding: 0 10px !important;
+      }
+      .hero h1 {
+        font-size: 1.3rem !important;
+      }
+      #viewHandover .grid-4 {
+        grid-template-columns: 1fr !important;
+      }
+      .nav-brand {
+        font-size: 0.95rem !important;
+      }
+    }
+
   
     /* Watermark Overlay for Howard Liao Ph.D. */
     .watermark-overlay {
@@ -1103,6 +1424,7 @@
           </p>
         </div>
 
+        <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
         <div class="table-responsive">
           <table>
             <thead>
@@ -1233,6 +1555,7 @@
           <p class="section-subtitle">依據《公寓大廈管理條例》第 36 條第 8 款及內政部受任契約規範，社區換屆移交、年度審計與建管抽查之必備檔案總目錄。</p>
         </div>
 
+        <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
         <div class="table-responsive">
           <table>
             <thead>
@@ -1870,6 +2193,7 @@
           <p class="section-subtitle">對比傳統紙本人工管理 vs 導入智生活智慧平台之量化成效。</p>
         </div>
 
+        <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
         <div class="table-responsive">
           <table>
             <thead>
@@ -1992,6 +2316,7 @@
         </div>
 
         <!-- 52 Items Comprehensive Penetration Table -->
+        <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
         <div class="table-responsive" style="margin-top: 0;">
           <table id="gapAnalysisTable">
             <thead>
@@ -2650,7 +2975,8 @@
             </button>
           </div>
 
-          <div class="table-responsive" style="max-height: 520px; overflow-y: auto;">
+          <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+        <div class="table-responsive" style="max-height: 520px; overflow-y: auto;">
             <table>
               <thead>
                 <tr>
