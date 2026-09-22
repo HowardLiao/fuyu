@@ -1931,26 +1931,6 @@
           </div>
         </div>
       </section>
-'''
-
-for p in files:
-    if not os.path.exists(p):
-        continue
-    with open(p, 'r', encoding='utf-8') as f:
-        html = f.read()
-
-    # Inject the section before SECTION 2 in viewAudit
-    target_needle = '<!-- SECTION 2: 52 項必備法定檔卷缺位穿透式對照表 -->'
-    if target_needle in html and 'id="sec-missing-forms"' not in html:
-        html = html.replace(target_needle, missing_forms_section_html + '\n      ' + target_needle)
-        with open(p, 'w', encoding='utf-8') as f:
-            f.write(html)
-        print(f"Added missing forms section to {p}")
-    else:
-        print(f"Target needle not found or already exists in {p}")
-
-print("Done adding missing forms audit section!")
-
       <section class="section">
         <div class="section-header">
           <div>
