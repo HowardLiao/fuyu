@@ -1258,6 +1258,101 @@
       box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
     }
 
+  
+    /* Interactive Elements & Floating Controls */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #0F172A;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+      pointer-events: none;
+    }
+    .back-to-top-btn.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .back-to-top-btn:hover {
+      border-color: #38BDF8;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+      transform: translateY(-3px) scale(1.05);
+    }
+    .back-to-top-btn svg {
+      position: absolute;
+      transform: rotate(-90deg);
+    }
+    .back-to-top-icon {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .progress-ring-circle {
+      transition: stroke-dashoffset 0.1s linear;
+    }
+
+    /* Interactive Range Slider */
+    .form-range {
+      width: 100%;
+      height: 6px;
+      background: #1E293B;
+      border-radius: 4px;
+      outline: none;
+      -webkit-appearance: none;
+      margin: 10px 0;
+    }
+    .form-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+      transition: transform 0.15s ease;
+    }
+    .form-range::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    /* Shortcut badge in top ticker */
+    .shortcut-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.72rem;
+      color: var(--accent-cyan);
+      font-family: monospace;
+    }
+
+    /* Interactive Comparison Highlight */
+    .dual-track-row {
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .dual-track-row:hover {
+      background: rgba(56, 189, 248, 0.08) !important;
+      transform: scale(1.01);
+    }
+
   </style>
 </head>
 <body>
@@ -1721,7 +1816,32 @@
     <main class="container" style="padding-top: 30px;">
 
       <!-- Checklist Items Container -->
-      <div id="handoverItemsContainer">
+      <!-- Interactive Handover Priority Filter -->
+        <div class="bulletin-controls" style="margin-bottom: 20px;">
+          <div class="filter-tabs" id="handoverPriorityFilterTabs">
+            <button class="filter-btn active" onclick="filterHandoverPriority('ALL', this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+              全部點交項目 (14)
+            </button>
+            <button class="filter-btn" onclick="filterHandoverPriority('P0', this)">
+              <span style="color: var(--accent-rose);">🚨</span> P0 緊急第一優先 (4)
+            </button>
+            <button class="filter-btn" onclick="filterHandoverPriority('P1', this)">
+              <span style="color: var(--accent-amber);">💰</span> P1 財務安全優先 (3)
+            </button>
+            <button class="filter-btn" onclick="filterHandoverPriority('P2', this)">
+              <span style="color: var(--accent-cyan);">⚙️</span> P2 營運制度優先 (4)
+            </button>
+            <button class="filter-btn" onclick="filterHandoverPriority('P3', this)">
+              <span style="color: var(--accent-purple);">📁</span> P3 圖資規約優先 (3)
+            </button>
+          </div>
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="handoverSearchInput" placeholder="搜尋點交項目與法規..." oninput="renderHandoverList()">
+          </div>
+        </div>
+        <div id="handoverItemsContainer">
         <!-- Rendered dynamically by JavaScript -->
       </div>
 
@@ -2013,6 +2133,23 @@
         <section class="section" id="fuyu-documents">
         <div class="section-header">
           <div class="section-eyebrow">Statutory Archives & Records Management</div>
+<!-- Interactive Filter & Live Search for 52 Statutory Documents -->
+        <div class="bulletin-controls" style="margin: 18px 0 16px 0;">
+          <div class="filter-tabs" id="docsCategoryFilters">
+            <button class="filter-btn active" onclick="filterDocsCategory('ALL', this)">全部 52 項</button>
+            <button class="filter-btn" onclick="filterDocsCategory('類別一', this)">一. 組織行政 (8)</button>
+            <button class="filter-btn" onclick="filterDocsCategory('類別二', this)">二. 財務會計 (9)</button>
+            <button class="filter-btn" onclick="filterDocsCategory('類別三', this)">三. 工務機電 (10)</button>
+            <button class="filter-btn" onclick="filterDocsCategory('類別四', this)">四. 廠商合約 (7)</button>
+            <button class="filter-btn" onclick="filterDocsCategory('類別五', this)">五. 安全防災 (6)</button>
+            <button class="filter-btn" onclick="filterDocsCategory('類別六', this)">六. 法規爭端 (6)</button>
+            <button class="filter-btn" onclick="filterDocsCategory('類別七', this)">七. 竣工圖說 (6)</button>
+          </div>
+          <div class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="docsSearchInput" placeholder="搜尋 52 項檔卷或罰則..." oninput="filterDocsTableLive()">
+          </div>
+        </div>
           <h2 class="section-title">四、富宇大地物業管理 7 大類別 52 項必備法定檔卷清冊</h2>
           <p class="section-subtitle">依據《公寓大廈管理條例》第 36 條第 8 款及內政部受任契約規範，社區換屆移交、年度審計與建管抽查之必備檔案總目錄。</p>
         </div>
@@ -2842,7 +2979,11 @@
                 </div>
                 <div class="form-group" style="margin-bottom: 10px;">
                   <label class="form-label">影印張數</label>
-                  <input type="number" id="calcPagesGov" class="form-input" value="10" min="1" max="1000" oninput="calculateCopyFeeGov()">
+                  <div style="display: flex; gap: 12px; align-items: center;">
+                  <input type="number" id="calcPagesGov" class="form-input" value="10" min="1" max="500" style="max-width: 110px;" oninput="syncPageInput(this.value)">
+                  <input type="range" id="calcPagesSliderGov" min="1" max="200" value="10" class="form-range" style="flex: 1;" oninput="syncPageSlider(this.value)">
+                  <span id="pageSliderValueBadge" style="font-size: 0.85rem; color: var(--accent-cyan); font-weight: 700; min-width: 50px;">10 頁</span>
+                </div>
                 </div>
                 <div style="margin-top: 14px; padding: 12px; background: rgba(56, 189, 248, 0.1); border-radius: 6px;">
                   <span style="font-size: 0.82rem; color: var(--text-secondary);">應收規費合計：</span>
@@ -3285,6 +3426,18 @@
       <div id="modalContent" class="modal-content-body">
         公告內容載入中...
       </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; padding: 8px 12px; background: var(--card-bg-subtle); border-radius: 8px;">
+        <div style="display: flex; gap: 6px; align-items: center; font-size: 0.82rem; color: var(--text-muted);">
+          <span>字體縮放：</span>
+          <button class="btn-action" style="padding: 2px 8px; font-size: 0.76rem;" onclick="changeModalFontSize(-1)" title="縮小字體">A -</button>
+          <button class="btn-action" style="padding: 2px 8px; font-size: 0.76rem;" onclick="changeModalFontSize(0)" title="預設字體">預設</button>
+          <button class="btn-action" style="padding: 2px 8px; font-size: 0.76rem;" onclick="changeModalFontSize(1)" title="放大字體">A +</button>
+        </div>
+        <button class="btn-action" style="font-size: 0.8rem; padding: 4px 12px; color: var(--accent-cyan); border-color: rgba(56, 189, 248, 0.35);" onclick="copyModalAnnouncementText()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          一鍵複製公文內文
+        </button>
+      </div>
       <div class="modal-stamp">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span>富宇大地管理委員會官方防偽電子戳記・決議已留存管委會檔卷</span>
@@ -3320,6 +3473,18 @@
       </div>
     </div>
   </footer>
+
+  
+  <!-- Floating Back to Top Button with Circular Scroll Indicator -->
+  <div id="backToTopContainer" class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="返回頁首 (快捷鍵: 頂端)">
+    <svg width="46" height="46" viewBox="0 0 46 46">
+      <circle class="progress-ring-bg" cx="23" cy="23" r="20" fill="none" stroke="rgba(226, 232, 240, 0.15)" stroke-width="3"/>
+      <circle id="scrollProgressRing" class="progress-ring-circle" cx="23" cy="23" r="20" fill="none" stroke="#38BDF8" stroke-width="3" stroke-dasharray="125.6" stroke-dashoffset="125.6" stroke-linecap="round"/>
+    </svg>
+    <div class="back-to-top-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F8FAFC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </div>
+  </div>
 
   <div id="toast" class="toast">操作已成功完成！</div>
 
@@ -3409,7 +3574,27 @@
       const container = document.getElementById('handoverItemsContainer');
       if (!container) return;
 
-      container.innerHTML = HANDOVER_ITEMS.map((item, idx) => {
+      const searchInput = document.getElementById('handoverSearchInput');
+      const query = searchInput ? (searchInput.value || '').trim().toLowerCase() : '';
+
+      const filteredItems = HANDOVER_ITEMS.filter(item => {
+        const matchesPriority = (currentHandoverPriority === 'ALL' || item.priority === currentHandoverPriority);
+        const matchesQuery = !query || item.title.toLowerCase().includes(query) || item.req.toLowerCase().includes(query) || item.id.toLowerCase().includes(query);
+        return matchesPriority && matchesQuery;
+      });
+
+      if (filteredItems.length === 0) {
+        container.innerHTML = `
+          <div style="padding: 40px; text-align: center; color: var(--text-muted); background: var(--card-bg); border-radius: 12px; border: 1px dashed var(--border-color); margin-bottom: 20px;">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 10px auto; display: block; opacity: 0.5;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <div style="font-size: 1rem; font-weight: 600; color: var(--text-secondary);">查無符合條件之點交項目</div>
+            <div style="font-size: 0.82rem; margin-top: 4px;">請切換優先級篩選或更換搜尋關鍵字</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filteredItems.map((item, idx) => {
         const state = handoverState[item.id] || {};
         const hasFile = !!state.fileName;
         const isChecked = hasFile && !!state.checked;
