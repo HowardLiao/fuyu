@@ -1278,6 +1278,11 @@
           物業點交上傳檢核
           <span style="background: rgba(245, 158, 11, 0.25); color: var(--accent-amber); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">P0~P3</span>
         </button>
+                <button id="navBtnDocAccess" class="main-nav-btn" onclick="switchMainView('docaccess')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          重要文件調閱規章
+          <span style="background: rgba(244, 63, 94, 0.25); color: #f87171; font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">SOP&缺口</span>
+        </button>
         <button id="navBtnAdmin" class="main-nav-btn btn-admin" onclick="switchMainView('admin')">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           後端上稿管理
@@ -2784,6 +2789,451 @@
   </div>
 
   
+  
+  <!-- ========================================================================= -->
+  <!-- VIEW 6: 重要文件調閱管理辦法 (Document Inspection & Copying Governance)    -->
+  <!-- ========================================================================= -->
+  <div id="viewDocAccess" class="view-container">
+    <header class="hero">
+      <div class="container">
+        <div class="hero-tags">
+          <span class="tag tag-cyan">第二屆管委會 115年10月例會修訂核定</span>
+          <span class="tag tag-amber">公寓大廈管理條例 §34 / §35 / §48</span>
+          <span class="tag tag-rose">緊急 4 大欠缺文件</span>
+          <span class="tag tag-purple">重要 5 大治理子法配套</span>
+          <span class="tag tag-emerald">特聘諮詢小兵：Howard Liao Ph.D.(A17)</span>
+        </div>
+        <h1>富宇大地社區・重要文件調閱列印管理辦法與防護清冊</h1>
+        <p class="hero-lead">
+          依據《公寓大廈管理條例》第 35 條賦予住戶及利害關係人之法定閱覽權，同時嚴格落實第 36 條管委會檔案保管責任與《個人資料保護法》。本專區整合<strong>官方核定管理辦法本文、三大申請附表</strong>，並依專家法規稽核建立<strong>【緊急類 4 項】與【重要類 5 項】關鍵配套清冊</strong>，確保社區「資訊公開有法度、個資保護不洩密、委員免責無爭端」。
+        </p>
+
+        <!-- Executive Summary Badges -->
+        <div class="grid-4" style="margin-top: 22px;">
+          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-rose); background: rgba(244, 63, 94, 0.06);">
+            <div style="font-size: 0.78rem; color: var(--text-muted);">法定罰鍰防護</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: #f87171; margin: 4px 0;">緊急 4 大關鍵文件</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">簽名簿正本、委託書原本、銀行官方對帳單、廠商比價驗收單與竣工圖。</div>
+          </div>
+          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-amber); background: rgba(245, 158, 11, 0.06);">
+            <div style="font-size: 0.78rem; color: var(--text-muted);">制度與個資防護</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: #fbbf24; margin: 4px 0;">重要 5 大治理配套</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">個資遮蔽SOP、調閱保密切結書、准駁裁量表、規費收據帳本與調閱簽收簿。</div>
+          </div>
+          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-cyan); background: rgba(56, 189, 248, 0.06);">
+            <div style="font-size: 0.78rem; color: var(--text-muted);">標準作業程序</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: #38bdf8; margin: 4px 0;">5 步調閱閉環流程</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">提出申請 ➔ 物業初審 ➔ 管委會審查 ➔ 專人陪同調閱 ➔ 簽章繳費歸檔。</div>
+          </div>
+          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-emerald); background: rgba(16, 185, 129, 0.06);">
+            <div style="font-size: 0.78rem; color: var(--text-muted);">官方附表表單</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: #10b981; margin: 4px 0;">三大附表與規費試算</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">附表一申請表、附表二准駁通知書、附表三檔案法/規費法影印收費標準表。</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-top: 30px;">
+
+      <!-- SECTION 1: 緊急與重要文件缺口稽核清冊 -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">GAP ANALYSIS & COMPLIANCE PRIORITY</div>
+            <h2>一、依據來源辦法分析：仍須具備之關鍵文件清冊</h2>
+          </div>
+          <span class="tag tag-rose" style="font-size: 0.82rem; padding: 4px 10px;">法律防護急迫級別</span>
+        </div>
+
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 18px;">
+          本辦法雖已完備申請程序，但若管委會現場<strong>「缺乏原始佐證卷宗」</strong>或<strong>「缺乏個資防護子法」</strong>，一旦住戶向主管機關（台中市都發局）投訴或提告，管理委員會將面臨《條例》第 48 條罰鍰或侵害個資之民事求償。以下依急迫性嚴格劃分：
+        </p>
+
+        <!-- 1.1 緊急類清冊 -->
+        <div class="card" style="border: 1px solid rgba(244, 63, 94, 0.35); background: linear-gradient(180deg, rgba(244, 63, 94, 0.04) 0%, var(--card-bg) 100%); margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.25rem;">🚨</span>
+              <h3 style="font-size: 1.18rem; font-weight: 800; color: #f87171; margin: 0;">【緊急類】法定責任與裁罰防護（限期 1~2 週內必須立卷備齊）</h3>
+            </div>
+            <span class="tag tag-rose">條例第48條第3款罰則防護</span>
+          </div>
+
+          <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 80px;">代號</th>
+                  <th style="width: 200px;">仍須具備之核心文件</th>
+                  <th>對應來源與具體缺口警訊</th>
+                  <th style="width: 200px;">法律依據與裁罰風險</th>
+                  <th style="width: 170px;">管委會立即行動</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="tag tag-rose">緊-1</span></td>
+                  <td><strong>區權會歷屆「出席簽名簿正本」與「委託書原本」</strong></td>
+                  <td>辦法第肆點引述《條例》第 34 條第 2 項。申請表第 6 項只列會議紀錄，若<strong>遺失出席簽名簿與代理委託書原本</strong>，大會決議有遭法院訴請撤銷之高度法律風險。</td>
+                  <td>《條例》第 34 條第 2 項、第 35 條、第 48 條第 3 款（無正當理由拒絕提供處 <strong>1,000 ~ 5,000 元罰鍰</strong>）。</td>
+                  <td>要求物業將第一、二屆大會之簽名簿、委託書按年分冊裝訂成卷封存。</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-rose">緊-2</span></td>
+                  <td><strong>金融機構官方「銀行對帳單」與「定存單存根」</strong></td>
+                  <td>申請表第 2 項（公積金餘額）及第 3 項（財報）。物業軟體產出之月報只是打字，<strong>無法律實質證明力</strong>；住戶申請調閱時必須出示銀行蓋章之官方月結對帳單正本或存摺影本。</td>
+                  <td>《條例》第 20 條、第 36 條第 7 款、刑法第 342 條背信罪（防止公款遭侵占挪用）。</td>
+                  <td>財委即刻會同物業，向開戶銀行調印自成立迄今全期歷史官方紙本對帳單。</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-rose">緊-3</span></td>
+                  <td><strong>各廠商「公開招標比價紀錄、議價單與驗收簽收單」</strong></td>
+                  <td>申請表第 7 項（各廠商簽約合約書）。單看合約書無法消弭圖利質疑；必須附帶「3 家以上報價單」、「管委會比價紀錄表」及「完工驗收付款簽核單」，才能證明善盡注意義務。</td>
+                  <td>民法第 535 條受任人注意義務、刑法第 342 條背信罪防護。</td>
+                  <td>建立廠商專卷：每份合約首頁必須黏貼【招標評選表】與【驗收付款單】。</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-rose">緊-4</span></td>
+                  <td><strong>全套「建築與水電機電竣工圖說」及點交清冊</strong></td>
+                  <td>來源辦法第 1~9 項中<strong>遺漏了「工程圖說」</strong>！住戶裝潢改裝、滲漏水鑑定依法有權調閱管線圖；起造人（富宇建設）移交圖紙若有缺漏，管委會須及時催告補正。</td>
+                  <td>《條例》第 36 條第 8 款、第 57 條（起造人點交共用部分及圖說責任）。</td>
+                  <td>即刻盤點管理室全套建管執照圖、給水/排水/消防/弱電管線竣工圖與CAD光碟。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 1.2 重要類清冊 -->
+        <div class="card" style="border: 1px solid rgba(245, 158, 11, 0.35); background: linear-gradient(180deg, rgba(245, 158, 11, 0.04) 0%, var(--card-bg) 100%);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.25rem;">📌</span>
+              <h3 style="font-size: 1.18rem; font-weight: 800; color: #fbbf24; margin: 0;">【重要類】制度防護與個資金流健全（1 個月內應建立配套子法）</h3>
+            </div>
+            <span class="tag tag-amber">個資法與公共金流防護</span>
+          </div>
+
+          <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 80px;">代號</th>
+                  <th style="width: 200px;">仍須完備之制度文件</th>
+                  <th>風險與必要性說明</th>
+                  <th style="width: 240px;">具體規範與落地作法</th>
+                  <th style="width: 140px;">權責人員</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="tag tag-amber">重-1</span></td>
+                  <td><strong>《重要文件個資遮蔽處理作業指引 (SOP)》</strong></td>
+                  <td>辦法第陸點只寫「得予遮掩」，未明訂標準。若物業自由心證，把不該遮的戶號遮掉會遭投訴黑箱；把個人身分證字號流出則違反個資法遭起訴求償。</td>
+                  <td>明確表列：<br>• <strong>應遮蔽</strong>：私人生日、身分證字號、私人手機、銀行帳戶。<br>• <strong>不應遮蔽</strong>：區權人姓名、戶號、規約約定應公告之違規事證。</td>
+                  <td>監察委員 / 物業經理</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-amber">重-2</span></td>
+                  <td><strong>《住戶調閱資料保密與不得濫用切結承諾書》</strong></td>
+                  <td>辦法第陸點提及「不應隨意發布在其他地方」，但缺乏法律違約罰則。若住戶調閱後拍照上傳網路公審、抹黑管委會或打擊社區房價，管委會將無從追責。</td>
+                  <td>於申請表增訂保密切結款：<em>「申請人切結本資料僅供維護專有部分權益使用，絕不翻拍轉載於公開社群網路，違者負民刑損害賠償責任。」</em></td>
+                  <td>主任委員 / 法務諮詢</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-amber">重-3</span></td>
+                  <td><strong>《管委會審查調閱申請「准駁裁量基準表」》</strong></td>
+                  <td>附表二准駁欄若無標準，管委會若因私人糾紛擅自駁回申請，將被主管機關判定「無正當理由拒絕提供」而處以罰鍰。</td>
+                  <td>明訂正當駁回理由（如：非利害關係人、非條例第35條法定文件、涉及未公開廠商商業機密），審查過程全程留存書面紀錄。</td>
+                  <td>全體管理委員</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-amber">重-4</span></td>
+                  <td><strong>《影印規費收入三聯式收據聯與列管流水帳》</strong></td>
+                  <td>依附表三每張收取 2~15 元影印規費，屬社區公共收入（雜項收入）。若物業經理僅收現金卻未開發票或三聯收據，容易滋生公私不分之嫌隙。</td>
+                  <td>印製專屬「富宇大地影印規費收據三聯單」，物業收款時一聯交住戶、一聯入帳、一聯存根，每月併入財報核銷。</td>
+                  <td>財務委員 / 物業會計</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-amber">重-5</span></td>
+                  <td><strong>《重要文件實體調閱與借出登記簽收簿》</strong></td>
+                  <td>附表二注意事項 (五)「不得將文件攜離指定處所」。若無專人陪同與進出簽名簿，難防文件被偷抽頁、塗改或調包。</td>
+                  <td>設置現場調閱登記簿，記載調閱起訖時分、調閱案號，由物業經理全程在場陪同錄影存證並雙方簽章確認。</td>
+                  <td>物業經理</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: 官方管理辦法本文與 5 步調閱標準作業程序 -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">REGULATORY FRAMEWORK & WORKFLOW</div>
+            <h2>二、富宇大地社區相關資料閱覽（影印）申請標準作業程序</h2>
+          </div>
+          <span class="tag tag-cyan">官方規章本文</span>
+        </div>
+
+        <!-- 5 Steps Flow Graphic -->
+        <div class="card" style="background: #0b1324; border: 1px solid rgba(56, 189, 248, 0.3); margin-bottom: 24px;">
+          <h3 style="font-size: 1.1rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 16px;">
+            🔄 住戶調閱重要文件 5 步閉環標準作業流程
+          </h3>
+          <div class="grid-4" style="gap: 12px;">
+            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-cyan);">
+              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 01</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">提出申請</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">申請人備妥身分證、建物二類謄本，填寫【附表一申請表】遞交管理中心。</div>
+            </div>
+            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-amber);">
+              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 02</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">物業初審與呈報</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">社區經理於 3 日內核對身分與利害關係，編立案號並呈報管委會。</div>
+            </div>
+            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-purple);">
+              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 03</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">管委會審查准駁</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">主委/監委審查合規性，依個資SOP進行必要遮蔽，開立【附表二准駁書】。</div>
+            </div>
+            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-emerald);">
+              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 04 & 05</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">專人陪閱與收費歸檔</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">指定時段專人陪同閱覽；依【附表三】收取規費開立收據，簽名結案歸檔。</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Official Articles Accordion / Cards -->
+        <div class="grid-2">
+          <div class="card">
+            <h4 style="color: var(--accent-cyan); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">壹、適用法令與法源基準</h4>
+            <ul style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+              <li>《行政程序法》、《公寓大廈管理條例》第 34、35、48 條。</li>
+              <li>《政府資訊公開法》、《個人資料保護法》。</li>
+              <li>內政部營建署相關解釋令、臺中市公寓大廈管理組織報備注意事項。</li>
+              <li>富宇大地社區住戶規約與管理組織運作章程。</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4 style="color: var(--accent-amber); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">貳、住戶申請應檢附證件</h4>
+            <ul style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+              <li><strong>申請人本人</strong>：出示身分證正本或其他有效身分證明文件。</li>
+              <li><strong>委託代理人</strong>：申請人身分證影本、印章、委託書原本及受託人身分證正本。</li>
+              <li><strong>利害關係證明</strong>：專有部分建物第二類謄本或租賃租約（限利害關係事項）。</li>
+              <li><strong>法人或團體</strong>：設有管理人證明、營業登記影本及代表人身分證件。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h4 style="color: var(--accent-purple); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">陸、隱私保護與資料安全限制條款</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; text-align: justify;">
+            依據《公寓大廈管理條例》第 35 條規定，利害關係人得請求閱覽或影印規約、公共基金餘額、會計憑證、財務報表、會議紀錄等資料，管理委員會無正當理由不得拒絕。惟若申請之內容涉及<strong>個人隱私（個人身分證字號、病歷、個人帳戶、私人生日）或第三方商業專利機密</strong>，管理委員會得依法僅提供對其權利義務有實質影響之部分，或於影印前進行<strong>遮蔽去識別化處理</strong>。調閱人應本於誠信原則，不得將取得之檔案擅自公開散布或移作侵害他人名譽及權益之用途。
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 3: 官方三大附表展示與規費計算機 -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">INTERACTIVE FORMS & FEE CALCULATOR</div>
+            <h2>三、官方三大申請附表與影印規費試算</h2>
+          </div>
+          <span class="tag tag-emerald">現場標準作業表單</span>
+        </div>
+
+        <!-- Tab Panels for 3 Forms -->
+        <div class="card" style="padding: 20px;">
+          <div style="display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;">
+            <button class="btn-action active" id="btnTabForm1" onclick="switchDocFormTab(1)">附表一：閱覽/影印申請表</button>
+            <button class="btn-action" id="btnTabForm2" onclick="switchDocFormTab(2)">附表二：准駁通知書與注意事項</button>
+            <button class="btn-action" id="btnTabForm3" onclick="switchDocFormTab(3)">附表三：收費標準與線上計算器</button>
+          </div>
+
+          <!-- FORM 1 -->
+          <div id="docFormTab1" class="doc-form-content">
+            <h3 style="font-size: 1.15rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 12px;">
+              📄 富宇大地社區文件閱覽／影印申請表（附表一範本）
+            </h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 16px;">
+              本表單供住戶依條例第 35 條提出申請，審查核定後由社區經理排定時間陪同查閱。
+            </p>
+
+            <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width: 60px;">序號</th>
+                    <th>檔案名稱或內容要旨</th>
+                    <th style="width: 100px; text-align: center;">閱覽</th>
+                    <th style="width: 100px; text-align: center;">影印</th>
+                    <th style="width: 180px;">法規依據與附件要求</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td><strong>社區管理規約</strong></td>
+                    <td style="text-align: center;"><input type="checkbox" checked disabled></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">含規約本文與歷次修正備查函</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td><strong>公共基金餘額</strong></td>
+                    <td style="text-align: center;"><input type="checkbox" checked disabled></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--accent-rose);">須檢附官方銀行對帳單原本</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td><strong>財務報表</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">資產負債表、收支損益計算表</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td><strong>會計財務憑證</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">傳票、統一發票與請款單據</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td><strong>管理委員會會議紀錄</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">定期常會及臨時會決議錄</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td><strong>區分所有權人會議紀錄</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--accent-rose);">必須連同出席簽名簿與委託書</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td><strong>各廠商簽約合約書</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--accent-rose);">須檢附評選比價紀錄與驗收單</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td><strong>社區規定辦法</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">裝潢施工、停車位、門禁辦法等</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td><strong>社區收發函文書</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">都發局公文、起造人往來函件</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.08); border: 1px dashed rgba(16, 185, 129, 0.4); padding: 12px 16px; border-radius: 8px; margin-top: 14px;">
+              <strong style="color: var(--accent-emerald); font-size: 0.88rem;">💡 A17 特聘諮詢小兵優化建議：</strong>
+              <span style="font-size: 0.84rem; color: var(--text-secondary);">
+                建議於申請人簽章處下方增加<strong>「個人資料保密切結宣誓條款」</strong>，保障管委會免受無端洩密責任追究。
+              </span>
+            </div>
+          </div>
+
+          <!-- FORM 2 -->
+          <div id="docFormTab2" class="doc-form-content" style="display: none;">
+            <h3 style="font-size: 1.15rem; color: var(--accent-amber); font-weight: 700; margin-bottom: 12px;">
+              📋 富宇大地社區文件閱覽／影印申請准駁通知書（附表二）
+            </h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 14px;">
+              載明准駁理由、預約閱覽時間、指定處所及 8 大現場閱覽遵守守則。
+            </p>
+
+            <div class="card" style="background: var(--card-bg-subtle); border-left: 4px solid var(--accent-amber); margin-bottom: 14px;">
+              <h4 style="color: #fbbf24; font-size: 0.95rem; font-weight: 700; margin-bottom: 8px;">現場調閱 8 大禁止與守則（重要摘錄）</h4>
+              <ol style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+                <li>應於管委會指定時間、指定管理中心處所為之，出示身分證件正本查驗。</li>
+                <li><strong>嚴禁添註、塗改、更換、抽取、圈點、拆散裝訂或污損檔案</strong>。</li>
+                <li><strong>不得將文件攜離指定處所</strong>，影印作業由社區物業管理人員執行。</li>
+                <li>涉及他人隱私個資時，管委會得僅提供權利影響部分或進行個資遮掩。</li>
+                <li>閱覽與影印完畢繳清規費後，應於原申請表簽章確認結案。</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- FORM 3 -->
+          <div id="docFormTab3" class="doc-form-content" style="display: none;">
+            <h3 style="font-size: 1.15rem; color: var(--accent-emerald); font-weight: 700; margin-bottom: 12px;">
+              💰 文件影印複製收費標準與線上計算器（附表三）
+            </h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 16px;">
+              本收費標準參考《檔案法》第 21 條與《規費法》第 10 條訂定，規費全數納入社區公共基金雜項收入。
+            </p>
+
+            <!-- Interactive Fee Calculator -->
+            <div class="grid-2" style="gap: 16px; margin-bottom: 20px;">
+              <div style="background: var(--card-bg-subtle); padding: 16px; border-radius: 8px;">
+                <h4 style="font-size: 0.95rem; color: #f8fafc; margin-bottom: 12px;">線上規費試算</h4>
+                <div class="form-group" style="margin-bottom: 10px;">
+                  <label class="form-label">選擇影印規格</label>
+                  <select id="calcType" class="form-select" onchange="calculateCopyFee()">
+                    <option value="2">A4 黑白單面（NT$ 2 元 / 張）</option>
+                    <option value="4">A4 黑白雙面（NT$ 4 元 / 張）</option>
+                    <option value="8">A4 彩色單面（NT$ 8 元 / 張）</option>
+                    <option value="15">A4 彩色雙面（NT$ 15 元 / 張）</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 10px;">
+                  <label class="form-label">影印張數</label>
+                  <input type="number" id="calcPages" class="form-input" value="10" min="1" max="1000" oninput="calculateCopyFee()">
+                </div>
+                <div style="margin-top: 14px; padding: 12px; background: rgba(56, 189, 248, 0.1); border-radius: 6px;">
+                  <span style="font-size: 0.82rem; color: var(--text-secondary);">應收規費合計：</span>
+                  <span id="calcTotalText" style="font-size: 1.4rem; font-weight: 900; color: var(--accent-cyan); margin-left: 6px;">NT$ 20 元</span>
+                </div>
+              </div>
+
+              <div style="background: var(--card-bg-subtle); padding: 16px; border-radius: 8px;">
+                <h4 style="font-size: 0.95rem; color: #f8fafc; margin-bottom: 12px;">規費法治管理要點</h4>
+                <ul style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+                  <li>所有影印款項嚴禁由物業人員私自挪用，必須<strong>開立三聯式規費收據</strong>。</li>
+                  <li>申請人繳費後，由物業管理負責人、主委、監委、財委依三章分立簽核確認。</li>
+                  <li>每月由財務委員盤點收費流水帳，全額存入社區公共基金帳戶。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature & Attribution Footer for this View -->
+      <div style="margin-top: 30px; padding: 18px; background: var(--card-bg-subtle); border-radius: 8px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <div style="font-size: 0.84rem; color: var(--text-muted);">
+          依據《公寓大廈管理條例》及富宇大地管委會 115.09.22 正式辦法核定編制
+        </div>
+        <div style="font-size: 0.86rem; color: var(--accent-cyan);">
+          富宇大地社區數位治理與公設點交特聘諮詢小兵：<strong>Howard Liao Ph.D.(A17)</strong>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
   <!-- ========================================================================= -->
   <!-- VIEW 5: 物業點交上傳檢核系統 (Handover Upload & Verification Checklist)    -->
   <!-- ========================================================================= -->
@@ -3202,7 +3652,26 @@
 
 
     
-// Clean, real-only handover state strictly tied to actual uploaded files
+
+    // Tab switching inside ViewDocAccess
+    function switchDocFormTab(tabIdx) {
+      document.getElementById('docFormTab1').style.display = tabIdx === 1 ? 'block' : 'none';
+      document.getElementById('docFormTab2').style.display = tabIdx === 2 ? 'block' : 'none';
+      document.getElementById('docFormTab3').style.display = tabIdx === 3 ? 'block' : 'none';
+
+      document.getElementById('btnTabForm1').classList.toggle('active', tabIdx === 1);
+      document.getElementById('btnTabForm2').classList.toggle('active', tabIdx === 2);
+      document.getElementById('btnTabForm3').classList.toggle('active', tabIdx === 3);
+    }
+
+    function calculateCopyFee() {
+      const typePrice = parseInt(document.getElementById('calcType').value, 10) || 2;
+      const pages = parseInt(document.getElementById('calcPages').value, 10) || 0;
+      const total = typePrice * pages;
+      document.getElementById('calcTotalText').innerText = `NT$ ${total} 元`;
+    }
+
+    // Clean, real-only handover state strictly tied to actual uploaded files
 let handoverState = {};
 
 function initHandoverState() {
@@ -3685,7 +4154,11 @@ function resetHandoverChecklist() {
       document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active-view'));
       document.querySelectorAll('.main-nav-btn').forEach(btn => btn.classList.remove('active'));
 
-      if (viewId === 'handover') {
+      if (viewId === 'docaccess') {
+        document.getElementById('viewDocAccess').classList.add('active-view');
+        document.getElementById('navBtnDocAccess').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (viewId === 'handover') {
         document.getElementById('viewHandover').classList.add('active-view');
         document.getElementById('navBtnHandover').classList.add('active');
         renderHandoverList();
