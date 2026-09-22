@@ -950,6 +950,11 @@
           52項檔卷差距分析
           <span style="background: rgba(244, 63, 94, 0.25); color: var(--accent-rose); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">缺位 71%</span>
         </button>
+                <button id="navBtnHandover" class="main-nav-btn" onclick="switchMainView('handover')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          物業點交上傳檢核
+          <span style="background: rgba(245, 158, 11, 0.25); color: var(--accent-amber); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">P0~P3</span>
+        </button>
         <button id="navBtnAdmin" class="main-nav-btn btn-admin" onclick="switchMainView('admin')">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           後端上稿管理
@@ -2420,6 +2425,82 @@
     </div>
   </div>
 
+  
+  <!-- ========================================================================= -->
+  <!-- VIEW 5: 物業點交上傳檢核系統 (Handover Upload & Verification Checklist)    -->
+  <!-- ========================================================================= -->
+  <div id="viewHandover" class="view-container">
+    <header class="hero">
+      <div class="container">
+        <div class="hero-tags">
+          <span class="tag tag-cyan">富宇大地管理委員會 官方核定</span>
+          <span class="tag tag-rose">物業點交風控稽查</span>
+          <span class="tag tag-amber">P0~P3 四級優先順序</span>
+          <span class="tag tag-emerald">線上上傳・即時勾選・進度追蹤</span>
+        </div>
+        <h1>富宇物業管理公司・優先文件點交上傳與查核系統</h1>
+        <p class="hero-lead">
+          管委會嚴格依據「<strong>法律刑責 ➔ 財務金流 ➔ 營運合約 ➔ 現場庶務</strong>」設立四級 14 項優先提報清冊。物業管理公司須於限期內於下方各項專屬上傳區上傳完整檔案，並由管理委員會（監委、財委、主委）逐項實體核驗後進行<strong>【線上勾選確認完成】</strong>，杜絕交接斷層與法律真空。
+        </p>
+
+        <!-- Progress Dashboard -->
+        <div class="card" style="margin-top: 20px; background: #0b1324; border: 1px solid rgba(56, 189, 248, 0.3);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">總體點交查核進度</span>
+              <div style="font-size: 1.6rem; font-weight: 900; color: var(--text-primary); margin-top: 2px;">
+                <span id="overallCompletedCount">0</span> / 14 項完成
+                <span id="overallPercentText" style="font-size: 1.1rem; color: var(--accent-emerald); font-weight: 700; margin-left: 8px;">(0%)</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="btn-action" onclick="quickCheckAll(true)">全部勾選核可</button>
+              <button class="btn-action" onclick="quickCheckAll(false)">清空勾選</button>
+              <button class="btn-submit" style="padding: 7px 16px; font-size: 0.82rem;" onclick="window.print()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+                列印點交簽收清冊
+              </button>
+            </div>
+          </div>
+
+          <!-- Master Progress Bar -->
+          <div style="background: rgba(255, 255, 255, 0.08); border-radius: 9999px; height: 12px; overflow: hidden; margin-bottom: 14px;">
+            <div id="masterProgressBar" style="background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald)); height: 100%; width: 0%; transition: width 0.3s ease;"></div>
+          </div>
+
+          <!-- Priority Stage Mini Badges -->
+          <div class="grid-4" style="gap: 12px;">
+            <div style="background: var(--card-bg-subtle); padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--accent-rose);">
+              <div style="font-size: 0.76rem; color: var(--text-muted);">P0 緊急第一優先</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #f87171;"><span id="p0Count">0</span> / 4 項完成</div>
+            </div>
+            <div style="background: var(--card-bg-subtle); padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--accent-amber);">
+              <div style="font-size: 0.76rem; color: var(--text-muted);">P1 財務印鑑第二優先</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #fbbf24;"><span id="p1Count">0</span> / 3 項完成</div>
+            </div>
+            <div style="background: var(--card-bg-subtle); padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+              <div style="font-size: 0.76rem; color: var(--text-muted);">P2 運維規章第三優先</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #38bdf8;"><span id="p2Count">0</span> / 4 項完成</div>
+            </div>
+            <div style="background: var(--card-bg-subtle); padding: 10px 14px; border-radius: 8px; border-left: 3px solid var(--accent-purple);">
+              <div style="font-size: 0.76rem; color: var(--text-muted);">P3 規約圖資第四優先</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #c084fc;"><span id="p3Count">0</span> / 3 項完成</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-top: 30px;">
+
+      <!-- Checklist Items Container -->
+      <div id="handoverItemsContainer">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+    </main>
+  </div>
+
   <!-- ========================================================================= -->
   <!-- VIEW 3: 後端上稿中心 (Admin CMS Publishing Interface)                      -->
   <!-- ========================================================================= -->
@@ -2603,6 +2684,382 @@
 
   <!-- JavaScript Application Logic -->
   <script>
+    
+    const HANDOVER_ITEMS = [
+      {
+        id: "P0-01",
+        priority: "P0",
+        priorityLabel: "P0 緊急第一優先",
+        priorityClass: "tag-rose",
+        deadline: "進駐 3 日內必備",
+        title: "留駐從業人員法定認可證與登錄名冊",
+        req: "總幹事/主任事務管理人員認可證（5年有效內）、防火管理人證照、駐點保全員名冊、良民證及最近一年體檢報告。",
+        risk: "依條例第42條僱用無牌人員罰4~20萬元；出事涉刑事連帶過失。",
+        acceptTypes: ".pdf,.jpg,.jpeg,.png,.docx"
+      },
+      {
+        id: "P0-02",
+        priority: "P0",
+        priorityLabel: "P0 緊急第一優先",
+        priorityClass: "tag-rose",
+        deadline: "進駐 3 日內必備",
+        title: "法定公共安全、電梯與消防檢驗許可證",
+        req: "昇降設備安全使用許可證正本（檢視是否在有效期內）、最近期建築物公安申報合格證、消防檢修申報書及複驗合格函。",
+        risk: "防止電梯過期運轉遭勒令停機或發生墜梯死傷；確保消防系統正常連線。",
+        acceptTypes: ".pdf,.jpg,.jpeg,.png"
+      },
+      {
+        id: "P0-03",
+        priority: "P0",
+        priorityLabel: "P0 緊急第一優先",
+        priorityClass: "tag-rose",
+        deadline: "進駐 3 日內必備",
+        title: "受任管理維護合約書（含內政部五大附件）",
+        req: "依內政部定型化範本簽訂之正式合約正本，核對附件一至五標準工項無擅減，確認非經書面同意不得轉委任與15日退場條款。",
+        risk: "確立管委會對物業之法定監督權限，杜絕私自將保全清潔轉包無牌地下包商。",
+        acceptTypes: ".pdf,.docx"
+      },
+      {
+        id: "P0-04",
+        priority: "P0",
+        priorityLabel: "P0 緊急第一優先",
+        priorityClass: "tag-rose",
+        deadline: "進駐 3 日內必備",
+        title: "緊急突發事故 24H 聯絡網與特約廠商名冊",
+        req: "電梯原廠24H急修專線、發電機、給排水泵浦、車道鐵捲門特約搶修窗口、轄區派出所管區警員、消防分隊對口聯絡表。",
+        risk: "深夜遇水管爆裂、電梯困人或火警時，確保15分鐘內調動專業原廠到場止損。",
+        acceptTypes: ".pdf,.xlsx,.docx"
+      },
+      {
+        id: "P1-05",
+        priority: "P1",
+        priorityLabel: "P1 財務第二優先",
+        priorityClass: "tag-amber",
+        deadline: "第 1 週內必備",
+        title: "公共基金與營運帳戶存摺、定存單及印鑑清冊",
+        req: "銀行專戶存摺（活期、定存單）實體核驗、最新月結對帳單（核對帳面與存款一致）、管委會大小章印模存查卡與責任保管書。",
+        risk: "落實條例第20條公款專戶不得挪用；貫徹主委/財委/監委三章分立，物業絕不可持印。",
+        acceptTypes: ".pdf,.jpg,.jpeg,.png,.xlsx"
+      },
+      {
+        id: "P1-06",
+        priority: "P1",
+        priorityLabel: "P1 財務第二優先",
+        priorityClass: "tag-amber",
+        deadline: "第 1 週內必備",
+        title: "欠繳管理費催收清冊與法律追討進度卷宗",
+        req: "各戶管理費收繳總清冊、積欠逾2期名冊、已發出之存證信函、法院支付命令、強制執行裁定公文卷宗。",
+        risk: "民法管理費時效為5年，逾期未催告將成呆帳；依條例第21條催告滿期始得進行強制執行。",
+        acceptTypes: ".pdf,.xlsx,.docx"
+      },
+      {
+        id: "P1-07",
+        priority: "P1",
+        priorityLabel: "P1 財務第二優先",
+        priorityClass: "tag-amber",
+        deadline: "第 1 週內必備",
+        title: "起造人公設點交結案報告與保固合約清冊",
+        req: "建商與管委會點交清冊（水電、消防、機電、土建）、缺失改善列管清單、各項設備原廠保固期限合約書與保固金扣留明細。",
+        risk: "掌握建商保固到期日，在保固期滿前完成缺失索賠，避免建商脫身後由全體住戶自費修繕。",
+        acceptTypes: ".pdf,.docx,.xlsx"
+      },
+      {
+        id: "P2-08",
+        priority: "P2",
+        priorityLabel: "P2 營運第三優先",
+        priorityClass: "tag-cyan",
+        deadline: "第 2 週內必備",
+        title: "社區核決權限表 (DOA) 與零用金管理辦法",
+        req: "確立零用金（3,000元內）、常委請修（20,000元內）、管委會全體招標（逾20,000元）權限劃分與緊急防險簽核SOP。",
+        risk: "杜絕物業經理私自發包、先斬後奏或小額化整為零規避審查之舞弊空間。",
+        acceptTypes: ".pdf,.docx"
+      },
+      {
+        id: "P2-09",
+        priority: "P2",
+        priorityLabel: "P2 營運第三優先",
+        priorityClass: "tag-cyan",
+        deadline: "第 2 週內必備",
+        title: "三級週期性彙報模組（日報、週報、月報樣板）",
+        req: "日報（哨位出勤/機房日巡/工單閉環）、週報（決議進度%/工單結案率）、月報（損益表/消檢排程/常會議案包）標準樣板與交付管道。",
+        risk: "落實管理辦法第16條第7款處理事務留下書面紀錄，建議一律書面提出，作為KPI考核依據。",
+        acceptTypes: ".pdf,.docx,.xlsx"
+      },
+      {
+        id: "P2-10",
+        priority: "P2",
+        priorityLabel: "P2 營運第三優先",
+        priorityClass: "tag-cyan",
+        deadline: "第 2 週內必備",
+        title: "協力外包廠商履約稽核與 KPI 計罰作業標準",
+        req: "保全夜巡電子感應點紀錄（打卡率>=98%）、清潔大項施作簽驗單、外包廠商違約記點扣款標準作業書。",
+        risk: "物業不得護短外包保全與清潔，必須有量化數據（扣點扣款單）向管委會負責。",
+        acceptTypes: ".pdf,.docx"
+      },
+      {
+        id: "P2-11",
+        priority: "P2",
+        priorityLabel: "P2 營運第三優先",
+        priorityClass: "tag-cyan",
+        deadline: "第 2 週內必備",
+        title: "社區重大突發事故緊急應變 SOP",
+        req: "消防警報與真實火警應變流程、地下室爆管淹水切斷水源搶修SOP、電梯故障受困安撫與原廠通報手冊。",
+        risk: "避免夜間發生事故時現場保全慌亂無措、通報脫節導致公設災情擴大。",
+        acceptTypes: ".pdf,.docx"
+      },
+      {
+        id: "P3-12",
+        priority: "P3",
+        priorityLabel: "P3 檔案第四優先",
+        priorityClass: "tag-purple",
+        deadline: "第 3~4 週內必備",
+        title: "現行社區規約及住戶管理施行細則彙編",
+        req: "經區權大會核定之規約本文正本與修訂紀錄、裝潢施工管理辦法（含防護切結與保證金點交單）、停車位管理辦法、寵物飼養規範。",
+        risk: "物業第一線勸導違規、處理裝潢打石噪音及車位佔用爭端時的法定依據。",
+        acceptTypes: ".pdf,.docx"
+      },
+      {
+        id: "P3-13",
+        priority: "P3",
+        priorityLabel: "P3 檔案第四優先",
+        priorityClass: "tag-purple",
+        deadline: "第 3~4 週內必備",
+        title: "社區智慧管理 App（如智生活）最高權限移交",
+        req: "後台最高管理員（Super Admin）帳號移交管委會、銀行金流代收綁定管委會專戶核對、住戶開通清冊與瓦斯抄表歷史資料庫。",
+        risk: "確保管委會掌握數位資產與住戶個資主導權，避免更換物業公司時系統遭鎖定或歷史紀錄遺失。",
+        acceptTypes: ".pdf,.xlsx"
+      },
+      {
+        id: "P3-14",
+        priority: "P3",
+        priorityLabel: "P3 檔案第四優先",
+        priorityClass: "tag-purple",
+        deadline: "第 3~4 週內必備",
+        title: "全套建築與水電機電竣工圖說清冊與電子檔",
+        req: "建築使照圖、結構配筋圖、地籍圖、給水/排水/消防/弱電監控竣工圖紙與CAD電子檔，建立實體借閱登記簿。",
+        risk: "屬社區永久保存之法定資產，防止日後維修鑽孔誤擊主樑或鑽破暗管。",
+        acceptTypes: ".pdf,.dwg,.zip,.jpg"
+      }
+    ];
+
+
+    // Handover Items State & Functions
+    let handoverState = {};
+
+    function initHandoverState() {
+      const stored = localStorage.getItem('fuyu_handover_state_v1');
+      if (stored) {
+        try {
+          handoverState = JSON.parse(stored);
+        } catch (e) {
+          handoverState = {};
+        }
+      } else {
+        // Default with some initial demonstration state
+        handoverState = {
+          "P0-01": { checked: true, fileName: "富宇大地_總幹事認可證與保全良民證名冊_11509.pdf", fileSize: "2.4 MB", uploadTime: "2026-09-20 14:30", reviewer: "監察委員 查核完畢", note: "證件有效期限至 118 年" },
+          "P0-02": { checked: true, fileName: "115年電梯安全使用許可證與消防申報合格函.pdf", fileSize: "4.8 MB", uploadTime: "2026-09-21 09:15", reviewer: "安全委員 檢核無誤", note: "消防缺失複查已核准備查" }
+        };
+        saveHandoverState();
+      }
+      renderHandoverList();
+      updateHandoverStats();
+    }
+
+    function saveHandoverState() {
+      localStorage.setItem('fuyu_handover_state_v1', JSON.stringify(handoverState));
+      updateHandoverStats();
+    }
+
+    function updateHandoverStats() {
+      let completed = 0;
+      let p0 = 0, p1 = 0, p2 = 0, p3 = 0;
+
+      HANDOVER_ITEMS.forEach(item => {
+        const state = handoverState[item.id];
+        if (state && state.checked) {
+          completed++;
+          if (item.priority === 'P0') p0++;
+          if (item.priority === 'P1') p1++;
+          if (item.priority === 'P2') p2++;
+          if (item.priority === 'P3') p3++;
+        }
+      });
+
+      const pct = Math.round((completed / HANDOVER_ITEMS.length) * 100);
+      document.getElementById('overallCompletedCount').innerText = completed;
+      document.getElementById('overallPercentText').innerText = `(${pct}%)`;
+      document.getElementById('masterProgressBar').style.width = `${pct}%`;
+      document.getElementById('p0Count').innerText = p0;
+      document.getElementById('p1Count').innerText = p1;
+      document.getElementById('p2Count').innerText = p2;
+      document.getElementById('p3Count').innerText = p3;
+    }
+
+    function renderHandoverList() {
+      const container = document.getElementById('handoverItemsContainer');
+      if (!container) return;
+
+      container.innerHTML = HANDOVER_ITEMS.map((item, idx) => {
+        const state = handoverState[item.id] || { checked: false };
+        const isChecked = !!state.checked;
+        const hasFile = !!state.fileName;
+
+        let borderHighlight = isChecked ? 'rgba(16, 185, 129, 0.4)' : 'var(--border-color)';
+        let cardBg = isChecked ? 'linear-gradient(180deg, rgba(16, 185, 129, 0.03) 0%, var(--card-bg) 100%)' : 'var(--card-bg)';
+
+        return `
+          <div class="card handover-item-card" id="card-${item.id}" style="border: 1px solid ${borderHighlight}; background: ${cardBg}; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <!-- Checkbox -->
+                <input type="checkbox" id="chk-${item.id}" style="width: 22px; height: 22px; accent-color: var(--accent-emerald); cursor: pointer;" ${isChecked ? 'checked' : ''} onchange="toggleHandoverCheck('${item.id}', this.checked)">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <span class="tag ${item.priorityClass}">${item.priorityLabel}</span>
+                    <span style="font-size: 0.78rem; color: var(--accent-amber); font-weight: 700;">[期限: ${item.deadline}]</span>
+                    <span style="font-size: 0.76rem; color: var(--text-muted);">代號: ${item.id}</span>
+                  </div>
+                  <h3 style="font-size: 1.18rem; font-weight: 700; color: var(--text-primary); margin-top: 4px;">
+                    ${item.title}
+                  </h3>
+                </div>
+              </div>
+
+              <!-- Status Badge -->
+              <div>
+                ${isChecked ? 
+                  `<span style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">✓ 查核完成</span>` : 
+                  (hasFile ? 
+                    `<span style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">已上傳・待核驗</span>` : 
+                    `<span style="background: rgba(244, 63, 94, 0.15); color: #f87171; border: 1px solid rgba(244, 63, 94, 0.3); font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">待物業上傳</span>`
+                  )
+                }
+              </div>
+            </div>
+
+            <!-- Content Description -->
+            <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; background: var(--card-bg-subtle); padding: 12px 16px; border-radius: 8px;">
+              <div style="margin-bottom: 4px;">
+                <strong style="color: var(--text-primary);">提報內容規範：</strong>${item.req}
+              </div>
+              <div style="font-size: 0.82rem; color: var(--accent-rose);">
+                <strong>風控警示目的：</strong>${item.risk}
+              </div>
+            </div>
+
+            <!-- Upload and Verified File Area -->
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; border-top: 1px solid rgba(226, 232, 240, 0.08); padding-top: 12px;">
+              
+              <!-- File Display -->
+              <div style="flex: 1; min-width: 260px;">
+                ${hasFile ? `
+                  <div style="display: flex; align-items: center; gap: 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); padding: 8px 12px; border-radius: 6px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <div style="flex: 1; overflow: hidden;">
+                      <div style="font-size: 0.86rem; font-weight: 600; color: #f8fafc; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        ${escapeHtml(state.fileName)}
+                      </div>
+                      <div style="font-size: 0.74rem; color: var(--text-muted);">
+                        大小: ${state.fileSize || '未知'} | 上傳時間: ${state.uploadTime || '即時'}
+                        ${state.reviewer ? ` | 審查: <span style="color: #6ee7b7;">${escapeHtml(state.reviewer)}</span>` : ''}
+                      </div>
+                    </div>
+                    <button class="btn-action" style="padding: 3px 8px; font-size: 0.72rem; color: var(--accent-rose);" onclick="removeUploadedFile('${item.id}')">移除</button>
+                  </div>
+                ` : `
+                  <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    尚未上傳任何附件檔卷（支援 ${item.acceptTypes}）
+                  </div>
+                `}
+              </div>
+
+              <!-- Upload Button Form -->
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="file" id="file-${item.id}" style="display: none;" accept="${item.acceptTypes}" onchange="handleItemFileUpload('${item.id}', this)">
+                <button class="btn-action" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3); color: var(--accent-cyan);" onclick="document.getElementById('file-${item.id}').click()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  ${hasFile ? '重新上傳覆蓋' : '選擇文件檔案上傳'}
+                </button>
+                <button class="btn-action" style="background: ${isChecked ? 'rgba(16, 185, 129, 0.2)' : 'var(--card-bg-subtle)'}; color: ${isChecked ? '#10b981' : 'var(--text-secondary)'};" onclick="toggleHandoverCheck('${item.id}', ${!isChecked})">
+                  ${isChecked ? '取消核定' : '勾選確認完成'}
+                </button>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function handleItemFileUpload(itemId, inputElement) {
+      if (!inputElement.files || inputElement.files.length === 0) return;
+      const file = inputElement.files[0];
+
+      // Formulate file size
+      const sizeStr = file.size > 1024 * 1024 ? 
+        (file.size / (1024 * 1024)).toFixed(1) + ' MB' : 
+        Math.round(file.size / 1024) + ' KB';
+
+      const now = new Date();
+      const timeStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+      if (!handoverState[itemId]) {
+        handoverState[itemId] = {};
+      }
+
+      handoverState[itemId].fileName = file.name;
+      handoverState[itemId].fileSize = sizeStr;
+      handoverState[itemId].uploadTime = timeStr;
+      handoverState[itemId].checked = true; // Auto-check upon upload
+      handoverState[itemId].reviewer = "物業已上傳・管委會已核定";
+
+      saveHandoverState();
+      renderHandoverList();
+      showToast(`✓ 已成功上傳檔案：${file.name}，並自動完成勾選！`);
+    }
+
+    function toggleHandoverCheck(itemId, checked) {
+      if (!handoverState[itemId]) {
+        handoverState[itemId] = {};
+      }
+      handoverState[itemId].checked = checked;
+      if (checked && !handoverState[itemId].reviewer) {
+        handoverState[itemId].reviewer = "管委會現場查核合格";
+      }
+
+      saveHandoverState();
+      renderHandoverList();
+      showToast(checked ? `✓ 代號 ${itemId} 已勾選確認核定完成！` : `代號 ${itemId} 已取消勾選`);
+    }
+
+    function removeUploadedFile(itemId) {
+      if (!confirm(`確定要移除代號 ${itemId} 之上傳附件檔案嗎？`)) return;
+      if (handoverState[itemId]) {
+        delete handoverState[itemId].fileName;
+        delete handoverState[itemId].fileSize;
+        delete handoverState[itemId].uploadTime;
+        handoverState[itemId].checked = false;
+      }
+      saveHandoverState();
+      renderHandoverList();
+      showToast(`已移除附件檔案`);
+    }
+
+    function quickCheckAll(status) {
+      HANDOVER_ITEMS.forEach(item => {
+        if (!handoverState[item.id]) handoverState[item.id] = {};
+        handoverState[item.id].checked = status;
+        if (status && !handoverState[item.id].reviewer) {
+          handoverState[item.id].reviewer = "管委會全體查核通過";
+        }
+      });
+      saveHandoverState();
+      renderHandoverList();
+      showToast(status ? "✓ 已全部勾選為完成！" : "已全部取消勾選");
+    }
+
     // Initial Seed Data for "富宇大地"
     const DEFAULT_ARTICLES = [
       {
@@ -2843,7 +3300,13 @@
       document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active-view'));
       document.querySelectorAll('.main-nav-btn').forEach(btn => btn.classList.remove('active'));
 
-      if (viewId === 'gapanalysis') {
+      if (viewId === 'handover') {
+        document.getElementById('viewHandover').classList.add('active-view');
+        document.getElementById('navBtnHandover').classList.add('active');
+        renderHandoverList();
+        updateHandoverStats();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (viewId === 'gapanalysis') {
         document.getElementById('viewSmartDaily').classList.add('active-view');
         document.getElementById('navBtnGapAnalysis').classList.add('active');
         const gapTarget = document.getElementById('gapAnalysisSection');
@@ -3174,6 +3637,7 @@
     // Boot
     window.addEventListener('DOMContentLoaded', () => {
       initData();
+      initHandoverState();
     });
   </script>
 </body>
