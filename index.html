@@ -1253,39 +1253,26 @@
       </div>
 
       <!-- Main Navigation Tabs -->
+            <!-- Consolidated 3 Core Navigation Tabs -->
+            <!-- Consolidated 3 Core Navigation Tabs -->
+            <!-- Consolidated 3 Core Navigation Tabs -->
       <div class="nav-tabs">
-        <button id="navBtnManual" class="main-nav-btn active" onclick="switchMainView('manual')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          權責規範手冊
+        <button id="navBtnAudit" class="main-nav-btn active" onclick="switchMainView('audit')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          物業體檢與改進重點
+          <span style="background: rgba(244, 63, 94, 0.25); color: var(--accent-rose); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">現況體檢</span>
         </button>
-        <button id="navBtnBulletin" class="main-nav-btn" onclick="switchMainView('bulletin')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M21 9H3M9 21V9"/></svg>
-          數位公佈欄
-          <span id="bulletinCountBadge" style="background: rgba(56, 189, 248, 0.25); color: var(--accent-cyan); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">5</span>
-        </button>
-                <button id="navBtnSmartDaily" class="main-nav-btn" onclick="switchMainView('smartdaily')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-          智生活功能體系
-          <span style="background: rgba(16, 185, 129, 0.25); color: var(--accent-emerald); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">AIoT</span>
-        </button>
-                <button id="navBtnGapAnalysis" class="main-nav-btn" onclick="switchMainView('gapanalysis')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
-          52項檔卷差距分析
-          <span style="background: rgba(244, 63, 94, 0.25); color: var(--accent-rose); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">缺位 71%</span>
-        </button>
-                <button id="navBtnHandover" class="main-nav-btn" onclick="switchMainView('handover')">
+
+        <button id="navBtnHandover" class="main-nav-btn" onclick="switchMainView('handover')">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          物業點交上傳檢核
-          <span style="background: rgba(245, 158, 11, 0.25); color: var(--accent-amber); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">P0~P3</span>
+          物業點交與檔案提報
+          <span style="background: rgba(245, 158, 11, 0.25); color: var(--accent-amber); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">P0~P3驗收</span>
         </button>
-                <button id="navBtnDocAccess" class="main-nav-btn" onclick="switchMainView('docaccess')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          重要文件調閱規章
-          <span style="background: rgba(244, 63, 94, 0.25); color: #f87171; font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">SOP&缺口</span>
-        </button>
-        <button id="navBtnAdmin" class="main-nav-btn btn-admin" onclick="switchMainView('admin')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          後端上稿管理
+
+        <button id="navBtnGovernance" class="main-nav-btn" onclick="switchMainView('governance')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          治理規章與公佈欄
+          <span style="background: rgba(56, 189, 248, 0.25); color: var(--accent-cyan); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">規範&公告</span>
         </button>
       </div>
 
@@ -1301,1534 +1288,67 @@
   <!-- ========================================================================= -->
   <!-- VIEW 1: 權責規範與治理規章手冊 (Governance Manual)                        -->
   <!-- ========================================================================= -->
-  <div id="viewManual" class="view-container active-view">
+  <!-- TAB 1: 物業現況深度體檢與關鍵改進方案 (Core Focus: Property Management Audit)-->
+  <!-- ========================================================================= -->
+  <div id="viewAudit" class="view-container active-view">
     <header class="hero">
       <div class="container">
         <div class="hero-tags">
-          <span class="tag tag-cyan">富宇大地管理委員會</span>
-          <span class="tag tag-emerald">公寓大廈管理條例 §3 / §36</span>
-          <span class="tag tag-amber">內政部定型契約 (台內營字8771990號)</span>
-          <span class="tag tag-purple">DOA 授權核決體系</span>
-        </div>
-        <h1>富宇大地社區・物業管理與管委會權責手冊</h1>
-        <p class="hero-lead">
-          貫徹「<strong>物業經理負責把事情做好、做透明；管委會負責決定做什麼、並承擔法定決策責任</strong>」。本手冊依據內政部《公寓大廈管理服務人管理辦法》與定型化契約範本五大工作重點附件，明定富宇大地社區之權責分立、3 大實務爭端處置SOP、RACI 矩陣及三級週期性彙報標準。
-        </p>
-
-        
-        <!-- ========================================================================= -->
-        <!-- 溫暖前言：共築富宇大地的美好未來 (Foreword & Gratitude to Committee)     -->
-        <!-- ========================================================================= -->
-        <div class="card" style="margin-top: 24px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(15, 23, 42, 0.95) 100%); border: 1px solid rgba(245, 158, 11, 0.35); border-left: 5px solid var(--accent-amber); padding: 26px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <span style="font-size: 1.35rem;">🌿</span>
-              <h2 style="font-size: 1.25rem; font-weight: 800; color: #fbbf24; margin: 0; letter-spacing: 0.5px;">前言：凝聚初心，共築富宇大地的美好未來</h2>
-            </div>
-            <span class="tag tag-amber" style="font-size: 0.78rem; font-weight: 700; padding: 4px 10px;">致敬現任管理委員會・守護家園</span>
-          </div>
-          
-          <p style="font-size: 0.96rem; line-height: 1.88; color: #e2e8f0; margin-bottom: 14px; text-align: justify;">
-            建築賦予我們遮風避雨的空間，而鄰里間的信任與守望，才真正讓這裡成為有溫度的家。富宇大地是我們每一位住戶安身立命、世代傳承的珍貴資產；為了迎向富宇大地更安全、優雅且具長遠價值的典範社區，制度的建立與智慧的治理是不可或缺的堅實基石。
-          </p>
-          
-          <p style="font-size: 0.96rem; line-height: 1.88; color: #e2e8f0; margin-bottom: 14px; text-align: justify;">
-            在此，我們要向全體現任管理委員會的委員夥伴們致上最深摯的感謝與敬意。感謝您們在繁忙的工作與家庭生活之餘，無私犧牲寶貴的個人休憩時間，為社區公眾事務奔走勞碌。從公共設施設備的巡檢點交、財務收支的嚴格把關，到各項日常法規與住戶服務的溝通協調，每一處看似平凡的運轉細節，都凝聚著委員們默默守護家園的汗水與心血。
-          </p>
-          
-          <p style="font-size: 0.96rem; line-height: 1.88; color: #e2e8f0; margin-bottom: 16px; text-align: justify;">
-            本治理平台與權責手冊的創立，初心正是為了減輕委員們的奔波負擔，透過權責分立、透明標準與數位工具的賦能，與專業物業團隊攜手並進。願我們心手相連，以彼此的包容與同理，共同守護這片土地，為富宇大地的美好未來奠定百年磐石。
-          </p>
-          
-          <div style="display: flex; justify-content: flex-end; align-items: center; gap: 8px; border-top: 1px solid rgba(245, 158, 11, 0.2); padding-top: 12px;">
-            <span style="font-size: 0.85rem; color: var(--text-muted);">富宇大地社區數位治理與公設點交特聘諮詢小兵：</span>
-            <strong style="font-size: 0.94rem; color: var(--accent-cyan); letter-spacing: 0.5px;">Howard Liao Ph.D.(A17)</strong>
-          </div>
-        </div>
-
-        <!-- Quick Highlight Grid -->
-        <div class="grid-4" style="margin-top: 20px;">
-          <div class="card" style="margin-bottom: 0;">
-            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">法定決策主體</div>
-            <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-emerald); margin: 4px 0;">富宇大地管委會</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">公積金動支、合約簽訂、修繕工程發包、罰則規約解釋，依法專屬管委會。</div>
-          </div>
-          <div class="card" style="margin-bottom: 0;">
-            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">專業執行與幕僚</div>
-            <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-cyan); margin: 4px 0;">物業經理 / 服務人</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">現場巡檢、外包監督、請修追蹤、帳務造冊，善盡善良管理人注意義務。</div>
-          </div>
-          <div class="card" style="margin-bottom: 0;">
-            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">法定工項基準</div>
-            <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-purple); margin: 4px 0;">內政部契約 5 附件</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">一般事務、基地維修、附屬設施設備、環境衛生清潔、安全防災維護。</div>
-          </div>
-          <div class="card" style="margin-bottom: 0;">
-            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">定期營運透明度</div>
-            <div style="font-size: 1.2rem; font-weight: 700; color: var(--accent-amber); margin: 4px 0;">日報・週報・月報</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">現場即時監控、專案進度追蹤、月會全景財務與公安體檢，落實數據化治理。</div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main class="container">
-      <!-- Section 1: 權責分立與法理 -->
-      <section class="section">
-        <div class="section-header">
-          <div class="section-eyebrow">Core Governance & Legal Framework</div>
-          <h2 class="section-title">一、富宇大地核心定位與權責分立原則</h2>
-          <p class="section-subtitle">依據《公寓大廈管理條例》第 3 條與第 36 條，明確切割決策者與受任執行者角色。</p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card" style="border-top: 4px solid var(--accent-cyan);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <h3 style="font-size: 1.15rem; color: var(--text-primary);">物業經理／管理維護團隊</h3>
-              <span class="tag tag-cyan">受任專業執行者・幕僚長</span>
-            </div>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
-              依富宇大地管委會之決議、合約委任授權及管理規約，負責社區日常運轉、外包廠商督考、現場機電巡檢、住戶報修工單落實，並就專業維養提出建議。
-            </p>
-            <ul style="list-style: none; font-size: 0.86rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
-              <li>• <strong>日常巡檢與工單：</strong>公設機房每日巡視、水電電梯即時叫修追蹤。</li>
-              <li>• <strong>外包廠商管理：</strong>督導保全崗哨出勤打卡、清潔週期作業驗收。</li>
-              <li>• <strong>專業幕僚分析：</strong>遇設備故障，提供 2~3 家報價效益比較表供常會審議。</li>
-              <li>• <strong style="color: var(--accent-rose);">嚴禁自行決定：</strong>重大修繕、發包工程、動支公積金或向住戶開罰。</li>
-            </ul>
-          </div>
-
-          <div class="card" style="border-top: 4px solid var(--accent-emerald);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <h3 style="font-size: 1.15rem; color: var(--text-primary);">富宇大地管理委員會</h3>
-              <span class="tag tag-emerald">社區自治決策與責任主體</span>
-            </div>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
-              由全體區分所有權人選任，依法負有公共基金運用、管理服務人選聘與監督、修繕工程定約等法定職責，向全體住戶負管理成敗之民刑事責任。
-            </p>
-            <ul style="list-style: none; font-size: 0.86rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px;">
-              <li>• <strong>實質審議表決：</strong>審核預算合理性、決定動支科目、評選合格廠商。</li>
-              <li>• <strong>對外代表簽約：</strong>由主任委員代表管委會簽署對外合約與行使訴訟權。</li>
-              <li>• <strong>規約違規處分：</strong>違規住戶之限期催告與主管機關裁罰之函請程序。</li>
-              <li>• <strong style="color: var(--accent-amber);">注意義務不轉嫁：</strong>管委會不可將法定決策責任實質移轉給物業經理。</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 2: RACI 矩陣與核決權限 (DOA) -->
-      <section class="section">
-        <div class="section-header">
-          <div class="section-eyebrow">RACI Matrix & Delegation of Authority</div>
-          <h2 class="section-title">二、富宇大地營運 RACI 權責矩陣對照表</h2>
-          <p class="section-subtitle">
-            <span class="badge-raci raci-a">A</span>最終拍板責任 &nbsp;|&nbsp;
-            <span class="badge-raci raci-r">R</span>推動執行落實 &nbsp;|&nbsp;
-            <span class="badge-raci raci-c">C</span>專業諮詢建議 &nbsp;|&nbsp;
-            <span class="badge-raci raci-i">I</span>通報與公告知悉
-          </p>
-        </div>
-
-        <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
-        <div class="table-responsive">
-          <table>
-            <thead>
-              <tr>
-                <th style="width: 25%;">業務管理類別</th>
-                <th style="width: 18%; text-align: center;">區權人會議 (大會)</th>
-                <th style="width: 18%; text-align: center;">管理委員會 (全體)</th>
-                <th style="width: 18%; text-align: center;">主任委員 / 常委</th>
-                <th style="width: 21%; text-align: center;">物業經理 / 服務團隊</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>重大工程修繕 / 規約修訂</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">動支公共基金逾規約門檻</span></td>
-                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 決議核定</td>
-                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> 審議提案</td>
-                <td style="text-align: center;"><span class="badge-raci raci-c">C</span> 督導籌備</td>
-                <td style="text-align: center;"><span class="badge-raci raci-c">C</span> / <span class="badge-raci raci-i">I</span> 幕僚準備與會務</td>
-              </tr>
-              <tr>
-                <td><strong>外包年度維保續約 / 招標</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">保全、清潔、機電、電梯年約</span></td>
-                <td style="text-align: center;"><span class="badge-raci raci-i">I</span> 會後公告</td>
-                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 審核決標</td>
-                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> 代表簽約</td>
-                <td style="text-align: center;"><span class="badge-raci raci-c">C</span> / <span class="badge-raci raci-r">R</span> 招標訪價與履約查驗</td>
-              </tr>
-              <tr>
-                <td><strong>小額例行維修 (授權限額內)</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">燈泡更換、零星耗材、零用金</span></td>
-                <td style="text-align: center;">-</td>
-                <td style="text-align: center;"><span class="badge-raci raci-i">I</span> 月報查核</td>
-                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 抽查核銷</td>
-                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> 現場叫修驗收</td>
-              </tr>
-              <tr>
-                <td><strong>突發緊急事故搶修 (防險止損)</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">給水幹管爆管、配電異常、困人</span></td>
-                <td style="text-align: center;">-</td>
-                <td style="text-align: center;"><span class="badge-raci raci-i">I</span> 事後追認</td>
-                <td style="text-align: center;"><span class="badge-raci raci-i">I</span> 即時通報</td>
-                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> / <span class="badge-raci raci-a">A</span> 現場先行止損處置</td>
-              </tr>
-              <tr>
-                <td><strong>住戶違規催告與訴訟處置</strong><br><span style="font-size: 0.78rem; color: var(--text-muted);">欠繳管理費逾 2 期、佔用梯廳</span></td>
-                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 強制遷離決議</td>
-                <td style="text-align: center;"><span class="badge-raci raci-a">A</span> 決議法催起訴</td>
-                <td style="text-align: center;"><span class="badge-raci raci-r">R</span> 代表具名發函</td>
-                <td style="text-align: center;"><span class="badge-raci raci-c">C</span> / <span class="badge-raci raci-r">R</span> 現場拍照蒐證與催告</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- Section 3: 三級週期性彙報體系 -->
-      <section class="section">
-        <div class="section-header">
-          <div class="section-eyebrow">Tiered Reporting Operations</div>
-          <h2 class="section-title">三、三級週期性彙報體系（日報・週報・月報）</h2>
-          <p class="section-subtitle">落實「凡走過必留下痕跡」之數據化運籌回報標準。</p>
-        </div>
-
-        <div class="tabs-nav">
-          <button class="tab-btn active" onclick="switchReportTab('daily', this)">日報 (Daily Report)</button>
-          <button class="tab-btn" onclick="switchReportTab('weekly', this)">週報 (Weekly Report)</button>
-          <button class="tab-btn" onclick="switchReportTab('monthly', this)">月報 (Monthly Report)</button>
-        </div>
-
-        <div id="tab-daily" class="tab-pane active">
-          <div class="card">
-            <h4 style="color: var(--accent-cyan); font-size: 1.05rem; margin-bottom: 8px;">日報：現場即時監控與事件閉環</h4>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">每日呈報主任委員及當值值班委員，內容涵蓋：</p>
-            <div class="grid-3">
-              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
-                <strong style="color: var(--text-primary); font-size: 0.85rem;">1. 哨位出勤：</strong>物業人員、保全各崗哨、清潔人員打卡與代班確認。
-              </div>
-              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
-                <strong style="color: var(--text-primary); font-size: 0.85rem;">2. 機房巡檢：</strong>發電機待機、蓄水池水位、消防主機運轉燈號排查。
-              </div>
-              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
-                <strong style="color: var(--text-primary); font-size: 0.85rem;">3. 住戶請修：</strong>當日新增工單、當日結案數、待料追蹤案件進度。
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="tab-weekly" class="tab-pane">
-          <div class="card">
-            <h4 style="color: var(--accent-emerald); font-size: 1.05rem; margin-bottom: 8px;">週報：專案推進、預算追蹤與風險預警</h4>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">每週五發送全體委員，內容涵蓋：</p>
-            <div class="grid-3">
-              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
-                <strong style="color: var(--text-primary); font-size: 0.85rem;">1. 決議交辦：</strong>前期管委會交辦事項完成度（已完成/進行中/卡點）。
-              </div>
-              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
-                <strong style="color: var(--text-primary); font-size: 0.85rem;">2. 廠商稽核：</strong>保全夜巡打卡率（&ge;98%）、清潔大項施作照片檢驗。
-              </div>
-              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
-                <strong style="color: var(--text-primary); font-size: 0.85rem;">3. 工單時效：</strong>週工單結案率分析，滯留逾 5 日案件之專案檢視。
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="tab-monthly" class="tab-pane">
-          <div class="card">
-            <h4 style="color: var(--accent-amber); font-size: 1.05rem; margin-bottom: 8px;">月報：全景治理體檢、財務結算與常會提案</h4>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">管委會常會專用資料包並公告全體區權人，內容涵蓋：</p>
-            <div class="grid-3">
-              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
-                <strong style="color: var(--text-primary); font-size: 0.85rem;">1. 財務報表：</strong>管理費收繳率（目標98%+）、公積金存款及孳息對帳。
-              </div>
-              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
-                <strong style="color: var(--text-primary); font-size: 0.85rem;">2. 設備公安：</strong>公安消檢申報排程、機電保養紀錄與修繕比價案。
-              </div>
-              <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 8px;">
-                <strong style="color: var(--text-primary); font-size: 0.85rem;">3. 外包考評：</strong>協力廠商月度 KPI 綜合評鑑與續約建議。
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-      <!-- Section 4: 物業管理 7 大類別 52 項必備法定檔卷清冊 -->
-      <section class="section" id="fuyu-documents">
-        <div class="section-header">
-          <div class="section-eyebrow">Statutory Archives & Records Management</div>
-          <h2 class="section-title">四、富宇大地物業管理 7 大類別 52 項必備法定檔卷清冊</h2>
-          <p class="section-subtitle">依據《公寓大廈管理條例》第 36 條第 8 款及內政部受任契約規範，社區換屆移交、年度審計與建管抽查之必備檔案總目錄。</p>
-        </div>
-
-        <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
-        <div class="table-responsive">
-          <table>
-            <thead>
-              <tr>
-                <th style="width: 10%;">分類編號</th>
-                <th style="width: 26%;">檔案卷宗名稱</th>
-                <th style="width: 46%;">核心內容重點與規範標準</th>
-                <th style="width: 18%; text-align: center;">法定 / 建議保管年限</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- 類別一 -->
-              <tr style="background: rgba(56, 189, 248, 0.04);">
-                <td colspan="4" style="font-weight: 700; color: var(--accent-cyan);">【第一類：法定資產與原始建置檔卷（社區產權與起造人移交基石）】</td>
-              </tr>
-              <tr>
-                <td><strong>1-1</strong></td>
-                <td><strong>使用執照謄本及全套竣工圖說</strong></td>
-                <td>建築執照、使用執照、全區建築平面圖、立面圖、各樓層結構圖說。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr>
-                <td><strong>1-2</strong></td>
-                <td><strong>機電／水電／管線竣工圖說</strong></td>
-                <td>強電、弱電、給水、排水、消防、通風排煙及地下管網走向竣工圖。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr>
-                <td><strong>1-3</strong></td>
-                <td><strong>公設點交結案報告書</strong></td>
-                <td>起造人（建商）與第一屆管委會共同現勘檢測、缺失複驗改善及簽收清冊。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr>
-                <td><strong>1-4</strong></td>
-                <td><strong>設施設備原廠維護手冊</strong></td>
-                <td>電梯、發電機、高低壓配電盤、ATS、中水過濾、門禁監控操作與維保說明書。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr>
-                <td><strong>1-5</strong></td>
-                <td><strong>原始設備保固書與廠商清冊</strong></td>
-                <td>起造人移交之各項機電設備保固年限合約、原廠緊急窗口與零件料號清單。</td>
-                <td style="text-align: center;">保固期滿後備查</td>
-              </tr>
-              <tr>
-                <td><strong>1-6</strong></td>
-                <td><strong>地籍圖與共用部分測繪圖</strong></td>
-                <td>基地地號地籍圖、專有部分、共用部分及約定專用部分（車位、露台）標示圖。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-
-              <!-- 類別二 -->
-              <tr style="background: rgba(16, 185, 129, 0.04);">
-                <td colspan="4" style="font-weight: 700; color: var(--accent-emerald);">【第二類：組織架構、規約與會議檔卷（治理決策與法制核心）】</td>
-              </tr>
-              <tr>
-                <td><strong>2-1</strong></td>
-                <td><strong>富宇大地社區管理規約</strong></td>
-                <td>經區權大會決議通過之規約本文，含停車位管理、裝潢施工、寵物管理附則。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr>
-                <td><strong>2-2</strong></td>
-                <td><strong>管委會組織報備證明函</strong></td>
-                <td>直轄市/縣市主管機關核發之公寓大廈管理組織報備證明（換屆登記依據）。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr>
-                <td><strong>2-3</strong></td>
-                <td><strong>區分所有權人及住戶名冊</strong></td>
-                <td>各棟戶號、產權人姓名、通訊地、緊急電話、承租人資料（依個資法防護）。</td>
-                <td style="text-align: center;">即時動態更新</td>
-              </tr>
-              <tr>
-                <td><strong>2-4</strong></td>
-                <td><strong>區分所有權人會議完整卷宗</strong></td>
-                <td>召集通知、簽到名冊、出席委託書、表決票、會議紀錄及建管備查公文。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr>
-                <td><strong>2-5</strong></td>
-                <td><strong>管委會歷次常會／臨會紀錄</strong></td>
-                <td>每月管委會例會會議紀錄、簽到表、各項審議提案附件與執行追蹤管制表。</td>
-                <td style="text-align: center;">至少保存 5 年</td>
-              </tr>
-              <tr>
-                <td><strong>2-6</strong></td>
-                <td><strong>核決權限表 (DOA 授權規章)</strong></td>
-                <td>管委會核定之小額動支、緊急防險、重大修繕比價發包簽核額度與授權書。</td>
-                <td style="text-align: center;">現行有效版</td>
-              </tr>
-              <tr>
-                <td><strong>2-7</strong></td>
-                <td><strong>法定印鑑清冊與換屆移交清單</strong></td>
-                <td>管委會大章、主委小章印模存查卡，歷屆新舊主委、監委移交點收簽認表。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-
-              <!-- 類別三 -->
-              <tr style="background: rgba(168, 85, 247, 0.04);">
-                <td colspan="4" style="font-weight: 700; color: var(--accent-purple);">【第三類：外包採購與契約管理檔卷（履約督導與法律憑據）】</td>
-              </tr>
-              <tr>
-                <td><strong>3-1</strong></td>
-                <td><strong>物業管理維護委任合約書</strong></td>
-                <td>依內政部定型化契約範本簽署，含服務範圍、附件一至五標準工項、違約退場條款。</td>
-                <td style="text-align: center;">約滿後 5 年</td>
-              </tr>
-              <tr>
-                <td><strong>3-2</strong></td>
-                <td><strong>留駐從業人員證照登錄清冊</strong></td>
-                <td>總幹事（事務管理人員認可證）、防火避難證照、保全員良民證與體檢報告。</td>
-                <td style="text-align: center;">履約期間備查</td>
-              </tr>
-              <tr>
-                <td><strong>3-3</strong></td>
-                <td><strong>各專業設施設備保養合約</strong></td>
-                <td>電梯定期保養、緊急發電機季度維護、消防系統季檢、弱電門禁監視合約。</td>
-                <td style="text-align: center;">約滿後 3 年</td>
-              </tr>
-              <tr>
-                <td><strong>3-4</strong></td>
-                <td><strong>環衛委外合約（水塔/消毒/清潔）</strong></td>
-                <td>駐點清潔服務、每半年蓄水池高壓清洗、每半年滅鼠滅蟑消毒、化糞池抽運合約。</td>
-                <td style="text-align: center;">約滿後 3 年</td>
-              </tr>
-              <tr>
-                <td><strong>3-5</strong></td>
-                <td><strong>重大工程招標比價評選卷宗</strong></td>
-                <td>外牆修繕、地坪防水、主機汰換之 3 家廠商報價單、規格效益比較表、發包合約。</td>
-                <td style="text-align: center;">保固期滿後 5 年</td>
-              </tr>
-              <tr>
-                <td><strong>3-6</strong></td>
-                <td><strong>外包廠商月度 KPI 考評與扣款單</strong></td>
-                <td>保全巡邏打卡率統計（目標98%+）、清潔抽驗評分表、違約記點與扣款單據。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-
-              <!-- 類別四 -->
-              <tr style="background: rgba(245, 158, 11, 0.04);">
-                <td colspan="4" style="font-weight: 700; color: var(--accent-amber);">【第四類：財務會計與公共基金檔卷（法定審計與金流憑證）】</td>
-              </tr>
-              <tr>
-                <td><strong>4-1</strong></td>
-                <td><strong>管理費收繳與未繳催告名冊</strong></td>
-                <td>每月各戶應收、實收金額、繳款虛擬帳號明細及積欠管理費法催催告存證清單。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr>
-                <td><strong>4-2</strong></td>
-                <td><strong>會計原始憑證（發票／收據）</strong></td>
-                <td>支出發票、收據、廠商勞務請款單、支出核銷單、支票領取簽收回執（三章分立）。</td>
-                <td style="text-align: center;"><span class="tag tag-cyan">法定 5 年</span></td>
-              </tr>
-              <tr>
-                <td><strong>4-3</strong></td>
-                <td><strong>會計傳票、日記帳與總分類帳</strong></td>
-                <td>收支轉帳傳票、會計總帳、各明細科目分戶帳簿與電腦資料庫加密備份。</td>
-                <td style="text-align: center;"><span class="tag tag-cyan">法定 10 年</span></td>
-              </tr>
-              <tr>
-                <td><strong>4-4</strong></td>
-                <td><strong>金融機構存摺與對帳單</strong></td>
-                <td>公共基金專戶活存、定存單影本、經常門營運帳戶存摺及每月銀行對帳單。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr>
-                <td><strong>4-5</strong></td>
-                <td><strong>財務收支月報表與公告底稿</strong></td>
-                <td>每月損益表、資產負債表、公共基金餘額表及公佈欄張貼拍照存查存證檔。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr>
-                <td><strong>4-6</strong></td>
-                <td><strong>年度預算書與決算審計報告</strong></td>
-                <td>經區權大會核定之年度經常門、資本門預算書及監委查核審計完畢之決算總表。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-
-              <!-- 類別五 -->
-              <tr style="background: rgba(244, 63, 94, 0.04);">
-                <td colspan="4" style="font-weight: 700; color: var(--accent-rose);">【第五類：法定公共安全、消防與機電運維檔卷（法定義務申報）】</td>
-              </tr>
-              <tr>
-                <td><strong>5-1</strong></td>
-                <td><strong>建築物公共安全檢查申報書</strong></td>
-                <td>依法定期限委託專業建築公安機構簽證申報書、建築管理處核發之合格證明。</td>
-                <td style="text-align: center;">歷年全套保存</td>
-              </tr>
-              <tr>
-                <td><strong>5-2</strong></td>
-                <td><strong>消防安全設備檢修申報書</strong></td>
-                <td>每年消防設備師實施外觀、性能、綜合測試申報書、消防局受理與複查合格函。</td>
-                <td style="text-align: center;">歷年全套保存</td>
-              </tr>
-              <tr>
-                <td><strong>5-3</strong></td>
-                <td><strong>消防防護計畫書與演練紀錄</strong></td>
-                <td>自衛消防編組名冊、滅火班/通報班/避難引導班每年 2 次實體演練成果相片。</td>
-                <td style="text-align: center;">3 年</td>
-              </tr>
-              <tr>
-                <td><strong>5-4</strong></td>
-                <td><strong>昇降設備（電梯）安全許可證</strong></td>
-                <td>中華民國昇降設備安全檢查協會核發之有效使用許可證（梯廂張貼、正本建檔）。</td>
-                <td style="text-align: center;">歷年全套保存</td>
-              </tr>
-              <tr>
-                <td><strong>5-5</strong></td>
-                <td><strong>緊急發電機運轉測試紀錄卡</strong></td>
-                <td>每週常態無載試運轉、每月 ATS 負載切換測試、油位與電瓶液位檢查卡。</td>
-                <td style="text-align: center;">3 年</td>
-              </tr>
-              <tr>
-                <td><strong>5-6</strong></td>
-                <td><strong>水質檢驗報告與清洗消毒紀錄</strong></td>
-                <td>認可檢驗機構出具之總溶解固體、餘氯、大腸桿菌群檢測報告與施工全景相片。</td>
-                <td style="text-align: center;">3 年</td>
-              </tr>
-              <tr>
-                <td><strong>5-7</strong></td>
-                <td><strong>高低壓電氣定期檢測量測卡</strong></td>
-                <td>特約電氣技術人員對變壓器絕緣、高壓斷路器、接地電阻之定期量測報告。</td>
-                <td style="text-align: center;">3 年</td>
-              </tr>
-              <tr>
-                <td><strong>5-8</strong></td>
-                <td><strong>機械停車設備定期安全許可證</strong></td>
-                <td>立體機械車位定期維護保養卡與檢查機構每年換發之安全檢查合格證。</td>
-                <td style="text-align: center;">歷年全套保存</td>
-              </tr>
-
-              <!-- 類別六 -->
-              <tr style="background: rgba(56, 189, 248, 0.04);">
-                <td colspan="4" style="font-weight: 700; color: var(--accent-cyan);">【第六類：住戶服務、裝潢施工與違規爭議檔卷（第一線維運作業）】</td>
-              </tr>
-              <tr>
-                <td><strong>6-1</strong></td>
-                <td><strong>室內裝修施工申請與切結書</strong></td>
-                <td>裝修圖說、台北/台中室內裝修許可證、施工保護計畫、保證金繳納收據存根。</td>
-                <td style="text-align: center;">退保後 2 年</td>
-              </tr>
-              <tr>
-                <td><strong>6-2</strong></td>
-                <td><strong>裝修每日巡檢與退場驗收表</strong></td>
-                <td>物業人員每日梯廳公設保護巡查、清運廢料查驗及完工無損退場點交單。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-              <tr>
-                <td><strong>6-3</strong></td>
-                <td><strong>公共設施借用登記與維護表</strong></td>
-                <td>多功能交誼廳、視聽室、韻律教室之租借預約表、保證金收付與復原查核。</td>
-                <td style="text-align: center;">1 年</td>
-              </tr>
-              <tr>
-                <td><strong>6-4</strong></td>
-                <td><strong>掛號包裹快遞代收領取登錄</strong></td>
-                <td>郵局掛號、低溫宅配、外送餐點之條碼建檔、住戶 App 簽收或領取流水紀錄。</td>
-                <td style="text-align: center;">1 年</td>
-              </tr>
-              <tr>
-                <td><strong>6-5</strong></td>
-                <td><strong>住戶報修工單與追蹤反饋單</strong></td>
-                <td>報修受理時間、現場勘查、外包叫修、完工檢驗及住戶簽章滿意度閉環表。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-              <tr>
-                <td><strong>6-6</strong></td>
-                <td><strong>違規勸導單與拍照存證卷宗</strong></td>
-                <td>公共走道堆放鞋櫃雜物、違規喧囂噪音、冷氣滴水之拍照存證與違規簽收單。</td>
-                <td style="text-align: center;">3 年（爭訟永久）</td>
-              </tr>
-              <tr>
-                <td><strong>6-7</strong></td>
-                <td><strong>存證信函與訴訟法催公文卷</strong></td>
-                <td>積欠管理費法催存證信函、法院支付命令、民事裁定書及聲請強制執行卷宗。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-
-              <!-- 類別七 -->
-              <tr style="background: rgba(16, 185, 129, 0.04);">
-                <td colspan="4" style="font-weight: 700; color: var(--accent-emerald);">【第七類：日常現場作業與三級週期性彙報檔卷（管理閉環紀錄）】</td>
-              </tr>
-              <tr>
-                <td><strong>7-1</strong></td>
-                <td><strong>保全／物業交接班工作日誌</strong></td>
-                <td>24小時勤務交代簿、備份鑰匙借還登記簿、臨時突發事件現場處置速記。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-              <tr>
-                <td><strong>7-2</strong></td>
-                <td><strong>物業營運「日報表（Daily）」</strong></td>
-                <td>人員哨位出勤、機房日巡、當日工單處理狀況、突發異常通報處置表。</td>
-                <td style="text-align: center;">1 年</td>
-              </tr>
-              <tr>
-                <td><strong>7-3</strong></td>
-                <td><strong>物業營運「週報表（Weekly）」</strong></td>
-                <td>管委會決議交辦進度（%）、滯留工單深究分析、保全打卡巡檢達成率統計。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-              <tr>
-                <td><strong>7-4</strong></td>
-                <td><strong>物業營運「月報表（Monthly）」</strong></td>
-                <td>常會專用全景審議資料包（財務報表、機電巡檢、外包考評、議案提案稿）。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr>
-                <td><strong>7-5</strong></td>
-                <td><strong>緊急重大事故處置調查報告</strong></td>
-                <td>自來水幹管爆裂、電梯困人、火警誤鳴等之現場處置時序、相片與善後報告。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr>
-                <td><strong>7-6</strong></td>
-                <td><strong>住戶陳情案件與滿意度問卷</strong></td>
-                <td>住戶意見箱處理回覆紀錄、年度物業管理服務滿意度統計問卷與改善方案。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- Section 5: 規章範本 (可一鍵複製) -->
-      <section class="section">
-        <div class="section-header">
-          <div class="section-eyebrow">Ready-to-use Bylaws</div>
-          <h2 class="section-title">五、富宇大地社區規章正式條款範本</h2>
-          <p class="section-subtitle">點擊一鍵複製，可直接作為會議紀錄或正式公告文字。</p>
-        </div>
-
-        <div class="template-box">
-          <div class="template-header">
-            <div class="template-title">富宇大地社區物業經理與管委會權責正式定位條款</div>
-            <button class="btn-copy" onclick="copyTemplate('tpl-fuyu-1', this)">複製條款</button>
-          </div>
-          <pre class="template-content" id="tpl-fuyu-1">【富宇大地社區物業經理與管理委員會權責定位規範】
-
-一、定位劃分：
-本社區物業經理（管理服務人）係受富宇大地管理委員會之委任與監督，依公寓大廈管理條例、受任管理維護業務契約及本社區規約，專責社區日常管理事務之執行、協調、現場巡檢、請修追蹤與定期回報，並就專業管理維護事項提出專業評估與建議。
-
-二、決策權限：
-凡涉及公共基金動支、各項預算支出、外包廠商評選與定約、重大工程修繕、住戶權益處置、規約條款適用與解釋、違規爭議處置及其他重大管理維護決策，均應提請管理委員會討論並作成正式會議決議；其判斷、最終決策與法定管理責任仍由管理委員會主責承擔。
-
-三、三級彙報機制：
-物業經理應落實日報、週報、月報之三級資訊回報機制，處理相關事務應留下書面紀錄與報告，建議事項一律以書面提出，確保資訊透明對齊。</pre>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  
-  <!-- ========================================================================= -->
-  <!-- VIEW 4: 智生活功能體系 (Smart Daily Ecosystem & Features)                 -->
-  <!-- ========================================================================= -->
-  <div id="viewSmartDaily" class="view-container">
-    <header class="hero">
-      <div class="container">
-        <div class="hero-tags">
-          <span class="tag tag-cyan">智生活 Smart Daily (今網科技)</span>
-          <span class="tag tag-emerald">全台 10,000+ 社區採用實績</span>
-          <span class="tag tag-amber">156 萬+ 月活用戶體系</span>
-          <span class="tag tag-purple">社區物業管理 + AIoT 智慧建築 + O2O生活服務</span>
-        </div>
-        <h1>智生活（Smart Daily）智慧社區全功能體系架構</h1>
-        <p class="hero-lead">
-          整合台灣智慧社區第一品牌「智生活」之完整功能矩陣。涵蓋<strong>免費基礎物業行政後台</strong>、<strong>AIoT 智慧建築物聯網應用</strong>（雲端對講機、充電樁EMS）以及<strong>居家生活到府服務生態圈</strong>，提供富宇大地社區數位升級之權威功能索引與導入評估。
-        </p>
-
-        <!-- Quick 4 Pillars -->
-        <div class="grid-4" style="margin-top: 20px;">
-          <div class="card" style="margin-bottom: 0;">
-            <div style="font-size: 0.8rem; color: var(--accent-cyan); text-transform: uppercase; font-weight: 700;">維度 01・物業行政</div>
-            <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 4px 0;">數位管理平台</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">包裹秒讀核銷、管理費代收自動沖銷、公設預約、瓦斯抄表、區權線上大會。</div>
-          </div>
-          <div class="card" style="margin-bottom: 0;">
-            <div style="font-size: 0.8rem; color: var(--accent-emerald); text-transform: uppercase; font-weight: 700;">維度 02・智慧建築</div>
-            <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 4px 0;">AIoT 智聯設備</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">雲端對講機免拉線、手機遠端視訊開門、車道辨識、充電樁 EMS 負載平衡。</div>
-          </div>
-          <div class="card" style="margin-bottom: 0;">
-            <div style="font-size: 0.8rem; color: var(--accent-amber); text-transform: uppercase; font-weight: 700;">維度 03・生活服務</div>
-            <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 4px 0;">O2O 到府生態</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">冷氣洗衣機拆洗保固60天、社區收送洗衣、管理室寄件、今網對稱光纖寬頻。</div>
-          </div>
-          <div class="card" style="margin-bottom: 0;">
-            <div style="font-size: 0.8rem; color: var(--accent-purple); text-transform: uppercase; font-weight: 700;">維度 04・導入效益</div>
-            <div style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin: 4px 0;">富宇大地效益</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">管理室行政工時節省 70%、管理費呆帳率 &lt; 1%、對講機免拉線省百萬工程款。</div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main class="container" style="padding-top: 36px;">
-
-      <!-- Filter Chips for SmartDaily Features -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
-        <div class="category-pills">
-          <button class="cat-pill active" onclick="filterSmartDaily('all', this)">全部功能 (14項)</button>
-          <button class="cat-pill" onclick="filterSmartDaily('admin', this)">物業行政與會務</button>
-          <button class="cat-pill" onclick="filterSmartDaily('aiot', this)">智慧建築 AIoT 設備</button>
-          <button class="cat-pill" onclick="filterSmartDaily('living', this)">居家生活 O2O 生態</button>
-          <button class="cat-pill" onclick="filterSmartDaily('roi', this)">導入效益評估</button>
-        </div>
-        <div style="font-size: 0.82rem; color: var(--text-muted);">
-          支援：iOS / Android App 及 Web 管理後台
-        </div>
-      </div>
-
-      <!-- Feature Grid -->
-      <div class="grid-3" id="smartDailyGrid">
-
-        <!-- 1. 包裹管理 -->
-        <div class="card sd-card" data-category="admin">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-cyan">物業行政・基本版免費</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">日常高頻</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">1. 智慧包裹與郵務核銷管理</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            管理人員透過條碼槍或手機鏡頭直接掃描快遞、掛號條碼，系統自動辨識並秒速建檔。住戶手機 App 即時收到推播通知，出示個人專屬條碼即可「零接觸免簽名」秒速核銷領取。
-          </p>
-          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
-            ✔ 支援物品寄放、鑰匙轉交、冷藏包裹警示與代領授權
-          </div>
-        </div>
-
-        <!-- 2. 管理費代收 -->
-        <div class="card sd-card" data-category="admin">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-cyan">物業行政・基本版免費</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">核心金流</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">2. 管理費多元代收與自動沖銷對帳</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            提供四大超商條碼繳費、ATM 虛擬專屬帳號、信用卡線上刷卡及行動支付。銀行金流即時與系統連線自動沖銷，徹底告別人工作業、核對單據與刷存摺對帳之繁重負擔。
-          </p>
-          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
-            ✔ 欠繳名冊自動產出、一鍵發送催繳推播、銀行專屬刷卡回饋
-          </div>
-        </div>
-
-        <!-- 3. 數位公佈欄 -->
-        <div class="card sd-card" data-category="admin">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-cyan">物業行政・基本版免費</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">資訊傳遞</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">3. 數位公佈欄與分眾即時推播</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            社區會議紀錄、財務報表、停水停電重要公告一鍵上傳。支援棟別、樓層分眾推播，並提供住戶已讀率精準統計，確保社區政令訊息 100% 傳達不遺漏。
-          </p>
-          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
-            ✔ 分類標籤檢索、置頂公告、緊急重大事故跑馬燈廣播
-          </div>
-        </div>
-
-        <!-- 4. 公設預約點數 -->
-        <div class="card sd-card" data-category="admin">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-cyan">物業行政・基本版免費</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">資產活化</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">4. 公設線上預約與點數儲值管理</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            交誼廳、KTV、視聽室、健身房與多功能教室線上 24H 預約。系統自動扣抵每戶配額點數，設備保養時後台可動態閉館防呆，杜絕現場登記撞期與爭端。
-          </p>
-          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
-            ✔ 預約取消費用扣抵、違約記點限制預約、使用人次統計分析
-          </div>
-        </div>
-
-        <!-- 5. 瓦斯線上抄表 -->
-        <div class="card sd-card" data-category="admin">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-cyan">物業行政・基本版免費</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">日常減紙</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">5. 瓦斯線上度數填報與報表匯出</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            告別樓梯間紙本瓦斯登記表！住戶在 App 輸入瓦斯度數（可拍照存證防爭議），抄表截止日後台一鍵匯出符合各家天然氣公司格式之總表，直接送件。
-          </p>
-          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
-            ✔ 自動防呆過低/過高跳度警示、未填報戶一鍵推播提醒
-          </div>
-        </div>
-
-        <!-- 6. 修繕工單與意見 -->
-        <div class="card sd-card" data-category="admin">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-cyan">物業行政・基本版免費</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">住戶溝通</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">6. 公共修繕工單與住戶意見反映</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            住戶發現公共設備損壞（如路燈不亮、水管微漏），可拍照透過 App 回報；後台轉化為工單指派物業追蹤。住戶可即時查看「受理、待料、完工」閉環進度。
-          </p>
-          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
-            ✔ 意見分類歸檔、避免櫃檯口頭爭執、完工住戶星級滿意度回饋
-          </div>
-        </div>
-
-        <!-- 7. 區權大會視訊投票 -->
-        <div class="card sd-card" data-category="admin">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-cyan">物業行政・進階版</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">會務治理</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">7. 區權大會線上視訊與電子投票</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            符合《公寓大廈管理條例》法令規範之線上會議輔助工具。支援住戶身分電子認證、出席委託書審查、議案電子表決與區權比例自動試算，大幅提升成會率。
-          </p>
-          <div style="background: var(--card-bg-subtle); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #38bdf8;">
-            ✔ 表決票密碼防偽驗證、票數及區權比例即時動態加總
-          </div>
-        </div>
-
-        <!-- 8. 雲端對講機 -->
-        <div class="card sd-card" data-category="aiot">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-emerald">智慧建築 AIoT 設備</span>
-            <span style="font-size: 0.78rem; color: #10b981; font-weight: 700;">旗艦熱門</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">8. 智生活雲端對講機（Smart Intercom）</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            徹底顛覆傳統壁掛室內機！<strong>免敲牆、免拉室內實體弱電線</strong>。訪客在大門對講機撥號，住戶手機 App 即時視訊響鈴，無論在客廳或出差在外，都能手機一鍵遠端為訪客開門。
-          </p>
-          <div style="background: rgba(16, 185, 129, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #10b981;">
-            ★ 老舊大樓節省數百萬重新抽線工程費、支援多位同住家人同時接聽
-          </div>
-        </div>
-
-        <!-- 9. 車道門禁與訪客碼 -->
-        <div class="card sd-card" data-category="aiot">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-emerald">智慧建築 AIoT 設備</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">安全出入</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">9. 智慧車道 eTag 與動態訪客通行證</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            車道柵欄整合遠距 eTag 與車牌辨識自動起落。住戶可針對預約來訪親友產製具時效性（如2小時有效）之專屬 QR Code 訪客碼，訪客在大門刷碼即可放行，保全後台完整紀錄。
-          </p>
-          <div style="background: rgba(16, 185, 129, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #10b981;">
-            ★ 杜絕外車違停混入、訪客出入軌跡電子化、兼顧隱私與維安
-          </div>
-        </div>
-
-        <!-- 10. 充電樁 EMS -->
-        <div class="card sd-card" data-category="aiot">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-emerald">智慧建築 AIoT 設備</span>
-            <span style="font-size: 0.78rem; color: #10b981; font-weight: 700;">電車首選</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">10. 社區充電樁 EMS 智能能源管理</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            專為集合住宅設計之電動車充電方案。具備台電專用電表規劃、EMS 動態電力負載平衡，避免多車同時快充導致社區跳電；支援插槍即充，電費自動計費對帳。
-          </p>
-          <div style="background: rgba(16, 185, 129, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #10b981;">
-            ★ 充電電費直接併入住戶次月管理費帳單代收，免管委會人工對帳
-          </div>
-        </div>
-
-        <!-- 11. 家電清洗 -->
-        <div class="card sd-card" data-category="living">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-amber">居家生活 O2O 生態</span>
-            <span style="font-size: 0.78rem; color: #f59e0b; font-weight: 700;">口碑服務</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">11. 專業到府家電清洗（冷氣/洗衣機）</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            全台清洗超過 10 萬台家電！原廠直營技師全台到府拆機高溫清洗與醫療級消毒殺菌。提供冷氣機清洗業界最長 60 天保固與投保責任險，住戶在社區 App 直接預約享專案價。
-          </p>
-          <div style="background: rgba(245, 158, 11, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #f59e0b;">
-            ★ 分離式冷氣/滾筒與直立洗衣機/抽油煙機拆洗、滿意度 4.9 顆星
-          </div>
-        </div>
-
-        <!-- 12. 生活便利代辦 -->
-        <div class="card sd-card" data-category="living">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-amber">居家生活 O2O 生態</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">便利到家</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">12. 社區到府衣物收洗與包裹寄送</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            衣物不用親自搬去洗衣店，放在管理室即可代收送乾洗水洗、整燙送回；個人寄件不用跑郵局超商，直接在管理中心交寄快遞，享受社區專屬優惠運價。
-          </p>
-          <div style="background: rgba(245, 158, 11, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #f59e0b;">
-            ★ 整合計程車叫車合作、居家清潔到府媒合、社區集氣團購優惠
-          </div>
-        </div>
-
-        <!-- 13. 今網寬頻光纖 -->
-        <div class="card sd-card" data-category="living">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-amber">居家生活 O2O 生態</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">原廠網路</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">13. 今網社區專用光纖寬頻網路</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            智生活母公司「今網資訊」提供之專屬光纖對稱頻寬。免綁長約、低月費高網速，配備 24H 真人客服與快速到府障礙排除，為社區公設與住戶提供高品質上網方案。
-          </p>
-          <div style="background: rgba(245, 158, 11, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #f59e0b;">
-            ★ 公設免費 Wi-Fi 熱點贊助專案、住戶光纖飆網超值回饋
-          </div>
-        </div>
-
-        <!-- 14. 純享免廣告模式 -->
-        <div class="card sd-card" data-category="living">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-            <span class="tag tag-purple">個人化加值訂閱</span>
-            <span style="font-size: 0.78rem; color: var(--text-muted);">$30/月</span>
-          </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">14. App 住戶純享模式（廣告隱藏）</h3>
-          <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px;">
-            針對追求極致簡約乾淨體驗之住戶，可於 App Store / Google Play 訂閱「純享方案」。全面屏蔽所有生活商業促銷推播，只保留 100% 純淨之社區管理與包裹通知。
-          </p>
-          <div style="background: rgba(168, 85, 247, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 0.78rem; color: #c084fc;">
-            ★ 首月免費試用、個人化關閉廣告版面、專屬紅利積點回饋
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Section: 富宇大地導入效益與評估矩陣 (ROI) -->
-      <div id="sdRoiSection" style="margin-top: 40px;" class="sd-card" data-category="roi">
-        <div class="section-header">
-          <div class="section-eyebrow">Implementation Assessment & ROI Matrix</div>
-          <h2 class="section-title">五、富宇大地社區導入智生活之效益試算與治理評估</h2>
-          <p class="section-subtitle">對比傳統紙本人工管理 vs 導入智生活智慧平台之量化成效。</p>
-        </div>
-
-        <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
-        <div class="table-responsive">
-          <table>
-            <thead>
-              <tr>
-                <th style="width: 20%;">營運治理指標</th>
-                <th style="width: 28%;">傳統社區人工管理現況</th>
-                <th style="width: 32%;">導入智生活系統後之成效</th>
-                <th style="width: 20%; text-align: center;">量化改善幅度</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>包裹掛號收發核銷</strong></td>
-                <td>紙本簽名簿手寫登錄，下班尖峰期排隊找信耗時 3~5 分鐘/件。</td>
-                <td>條碼槍掃碼入庫推播，住戶出示手機 QR Code 3 秒嗶卡領取。</td>
-                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">領件時效 +80%</td>
-              </tr>
-              <tr>
-                <td><strong>管理費收繳與對帳</strong></td>
-                <td>物業人員每月刷存摺人工核對單據、開立手工收據，核銷耗費數天。</td>
-                <td>銀行金流直連超商與虛擬帳號，系統每日即時自動沖銷入帳。</td>
-                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">對帳工時 -90%</td>
-              </tr>
-              <tr>
-                <td><strong>管理費欠繳率控制</strong></td>
-                <td>人工翻找歷史帳冊，容易遺漏催收時效，累積呆帳率 3~5%。</td>
-                <td>系統設定逾期自動 App 推播提醒，一鍵匯出法催名冊與存證信函。</td>
-                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">收繳率 99%+</td>
-              </tr>
-              <tr>
-                <td><strong>社區對講機老舊維護</strong></td>
-                <td>弱電配線老化雜音大，重新敲牆拉線工程報價動輒 80~150 萬元。</td>
-                <td>採用雲端對講機，免敲牆免拉線，住戶手機直接視訊接聽開門。</td>
-                <td style="text-align: center; color: var(--accent-cyan); font-weight: 700;">節省 CapEx 70%</td>
-              </tr>
-              <tr>
-                <td><strong>公設撞期與投訴爭議</strong></td>
-                <td>管理室紙本預約登記本，容易漏記、撞期或產生口角質疑。</td>
-                <td>App 即時查看時段、點數自動抵扣、維護期自動關閉防呆。</td>
-                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">撞期糾紛 0 件</td>
-              </tr>
-              <tr>
-                <td><strong>瓦斯每月抄表統計</strong></td>
-                <td>樓梯間張貼紙本報表，住戶字跡不清、物業手動逐一鍵入電腦。</td>
-                <td>住戶在手機填寫拍照，截止日後台一鍵匯出瓦斯公司報表。</td>
-                <td style="text-align: center; color: var(--accent-emerald); font-weight: 700;">謄寫錯誤 0%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-    
-      <!-- Section: 52項法定檔卷 vs 智生活系統能力差距分析 (GAP ANALYSIS) -->
-      <section id="gapAnalysisSection" class="section sd-card" data-category="roi" style="margin-top: 50px; border-top: 2px dashed rgba(56, 189, 248, 0.3); padding-top: 40px;">
-        <div class="section-header">
-          <div class="section-eyebrow">Statutory Compliance Gap Analysis</div>
-          <h2 class="section-title">六、富宇大地 52 項法定檔卷 vs. 智生活系統能力差距穿透分析</h2>
-          <p class="section-subtitle">
-            依據現行《公寓大廈管理條例》、內政部定型化受任契約規範，深度檢視智生活（Smart Daily）在 7 大類 52 項法定檔卷之真實覆蓋度與能力邊界。
-          </p>
-        </div>
-
-        <!-- 3 Bento Metric Cards -->
-        <div class="grid-3" style="margin-bottom: 24px;">
-          <div class="card" style="border-top: 4px solid var(--accent-rose); background: linear-gradient(180deg, rgba(244, 63, 94, 0.05) 0%, var(--card-bg) 100%);">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-rose); text-transform: uppercase;">核心風控缺位</span>
-              <span class="tag" style="background: rgba(244, 63, 94, 0.15); color: #f43f5e; border: 1px solid rgba(244, 63, 94, 0.3);">高法律風險</span>
-            </div>
-            <div style="font-size: 2.2rem; font-weight: 900; color: var(--text-primary); margin: 6px 0;">
-              37 <span style="font-size: 1.1rem; color: var(--accent-rose); font-weight: 700;">項 (71.1%)</span>
-            </div>
-            <div style="font-size: 0.95rem; font-weight: 700; color: #fca5a5; margin-bottom: 6px;">智生活完全沒有 (Missing)</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
-              建築竣工圖資、外包採購比價合約、複式簿記會計傳票總帳、公安消防申報書、發電機量測卡、三級運維彙報表。<strong>智生活非 EDMS 與 ERP，無法承擔法定資產管理。</strong>
-            </div>
-          </div>
-
-          <div class="card" style="border-top: 4px solid var(--accent-amber); background: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, var(--card-bg) 100%);">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase;">被動公告形式</span>
-              <span class="tag" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);">僅供閱覽</span>
-            </div>
-            <div style="font-size: 2.2rem; font-weight: 900; color: var(--text-primary); margin: 6px 0;">
-              7 <span style="font-size: 1.1rem; color: var(--accent-amber); font-weight: 700;">項 (13.5%)</span>
-            </div>
-            <div style="font-size: 0.95rem; font-weight: 700; color: #fcd34d; margin-bottom: 6px;">智生活部分支援 (Partial)</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
-              管理規約、管委會月會紀錄、報備證明函、資產負債損益月報表。<strong>系統無專業編輯與審計功能，僅能由管委會做好後以 PDF/圖片上傳公佈欄供住戶下載。</strong>
-            </div>
-          </div>
-
-          <div class="card" style="border-top: 4px solid var(--accent-emerald); background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--card-bg) 100%);">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-emerald); text-transform: uppercase;">前端原生模組</span>
-              <span class="tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">自動化</span>
-            </div>
-            <div style="font-size: 2.2rem; font-weight: 900; color: var(--text-primary); margin: 6px 0;">
-              8 <span style="font-size: 1.1rem; color: var(--accent-emerald); font-weight: 700;">項 (15.4%)</span>
-            </div>
-            <div style="font-size: 0.95rem; font-weight: 700; color: #6ee7b7; margin-bottom: 6px;">智生活已有 (Native)</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
-              包裹掛號秒讀核銷、管理費代收自動銷帳、住戶名冊開通、公設預約扣點、瓦斯線上抄表、修繕報修工單、住戶意見問卷。<strong>屬於住戶第一線高頻生活作業。</strong>
-            </div>
-          </div>
-        </div>
-
-        <!-- Filter Buttons for 52 Items Table -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
-          <div class="category-pills" id="gapFilterPills">
-            <button class="cat-pill active" onclick="filterGapRows('all', this)">全部 52 項總表 (52)</button>
-            <button class="cat-pill" style="color: #f87171;" onclick="filterGapRows('missing', this)">❌ 智生活完全沒有 (37項)</button>
-            <button class="cat-pill" style="color: #fbbf24;" onclick="filterGapRows('partial', this)">◐ 部分支援/僅供公告 (7項)</button>
-            <button class="cat-pill" style="color: #34d399;" onclick="filterGapRows('native', this)">● 智生活已有 (8項)</button>
-          </div>
-          <div style="font-size: 0.82rem; color: var(--text-muted);">
-            點選上方按鈕可即時切換篩選條件
-          </div>
-        </div>
-
-        <!-- 52 Items Comprehensive Penetration Table -->
-        <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
-        <div class="table-responsive" style="margin-top: 0;">
-          <table id="gapAnalysisTable">
-            <thead>
-              <tr>
-                <th style="width: 8%;">編號</th>
-                <th style="width: 22%;">檔卷名稱</th>
-                <th style="width: 16%; text-align: center;">智生活系統現況</th>
-                <th style="width: 40%;">差距深度剖析與富宇大地實務處置措施</th>
-                <th style="width: 14%; text-align: center;">法定保管年限</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- 類別一：法定資產與原始建置 (全6項皆缺) -->
-              <tr class="gap-cat-header" style="background: rgba(56, 189, 248, 0.08);">
-                <td colspan="5" style="font-weight: 700; color: var(--accent-cyan);">
-                  一、法定資產與原始建置檔卷（共 6 項，智生活支援率：0%）
-                </td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>1-1</strong></td>
-                <td><strong>使用執照謄本及全套竣工圖說</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>屬超大尺寸建築 CAD 圖、藍晒圖說與結構載重圖。智生活非工程圖資系統，<strong>必須由物業以實體防火防潮圖櫃與保密硬碟專卷封存</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>1-2</strong></td>
-                <td><strong>機電／水電／管線竣工圖說</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>強電、高低壓管路、給排水及消防管線路由圖，日後修繕找漏水必備。智生活無圖面檢索功能，<strong>須交由機電主任專冊保管</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>1-3</strong></td>
-                <td><strong>公設點交結案報告書</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>建商與管委會點交之現場缺失改善、公積金撥付驗收憑據。智生活無點交模組，<strong>為日後追究建商瑕疵擔保之司法關鍵事證</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>1-4</strong></td>
-                <td><strong>設施設備原廠維護手冊</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>發電機、高低壓配電盤、電梯等原廠維修手冊與操作說明書。智生活無設備資產資料庫，<strong>須建立設備紙本與電子操作總冊</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>1-5</strong></td>
-                <td><strong>原始設備保固書與廠商清冊</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>起造人移交之防水、機電保固期程、緊急維修窗口與零件料號清單。智生活無廠商資料庫，<strong>須登錄於管委會設備台帳</strong>。</td>
-                <td style="text-align: center;">保固期滿後備查</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>1-6</strong></td>
-                <td><strong>地籍圖與共用部分測繪圖</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>基地地號界線、共用部分與約定專用（車位、約定露台）之測繪界線圖。涉及住戶產權邊界爭議，<strong>智生活無法提供法定產權測繪憑證</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-
-              <!-- 類別二：組織架構、規約與會議 (7項: 1已有, 4部分, 2沒有) -->
-              <tr class="gap-cat-header" style="background: rgba(16, 185, 129, 0.08);">
-                <td colspan="5" style="font-weight: 700; color: var(--accent-emerald);">
-                  二、組織架構、規約與會議檔卷（共 7 項，智生活支援率：14.3% 原生 + 57.1% 部分）
-                </td>
-              </tr>
-              <tr class="gap-row" data-support="partial">
-                <td><strong>2-1</strong></td>
-                <td><strong>富宇大地社區管理規約</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
-                <td>智生活僅能以 PDF 檔案供住戶在 App 閱覽；<strong>無規約條款動態編修與版本修訂審查功能，正式紙本規約正本仍須管委會蓋印保存</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr class="gap-row" data-support="partial">
-                <td><strong>2-2</strong></td>
-                <td><strong>管委會組織報備證明函</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
-                <td>主管機關（台中市建管處）核准之公文報備函，智生活僅能當成圖片張貼公告；<strong>向銀行辦理管委會換屆印鑑變更必須出具政府公文正本</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr class="gap-row" data-support="native">
-                <td><strong>2-3</strong></td>
-                <td><strong>區分所有權人及住戶名冊</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
-                <td>智生活具備「住戶開通管理」模組，支援戶號、手機號碼、同住者身分綁定與動態更新；符合實務通訊需求（個資須注意權限授權）。</td>
-                <td style="text-align: center;">即時動態更新</td>
-              </tr>
-              <tr class="gap-row" data-support="partial">
-                <td><strong>2-4</strong></td>
-                <td><strong>區分所有權人會議完整卷宗</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
-                <td>智生活提供線上投票/大會視訊串接，但<strong>無法留存實體簽到簿正本、法定出席委託書簽章聯與表決選票實體卷宗（建管報備法定必備）</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-              <tr class="gap-row" data-support="partial">
-                <td><strong>2-5</strong></td>
-                <td><strong>管委會歷次常會／臨會紀錄</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
-                <td>智生活可當公告附件張貼，但<strong>無法進行歷次議案執行進度追蹤（Workflow）與委員出席簽到表驗證</strong>。</td>
-                <td style="text-align: center;">至少保存 5 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>2-6</strong></td>
-                <td><strong>核決權限表 (DOA 授權規章)</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>小額零用金、常委請修、重大工程之簽核額度規則。智生活無內部審批簽核工作流，<strong>須依管委會正式會議紀錄與紙本簽呈落實</strong>。</td>
-                <td style="text-align: center;">現行有效版</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>2-7</strong></td>
-                <td><strong>法定印鑑清冊與換屆移交清單</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>管委會大小章、發票章之印模留存卡與新舊任主委、監委簽名交接清冊。智生活無此功能，<strong>印鑑實體移交為釐清掏空舞弊責任之防線</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-
-              <!-- 類別三：外包採購與契約管理 (全6項皆缺) -->
-              <tr class="gap-cat-header" style="background: rgba(168, 85, 247, 0.08);">
-                <td colspan="5" style="font-weight: 700; color: var(--accent-purple);">
-                  三、外包採購與契約管理檔卷（共 6 項，智生活支援率：0%）
-                </td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>3-1</strong></td>
-                <td><strong>物業管理維護委任合約書</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>依內政部定型化範本簽訂之管理委託合約（含 5 大附件工項、15 日違約終止條款）。智生活僅是軟體平台，<strong>完全不涉管委會對物業之契約監督</strong>。</td>
-                <td style="text-align: center;">約滿後 5 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>3-2</strong></td>
-                <td><strong>留駐從業人員證照登錄清冊</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>總幹事事務認可證、保全員良民證、體檢合格表。智生活無人員資歷庫，<strong>管委會須由監委審查物業留駐人員是否具法定合格認可證</strong>。</td>
-                <td style="text-align: center;">履約期間備查</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>3-3</strong></td>
-                <td><strong>各專業設施設備保養合約</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>電梯月保、緊急發電機、消防、弱電監控定期維護合約。智生活無法管理外部協力廠商合約之罰則、時限與保固條款。</td>
-                <td style="text-align: center;">約滿後 3 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>3-4</strong></td>
-                <td><strong>環衛委外合約（水塔/消毒/清潔）</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>智生活雖有自身媒合的生活服務，但<strong>無法管理社區既有外部清潔公司、水塔清洗與化糞池清運之法定委託合約與派工審核</strong>。</td>
-                <td style="text-align: center;">約滿後 3 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>3-5</strong></td>
-                <td><strong>重大工程招標比價評選卷宗</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>外牆修繕、車道瀝青鋪設之 3 家比價單、規格效益分析表及管委會招標決標紀錄。智生活無採購發包流程，<strong>此卷宗為防止貪瀆之關鍵審計憑據</strong>。</td>
-                <td style="text-align: center;">保固期滿後 5 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>3-6</strong></td>
-                <td><strong>外包廠商月度 KPI 考評與扣款單</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>保全夜巡打卡率（目標 &ge;98%）、清潔衛生抽驗計罰單。智生活無外包人員 KPI 稽核系統，<strong>須由物業經理每週造冊提報</strong>。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-
-              <!-- 類別四：財務會計與公共基金 (6項: 1已有, 1部分, 4沒有) -->
-              <tr class="gap-cat-header" style="background: rgba(245, 158, 11, 0.08);">
-                <td colspan="5" style="font-weight: 700; color: var(--accent-amber);">
-                  四、財務會計與公共基金檔卷（共 6 項，智生活支援率：16.7% 原生 + 16.7% 部分）
-                </td>
-              </tr>
-              <tr class="gap-row" data-support="native">
-                <td><strong>4-1</strong></td>
-                <td><strong>管理費收繳與未繳催告名冊</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
-                <td>智生活的強項！支援超商、虛擬帳號、信用卡繳納，金流即時連線自動銷帳，可產出欠費催繳清單與推播提醒；大幅節省對帳時間。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>4-2</strong></td>
-                <td><strong>會計原始憑證（發票／收據）</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>所有經常門、資本門支出發票、請款單、驗收核銷單。智生活非 ERP 系統，<strong>管委會必須落實主委、財委、監委實體「三章分立」核銷簽章</strong>。</td>
-                <td style="text-align: center;"><span class="tag tag-cyan">法定 5 年</span></td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>4-3</strong></td>
-                <td><strong>會計傳票、日記帳與總分類帳</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>智生活只有「代收流水帳」，<strong>完全不是符合商業會計法之複式簿記傳票系統</strong>。管委會必須使用專業會計軟體編製總帳、日記帳與各科目分戶帳。</td>
-                <td style="text-align: center;"><span class="tag tag-cyan">法定 10 年</span></td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>4-4</strong></td>
-                <td><strong>金融機構存摺與對帳單</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>台灣銀行公共基金專戶、定存單、營運專戶之存摺與月結對帳單。智生活無法整合社區多元銀行專戶，<strong>監委每月須實體核對存摺餘額</strong>。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr class="gap-row" data-support="partial">
-                <td><strong>4-5</strong></td>
-                <td><strong>財務收支月報表與公告底稿</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
-                <td>智生活僅能將財委編製完成之資產負債表以圖片公告；<strong>無法自動生成符合公寓大廈管理條例規範之標準財務報表</strong>。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>4-6</strong></td>
-                <td><strong>年度預算書與決算審計報告</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>經區權大會審議之年度預算書、經常門執行差異分析及監察委員查核報告。智生活無預算編制與審計追蹤模組。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-
-              <!-- 類別五：公共安全、消防與機電運維 (全8項皆缺) -->
-              <tr class="gap-cat-header" style="background: rgba(244, 63, 94, 0.08);">
-                <td colspan="5" style="font-weight: 700; color: var(--accent-rose);">
-                  五、法定公共安全、消防與機電運維檔卷（共 8 項，智生活支援率：0%）
-                </td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>5-1</strong></td>
-                <td><strong>建築物公共安全檢查申報書</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>建築法第 77 條法定每 2~4 年專業機構簽證申報書與工務局合格標章。智生活無公安申報管理，<strong>未依限申報面臨 6~30 萬元罰鍰</strong>。</td>
-                <td style="text-align: center;">歷年全套保存</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>5-2</strong></td>
-                <td><strong>消防安全設備檢修申報書</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>消防法第 9 條每年消防設備師性能測試申報書與消防局複查合格函。智生活無此功能，<strong>物業必須專案建檔列管改善進度</strong>。</td>
-                <td style="text-align: center;">歷年全套保存</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>5-3</strong></td>
-                <td><strong>消防防護計畫書與演練紀錄</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>自衛消防編組名冊、滅火/通報/避難引導班每半年演練相片與成果報告。智生活無演練管理，<strong>消防檢查必抽查此項</strong>。</td>
-                <td style="text-align: center;">3 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>5-4</strong></td>
-                <td><strong>昇降設備（電梯）安全許可證</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>中華民國昇降設備安檢協會每年換發之電梯合格證正本。智生活無證照有效期限到期警示功能，<strong>過期運轉涉嚴重法律刑責</strong>。</td>
-                <td style="text-align: center;">歷年全套保存</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>5-5</strong></td>
-                <td><strong>緊急發電機運轉測試紀錄卡</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>發電機每週無載運轉、每月 ATS 負載切換、電瓶水與油位記錄卡。智生活無機電設備巡檢表，<strong>須由機電人員定期手寫簽章於機房紀錄卡</strong>。</td>
-                <td style="text-align: center;">3 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>5-6</strong></td>
-                <td><strong>水質檢驗報告與清洗消毒紀錄</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>每半年蓄水池清洗合格照片、環保署認可實驗室餘氯及大腸桿菌檢測數據。智生活無水質報告庫，<strong>為住戶飲用水安全之法定背書</strong>。</td>
-                <td style="text-align: center;">3 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>5-7</strong></td>
-                <td><strong>高低壓電氣定期檢測量測卡</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>特約電氣技術人員對變壓器絕緣阻抗、接地電阻之法定年度測試申報表。智生活無法記錄電氣數值，<strong>此為預防配電盤火災之核心</strong>。</td>
-                <td style="text-align: center;">3 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>5-8</strong></td>
-                <td><strong>機械停車設備定期安全許可證</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>立體機械車位每月保養紀錄、安全開關檢查表與年度合格使用執照。智生活無機械車位證照維護管理。</td>
-                <td style="text-align: center;">歷年全套保存</td>
-              </tr>
-
-              <!-- 類別六：住戶服務、裝潢施工與違規爭議 (7項: 3已有, 1部分, 3沒有) -->
-              <tr class="gap-cat-header" style="background: rgba(56, 189, 248, 0.08);">
-                <td colspan="5" style="font-weight: 700; color: var(--accent-cyan);">
-                  六、住戶服務、裝潢施工與違規爭議檔卷（共 7 項，智生活支援率：42.9% 原生 + 14.3% 部分）
-                </td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>6-1</strong></td>
-                <td><strong>室內裝修施工申請與切結書</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>台北/台中市政府室內裝修許可證、施工圖說、施工防護切結與裝潢保證金收據。智生活無裝潢管制模組，<strong>須由物業經理專卷管理</strong>。</td>
-                <td style="text-align: center;">退保後 2 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>6-2</strong></td>
-                <td><strong>裝修每日巡檢與退場驗收表</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>每日梯廳保護巡查、違規施工扣點單、清運廢料查驗與退場無公設損壞點交單。智生活無巡查表，<strong>為退還裝修保證金之必備檢核表</strong>。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-              <tr class="gap-row" data-support="native">
-                <td><strong>6-3</strong></td>
-                <td><strong>公共設施借用登記與維護表</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
-                <td>智生活原生強項！支援交誼廳、KTV、健身房 24 小時線上預約、點數自動扣抵、超額收費，完全取代紙本登記本。</td>
-                <td style="text-align: center;">1 年</td>
-              </tr>
-              <tr class="gap-row" data-support="native">
-                <td><strong>6-4</strong></td>
-                <td><strong>掛號包裹快遞代收領取登錄</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
-                <td>智生活核心功能！包裹掛號條碼掃描入庫、App 即時推播、出示個人 QR Code 免簽名 3 秒快速取件，徹底取代紙本簽收簿。</td>
-                <td style="text-align: center;">1 年</td>
-              </tr>
-              <tr class="gap-row" data-support="native">
-                <td><strong>6-5</strong></td>
-                <td><strong>住戶報修工單與追蹤反饋單</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
-                <td>住戶可在手機 App 拍照回報公共修繕，系統具備「受理中、叫修待料、完工」即時狀態追蹤條與住戶滿意度評價。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-              <tr class="gap-row" data-support="partial">
-                <td><strong>6-6</strong></td>
-                <td><strong>違規勸導單與拍照存證卷宗</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(245, 158, 11, 0.2); color: #fde047;">◐ 部分支援</span></td>
-                <td>住戶意見反映可上傳照片，但<strong>缺乏正式具備公信力之管委會「違規改善勸導單」格式與送達簽收存證功能</strong>。</td>
-                <td style="text-align: center;">3 年（爭訟永久）</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>6-7</strong></td>
-                <td><strong>存證信函與訴訟法催公文卷</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>催討管理費逾 2 期之法催存證信函、法院支付命令、民事判決書與強制執行聲請卷宗。智生活無法進行司法公文歸檔管理。</td>
-                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
-              </tr>
-
-              <!-- 類別七：日常現場作業與三級週期性彙報 (6項: 1已有, 5沒有) -->
-              <tr class="gap-cat-header" style="background: rgba(16, 185, 129, 0.08);">
-                <td colspan="5" style="font-weight: 700; color: var(--accent-emerald);">
-                  七、日常現場作業與三級週期性彙報檔卷（共 6 項，智生活支援率：16.7%）
-                </td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>7-1</strong></td>
-                <td><strong>保全／物業交接班工作日誌</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>24 小時勤務交代簿、備用公用鑰匙借還登記、現場突發速記。智生活無後台值班日誌，<strong>物業現場仍須維護實體交接日誌</strong>。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>7-2</strong></td>
-                <td><strong>物業營運「日報表（Daily）」</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>每日人員哨點出勤、機房日巡、工單閉環、異常處置的標準日報產生器。智生活無此模組，<strong>物業主任須每日彙整發送管委會群組</strong>。</td>
-                <td style="text-align: center;">1 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>7-3</strong></td>
-                <td><strong>物業營運「週報表（Weekly）」</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>常會決議落實率（%）、滯留工單深究、保全巡檢打卡率稽核統計。智生活無法追蹤決議進度，<strong>須按手冊週報範本產出</strong>。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>7-4</strong></td>
-                <td><strong>物業營運「月報表（Monthly）」</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>管委會每月定期常會專用的審議提案資料包、全景營運體檢報告。智生活無會務審議系統，<strong>須由物業提報常會審核</strong>。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr class="gap-row" data-support="missing">
-                <td><strong>7-5</strong></td>
-                <td><strong>緊急重大事故處置調查報告</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(244, 63, 94, 0.2); color: #fca5a5;">❌ 完全沒有</span></td>
-                <td>重大管線破裂、火警、電梯受困之 12 小時時序處置與照片報告書。智生活無事故調查模組，<strong>為管委會常會追認與釐清責任依據</strong>。</td>
-                <td style="text-align: center;">5 年</td>
-              </tr>
-              <tr class="gap-row" data-support="native">
-                <td><strong>7-6</strong></td>
-                <td><strong>住戶陳情案件與滿意度問卷</strong></td>
-                <td style="text-align: center;"><span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7;">● 智生活已有</span></td>
-                <td>智生活提供住戶 App 意見反映管道，並內建社區問卷調查工具，可針對管理服務進行量化滿意度問卷統計。</td>
-                <td style="text-align: center;">2 年</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 雙軌治理架構建議卡片 -->
-        <div class="card" style="margin-top: 30px; border: 1px solid rgba(56, 189, 248, 0.3); background: #080e1d;">
-          <h3 style="font-size: 1.25rem; color: var(--accent-cyan); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            富宇大地社區「雙軌治理落地策略」（Dual-Track Governance Strategy）
-          </h3>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
-            鑑於智生活在<strong>前端住戶服務（包裹/代收/預約）</strong>極為敏捷，但在<strong>後端法定檔卷（圖資/會計/公安/外包合約）</strong>覆蓋率不足 30%，富宇大地應採取清晰的「雙軌運作架構」，杜絕「把 App 當作社區治理全部」之重大風控盲區：
-          </p>
-
-          <div class="grid-2">
-            <div style="background: var(--card-bg-subtle); padding: 18px; border-radius: 10px; border-left: 4px solid var(--accent-emerald);">
-              <h4 style="color: var(--accent-emerald); font-size: 1.02rem; margin-bottom: 8px;">軌道一：前台住戶體驗層（全面導入智生活 App）</h4>
-              <ul style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; padding-left: 16px;">
-                <li>全面開通<strong>包裹郵務 QR Code 掃描核銷</strong>，大幅解放管理員櫃檯排隊壓力。</li>
-                <li>管理費啟動<strong>超商、虛擬帳號多元代收</strong>，每日自動入帳沖銷，收繳率提升至 99%。</li>
-                <li>導入<strong>公設線上預約扣點</strong>、<strong>瓦斯手機拍照抄表</strong>與<strong>公共修繕進度工單</strong>。</li>
-                <li><strong>住戶感受：</strong>操作智慧化、免出門跑銀行繳費、生活便利度滿分。</li>
-              </ul>
-            </div>
-
-            <div style="background: var(--card-bg-subtle); padding: 18px; border-radius: 10px; border-left: 4px solid var(--accent-cyan);">
-              <h4 style="color: var(--accent-cyan); font-size: 1.02rem; margin-bottom: 8px;">軌道二：後台法定治理風控層（實體 52 項檔卷庫）</h4>
-              <ul style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; padding-left: 16px;">
-                <li><strong>財務風控：</strong>堅持實體<strong>「主委、財委、監委三章分立」</strong>，不得單憑 App 報表核銷公款。</li>
-                <li><strong>外包採購：</strong>重大修繕嚴格落實<strong>「3 家廠商報價比價表」</strong>與管委會決議發包。</li>
-                <li><strong>公共安全：</strong>每年實體驗收<strong>「消防檢修申報書」、「公安合格證」、「電梯使用證」</strong>。</li>
-                <li><strong>運籌閉環：</strong>物業經理依手冊落實<strong>「日報、週報、月報」</strong>，資訊透明對齊。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- VIEW 2: 數位公佈欄 (Public Community Bulletin)                            -->
-  <!-- ========================================================================= -->
-  <div id="viewBulletin" class="view-container">
-    <div class="container" style="padding-top: 36px;">
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
-        <div>
-          <div class="section-eyebrow">Community Official Bulletin</div>
-          <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--text-primary);">富宇大地社區・官方數位公佈欄</h2>
-          <p style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 4px;">最新規章、會議決議、工程停水通知及財務月報即時公布專區</p>
-        </div>
-        <div>
-          <button class="btn-submit" onclick="switchMainView('admin')">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            管理員快速上稿
-          </button>
-        </div>
-      </div>
-
-      <!-- Toolbar: Categories & Search -->
-      <div class="bulletin-toolbar">
-        <div class="category-pills" id="categoryPills">
-          <button class="cat-pill active" onclick="filterBulletinCat('all', this)">全部公告 (<span id="count-all">0</span>)</button>
-          <button class="cat-pill" onclick="filterBulletinCat('重大決議', this)">重大決議 (<span id="count-major">0</span>)</button>
-          <button class="cat-pill" onclick="filterBulletinCat('財務收支', this)">財務收支 (<span id="count-finance">0</span>)</button>
-          <button class="cat-pill" onclick="filterBulletinCat('機電工程', this)">機電工程 (<span id="count-works">0</span>)</button>
-          <button class="cat-pill" onclick="filterBulletinCat('日常庶務', this)">日常庶務 (<span id="count-routine">0</span>)</button>
-          <button class="cat-pill" onclick="filterBulletinCat('法規規章', this)">法規規章 (<span id="count-rules">0</span>)</button>
-        </div>
-
-        <div class="bulletin-search-wrap">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" id="bulletinSearchInput" class="bulletin-search-input" placeholder="搜尋公告標題、編號或關鍵字..." oninput="renderBulletinList()">
-        </div>
-      </div>
-
-      <!-- Announcement Cards Grid -->
-      <div id="announcementsGrid" class="announcements-grid">
-        <!-- Rendered dynamically by JavaScript -->
-      </div>
-    </div>
-  </div>
-
-  
-  
-  <!-- ========================================================================= -->
-  <!-- VIEW 6: 重要文件調閱管理辦法 (Document Inspection & Copying Governance)    -->
-  <!-- ========================================================================= -->
-  <div id="viewDocAccess" class="view-container">
-    <header class="hero">
-      <div class="container">
-        <div class="hero-tags">
-          <span class="tag tag-cyan">第二屆管委會 115年10月例會修訂核定</span>
-          <span class="tag tag-amber">公寓大廈管理條例 §34 / §35 / §48</span>
-          <span class="tag tag-rose">緊急 4 大欠缺文件</span>
-          <span class="tag tag-purple">重要 5 大治理子法配套</span>
+          <span class="tag tag-rose">國際物業專家深度體檢</span>
+          <span class="tag tag-amber">富宇大地現況診斷</span>
+          <span class="tag tag-cyan">拒絕前台虛榮・落實後台法度</span>
           <span class="tag tag-emerald">特聘諮詢小兵：Howard Liao Ph.D.(A17)</span>
         </div>
-        <h1>富宇大地社區・重要文件調閱列印管理辦法與防護清冊</h1>
+        <h1>富宇大地社區・物業現況深度體檢與關鍵改進方案</h1>
         <p class="hero-lead">
-          依據《公寓大廈管理條例》第 35 條賦予住戶及利害關係人之法定閱覽權，同時嚴格落實第 36 條管委會檔案保管責任與《個人資料保護法》。本專區整合<strong>官方核定管理辦法本文、三大申請附表</strong>，並依專家法規稽核建立<strong>【緊急類 4 項】與【重要類 5 項】關鍵配套清冊</strong>，確保社區「資訊公開有法度、個資保護不洩密、委員免責無爭端」。
+          以國際物業管理與《公寓大廈管理條例》嚴謹標準檢視，富宇大地現今營運存在<strong>「過度依賴智生活 App 前台表面功能、實體後台法定檔卷真空高達 71.1%」</strong>等六大結構性痛點。本專區整合<strong>現況致命弱點剖析、法定 52 項檔卷缺位診斷、重要文件調閱合規防護</strong>，並向物業公司提出具法律約束力的<strong>【限期改善行動方案】</strong>。
         </p>
 
-        <!-- Executive Summary Badges -->
+        <!-- Warm Foreword Card -->
+        <div class="card" style="margin-top: 22px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(15, 23, 42, 0.95) 100%); border: 1px solid rgba(245, 158, 11, 0.35); border-left: 5px solid var(--accent-amber); padding: 22px 26px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.3rem;">🌿</span>
+              <h2 style="font-size: 1.18rem; font-weight: 800; color: #fbbf24; margin: 0;">前言：凝聚初心，共築富宇大地的美好未來</h2>
+            </div>
+            <span class="tag tag-amber" style="font-size: 0.76rem; font-weight: 700;">致敬現任管理委員會・守護家園</span>
+          </div>
+          <p style="font-size: 0.94rem; line-height: 1.85; color: #e2e8f0; margin-bottom: 12px; text-align: justify;">
+            建築賦予我們遮風避雨的空間，而鄰里間的信任與守望，才真正讓這裡成為有溫度的家。富宇大地是我們每一位住戶安身立命、世代傳承的珍貴資產；為了迎向富宇大地更安全、優雅且具長遠價值的典範社區，制度的建立與智慧的治理是不可或缺的堅實基石。
+          </p>
+          <p style="font-size: 0.94rem; line-height: 1.85; color: #e2e8f0; margin-bottom: 12px; text-align: justify;">
+            在此，我們要向全體現任管理委員會的委員夥伴們致上最深摯的感謝與敬意。感謝您們在繁忙的工作與家庭生活之餘，無私犧牲寶貴的個人休憩時間，為社區公眾事務奔走勞碌。從公共設施設備的巡檢點交、財務收支的嚴格把關，到各項日常法規與住戶服務的溝通協調，每一處看似平凡的運轉細節，都凝聚著委員們默默守護家園的汗水與心血。
+          </p>
+          <p style="font-size: 0.94rem; line-height: 1.85; color: #e2e8f0; margin-bottom: 14px; text-align: justify;">
+            本體檢手冊與改善方案的初心，正是為了減輕委員們的奔波負擔，透過權責分立、透明標準與數位工具的賦能，督導專業物業團隊把事情真正做好。願我們心手相連，以彼此的包容與同理，共同守護這片土地，為富宇大地的美好未來奠定百年磐石。
+          </p>
+          <div style="display: flex; justify-content: flex-end; align-items: center; gap: 8px; border-top: 1px solid rgba(245, 158, 11, 0.2); padding-top: 10px;">
+            <span style="font-size: 0.84rem; color: var(--text-muted);">富宇大地社區數位治理與公設點交特聘諮詢小兵：</span>
+            <strong style="font-size: 0.92rem; color: var(--accent-cyan); letter-spacing: 0.5px;">Howard Liao Ph.D.(A17)</strong>
+          </div>
+        </div>
+
+        <!-- 4 Core Metrics -->
         <div class="grid-4" style="margin-top: 22px;">
-          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-rose); background: rgba(244, 63, 94, 0.06);">
-            <div style="font-size: 0.78rem; color: var(--text-muted);">法定罰鍰防護</div>
-            <div style="font-size: 1.15rem; font-weight: 800; color: #f87171; margin: 4px 0;">緊急 4 大關鍵文件</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">簽名簿正本、委託書原本、銀行官方對帳單、廠商比價驗收單與竣工圖。</div>
+          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-rose); background: rgba(244, 63, 94, 0.08);">
+            <div style="font-size: 0.78rem; color: var(--text-muted);">法定檔卷缺位率</div>
+            <div style="font-size: 1.5rem; font-weight: 900; color: #f87171; margin: 4px 0;">71.1% 缺位</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">52 項必備檔卷中，智生活僅原生支援 8 項，高達 37 項無實體卷宗。</div>
           </div>
-          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-amber); background: rgba(245, 158, 11, 0.06);">
-            <div style="font-size: 0.78rem; color: var(--text-muted);">制度與個資防護</div>
-            <div style="font-size: 1.15rem; font-weight: 800; color: #fbbf24; margin: 4px 0;">重要 5 大治理配套</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">個資遮蔽SOP、調閱保密切結書、准駁裁量表、規費收據帳本與調閱簽收簿。</div>
+          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-amber); background: rgba(245, 158, 11, 0.08);">
+            <div style="font-size: 0.78rem; color: var(--text-muted);">調閱罰鍰風險</div>
+            <div style="font-size: 1.5rem; font-weight: 900; color: #fbbf24; margin: 4px 0;">4 大緊急欠缺</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">遺漏大會出席簽名簿原本、銀行月結對帳單、廠商比價單及竣工圖。</div>
           </div>
-          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-cyan); background: rgba(56, 189, 248, 0.06);">
-            <div style="font-size: 0.78rem; color: var(--text-muted);">標準作業程序</div>
-            <div style="font-size: 1.15rem; font-weight: 800; color: #38bdf8; margin: 4px 0;">5 步調閱閉環流程</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">提出申請 ➔ 物業初審 ➔ 管委會審查 ➔ 專人陪同調閱 ➔ 簽章繳費歸檔。</div>
+          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-cyan); background: rgba(56, 189, 248, 0.08);">
+            <div style="font-size: 0.78rem; color: var(--text-muted);">營運彙報現況</div>
+            <div style="font-size: 1.5rem; font-weight: 900; color: #38bdf8; margin: 4px 0;">缺乏量化 KPI</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">日週月報流於口頭形式，工單缺乏 SLA 時效閉環，保全夜巡無查驗數據。</div>
           </div>
-          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-emerald); background: rgba(16, 185, 129, 0.06);">
-            <div style="font-size: 0.78rem; color: var(--text-muted);">官方附表表單</div>
-            <div style="font-size: 1.15rem; font-weight: 800; color: #10b981; margin: 4px 0;">三大附表與規費試算</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary);">附表一申請表、附表二准駁通知書、附表三檔案法/規費法影印收費標準表。</div>
+          <div class="card" style="margin-bottom: 0; border-left: 4px solid var(--accent-emerald); background: rgba(16, 185, 129, 0.08);">
+            <div style="font-size: 0.78rem; color: var(--text-muted);">限期改善指標</div>
+            <div style="font-size: 1.5rem; font-weight: 900; color: #10b981; margin: 4px 0;">雙軌落地整治</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">限期富宇物業於 7 日、14 日完成立卷，與服務費計罰退場機制嚴格連動。</div>
           </div>
         </div>
       </div>
@@ -2836,395 +1356,262 @@
 
     <main class="container" style="padding-top: 30px;">
 
-      <!-- SECTION 1: 緊急與重要文件缺口稽核清冊 -->
+      <!-- SECTION 1: 物業現況 6 大關鍵痛點與致命風險診斷 -->
       <section class="section">
         <div class="section-header">
           <div>
-            <div class="section-subtitle">GAP ANALYSIS & COMPLIANCE PRIORITY</div>
-            <h2>一、依據來源辦法分析：仍須具備之關鍵文件清冊</h2>
+            <div class="section-subtitle">SYSTEMIC WEAKNESS AUDIT</div>
+            <h2>一、富宇大地現今物業 6 大關鍵痛點與致命風險診斷</h2>
           </div>
-          <span class="tag tag-rose" style="font-size: 0.82rem; padding: 4px 10px;">法律防護急迫級別</span>
+          <span class="tag tag-rose">物業缺失紅線</span>
         </div>
 
-        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 18px;">
-          本辦法雖已完備申請程序，但若管委會現場<strong>「缺乏原始佐證卷宗」</strong>或<strong>「缺乏個資防護子法」</strong>，一旦住戶向主管機關（台中市都發局）投訴或提告，管理委員會將面臨《條例》第 48 條罰鍰或侵害個資之民事求償。以下依急迫性嚴格劃分：
+        <div class="grid-2">
+          <!-- 痛點 1 -->
+          <div class="card" style="border-top: 4px solid var(--accent-rose);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span class="tag tag-rose">痛點 01</span>
+              <span style="font-size: 0.78rem; color: var(--accent-rose); font-weight: 700;">[法規真空風險]</span>
+            </div>
+            <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">
+              陷於「智生活前台虛榮」，實體後台 71.1% 法定檔卷完全真空
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+              <strong>現況問題：</strong>物業誤以為「有智生活 App 收包裹、繳管理費」就是管理到位；但《公寓條例》第 36 條第 8 款明定之 52 項法定檔卷中，智生活缺位高達 37 項（工程竣工圖、機電試車卡、水質檢測、消防申報公文等）。管理室抽屜空空如也，一查就倒。
+            </p>
+            <div style="background: rgba(244, 63, 94, 0.08); border-radius: 6px; padding: 10px; font-size: 0.82rem; color: #fca5a5;">
+              <strong>物業必須改進：</strong>停止把責任推給軟體，限期 14 日內於管理中心建立 7 大類 52 項「實體活頁公文夾」，落實實體與雲端雙軌建檔。
+            </div>
+          </div>
+
+          <!-- 痛點 2 -->
+          <div class="card" style="border-top: 4px solid var(--accent-rose);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span class="tag tag-rose">痛點 02</span>
+              <span style="font-size: 0.78rem; color: var(--accent-rose); font-weight: 700;">[行政裁罰危機]</span>
+            </div>
+            <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">
+              重要文件調閱辦法「有程序無佐證」，隨時面臨都發局罰單
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+              <strong>現況問題：</strong>管委會雖修訂了調閱辦法，但物業未備齊原始佐證！住戶調閱大會紀錄時拿不出「出席簽名簿與委託書原本」（違法第34條）；調閱公積金時只有物業自製月報，拿不出「官方銀行對帳單」；廠商合約無公開比價單。
+            </p>
+            <div style="background: rgba(244, 63, 94, 0.08); border-radius: 6px; padding: 10px; font-size: 0.82rem; color: #fca5a5;">
+              <strong>物業必須改進：</strong>限期 7 日內將歷史大會簽名簿原本、開戶迄今銀行月結對帳單及廠商比價驗收專卷全數立卷備查，避免主委受罰。
+            </div>
+          </div>
+
+          <!-- 痛點 3 -->
+          <div class="card" style="border-top: 4px solid var(--accent-amber);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span class="tag tag-amber">痛點 03</span>
+              <span style="font-size: 0.78rem; color: var(--accent-amber); font-weight: 700;">[營運管理黑箱]</span>
+            </div>
+            <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">
+              日報、週報、月報流於口頭流水帳，缺乏量化 KPI 與工單 SLA
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+              <strong>現況問題：</strong>物業現場經理與保全出勤僅憑簽名，夜巡電子感應點未產出量化數據；住戶報修無時效承諾（常見報修一拖數週）；違反內政部《管理服務人管理辦法》第 16 條第 7 款「處理事務應留書面紀錄、建議事項應書面提出」之規定。
+            </p>
+            <div style="background: rgba(245, 158, 11, 0.08); border-radius: 6px; padding: 10px; font-size: 0.82rem; color: #fde68a;">
+              <strong>物業必須改進：</strong>全面導入「日報（機房日巡/在崗紀錄）、週報（工單結案率/保全打卡率>=98%）、月報（損益表/消檢申報包）」，每週一上午向管委會書面呈報。
+            </div>
+          </div>
+
+          <!-- 痛點 4 -->
+          <div class="card" style="border-top: 4px solid var(--accent-amber);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span class="tag tag-amber">痛點 04</span>
+              <span style="font-size: 0.78rem; color: var(--accent-amber); font-weight: 700;">[資產損失隱憂]</span>
+            </div>
+            <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">
+              公設點交缺失列管消極，恐損及全體住戶重大保固利益
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+              <strong>現況問題：</strong>富宇大地為七期頂規別墅聚落，起造人（建商）移交之水電、消防、雨水回收、機電弱電設備產權高達數千萬元。物業若未積極列管建商應改善項目，一旦拖過保固期，修繕成本將全數轉嫁由住戶公共基金負擔！
+            </p>
+            <div style="background: rgba(245, 158, 11, 0.08); border-radius: 6px; padding: 10px; font-size: 0.82rem; color: #fde68a;">
+              <strong>物業必須改進：</strong>建立《公設點交未結缺失列管索賠追蹤總表》，由專業工程背景人員逐項會驗，保固期滿前嚴禁擅自簽收放行。
+            </div>
+          </div>
+
+          <!-- 痛點 5 -->
+          <div class="card" style="border-top: 4px solid var(--accent-cyan);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span class="tag tag-cyan">痛點 05</span>
+              <span style="font-size: 0.78rem; color: var(--accent-cyan); font-weight: 700;">[財務舞弊防線]</span>
+            </div>
+            <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">
+              印鑑三章分立與核決權限 (DOA) 模糊，零用金與規費無流水帳
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+              <strong>現況問題：</strong>物業有時代管印鑑或先斬後奏私自發包小額維修；調閱辦法中每頁 2~15 元之影印規費僅收現金卻未開立三聯收據，公款與私人錢包界線不清，极易產生挪用嫌疑。
+            </p>
+            <div style="background: rgba(56, 189, 248, 0.08); border-radius: 6px; padding: 10px; font-size: 0.82rem; color: #bae6fd;">
+              <strong>物業必須改進：</strong>恪遵主委、財委、監委「三章分立」，物業絕不持印；嚴守零用金 3,000 元以上書面審查權限；印製規費收據三聯單，每月核銷入帳。
+            </div>
+          </div>
+
+          <!-- 痛點 6 -->
+          <div class="card" style="border-top: 4px solid var(--accent-cyan);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+              <span class="tag tag-cyan">痛點 06</span>
+              <span style="font-size: 0.78rem; color: var(--accent-cyan); font-weight: 700;">[從業人員合規]</span>
+            </div>
+            <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 8px;">
+              駐點人員認可證照與外包保全品管缺乏定期複驗
+            </h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px;">
+              <strong>現況問題：</strong>物業經理（總幹事）之內政部認可證（5年有效期）是否在有效期限內？駐點保全是否有良民證（警察紀錄證明）與健檢報告？若僱用無牌人員，主管機關得對管委會勒令停業並罰 4~20 萬元。
+            </p>
+            <div style="background: rgba(56, 189, 248, 0.08); border-radius: 6px; padding: 10px; font-size: 0.82rem; color: #bae6fd;">
+              <strong>物業必須改進：</strong>進駐人員所有法定證照正本、身分證影本、良民證及勞健保投保證明，於 3 日內完整造冊並送交監察委員審查驗證。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: 52項法定檔卷 vs 智生活 差距穿透診斷 -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">THE 71.1% GAP IN DEPTH</div>
+            <h2>二、法定 52 項檔卷 vs 智生活 缺位穿透式診斷（後台真相）</h2>
+          </div>
+          <span class="tag tag-amber">實體檔案庫缺口</span>
+        </div>
+
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+          下表清楚揭露現況真相：智生活僅處理了住戶繳費、包裹與修繕通知等<strong>前台輕型業務（8項 / 15.4%）</strong>；涉及管委會法定責任的<strong>核心工程圖說、公共安全檢驗與財務帳簿憑證（37項 / 71.1%）完全缺位</strong>，必須由物業以實體活頁檔案庫全面補位：
         </p>
 
-        <!-- 1.1 緊急類清冊 -->
-        <div class="card" style="border: 1px solid rgba(244, 63, 94, 0.35); background: linear-gradient(180deg, rgba(244, 63, 94, 0.04) 0%, var(--card-bg) 100%); margin-bottom: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <span style="font-size: 1.25rem;">🚨</span>
-              <h3 style="font-size: 1.18rem; font-weight: 800; color: #f87171; margin: 0;">【緊急類】法定責任與裁罰防護（限期 1~2 週內必須立卷備齊）</h3>
-            </div>
-            <span class="tag tag-rose">條例第48條第3款罰則防護</span>
-          </div>
-
-          <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
-          <div class="table-responsive">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width: 80px;">代號</th>
-                  <th style="width: 200px;">仍須具備之核心文件</th>
-                  <th>對應來源與具體缺口警訊</th>
-                  <th style="width: 200px;">法律依據與裁罰風險</th>
-                  <th style="width: 170px;">管委會立即行動</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><span class="tag tag-rose">緊-1</span></td>
-                  <td><strong>區權會歷屆「出席簽名簿正本」與「委託書原本」</strong></td>
-                  <td>辦法第肆點引述《條例》第 34 條第 2 項。申請表第 6 項只列會議紀錄，若<strong>遺失出席簽名簿與代理委託書原本</strong>，大會決議有遭法院訴請撤銷之高度法律風險。</td>
-                  <td>《條例》第 34 條第 2 項、第 35 條、第 48 條第 3 款（無正當理由拒絕提供處 <strong>1,000 ~ 5,000 元罰鍰</strong>）。</td>
-                  <td>要求物業將第一、二屆大會之簽名簿、委託書按年分冊裝訂成卷封存。</td>
-                </tr>
-                <tr>
-                  <td><span class="tag tag-rose">緊-2</span></td>
-                  <td><strong>金融機構官方「銀行對帳單」與「定存單存根」</strong></td>
-                  <td>申請表第 2 項（公積金餘額）及第 3 項（財報）。物業軟體產出之月報只是打字，<strong>無法律實質證明力</strong>；住戶申請調閱時必須出示銀行蓋章之官方月結對帳單正本或存摺影本。</td>
-                  <td>《條例》第 20 條、第 36 條第 7 款、刑法第 342 條背信罪（防止公款遭侵占挪用）。</td>
-                  <td>財委即刻會同物業，向開戶銀行調印自成立迄今全期歷史官方紙本對帳單。</td>
-                </tr>
-                <tr>
-                  <td><span class="tag tag-rose">緊-3</span></td>
-                  <td><strong>各廠商「公開招標比價紀錄、議價單與驗收簽收單」</strong></td>
-                  <td>申請表第 7 項（各廠商簽約合約書）。單看合約書無法消弭圖利質疑；必須附帶「3 家以上報價單」、「管委會比價紀錄表」及「完工驗收付款簽核單」，才能證明善盡注意義務。</td>
-                  <td>民法第 535 條受任人注意義務、刑法第 342 條背信罪防護。</td>
-                  <td>建立廠商專卷：每份合約首頁必須黏貼【招標評選表】與【驗收付款單】。</td>
-                </tr>
-                <tr>
-                  <td><span class="tag tag-rose">緊-4</span></td>
-                  <td><strong>全套「建築與水電機電竣工圖說」及點交清冊</strong></td>
-                  <td>來源辦法第 1~9 項中<strong>遺漏了「工程圖說」</strong>！住戶裝潢改裝、滲漏水鑑定依法有權調閱管線圖；起造人（富宇建設）移交圖紙若有缺漏，管委會須及時催告補正。</td>
-                  <td>《條例》第 36 條第 8 款、第 57 條（起造人點交共用部分及圖說責任）。</td>
-                  <td>即刻盤點管理室全套建管執照圖、給水/排水/消防/弱電管線竣工圖與CAD光碟。</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- 1.2 重要類清冊 -->
-        <div class="card" style="border: 1px solid rgba(245, 158, 11, 0.35); background: linear-gradient(180deg, rgba(245, 158, 11, 0.04) 0%, var(--card-bg) 100%);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <span style="font-size: 1.25rem;">📌</span>
-              <h3 style="font-size: 1.18rem; font-weight: 800; color: #fbbf24; margin: 0;">【重要類】制度防護與個資金流健全（1 個月內應建立配套子法）</h3>
-            </div>
-            <span class="tag tag-amber">個資法與公共金流防護</span>
-          </div>
-
-          <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
-          <div class="table-responsive">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width: 80px;">代號</th>
-                  <th style="width: 200px;">仍須完備之制度文件</th>
-                  <th>風險與必要性說明</th>
-                  <th style="width: 240px;">具體規範與落地作法</th>
-                  <th style="width: 140px;">權責人員</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><span class="tag tag-amber">重-1</span></td>
-                  <td><strong>《重要文件個資遮蔽處理作業指引 (SOP)》</strong></td>
-                  <td>辦法第陸點只寫「得予遮掩」，未明訂標準。若物業自由心證，把不該遮的戶號遮掉會遭投訴黑箱；把個人身分證字號流出則違反個資法遭起訴求償。</td>
-                  <td>明確表列：<br>• <strong>應遮蔽</strong>：私人生日、身分證字號、私人手機、銀行帳戶。<br>• <strong>不應遮蔽</strong>：區權人姓名、戶號、規約約定應公告之違規事證。</td>
-                  <td>監察委員 / 物業經理</td>
-                </tr>
-                <tr>
-                  <td><span class="tag tag-amber">重-2</span></td>
-                  <td><strong>《住戶調閱資料保密與不得濫用切結承諾書》</strong></td>
-                  <td>辦法第陸點提及「不應隨意發布在其他地方」，但缺乏法律違約罰則。若住戶調閱後拍照上傳網路公審、抹黑管委會或打擊社區房價，管委會將無從追責。</td>
-                  <td>於申請表增訂保密切結款：<em>「申請人切結本資料僅供維護專有部分權益使用，絕不翻拍轉載於公開社群網路，違者負民刑損害賠償責任。」</em></td>
-                  <td>主任委員 / 法務諮詢</td>
-                </tr>
-                <tr>
-                  <td><span class="tag tag-amber">重-3</span></td>
-                  <td><strong>《管委會審查調閱申請「准駁裁量基準表」》</strong></td>
-                  <td>附表二准駁欄若無標準，管委會若因私人糾紛擅自駁回申請，將被主管機關判定「無正當理由拒絕提供」而處以罰鍰。</td>
-                  <td>明訂正當駁回理由（如：非利害關係人、非條例第35條法定文件、涉及未公開廠商商業機密），審查過程全程留存書面紀錄。</td>
-                  <td>全體管理委員</td>
-                </tr>
-                <tr>
-                  <td><span class="tag tag-amber">重-4</span></td>
-                  <td><strong>《影印規費收入三聯式收據聯與列管流水帳》</strong></td>
-                  <td>依附表三每張收取 2~15 元影印規費，屬社區公共收入（雜項收入）。若物業經理僅收現金卻未開發票或三聯收據，容易滋生公私不分之嫌隙。</td>
-                  <td>印製專屬「富宇大地影印規費收據三聯單」，物業收款時一聯交住戶、一聯入帳、一聯存根，每月併入財報核銷。</td>
-                  <td>財務委員 / 物業會計</td>
-                </tr>
-                <tr>
-                  <td><span class="tag tag-amber">重-5</span></td>
-                  <td><strong>《重要文件實體調閱與借出登記簽收簿》</strong></td>
-                  <td>附表二注意事項 (五)「不得將文件攜離指定處所」。若無專人陪同與進出簽名簿，難防文件被偷抽頁、塗改或調包。</td>
-                  <td>設置現場調閱登記簿，記載調閱起訖時分、調閱案號，由物業經理全程在場陪同錄影存證並雙方簽章確認。</td>
-                  <td>物業經理</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 140px;">檔卷大類</th>
+                <th style="width: 80px; text-align: center;">總項數</th>
+                <th style="width: 120px; text-align: center;">智生活現況</th>
+                <th>核心缺失項目（物業必須立即建立實體檔案者）</th>
+                <th style="width: 160px;">法定義務年限</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>一、法定資產圖說</strong></td>
+                <td style="text-align: center;">6 項</td>
+                <td style="text-align: center;"><span class="tag tag-rose">❌ 0% 支援</span></td>
+                <td>全套建築使用執照圖、給水排水/機電弱電竣工圖、起造人點交報告書。</td>
+                <td><strong style="color: var(--accent-emerald);">永久保存</strong></td>
+              </tr>
+              <tr>
+                <td><strong>二、組織規約會議</strong></td>
+                <td style="text-align: center;">7 項</td>
+                <td style="text-align: center;"><span class="tag tag-amber">◐ 28% 部分</span></td>
+                <td>大會出席簽名簿正本、代理出席委託書原本、印鑑存查卡、報備核准函。</td>
+                <td>規約永久 / 紀錄10年</td>
+              </tr>
+              <tr>
+                <td><strong>三、外包採購合約</strong></td>
+                <td style="text-align: center;">6 項</td>
+                <td style="text-align: center;"><span class="tag tag-rose">❌ 0% 支援</span></td>
+                <td>招標評選紀錄表、3家以上比價單、驗收付款證明、保固金扣留明細。</td>
+                <td>合約滿後 5 年</td>
+              </tr>
+              <tr>
+                <td><strong>四、財務會計公積金</strong></td>
+                <td style="text-align: center;">6 項</td>
+                <td style="text-align: center;"><span class="tag tag-amber">◐ 33% 部分</span></td>
+                <td>金融機構月結對帳單正本、會計傳票日記帳、定存單存根、原始發票憑證。</td>
+                <td>財務帳簿 10 年</td>
+              </tr>
+              <tr>
+                <td><strong>五、公安消防機電</strong></td>
+                <td style="text-align: center;">8 項</td>
+                <td style="text-align: center;"><span class="tag tag-rose">❌ 0% 支援</span></td>
+                <td>電梯安全許可證、建築物公安申報書、消防檢修申報複驗函、發電機試運運轉紀錄。</td>
+                <td>申報書 5 年</td>
+              </tr>
+              <tr>
+                <td><strong>六、住戶服務裝潢</strong></td>
+                <td style="text-align: center;">7 項</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">● 43% 原生</span></td>
+                <td>裝潢施工切結與圖面、保證金退還單、違規存證信函、法律訴訟卷宗。</td>
+                <td>結案後 3 年</td>
+              </tr>
+              <tr>
+                <td><strong>七、日常三級彙報</strong></td>
+                <td style="text-align: center;">6 項</td>
+                <td style="text-align: center;"><span class="tag tag-rose">❌ 0% 支援</span></td>
+                <td>物業日報表、週報進度追蹤表、月報大會議案包、重大事故應變報告書。</td>
+                <td>保存 2~3 年</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
-      <!-- SECTION 2: 官方管理辦法本文與 5 步調閱標準作業程序 -->
+      <!-- SECTION 3: 管委會對富宇物業的「限期改善行動通知書」 -->
       <section class="section">
         <div class="section-header">
           <div>
-            <div class="section-subtitle">REGULATORY FRAMEWORK & WORKFLOW</div>
-            <h2>二、富宇大地社區相關資料閱覽（影印）申請標準作業程序</h2>
+            <div class="section-subtitle">MANDATORY RECTIFICATION ROADMAP</div>
+            <h2>三、管委會督導富宇物業「限期改善三階段行動通知」</h2>
           </div>
-          <span class="tag tag-cyan">官方規章本文</span>
+          <span class="tag tag-rose">具法律退場約束力</span>
         </div>
 
-        <!-- 5 Steps Flow Graphic -->
-        <div class="card" style="background: #0b1324; border: 1px solid rgba(56, 189, 248, 0.3); margin-bottom: 24px;">
-          <h3 style="font-size: 1.1rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 16px;">
-            🔄 住戶調閱重要文件 5 步閉環標準作業流程
-          </h3>
-          <div class="grid-4" style="gap: 12px;">
-            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-cyan);">
-              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 01</div>
-              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">提出申請</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">申請人備妥身分證、建物二類謄本，填寫【附表一申請表】遞交管理中心。</div>
-            </div>
-            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-amber);">
-              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 02</div>
-              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">物業初審與呈報</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">社區經理於 3 日內核對身分與利害關係，編立案號並呈報管委會。</div>
-            </div>
-            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-purple);">
-              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 03</div>
-              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">管委會審查准駁</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">主委/監委審查合規性，依個資SOP進行必要遮蔽，開立【附表二准駁書】。</div>
-            </div>
-            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-emerald);">
-              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 04 & 05</div>
-              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">專人陪閱與收費歸檔</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">指定時段專人陪同閱覽；依【附表三】收取規費開立收據，簽名結案歸檔。</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Official Articles Accordion / Cards -->
-        <div class="grid-2">
-          <div class="card">
-            <h4 style="color: var(--accent-cyan); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">壹、適用法令與法源基準</h4>
-            <ul style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
-              <li>《行政程序法》、《公寓大廈管理條例》第 34、35、48 條。</li>
-              <li>《政府資訊公開法》、《個人資料保護法》。</li>
-              <li>內政部營建署相關解釋令、臺中市公寓大廈管理組織報備注意事項。</li>
-              <li>富宇大地社區住戶規約與管理組織運作章程。</li>
+        <div class="grid-3" style="gap: 16px;">
+          <!-- 階段 1 -->
+          <div class="card" style="border-left: 4px solid var(--accent-rose); background: var(--card-bg-subtle);">
+            <div style="font-size: 0.78rem; color: var(--accent-rose); font-weight: 700;">第 1 階段（進駐 7 日內）</div>
+            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin: 6px 0;">P0/P1 法定資格與公安金流查驗</h3>
+            <ul style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; padding-left: 18px;">
+              <li>交付總幹事認可證與保全名冊（良民證/健檢）。</li>
+              <li>出示電梯許可證與公安/消防合格證明文件。</li>
+              <li>檢驗銀行對帳單並落實「三章分立」。</li>
+              <li><strong>未達標處置：</strong>依合約記點並扣罰當月管理費 5%。</li>
             </ul>
           </div>
 
-          <div class="card">
-            <h4 style="color: var(--accent-amber); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">貳、住戶申請應檢附證件</h4>
-            <ul style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
-              <li><strong>申請人本人</strong>：出示身分證正本或其他有效身分證明文件。</li>
-              <li><strong>委託代理人</strong>：申請人身分證影本、印章、委託書原本及受託人身分證正本。</li>
-              <li><strong>利害關係證明</strong>：專有部分建物第二類謄本或租賃租約（限利害關係事項）。</li>
-              <li><strong>法人或團體</strong>：設有管理人證明、營業登記影本及代表人身分證件。</li>
+          <!-- 階段 2 -->
+          <div class="card" style="border-left: 4px solid var(--accent-amber); background: var(--card-bg-subtle);">
+            <div style="font-size: 0.78rem; color: var(--accent-amber); font-weight: 700;">第 2 階段（進駐 14 日內）</div>
+            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin: 6px 0;">37 項缺位實體檔案庫全面立卷</h3>
+            <ul style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; padding-left: 18px;">
+              <li>完成管理室 52 項活頁公文夾與借閱登記簿。</li>
+              <li>整理區權會出席簽名簿與委託書原本。</li>
+              <li>建立廠商比價紀錄與驗收單專卷。</li>
+              <li><strong>未達標處置：</strong>開立正式限期改善函，啟動更換現場經理。</li>
+            </ul>
+          </div>
+
+          <!-- 階段 3 -->
+          <div class="card" style="border-left: 4px solid var(--accent-emerald); background: var(--card-bg-subtle);">
+            <div style="font-size: 0.78rem; color: var(--accent-emerald); font-weight: 700;">第 3 階段（進駐 30 日內）</div>
+            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin: 6px 0;">三級彙報機制與公設缺失索賠閉環</h3>
+            <ul style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; padding-left: 18px;">
+              <li>日報/週報/月報標準格式正式常態化執行。</li>
+              <li>交出建商公設點交缺失列管與索賠追蹤總表。</li>
+              <li>落實調閱個資遮蔽 SOP 與影印規費三聯單。</li>
+              <li><strong>未達標處置：</strong>依合約第 12 條 15 日催告程序，啟動解約退場。</li>
             </ul>
           </div>
         </div>
 
-        <div class="card" style="margin-top: 14px;">
-          <h4 style="color: var(--accent-purple); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">陸、隱私保護與資料安全限制條款</h4>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; text-align: justify;">
-            依據《公寓大廈管理條例》第 35 條規定，利害關係人得請求閱覽或影印規約、公共基金餘額、會計憑證、財務報表、會議紀錄等資料，管理委員會無正當理由不得拒絕。惟若申請之內容涉及<strong>個人隱私（個人身分證字號、病歷、個人帳戶、私人生日）或第三方商業專利機密</strong>，管理委員會得依法僅提供對其權利義務有實質影響之部分，或於影印前進行<strong>遮蔽去識別化處理</strong>。調閱人應本於誠信原則，不得將取得之檔案擅自公開散布或移作侵害他人名譽及權益之用途。
-          </p>
-        </div>
-      </section>
-
-      <!-- SECTION 3: 官方三大附表展示與規費計算機 -->
-      <section class="section">
-        <div class="section-header">
-          <div>
-            <div class="section-subtitle">INTERACTIVE FORMS & FEE CALCULATOR</div>
-            <h2>三、官方三大申請附表與影印規費試算</h2>
-          </div>
-          <span class="tag tag-emerald">現場標準作業表單</span>
-        </div>
-
-        <!-- Tab Panels for 3 Forms -->
-        <div class="card" style="padding: 20px;">
-          <div style="display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;">
-            <button class="btn-action active" id="btnTabForm1" onclick="switchDocFormTab(1)">附表一：閱覽/影印申請表</button>
-            <button class="btn-action" id="btnTabForm2" onclick="switchDocFormTab(2)">附表二：准駁通知書與注意事項</button>
-            <button class="btn-action" id="btnTabForm3" onclick="switchDocFormTab(3)">附表三：收費標準與線上計算器</button>
-          </div>
-
-          <!-- FORM 1 -->
-          <div id="docFormTab1" class="doc-form-content">
-            <h3 style="font-size: 1.15rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 12px;">
-              📄 富宇大地社區文件閱覽／影印申請表（附表一範本）
-            </h3>
-            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 16px;">
-              本表單供住戶依條例第 35 條提出申請，審查核定後由社區經理排定時間陪同查閱。
-            </p>
-
-            <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
-            <div class="table-responsive">
-              <table>
-                <thead>
-                  <tr>
-                    <th style="width: 60px;">序號</th>
-                    <th>檔案名稱或內容要旨</th>
-                    <th style="width: 100px; text-align: center;">閱覽</th>
-                    <th style="width: 100px; text-align: center;">影印</th>
-                    <th style="width: 180px;">法規依據與附件要求</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td><strong>社區管理規約</strong></td>
-                    <td style="text-align: center;"><input type="checkbox" checked disabled></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="font-size: 0.8rem; color: var(--text-muted);">含規約本文與歷次修正備查函</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td><strong>公共基金餘額</strong></td>
-                    <td style="text-align: center;"><input type="checkbox" checked disabled></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="font-size: 0.8rem; color: var(--accent-rose);">須檢附官方銀行對帳單原本</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td><strong>財務報表</strong></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="font-size: 0.8rem; color: var(--text-muted);">資產負債表、收支損益計算表</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td><strong>會計財務憑證</strong></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="font-size: 0.8rem; color: var(--text-muted);">傳票、統一發票與請款單據</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td><strong>管理委員會會議紀錄</strong></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="font-size: 0.8rem; color: var(--text-muted);">定期常會及臨時會決議錄</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td><strong>區分所有權人會議紀錄</strong></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="font-size: 0.8rem; color: var(--accent-rose);">必須連同出席簽名簿與委託書</td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td><strong>各廠商簽約合約書</strong></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="font-size: 0.8rem; color: var(--accent-rose);">須檢附評選比價紀錄與驗收單</td>
-                  </tr>
-                  <tr>
-                    <td>8</td>
-                    <td><strong>社區規定辦法</strong></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="font-size: 0.8rem; color: var(--text-muted);">裝潢施工、停車位、門禁辦法等</td>
-                  </tr>
-                  <tr>
-                    <td>9</td>
-                    <td><strong>社區收發函文書</strong></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="text-align: center;"><input type="checkbox"></td>
-                    <td style="font-size: 0.8rem; color: var(--text-muted);">都發局公文、起造人往來函件</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div style="background: rgba(16, 185, 129, 0.08); border: 1px dashed rgba(16, 185, 129, 0.4); padding: 12px 16px; border-radius: 8px; margin-top: 14px;">
-              <strong style="color: var(--accent-emerald); font-size: 0.88rem;">💡 A17 特聘諮詢小兵優化建議：</strong>
-              <span style="font-size: 0.84rem; color: var(--text-secondary);">
-                建議於申請人簽章處下方增加<strong>「個人資料保密切結宣誓條款」</strong>，保障管委會免受無端洩密責任追究。
-              </span>
-            </div>
-          </div>
-
-          <!-- FORM 2 -->
-          <div id="docFormTab2" class="doc-form-content" style="display: none;">
-            <h3 style="font-size: 1.15rem; color: var(--accent-amber); font-weight: 700; margin-bottom: 12px;">
-              📋 富宇大地社區文件閱覽／影印申請准駁通知書（附表二）
-            </h3>
-            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 14px;">
-              載明准駁理由、預約閱覽時間、指定處所及 8 大現場閱覽遵守守則。
-            </p>
-
-            <div class="card" style="background: var(--card-bg-subtle); border-left: 4px solid var(--accent-amber); margin-bottom: 14px;">
-              <h4 style="color: #fbbf24; font-size: 0.95rem; font-weight: 700; margin-bottom: 8px;">現場調閱 8 大禁止與守則（重要摘錄）</h4>
-              <ol style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
-                <li>應於管委會指定時間、指定管理中心處所為之，出示身分證件正本查驗。</li>
-                <li><strong>嚴禁添註、塗改、更換、抽取、圈點、拆散裝訂或污損檔案</strong>。</li>
-                <li><strong>不得將文件攜離指定處所</strong>，影印作業由社區物業管理人員執行。</li>
-                <li>涉及他人隱私個資時，管委會得僅提供權利影響部分或進行個資遮掩。</li>
-                <li>閱覽與影印完畢繳清規費後，應於原申請表簽章確認結案。</li>
-              </ol>
-            </div>
-          </div>
-
-          <!-- FORM 3 -->
-          <div id="docFormTab3" class="doc-form-content" style="display: none;">
-            <h3 style="font-size: 1.15rem; color: var(--accent-emerald); font-weight: 700; margin-bottom: 12px;">
-              💰 文件影印複製收費標準與線上計算器（附表三）
-            </h3>
-            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 16px;">
-              本收費標準參考《檔案法》第 21 條與《規費法》第 10 條訂定，規費全數納入社區公共基金雜項收入。
-            </p>
-
-            <!-- Interactive Fee Calculator -->
-            <div class="grid-2" style="gap: 16px; margin-bottom: 20px;">
-              <div style="background: var(--card-bg-subtle); padding: 16px; border-radius: 8px;">
-                <h4 style="font-size: 0.95rem; color: #f8fafc; margin-bottom: 12px;">線上規費試算</h4>
-                <div class="form-group" style="margin-bottom: 10px;">
-                  <label class="form-label">選擇影印規格</label>
-                  <select id="calcType" class="form-select" onchange="calculateCopyFee()">
-                    <option value="2">A4 黑白單面（NT$ 2 元 / 張）</option>
-                    <option value="4">A4 黑白雙面（NT$ 4 元 / 張）</option>
-                    <option value="8">A4 彩色單面（NT$ 8 元 / 張）</option>
-                    <option value="15">A4 彩色雙面（NT$ 15 元 / 張）</option>
-                  </select>
-                </div>
-                <div class="form-group" style="margin-bottom: 10px;">
-                  <label class="form-label">影印張數</label>
-                  <input type="number" id="calcPages" class="form-input" value="10" min="1" max="1000" oninput="calculateCopyFee()">
-                </div>
-                <div style="margin-top: 14px; padding: 12px; background: rgba(56, 189, 248, 0.1); border-radius: 6px;">
-                  <span style="font-size: 0.82rem; color: var(--text-secondary);">應收規費合計：</span>
-                  <span id="calcTotalText" style="font-size: 1.4rem; font-weight: 900; color: var(--accent-cyan); margin-left: 6px;">NT$ 20 元</span>
-                </div>
-              </div>
-
-              <div style="background: var(--card-bg-subtle); padding: 16px; border-radius: 8px;">
-                <h4 style="font-size: 0.95rem; color: #f8fafc; margin-bottom: 12px;">規費法治管理要點</h4>
-                <ul style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
-                  <li>所有影印款項嚴禁由物業人員私自挪用，必須<strong>開立三聯式規費收據</strong>。</li>
-                  <li>申請人繳費後，由物業管理負責人、主委、監委、財委依三章分立簽核確認。</li>
-                  <li>每月由財務委員盤點收費流水帳，全額存入社區公共基金帳戶。</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+        <div style="margin-top: 20px; text-align: center;">
+          <button class="btn-submit" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-size: 0.95rem;" onclick="switchMainView('handover')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            前往【物業點交與檔案提報系統】監督檔案上傳與勾選核定
+          </button>
         </div>
       </section>
 
       <!-- Signature & Attribution Footer for this View -->
       <div style="margin-top: 30px; padding: 18px; background: var(--card-bg-subtle); border-radius: 8px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
         <div style="font-size: 0.84rem; color: var(--text-muted);">
-          依據《公寓大廈管理條例》及富宇大地管委會 115.09.22 正式辦法核定編制
+          富宇大地管理委員會 官方內部高管決策手冊
         </div>
         <div style="font-size: 0.86rem; color: var(--accent-cyan);">
           富宇大地社區數位治理與公設點交特聘諮詢小兵：<strong>Howard Liao Ph.D.(A17)</strong>
@@ -3234,9 +1621,7 @@
     </main>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- VIEW 5: 物業點交上傳檢核系統 (Handover Upload & Verification Checklist)    -->
-  <!-- ========================================================================= -->
+<!-- ========================================================================= -->
   <div id="viewHandover" class="view-container">
     <header class="hero">
       <div class="container">
@@ -3308,147 +1693,352 @@
     </main>
   </div>
 
+<!-- ========================================================================= -->
+  <!-- TAB 3: 治理規章、手冊、調閱SOP與數位公佈欄 (Governance & Public Bulletin) -->
   <!-- ========================================================================= -->
-  <!-- VIEW 3: 後端上稿中心 (Admin CMS Publishing Interface)                      -->
-  <!-- ========================================================================= -->
-  <div id="viewAdmin" class="view-container">
-    <div class="container" style="padding-top: 36px;">
-      
-      <!-- Admin Role Bar -->
-      <div class="admin-auth-banner">
-        <div class="auth-status-info">
-          <div class="auth-badge" id="currentRoleBadge">已認證發布權限</div>
+  <div id="viewGovernance" class="view-container">
+    <header class="hero">
+      <div class="container">
+        <div class="hero-tags">
+          <span class="tag tag-cyan">社區法定自治法規</span>
+          <span class="tag tag-emerald">RACI / DOA / 三級彙報標準</span>
+          <span class="tag tag-amber">重要文件調閱辦法本文 (115.10核定)</span>
+          <span class="tag tag-purple">官方數位公佈欄 & 後端上稿中心</span>
+        </div>
+        <h1>富宇大地社區・自治治理法度與官方數位公佈欄</h1>
+        <p class="hero-lead">
+          整合社區核心治理依歸：確立<strong>管委會法定決策權與物業執行義務（RACI/DOA）</strong>、內政部定型契約五大附件規範，以及<strong>官方核定之重要文件調閱申請作業程序（含三大附表與規費試算）</strong>。下方亦提供即時公告閱覽與管理委員後端上稿發布中心。
+        </p>
+
+        <!-- Sub-Navigation for Governance Page -->
+        <div style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
+          <button class="btn-action active" id="btnGovSection1" onclick="switchGovSubSection(1)">📖 權責規範與彙報標準</button>
+          <button class="btn-action" id="btnGovSection2" onclick="switchGovSubSection(2)">📑 重要文件調閱申請規章 (含附表計算器)</button>
+          <button class="btn-action" id="btnGovSection3" onclick="switchGovSubSection(3)">📢 官方數位公佈欄</button>
+          <button class="btn-action" id="btnGovSection4" style="color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.4);" onclick="switchGovSubSection(4)">⚙️ 後端上稿管理中心</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding-top: 30px;">
+
+      <!-- SUB-SECTION 1: 權責手冊本文 (RACI, DOA, 3-tier reports) -->
+      <div id="govSubSection1" class="gov-sub-content">
+        <!-- RACI & DOA & 3-Tier details embedded cleanly -->
+        <div class="section-header">
           <div>
-            <div style="font-weight: 700; color: var(--text-primary); font-size: 0.95rem;">
-              當前發布身分：<span id="currentRoleName" style="color: var(--accent-cyan);">富宇大地管理委員會 / 主任委員</span>
-            </div>
-            <div style="font-size: 0.8rem; color: var(--text-muted);">
-              權限級別：Level 3（正式決策與公告核准發布）
-            </div>
+            <div class="section-subtitle">RACI MATRIX & DOA FRAMEWORK</div>
+            <h2>權責分立、授權權限 (DOA) 與三級週期性彙報體系</h2>
           </div>
         </div>
-        <div style="display: flex; gap: 8px; align-items: center;">
-          <span style="font-size: 0.82rem; color: var(--text-muted);">切換身分：</span>
-          <select id="roleSelector" class="form-select" style="width: auto; padding: 6px 10px; font-size: 0.82rem;" onchange="changeAdminRole()">
-            <option value="主任委員">主任委員 (全權限)</option>
-            <option value="監察委員">監察委員 (審計與公告)</option>
-            <option value="物業經理">物業經理 (現場草擬與發布)</option>
-            <option value="財務委員">財務委員 (財報公告)</option>
-          </select>
+
+        <div class="grid-2" style="margin-bottom: 24px;">
+          <div class="card">
+            <h3 style="color: var(--accent-emerald); font-size: 1.15rem; margin-bottom: 10px;">管理委員會（決策主體）</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;">
+              依法負責收益、公共基金之保管運用、修繕改良發包決議、規約違規制止及物業服務人之監督。<strong>決策權與管理責任依法專屬管委會，不可推諉移轉予物業經理。</strong>
+            </p>
+          </div>
+          <div class="card">
+            <h3 style="color: var(--accent-cyan); font-size: 1.15rem; margin-bottom: 10px;">物業經理（專業幕僚與執行者）</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;">
+              依管委會決議、授權與規約，負責現場機電巡檢、外包督考、工單閉環、帳務彙整、法規建議及事件即時通報。<strong>善盡善良管理人注意義務，處理事務一律留存書面紀錄。</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- DOA Table -->
+        <div class="card" style="margin-bottom: 24px;">
+          <h3 style="font-size: 1.1rem; color: var(--accent-amber); margin-bottom: 12px;">社區授權權限表 (DOA - Delegation of Authority)</h3>
+          <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>核決層級</th>
+                  <th>支出與授權額度</th>
+                  <th>決策權限主體</th>
+                  <th>必要程序與留存憑證</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>零用金日常小額</strong></td>
+                  <td>NT$ 3,000 元以下</td>
+                  <td>物業經理動支 ➔ 財委核銷</td>
+                  <td>統一發票或合法收據、零用金備查簿。</td>
+                </tr>
+                <tr>
+                  <td><strong>限額維修請修</strong></td>
+                  <td>NT$ 3,001 ~ 20,000 元</td>
+                  <td>常務管理委員 / 主任委員</td>
+                  <td>簽呈核准單、單一廠商完整估價單、完工照片。</td>
+                </tr>
+                <tr>
+                  <td><strong>重大工程招標</strong></td>
+                  <td>逾 NT$ 20,000 元</td>
+                  <td>管理委員會常會全體決議</td>
+                  <td>3 家以上比價單、管委會會議決議紀錄、正式合約書。</td>
+                </tr>
+                <tr>
+                  <td><strong>緊急重大搶修</strong></td>
+                  <td>NT$ 20,000 元以內</td>
+                  <td>物業經理先行止損處置</td>
+                  <td>12 小時內通報主委，於下次管委會常會補行追認程序。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- RACI Table -->
+        <div class="card" style="margin-bottom: 24px;">
+          <h3 style="font-size: 1.1rem; color: var(--accent-purple); margin-bottom: 12px;">核心業務 RACI 矩陣速查表</h3>
+          <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>業務類別</th>
+                  <th style="text-align: center;">區權會(大會)</th>
+                  <th style="text-align: center;">管委會(全體)</th>
+                  <th style="text-align: center;">主委 / 常委</th>
+                  <th style="text-align: center;">物業經理 / 服務人</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>重大修繕 / 規約修訂</td>
+                  <td style="text-align: center;"><span class="badge-raci badge-a">A</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-r">R</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-c">C</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-c">C</span> / <span class="badge-raci badge-i">I</span></td>
+                </tr>
+                <tr>
+                  <td>年度維修 / 外包續約</td>
+                  <td style="text-align: center;"><span class="badge-raci badge-i">I</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-a">A</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-r">R</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-c">C</span> / <span class="badge-raci badge-r">R</span></td>
+                </tr>
+                <tr>
+                  <td>小額請修 (授權限額內)</td>
+                  <td style="text-align: center;">-</td>
+                  <td style="text-align: center;"><span class="badge-raci badge-i">I</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-a">A</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-r">R</span></td>
+                </tr>
+                <tr>
+                  <td>緊急災害止損應變</td>
+                  <td style="text-align: center;">-</td>
+                  <td style="text-align: center;"><span class="badge-raci badge-i">I</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-i">I</span></td>
+                  <td style="text-align: center;"><span class="badge-raci badge-r">R</span> / <span class="badge-raci badge-a">A</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
-      <div class="grid-2">
-        <!-- Left: Publishing Form -->
-        <div class="card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
-            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-              <span id="formModeTitle">新增社區官方公告</span>
-            </h3>
-            <span id="editModeIndicator" style="display: none; background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); font-size: 0.75rem; padding: 2px 8px; border-radius: 4px;">編輯模式中</span>
+      <!-- SUB-SECTION 2: 重要文件調閱申請規章 (PDF content integrated) -->
+      <div id="govSubSection2" class="gov-sub-content" style="display: none;">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">DOCUMENT INSPECTION REGULATIONS</div>
+            <h2>富宇大地社區相關資料閱覽（影印）申請標準作業程序</h2>
+          </div>
+          <span class="tag tag-amber">115.10修訂通過</span>
+        </div>
+
+        <!-- 5 Steps Flow Graphic -->
+        <div class="card" style="background: #0b1324; border: 1px solid rgba(56, 189, 248, 0.3); margin-bottom: 24px;">
+          <h3 style="font-size: 1.05rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 14px;">
+            🔄 調閱申請 5 步閉環標準作業流程
+          </h3>
+          <div class="grid-4" style="gap: 10px;">
+            <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-cyan);">
+              <strong style="color: #f8fafc; font-size: 0.9rem;">1. 填表申請</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">備妥身分證、建物謄本，填具附表一申請表。</div>
+            </div>
+            <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-amber);">
+              <strong style="color: #f8fafc; font-size: 0.9rem;">2. 物業初審</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">社區經理 3 日內核驗利害關係並立案呈報。</div>
+            </div>
+            <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-purple);">
+              <strong style="color: #f8fafc; font-size: 0.9rem;">3. 管委會核定</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">審查准駁，個資遮蔽去識別化，開立附表二。</div>
+            </div>
+            <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-emerald);">
+              <strong style="color: #f8fafc; font-size: 0.9rem;">4 & 5. 陪閱收費</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">專人陪同調閱，依附表三收費開立三聯單。</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Fee Calculator -->
+        <div class="card" style="margin-bottom: 24px;">
+          <h3 style="font-size: 1.1rem; color: var(--accent-emerald); margin-bottom: 12px;">💰 影印規費試算（依檔案法第21條/規費法第10條）</h3>
+          <div class="grid-2" style="gap: 16px;">
+            <div>
+              <div class="form-group" style="margin-bottom: 10px;">
+                <label class="form-label">影印規格</label>
+                <select id="calcTypeGov" class="form-select" onchange="calculateCopyFeeGov()">
+                  <option value="2">A4 黑白單面（NT$ 2 元 / 張）</option>
+                  <option value="4">A4 黑白雙面（NT$ 4 元 / 張）</option>
+                  <option value="8">A4 彩色單面（NT$ 8 元 / 張）</option>
+                  <option value="15">A4 彩色雙面（NT$ 15 元 / 張）</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">影印張數</label>
+                <input type="number" id="calcPagesGov" class="form-input" value="10" min="1" max="1000" oninput="calculateCopyFeeGov()">
+              </div>
+              <div style="margin-top: 12px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                <span style="font-size: 0.82rem; color: var(--text-secondary);">應收規費合計：</span>
+                <span id="calcTotalTextGov" style="font-size: 1.3rem; font-weight: 900; color: var(--accent-emerald); margin-left: 6px;">NT$ 20 元</span>
+              </div>
+            </div>
+            <div style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7;">
+              <strong style="color: var(--text-primary);">調閱與繳費重點叮嚀：</strong><br>
+              1. 申請人調閱不得攜離管理室，影印由物業人員代印。<br>
+              2. 款項屬公共基金雜項收入，必須開立三聯式收據入帳。<br>
+              3. 涉及私人生日、電話、身分證字號與銀行帳號一律遮蔽。<br>
+              4. 申請人簽章切結「不得隨意發布於公開社群網路」。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-SECTION 3: 官方數位公佈欄 -->
+      <div id="govSubSection3" class="gov-sub-content" style="display: none;">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">OFFICIAL BULLETIN</div>
+            <h2>富宇大地官方數位公佈欄（即時公告）</h2>
+          </div>
+        </div>
+
+        <!-- Filter and Search -->
+        <div class="bulletin-controls">
+          <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">全部公告</button>
+            <button class="filter-btn" onclick="filterCategory('重大決議', this)">重大決議</button>
+            <button class="filter-btn" onclick="filterCategory('財務公告', this)">財務公告</button>
+            <button class="filter-btn" onclick="filterCategory('工程修繕', this)">工程修繕</button>
+            <button class="filter-btn" onclick="filterCategory('規約宣導', this)">規約宣導</button>
+            <button class="filter-btn" onclick="filterCategory('例行事務', this)">例行事務</button>
+          </div>
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="搜尋公告關鍵字..." oninput="searchAnnouncements(this.value)">
+          </div>
+        </div>
+
+        <div id="announcementsList" class="announcements-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- SUB-SECTION 4: 後端上稿中心 -->
+      <div id="govSubSection4" class="gov-sub-content" style="display: none;">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">ADMIN CMS</div>
+            <h2>管理委員會後端上稿與發布中心</h2>
+          </div>
+          <span class="tag tag-amber">主管專屬</span>
+        </div>
+
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="admin-role-bar">
+            <span>選擇當前簽核身分：</span>
+            <select id="roleSelector" class="form-select" style="max-width: 260px;" onchange="updateRoleContext()">
+              <option value="主任委員">主任委員 Howard Liao Ph.D.(A17)</option>
+              <option value="監察委員">監察委員 (監察小組)</option>
+              <option value="財務委員">財務委員 (財務審計)</option>
+              <option value="物業經理">富宇物業管理中心 (經理)</option>
+            </select>
           </div>
 
           <form id="announcementForm" onsubmit="handleFormSubmit(event)">
-            <input type="hidden" id="editArticleId" value="">
-
-            <div class="form-group">
-              <label class="form-label" for="formTitle">公告標題 <span style="color: var(--accent-rose);">*</span></label>
-              <input type="text" id="formTitle" class="form-input" placeholder="例如：【工程】富宇大地全區蓄水池高壓清洗停水通知" required>
-            </div>
-
-            <div class="grid-2" style="gap: 14px;">
+            <input type="hidden" id="formEditId" value="">
+            <div class="form-grid-2">
               <div class="form-group">
-                <label class="form-label" for="formCategory">公告分類 <span style="color: var(--accent-rose);">*</span></label>
+                <label class="form-label" for="formCategory">公告類別 *</label>
                 <select id="formCategory" class="form-select" required>
-                  <option value="重大決議">重大決議 (重要決策)</option>
-                  <option value="機電工程">機電工程 (修繕/保養/停水電)</option>
-                  <option value="財務收支">財務收支 (月報/公積金)</option>
-                  <option value="日常庶務">日常庶務 (活動/公設/收發)</option>
-                  <option value="法規規章">法規規章 (規約/管理辦法)</option>
+                  <option value="重大決議">重大決議</option>
+                  <option value="財務公告">財務公告</option>
+                  <option value="工程修繕">工程修繕</option>
+                  <option value="規約宣導">規約宣導</option>
+                  <option value="例行事務">例行事務</option>
                 </select>
               </div>
-
               <div class="form-group">
-                <label class="form-label" for="formPublisher">發布單位 <span style="color: var(--accent-rose);">*</span></label>
-                <input type="text" id="formPublisher" class="form-input" value="富宇大地管理委員會" required>
-              </div>
-            </div>
-
-            <div class="grid-2" style="gap: 14px;">
-              <div class="form-group">
-                <label class="form-label" for="formSigner">簽核 / 決策人 <span style="color: var(--accent-rose);">*</span></label>
-                <input type="text" id="formSigner" class="form-input" value="主任委員 Howard Liao Ph.D.(A17)" required>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="formDate">發布日期 <span style="color: var(--accent-rose);">*</span></label>
+                <label class="form-label" for="formDate">發布日期 *</label>
                 <input type="date" id="formDate" class="form-input" required>
               </div>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="formSummary">摘要簡述 (列表預覽顯示，50-80字)</label>
-              <input type="text" id="formSummary" class="form-input" placeholder="簡短說明本公告重點，供住戶在列表中快速掌握...">
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="formPublisher">發布單位 *</label>
+                <input type="text" id="formPublisher" class="form-input" value="富宇大地管理委員會" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formSigner">簽核 / 決策人 *</label>
+                <input type="text" id="formSigner" class="form-input" value="主任委員 Howard Liao Ph.D.(A17)" required>
+              </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="formContent">公告正式全文內容 <span style="color: var(--accent-rose);">*</span></label>
-              <textarea id="formContent" class="form-textarea" rows="8" placeholder="請填寫完整公告內容，可分段編寫..." required></textarea>
+              <label class="form-label" for="formTitle">公文標題 *</label>
+              <input type="text" id="formTitle" class="form-input" placeholder="請輸入完整正式標題" required>
             </div>
 
             <div class="form-group">
-              <label class="form-checkbox-row">
-                <input type="checkbox" id="formPinned" style="width: 16px; height: 16px; accent-color: var(--accent-amber);">
-                <span style="font-weight: 600; color: var(--text-primary);">將本篇公告【置頂顯示】於公佈欄最上方</span>
+              <label class="form-label" for="formContent">公告內文 (支援換行) *</label>
+              <textarea id="formContent" class="form-textarea" rows="6" placeholder="請輸入公文詳情、決議事項或作業規定..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                <input type="checkbox" id="formPinned" style="width: 18px; height: 18px; accent-color: var(--accent-amber);">
+                <span style="font-size: 0.9rem; font-weight: 600; color: #f8fafc;">置頂重要公告</span>
               </label>
             </div>
 
-            <div style="margin-top: 24px; display: flex; align-items: center;">
-              <button type="submit" class="btn-submit">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                確認送出發布
-              </button>
-              <button type="button" class="btn-reset" onclick="resetForm()">重設清空</button>
+            <div class="form-actions">
+              <button type="button" class="btn-action" onclick="resetForm()">重設清空</button>
+              <button type="submit" class="btn-submit" id="btnSubmitForm">立即審定發布公文</button>
             </div>
           </form>
         </div>
 
-        <!-- Right: Published List Management -->
+        <!-- Management List -->
         <div class="card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary);">
-              已發布公告管理清單 (<span id="adminListCount">0</span> 篇)
-            </h3>
-            <button class="btn-action" style="font-size: 0.76rem;" onclick="resetToDefaultArticles()">
-              重設官方預設範本
-            </button>
-          </div>
-
+          <h3 style="font-size: 1.1rem; color: #f8fafc; margin-bottom: 12px;">已發布公文列表與管理</h3>
           <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
-        <div class="table-responsive" style="max-height: 520px; overflow-y: auto;">
+          <div class="table-responsive">
             <table>
               <thead>
                 <tr>
-                  <th style="width: 45%;">公告標題</th>
-                  <th style="width: 20%;">分類</th>
-                  <th style="width: 15%;">發布日期</th>
-                  <th style="width: 20%; text-align: center;">操作</th>
+                  <th style="width: 100px;">類別</th>
+                  <th>標題</th>
+                  <th style="width: 110px;">日期</th>
+                  <th style="width: 120px;">簽核人</th>
+                  <th style="width: 130px; text-align: center;">操作</th>
                 </tr>
               </thead>
-              <tbody id="adminArticlesTbody">
-                <!-- Populated via JS -->
+              <tbody id="adminTableBody">
+                <!-- Injected via JS -->
               </tbody>
             </table>
           </div>
-
-          <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted);">
-            <span>資料自動儲存於瀏覽器 LocalStorage</span>
-            <button class="btn-copy" style="padding: 3px 8px; font-size: 0.75rem;" onclick="exportArticlesJSON()">匯出 JSON 備份</button>
-          </div>
         </div>
       </div>
-    </div>
+
+    </main>
   </div>
 
   <!-- Announcement Reading Modal -->
