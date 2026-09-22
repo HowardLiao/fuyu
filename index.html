@@ -2454,8 +2454,7 @@
               </div>
             </div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-              <button class="btn-action" onclick="quickCheckAll(true)">全部勾選核可</button>
-              <button class="btn-action" onclick="quickCheckAll(false)">清空勾選</button>
+              <button class="btn-action" style="color: var(--accent-rose); border-color: rgba(244, 63, 94, 0.3);" onclick="resetHandoverChecklist()">清空重設進度 (歸零)</button>
               <button class="btn-submit" style="padding: 7px 16px; font-size: 0.82rem;" onclick="window.print()">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
                 列印點交簽收清冊
@@ -2843,222 +2842,249 @@
     ];
 
 
-    // Handover Items State & Functions
-    let handoverState = {};
+    
+// Clean, real-only handover state strictly tied to actual uploaded files
+let handoverState = {};
 
-    function initHandoverState() {
-      const stored = localStorage.getItem('fuyu_handover_state_v1');
-      if (stored) {
-        try {
-          handoverState = JSON.parse(stored);
-        } catch (e) {
-          handoverState = {};
-        }
-      } else {
-        // Default with some initial demonstration state
-        handoverState = {
-          "P0-01": { checked: true, fileName: "富宇大地_總幹事認可證與保全良民證名冊_11509.pdf", fileSize: "2.4 MB", uploadTime: "2026-09-20 14:30", reviewer: "監察委員 查核完畢", note: "證件有效期限至 118 年" },
-          "P0-02": { checked: true, fileName: "115年電梯安全使用許可證與消防申報合格函.pdf", fileSize: "4.8 MB", uploadTime: "2026-09-21 09:15", reviewer: "安全委員 檢核無誤", note: "消防缺失複查已核准備查" }
-        };
-        saveHandoverState();
-      }
-      renderHandoverList();
-      updateHandoverStats();
-    }
+function initHandoverState() {
+  // Purge any legacy mock storage key if present
+  localStorage.removeItem('fuyu_handover_state_v1');
 
-    function saveHandoverState() {
-      localStorage.setItem('fuyu_handover_state_v1', JSON.stringify(handoverState));
-      updateHandoverStats();
-    }
-
-    function updateHandoverStats() {
-      let completed = 0;
-      let p0 = 0, p1 = 0, p2 = 0, p3 = 0;
-
-      HANDOVER_ITEMS.forEach(item => {
-        const state = handoverState[item.id];
-        if (state && state.checked) {
-          completed++;
-          if (item.priority === 'P0') p0++;
-          if (item.priority === 'P1') p1++;
-          if (item.priority === 'P2') p2++;
-          if (item.priority === 'P3') p3++;
+  // Load real state from v2
+  const stored = localStorage.getItem('fuyu_handover_state_v2');
+  if (stored) {
+    try {
+      const parsed = JSON.parse(stored);
+      handoverState = {};
+      Object.keys(parsed).forEach(k => {
+        // Strict integrity: only load if it has an actual file attached
+        if (parsed[k] && parsed[k].fileName) {
+          handoverState[k] = parsed[k];
         }
       });
-
-      const pct = Math.round((completed / HANDOVER_ITEMS.length) * 100);
-      document.getElementById('overallCompletedCount').innerText = completed;
-      document.getElementById('overallPercentText').innerText = `(${pct}%)`;
-      document.getElementById('masterProgressBar').style.width = `${pct}%`;
-      document.getElementById('p0Count').innerText = p0;
-      document.getElementById('p1Count').innerText = p1;
-      document.getElementById('p2Count').innerText = p2;
-      document.getElementById('p3Count').innerText = p3;
+    } catch (e) {
+      handoverState = {};
     }
+  } else {
+    // Absolutely NO fake demo files: starts strictly at 0
+    handoverState = {};
+  }
+  
+  saveHandoverState();
+  renderHandoverList();
+  updateHandoverStats();
+}
 
-    function renderHandoverList() {
-      const container = document.getElementById('handoverItemsContainer');
-      if (!container) return;
+function saveHandoverState() {
+  localStorage.setItem('fuyu_handover_state_v2', JSON.stringify(handoverState));
+  updateHandoverStats();
+}
 
-      container.innerHTML = HANDOVER_ITEMS.map((item, idx) => {
-        const state = handoverState[item.id] || { checked: false };
-        const isChecked = !!state.checked;
-        const hasFile = !!state.fileName;
+// Progress bar and counts strictly map to items that have real uploaded files
+function updateHandoverStats() {
+  let completed = 0;
+  let p0 = 0, p1 = 0, p2 = 0, p3 = 0;
 
-        let borderHighlight = isChecked ? 'rgba(16, 185, 129, 0.4)' : 'var(--border-color)';
-        let cardBg = isChecked ? 'linear-gradient(180deg, rgba(16, 185, 129, 0.03) 0%, var(--card-bg) 100%)' : 'var(--card-bg)';
+  HANDOVER_ITEMS.forEach(item => {
+    const state = handoverState[item.id];
+    // Strict requirement: MUST have a real uploaded file to be counted as completed
+    if (state && state.fileName && state.checked) {
+      completed++;
+      if (item.priority === 'P0') p0++;
+      if (item.priority === 'P1') p1++;
+      if (item.priority === 'P2') p2++;
+      if (item.priority === 'P3') p3++;
+    }
+  });
 
-        return `
-          <div class="card handover-item-card" id="card-${item.id}" style="border: 1px solid ${borderHighlight}; background: ${cardBg}; margin-bottom: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 12px;">
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <!-- Checkbox -->
-                <input type="checkbox" id="chk-${item.id}" style="width: 22px; height: 22px; accent-color: var(--accent-emerald); cursor: pointer;" ${isChecked ? 'checked' : ''} onchange="toggleHandoverCheck('${item.id}', this.checked)">
-                <div>
-                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                    <span class="tag ${item.priorityClass}">${item.priorityLabel}</span>
-                    <span style="font-size: 0.78rem; color: var(--accent-amber); font-weight: 700;">[期限: ${item.deadline}]</span>
-                    <span style="font-size: 0.76rem; color: var(--text-muted);">代號: ${item.id}</span>
-                  </div>
-                  <h3 style="font-size: 1.18rem; font-weight: 700; color: var(--text-primary); margin-top: 4px;">
-                    ${item.title}
-                  </h3>
-                </div>
+  const pct = Math.round((completed / HANDOVER_ITEMS.length) * 100);
+  const countEl = document.getElementById('overallCompletedCount');
+  const pctEl = document.getElementById('overallPercentText');
+  const barEl = document.getElementById('masterProgressBar');
+
+  if (countEl) countEl.innerText = completed;
+  if (pctEl) pctEl.innerText = `(${pct}%)`;
+  if (barEl) barEl.style.width = `${pct}%`;
+  
+  const p0El = document.getElementById('p0Count');
+  const p1El = document.getElementById('p1Count');
+  const p2El = document.getElementById('p2Count');
+  const p3El = document.getElementById('p3Count');
+  if (p0El) p0El.innerText = p0;
+  if (p1El) p1El.innerText = p1;
+  if (p2El) p2El.innerText = p2;
+  if (p3El) p3El.innerText = p3;
+}
+
+function renderHandoverList() {
+  const container = document.getElementById('handoverItemsContainer');
+  if (!container) return;
+
+  container.innerHTML = HANDOVER_ITEMS.map((item, idx) => {
+    const state = handoverState[item.id] || {};
+    const hasFile = !!state.fileName;
+    const isChecked = hasFile && !!state.checked;
+
+    let borderHighlight = isChecked ? 'rgba(16, 185, 129, 0.45)' : (hasFile ? 'rgba(56, 189, 248, 0.4)' : 'var(--border-color)');
+    let cardBg = isChecked ? 'linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, var(--card-bg) 100%)' : 'var(--card-bg)';
+
+    return `
+      <div class="card handover-item-card" id="card-${item.id}" style="border: 1px solid ${borderHighlight}; background: ${cardBg}; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <!-- Checkbox strictly bound to file upload -->
+            <input type="checkbox" id="chk-${item.id}" style="width: 22px; height: 22px; accent-color: var(--accent-emerald); cursor: pointer;" ${isChecked ? 'checked' : ''} onchange="toggleHandoverCheck('${item.id}', this.checked)">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <span class="tag ${item.priorityClass}">${item.priorityLabel}</span>
+                <span style="font-size: 0.78rem; color: var(--accent-amber); font-weight: 700;">[期限: ${item.deadline}]</span>
+                <span style="font-size: 0.76rem; color: var(--text-muted);">代號: ${item.id}</span>
               </div>
-
-              <!-- Status Badge -->
-              <div>
-                ${isChecked ? 
-                  `<span style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">✓ 查核完成</span>` : 
-                  (hasFile ? 
-                    `<span style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">已上傳・待核驗</span>` : 
-                    `<span style="background: rgba(244, 63, 94, 0.15); color: #f87171; border: 1px solid rgba(244, 63, 94, 0.3); font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">待物業上傳</span>`
-                  )
-                }
-              </div>
-            </div>
-
-            <!-- Content Description -->
-            <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; background: var(--card-bg-subtle); padding: 12px 16px; border-radius: 8px;">
-              <div style="margin-bottom: 4px;">
-                <strong style="color: var(--text-primary);">提報內容規範：</strong>${item.req}
-              </div>
-              <div style="font-size: 0.82rem; color: var(--accent-rose);">
-                <strong>風控警示目的：</strong>${item.risk}
-              </div>
-            </div>
-
-            <!-- Upload and Verified File Area -->
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; border-top: 1px solid rgba(226, 232, 240, 0.08); padding-top: 12px;">
-              
-              <!-- File Display -->
-              <div style="flex: 1; min-width: 260px;">
-                ${hasFile ? `
-                  <div style="display: flex; align-items: center; gap: 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); padding: 8px 12px; border-radius: 6px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    <div style="flex: 1; overflow: hidden;">
-                      <div style="font-size: 0.86rem; font-weight: 600; color: #f8fafc; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
-                        ${escapeHtml(state.fileName)}
-                      </div>
-                      <div style="font-size: 0.74rem; color: var(--text-muted);">
-                        大小: ${state.fileSize || '未知'} | 上傳時間: ${state.uploadTime || '即時'}
-                        ${state.reviewer ? ` | 審查: <span style="color: #6ee7b7;">${escapeHtml(state.reviewer)}</span>` : ''}
-                      </div>
-                    </div>
-                    <button class="btn-action" style="padding: 3px 8px; font-size: 0.72rem; color: var(--accent-rose);" onclick="removeUploadedFile('${item.id}')">移除</button>
-                  </div>
-                ` : `
-                  <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                    尚未上傳任何附件檔卷（支援 ${item.acceptTypes}）
-                  </div>
-                `}
-              </div>
-
-              <!-- Upload Button Form -->
-              <div style="display: flex; gap: 10px; align-items: center;">
-                <input type="file" id="file-${item.id}" style="display: none;" accept="${item.acceptTypes}" onchange="handleItemFileUpload('${item.id}', this)">
-                <button class="btn-action" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3); color: var(--accent-cyan);" onclick="document.getElementById('file-${item.id}').click()">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  ${hasFile ? '重新上傳覆蓋' : '選擇文件檔案上傳'}
-                </button>
-                <button class="btn-action" style="background: ${isChecked ? 'rgba(16, 185, 129, 0.2)' : 'var(--card-bg-subtle)'}; color: ${isChecked ? '#10b981' : 'var(--text-secondary)'};" onclick="toggleHandoverCheck('${item.id}', ${!isChecked})">
-                  ${isChecked ? '取消核定' : '勾選確認完成'}
-                </button>
-              </div>
-
+              <h3 style="font-size: 1.18rem; font-weight: 700; color: var(--text-primary); margin-top: 4px;">
+                ${item.title}
+              </h3>
             </div>
           </div>
-        `;
-      }).join('');
-    }
 
-    function handleItemFileUpload(itemId, inputElement) {
-      if (!inputElement.files || inputElement.files.length === 0) return;
-      const file = inputElement.files[0];
+          <!-- Status Badge -->
+          <div>
+            ${isChecked ? 
+              `<span style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">✓ 文件已上傳・核驗完成</span>` : 
+              (hasFile ? 
+                `<span style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">文件已上傳・待勾選核定</span>` : 
+                `<span style="background: rgba(244, 63, 94, 0.15); color: #f87171; border: 1px solid rgba(244, 63, 94, 0.3); font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">❌ 尚未上傳文件 (待提報)</span>`
+              )
+            }
+          </div>
+        </div>
 
-      // Formulate file size
-      const sizeStr = file.size > 1024 * 1024 ? 
-        (file.size / (1024 * 1024)).toFixed(1) + ' MB' : 
-        Math.round(file.size / 1024) + ' KB';
+        <!-- Content Description -->
+        <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; background: var(--card-bg-subtle); padding: 12px 16px; border-radius: 8px;">
+          <div style="margin-bottom: 4px;">
+            <strong style="color: var(--text-primary);">提報內容規範：</strong>${item.req}
+          </div>
+          <div style="font-size: 0.82rem; color: var(--accent-rose);">
+            <strong>風控警示目的：</strong>${item.risk}
+          </div>
+        </div>
 
-      const now = new Date();
-      const timeStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+        <!-- Upload and Verified File Area -->
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; border-top: 1px solid rgba(226, 232, 240, 0.08); padding-top: 12px;">
+          
+          <!-- File Display -->
+          <div style="flex: 1; min-width: 260px;">
+            ${hasFile ? `
+              <div style="display: flex; align-items: center; gap: 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); padding: 8px 12px; border-radius: 6px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <div style="flex: 1; overflow: hidden;">
+                  <div style="font-size: 0.86rem; font-weight: 600; color: #f8fafc; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                    📄 ${escapeHtml(state.fileName)}
+                  </div>
+                  <div style="font-size: 0.74rem; color: var(--text-muted);">
+                    大小: ${state.fileSize || '未知'} | 上傳時間: ${state.uploadTime}
+                    ${state.reviewer ? ` | 查核狀態: <span style="color: #6ee7b7;">${escapeHtml(state.reviewer)}</span>` : ''}
+                  </div>
+                </div>
+                <button class="btn-action" style="padding: 3px 8px; font-size: 0.72rem; color: var(--accent-rose); border-color: rgba(244, 63, 94, 0.3);" onclick="removeUploadedFile('${item.id}')">刪除文件</button>
+              </div>
+            ` : `
+              <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span>尚未上傳任何附件檔卷（限制格式：${item.acceptTypes}）</span>
+              </div>
+            `}
+          </div>
 
-      if (!handoverState[itemId]) {
-        handoverState[itemId] = {};
-      }
+          <!-- Upload and Check Button Action -->
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="file" id="file-${item.id}" style="display: none;" accept="${item.acceptTypes}" onchange="handleItemFileUpload('${item.id}', this)">
+            <button class="btn-action" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3); color: var(--accent-cyan);" onclick="document.getElementById('file-${item.id}').click()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              ${hasFile ? '重新上傳替換' : '選擇文件檔案上傳'}
+            </button>
+            <button class="btn-action" style="background: ${isChecked ? 'rgba(16, 185, 129, 0.2)' : 'var(--card-bg-subtle)'}; color: ${isChecked ? '#10b981' : 'var(--text-secondary)'};" onclick="toggleHandoverCheck('${item.id}', ${!isChecked})">
+              ${isChecked ? '取消核定' : '勾選確認完成'}
+            </button>
+          </div>
 
-      handoverState[itemId].fileName = file.name;
-      handoverState[itemId].fileSize = sizeStr;
-      handoverState[itemId].uploadTime = timeStr;
-      handoverState[itemId].checked = true; // Auto-check upon upload
-      handoverState[itemId].reviewer = "物業已上傳・管委會已核定";
+        </div>
+      </div>
+    `;
+  }).join('');
+}
 
-      saveHandoverState();
-      renderHandoverList();
-      showToast(`✓ 已成功上傳檔案：${file.name}，並自動完成勾選！`);
-    }
+// When a real file is chosen by user
+function handleItemFileUpload(itemId, inputElement) {
+  if (!inputElement.files || inputElement.files.length === 0) return;
+  const file = inputElement.files[0];
 
-    function toggleHandoverCheck(itemId, checked) {
-      if (!handoverState[itemId]) {
-        handoverState[itemId] = {};
-      }
-      handoverState[itemId].checked = checked;
-      if (checked && !handoverState[itemId].reviewer) {
-        handoverState[itemId].reviewer = "管委會現場查核合格";
-      }
+  const sizeStr = file.size > 1024 * 1024 ? 
+    (file.size / (1024 * 1024)).toFixed(1) + ' MB' : 
+    Math.round(file.size / 1024) + ' KB';
 
-      saveHandoverState();
-      renderHandoverList();
-      showToast(checked ? `✓ 代號 ${itemId} 已勾選確認核定完成！` : `代號 ${itemId} 已取消勾選`);
-    }
+  const now = new Date();
+  const timeStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
 
-    function removeUploadedFile(itemId) {
-      if (!confirm(`確定要移除代號 ${itemId} 之上傳附件檔案嗎？`)) return;
-      if (handoverState[itemId]) {
-        delete handoverState[itemId].fileName;
-        delete handoverState[itemId].fileSize;
-        delete handoverState[itemId].uploadTime;
-        handoverState[itemId].checked = false;
-      }
-      saveHandoverState();
-      renderHandoverList();
-      showToast(`已移除附件檔案`);
-    }
+  if (!handoverState[itemId]) {
+    handoverState[itemId] = {};
+  }
 
-    function quickCheckAll(status) {
-      HANDOVER_ITEMS.forEach(item => {
-        if (!handoverState[item.id]) handoverState[item.id] = {};
-        handoverState[item.id].checked = status;
-        if (status && !handoverState[item.id].reviewer) {
-          handoverState[item.id].reviewer = "管委會全體查核通過";
-        }
-      });
-      saveHandoverState();
-      renderHandoverList();
-      showToast(status ? "✓ 已全部勾選為完成！" : "已全部取消勾選");
-    }
+  handoverState[itemId].fileName = file.name;
+  handoverState[itemId].fileSize = sizeStr;
+  handoverState[itemId].uploadTime = timeStr;
+  handoverState[itemId].checked = true; // Automatically mark as completed upon real upload
+  handoverState[itemId].reviewer = "物業已上傳實體檔卷・已確認";
+
+  saveHandoverState();
+  renderHandoverList();
+  showToast(`✓ 代號 ${itemId} 已成功上傳檔案：${file.name}，進度已即時更新！`);
+}
+
+// Toggle checkbox - strictly enforces file requirement
+function toggleHandoverCheck(itemId, checked) {
+  const state = handoverState[itemId];
+  
+  // If attempting to check without a file uploaded:
+  if (checked && (!state || !state.fileName)) {
+    alert(`【提示】代號 ${itemId} 尚未上傳任何文件檔案！\n\n依管委會稽核規範，必須先點擊「選擇文件檔案上傳」上傳真實法定檔卷後，始得勾選確認完成。`);
+    // Trigger file chooser directly
+    const fileInput = document.getElementById(`file-${itemId}`);
+    if (fileInput) fileInput.click();
+    return;
+  }
+
+  if (!handoverState[itemId]) {
+    handoverState[itemId] = {};
+  }
+  
+  handoverState[itemId].checked = checked;
+  if (checked) {
+    handoverState[itemId].reviewer = "管委會審查合格簽認";
+  }
+
+  saveHandoverState();
+  renderHandoverList();
+  showToast(checked ? `✓ 代號 ${itemId} 已核定完成！` : `代號 ${itemId} 已取消完成標記`);
+}
+
+function removeUploadedFile(itemId) {
+  if (!confirm(`確定要刪除代號 ${itemId} 之上傳文件檔案嗎？\n刪除後該項將回歸「未完成」狀態，進度表將同步扣減。`)) return;
+  if (handoverState[itemId]) {
+    delete handoverState[itemId];
+  }
+  saveHandoverState();
+  renderHandoverList();
+  showToast(`代號 ${itemId} 之文件已移除，進度表已同步扣除。`);
+}
+
+function resetHandoverChecklist() {
+  if (!confirm("確定要重設清空所有上傳之文件與勾選紀錄嗎？此動作將使進度歸零。")) return;
+  handoverState = {};
+  localStorage.removeItem('fuyu_handover_state_v2');
+  saveHandoverState();
+  renderHandoverList();
+  showToast("已清空所有點交紀錄，進度歸零 0%");
+}
 
     // Initial Seed Data for "富宇大地"
     const DEFAULT_ARTICLES = [
