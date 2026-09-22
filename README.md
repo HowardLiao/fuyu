@@ -1,6 +1,6 @@
 # 富宇大地社區管理維護治理體系暨官方數位公佈欄
 > Fuyu Dadi Community Governance Handbook, Property Management SOP & Digital Bulletin Board  
-> **系統架構規劃與製作人**：Howard Liao Ph.D.(A17)  
+> **富宇大地社區數位治理與公設點交特聘諮詢小兵**：Howard Liao Ph.D.(A17)  
 > **全站官方防偽浮水印**：Howard Liao Ph.D.  
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-38BDF8?style=flat&logo=github)](https://howardliao.github.io/fuyu/)
@@ -18,7 +18,7 @@
 >  
 > 本治理平台與權責手冊的創立，初心正是為了減輕委員們的奔波負擔，透過權責分立、透明標準與數位工具的賦能，與專業物業團隊攜手並進。願我們心手相連，以彼此的包容與同理，共同守護這片土地，為富宇大地的美好未來奠定百年磐石。  
 >  
-> —— **系統架構規劃與製作人：Howard Liao Ph.D.(A17)**
+> —— **富宇大地社區數位治理與公設點交特聘諮詢小兵：Howard Liao Ph.D.(A17)**
 
 ---
 
