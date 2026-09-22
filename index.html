@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <style>
+<style>
     :root {
       --bg-base: #020617;
       --card-bg: #0F172A;
@@ -1217,12 +1217,52 @@
       }
     }
 
+  
+    /* Executive Secondary Tab Bar */
+    .gov-subnav-container {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      background: rgba(15, 23, 42, 0.7);
+      padding: 8px;
+      border-radius: 12px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    .gov-subnav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .gov-subnav-btn:hover {
+      color: #f8fafc;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .gov-subnav-btn.active {
+      color: #020617 !important;
+      background: var(--accent-cyan) !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35) !important;
+    }
+    .gov-subnav-btn.btn-admin-sub.active {
+      background: var(--accent-amber) !important;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
+    }
+
   </style>
 </head>
 <body>
   <!-- Full-Page Security Watermark: Howard Liao Ph.D. -->
   <div class="watermark-overlay" aria-hidden="true"></div>
-
 
   <!-- Top Announcement Ticker -->
   <aside class="top-ticker" aria-label="社區重要即時推播">
@@ -1252,10 +1292,7 @@
         <span class="community-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); font-weight: 700; margin-left: 6px;">社區治理志工：Howard Liao Ph.D.(A17)</span>
       </div>
 
-      <!-- Main Navigation Tabs -->
-            <!-- Consolidated 3 Core Navigation Tabs -->
-            <!-- Consolidated 3 Core Navigation Tabs -->
-            <!-- Consolidated 3 Core Navigation Tabs -->
+      <!-- Consolidated 3 Core Navigation Tabs -->
       <div class="nav-tabs">
         <button id="navBtnAudit" class="main-nav-btn active" onclick="switchMainView('audit')">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -1272,7 +1309,7 @@
         <button id="navBtnGovernance" class="main-nav-btn" onclick="switchMainView('governance')">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           治理規章與公佈欄
-          <span style="background: rgba(56, 189, 248, 0.25); color: var(--accent-cyan); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">規範&公告</span>
+          <span style="background: rgba(56, 189, 248, 0.25); color: var(--accent-cyan); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">手冊&公告</span>
         </button>
       </div>
 
@@ -1285,8 +1322,7 @@
     </div>
   </nav>
 
-  <!-- ========================================================================= -->
-  <!-- VIEW 1: 權責規範與治理規章手冊 (Governance Manual)                        -->
+
   <!-- ========================================================================= -->
   <!-- TAB 1: 物業現況深度體檢與關鍵改進方案 (Core Focus: Property Management Audit)-->
   <!-- ========================================================================= -->
@@ -1621,8 +1657,8 @@
     </main>
   </div>
 
-<!-- ========================================================================= -->
-  <div id="viewHandover" class="view-container">
+
+<div id="viewHandover" class="view-container">
     <header class="hero">
       <div class="container">
         <div class="hero-tags">
@@ -1693,7 +1729,8 @@
     </main>
   </div>
 
-<!-- ========================================================================= -->
+
+  <!-- ========================================================================= -->
   <!-- TAB 3: 治理規章、手冊、調閱SOP與數位公佈欄 (Governance & Public Bulletin) -->
   <!-- ========================================================================= -->
   <div id="viewGovernance" class="view-container">
@@ -1704,39 +1741,51 @@
           <span class="tag tag-emerald">RACI / DOA / 三級彙報標準</span>
           <span class="tag tag-amber">重要文件調閱辦法本文 (115.10核定)</span>
           <span class="tag tag-purple">官方數位公佈欄 & 後端上稿中心</span>
+          <span class="tag tag-cyan">社區治理志工：Howard Liao Ph.D.(A17)</span>
         </div>
-        <h1>富宇大地社區・自治治理法度與官方數位公佈欄</h1>
+        <h1>富宇大地社區管理維護治理體系・物業權責手冊暨官方數位公佈欄</h1>
         <p class="hero-lead">
-          整合社區核心治理依歸：確立<strong>管委會法定決策權與物業執行義務（RACI/DOA）</strong>、內政部定型契約五大附件規範，以及<strong>官方核定之重要文件調閱申請作業程序（含三大附表與規費試算）</strong>。下方亦提供即時公告閱覽與管理委員後端上稿發布中心。
+          整合社區核心治理法度：確立<strong>管委會法定決策權與物業執行義務（RACI/DOA）</strong>、內政部定型契約五大附件標準工項、<strong>7 大類別 52 項必備法定檔卷清冊</strong>，以及<strong>官方核定之重要文件調閱申請作業程序（含三大附表與規費試算）</strong>。下方亦提供即時公告閱覽與管理委員後端上稿發布中心。
         </p>
 
-        <!-- Sub-Navigation for Governance Page -->
-        <div style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
-          <button class="btn-action active" id="btnGovSection1" onclick="switchGovSubSection(1)">📖 權責規範與彙報標準</button>
-          <button class="btn-action" id="btnGovSection2" onclick="switchGovSubSection(2)">📑 重要文件調閱申請規章 (含附表計算器)</button>
-          <button class="btn-action" id="btnGovSection3" onclick="switchGovSubSection(3)">📢 官方數位公佈欄</button>
-          <button class="btn-action" id="btnGovSection4" style="color: var(--accent-amber); border-color: rgba(245, 158, 11, 0.4);" onclick="switchGovSubSection(4)">⚙️ 後端上稿管理中心</button>
+        <!-- Executive Secondary Tab Bar for Governance & Bulletin -->
+        <div class="gov-subnav-container">
+          <button class="gov-subnav-btn active" id="btnGovSection1" onclick="switchGovSubSection(1)">
+            <span style="font-size: 1.1rem;">📖</span>
+            <span>權責手冊與 52 項清冊</span>
+          </button>
+          <button class="gov-subnav-btn" id="btnGovSection2" onclick="switchGovSubSection(2)">
+            <span style="font-size: 1.1rem;">📑</span>
+            <span>重要文件調閱規章 (含附表試算)</span>
+          </button>
+          <button class="gov-subnav-btn" id="btnGovSection3" onclick="switchGovSubSection(3)">
+            <span style="font-size: 1.1rem;">📢</span>
+            <span>官方數位公佈欄 (<span id="bulletinCountBadge">5</span>)</span>
+          </button>
+          <button class="gov-subnav-btn btn-admin-sub" id="btnGovSection4" onclick="switchGovSubSection(4)">
+            <span style="font-size: 1.1rem;">⚙️</span>
+            <span>管委會後端上稿中心</span>
+          </button>
         </div>
       </div>
     </header>
 
     <main class="container" style="padding-top: 30px;">
 
-      <!-- SUB-SECTION 1: 權責手冊本文 (RACI, DOA, 3-tier reports) -->
+      <!-- SUB-SECTION 1: 權責手冊本文 (RACI, DOA, 3 SOPs, 5 Annexes, 52 Items) -->
       <div id="govSubSection1" class="gov-sub-content">
-        <!-- RACI & DOA & 3-Tier details embedded cleanly -->
         <div class="section-header">
           <div>
             <div class="section-subtitle">RACI MATRIX & DOA FRAMEWORK</div>
-            <h2>權責分立、授權權限 (DOA) 與三級週期性彙報體系</h2>
+            <h2>一、權責分立、授權權限 (DOA) 與三級週期性彙報體系</h2>
           </div>
         </div>
 
         <div class="grid-2" style="margin-bottom: 24px;">
           <div class="card">
-            <h3 style="color: var(--accent-emerald); font-size: 1.15rem; margin-bottom: 10px;">管理委員會（決策主體）</h3>
+            <h3 style="color: var(--accent-emerald); font-size: 1.15rem; margin-bottom: 10px;">管理委員會（法定決策主體）</h3>
             <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;">
-              依法負責收益、公共基金之保管運用、修繕改良發包決議、規約違規制止及物業服務人之監督。<strong>決策權與管理責任依法專屬管委會，不可推諉移轉予物業經理。</strong>
+              依法負責公共基金之保管運用、修繕改良發包決議、規約違規制止及管理服務人之委任與監督。<strong>決策權與管理責任依法專屬管委會，不可推諉移轉予物業經理。</strong>
             </p>
           </div>
           <div class="card">
@@ -1839,75 +1888,989 @@
             </table>
           </div>
         </div>
+
+        <!-- 3 Scenarios -->
+        <section id="scenarios" class="section searchable-section">
+      <div class="section-header">
+        <div class="section-eyebrow">Practical Field Scenarios</div>
+        <h2 class="section-title">五、實務 3 大常見模糊情境與正誤處置</h2>
+        <p class="section-subtitle">現場最易發生越權踩線或卸責拖延的關鍵時刻。</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div style="font-size: 0.78rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 6px;">情境 01</div>
+          <h3 style="font-size: 1.08rem; color: var(--text-primary); margin-bottom: 10px;">設備重大故障與工程修繕</h3>
+          <div style="background: rgba(244, 63, 94, 0.1); border-left: 3px solid var(--accent-rose); padding: 8px 12px; font-size: 0.82rem; color: #fca5a5; margin-bottom: 10px;">
+            ❌ 踩線誤區：物業私自決定由特定廠商進場動工更換，或未經管委會決議即承諾付款。
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+            <strong> 正確作為：</strong>物業安排檢測、取得檢修報告、邀集 2~3 家報價單製作規格效益對照表，提出建議方案；由管委會會議審議表決並授權主委簽約。
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 0.78rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase; margin-bottom: 6px;">情境 02</div>
+          <h3 style="font-size: 1.08rem; color: var(--text-primary); margin-bottom: 10px;">梯廳堆放雜物違規處分</h3>
+          <div style="background: rgba(244, 63, 94, 0.1); border-left: 3px solid var(--accent-rose); padding: 8px 12px; font-size: 0.82rem; color: #fca5a5; margin-bottom: 10px;">
+            ❌ 踩線誤區：物業人員私自將住戶鞋櫃搬走丟棄，或逕自於管理費單據開立私設罰款。
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+            <strong> 正確作為：</strong>物業現場拍照存證、張貼違規勸導單要求限期改善；屆期未改報管委會，依規約決議寄發存證信函或報請直轄市/縣市主管機關依法裁罰。
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 0.78rem; font-weight: 700; color: var(--accent-emerald); text-transform: uppercase; margin-bottom: 6px;">情境 03</div>
+          <h3 style="font-size: 1.08rem; color: var(--text-primary); margin-bottom: 10px;">深夜突發重大水電火警險情</h3>
+          <div style="background: rgba(244, 63, 94, 0.1); border-left: 3px solid var(--accent-rose); padding: 8px 12px; font-size: 0.82rem; color: #fca5a5; margin-bottom: 10px;">
+            ❌ 踩線誤區：凌晨管線爆裂淹水漫延機房，物業因主委未接電話不敢叫修，任由損害擴大。
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+            <strong> 正確作為：</strong>啟動預設之 DOA 緊急避險授權（如 2 萬元內），物業經理第一時間叫修抽水止漏以阻卻損害，事發 2 小時內通報並於下次常會補行追認。
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- 5 Annexes -->
+        <section id="five-annexes" class="section searchable-section">
+      <div class="section-header">
+        <div class="section-eyebrow">Standard Scope of Works (Annexes 1 to 5)</div>
+        <h2 class="section-title">三、內政部定型化受任契約五大標準工項清單</h2>
+        <p class="section-subtitle">物業公司每日、每週與每月巡檢作業之法定實施清單與備註規範。</p>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 18%;">法定附件編號</th>
+              <th style="width: 25%;">法定服務項目</th>
+              <th style="width: 42%;">內政部範本工作重點內容</th>
+              <th style="width: 15%;">法令備註約束</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>【附件一】</strong><br><span style="font-size: 0.76rem; color: var(--accent-cyan);">一般事務管理</span></td>
+              <td><strong>公共事務、設施與修繕監督</strong></td>
+              <td>
+                1. 通知公告張貼、電話接聽、郵件快遞物品代收與交付、失物招領。<br>
+                2. 會議召開籌備、與政府機關公文連繫、定期檢查報告彙整。<br>
+                3. 公共設施使用保管、公用鑰匙保管、安全維護。<br>
+                4. 設備修繕時之監督、安全梯避難通路巡視、清潔及垃圾清運視察。
+              </td>
+              <td style="font-size: 0.8rem; color: var(--text-muted);">非經管委會書面同意不得轉委任。</td>
+            </tr>
+            <tr>
+              <td><strong>【附件二】</strong><br><span style="font-size: 0.76rem; color: var(--accent-rose);">建築及基地維護</span></td>
+              <td><strong>結構外觀檢查與裝修管制</strong></td>
+              <td>
+                1. 基礎結構、柱樑構架、樓版、承重牆、屋頂龜裂鬆脫檢查。<br>
+                2. 外牆面材、開口部、接合部伸縮縫與防水層檢視。<br>
+                3. 土木、機電、消防、給排水修繕工程代辦申請或委託。<br>
+                4. 住戶室內裝修施工管理（查核室內裝修許可與公設防護）。
+              </td>
+              <td style="font-size: 0.8rem; color: var(--text-muted);">涉建造改善須交依法登記建築師/營造業。</td>
+            </tr>
+            <tr>
+              <td><strong>【附件三】</strong><br><span style="font-size: 0.76rem; color: var(--accent-amber);">附屬設施設備</span></td>
+              <td><strong>機電、發電機、給排水巡檢</strong></td>
+              <td>
+                1. <strong>配電設備：</strong>配線、接地端子、絕緣電阻檢查、負載分析。<br>
+                2. <strong>緊急發電機：</strong>潤滑、冷卻、燃油、充電系統、儀表觀察記錄及 ATS 自動切換開關運轉檢查。<br>
+                3. <strong>給排水設施：</strong>地下受水槽與高架水槽浮球閥、電子水位控制、揚水泵/污水泵自動交替機能檢查。<br>
+                4. <strong>消防與排風：</strong>消防設備申報代辦、送排風機軸承皮帶檢查。
+              </td>
+              <td style="font-size: 0.8rem; color: var(--text-muted);">屬基礎保養，重大工程零件費由管委會支付。</td>
+            </tr>
+            <tr>
+              <td><strong>【附件四】</strong><br><span style="font-size: 0.76rem; color: var(--accent-emerald);">清潔環境衛生</span></td>
+              <td><strong>經常性、週期性與代理服務</strong></td>
+              <td>
+                1. <strong>經常性：</strong>大廳、走道、梯廳地毯拖拭、垃圾場清理、洗手間、梯廂清潔。<br>
+                2. <strong>週期性：</strong>屋頂平台、電氣機房月清掃、冷氣出風口擦拭、雜草清除。<br>
+                3. <strong>委託代理類：</strong>每 6 個月環境消毒滅鼠、每 6 個月清洗水塔、每年清洗外牆、每年抽取化糞池。
+              </td>
+              <td style="font-size: 0.8rem; color: var(--text-muted);">清潔耗材工具由管委會提供；超高作業另計。</td>
+            </tr>
+            <tr>
+              <td><strong>【附件五】</strong><br><span style="font-size: 0.76rem; color: var(--accent-purple);">安全防災管理</span></td>
+              <td><strong>門禁管制、防盜防火防災</strong></td>
+              <td>
+                1. 管制人員、車輛進出與訪客登記。<br>
+                2. 防盜防火防災建議；遇盜賊或暴力現行即通報警察並監視阻止損害擴大。<br>
+                3. 與轄區警察實施聯巡或會哨（管委會不得禁止）。<br>
+                4. 業務涉及保全範疇者，受《保全業法》約束。
+              </td>
+              <td style="font-size: 0.8rem; color: var(--text-muted);">不得違反保全業法及警勤規範。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+        <!-- 52 Items Table -->
+        <section class="section" id="fuyu-documents">
+        <div class="section-header">
+          <div class="section-eyebrow">Statutory Archives & Records Management</div>
+          <h2 class="section-title">四、富宇大地物業管理 7 大類別 52 項必備法定檔卷清冊</h2>
+          <p class="section-subtitle">依據《公寓大廈管理條例》第 36 條第 8 款及內政部受任契約規範，社區換屆移交、年度審計與建管抽查之必備檔案總目錄。</p>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 10%;">分類編號</th>
+                <th style="width: 26%;">檔案卷宗名稱</th>
+                <th style="width: 46%;">核心內容重點與規範標準</th>
+                <th style="width: 18%; text-align: center;">法定 / 建議保管年限</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 類別一 -->
+              <tr style="background: rgba(56, 189, 248, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-cyan);">【第一類：法定資產與原始建置檔卷（社區產權與起造人移交基石）】</td>
+              </tr>
+              <tr>
+                <td><strong>1-1</strong></td>
+                <td><strong>使用執照謄本及全套竣工圖說</strong></td>
+                <td>建築執照、使用執照、全區建築平面圖、立面圖、各樓層結構圖說。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>1-2</strong></td>
+                <td><strong>機電／水電／管線竣工圖說</strong></td>
+                <td>強電、弱電、給水、排水、消防、通風排煙及地下管網走向竣工圖。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>1-3</strong></td>
+                <td><strong>公設點交結案報告書</strong></td>
+                <td>起造人（建商）與第一屆管委會共同現勘檢測、缺失複驗改善及簽收清冊。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>1-4</strong></td>
+                <td><strong>設施設備原廠維護手冊</strong></td>
+                <td>電梯、發電機、高低壓配電盤、ATS、中水過濾、門禁監控操作與維保說明書。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>1-5</strong></td>
+                <td><strong>原始設備保固書與廠商清冊</strong></td>
+                <td>起造人移交之各項機電設備保固年限合約、原廠緊急窗口與零件料號清單。</td>
+                <td style="text-align: center;">保固期滿後備查</td>
+              </tr>
+              <tr>
+                <td><strong>1-6</strong></td>
+                <td><strong>地籍圖與共用部分測繪圖</strong></td>
+                <td>基地地號地籍圖、專有部分、共用部分及約定專用部分（車位、露台）標示圖。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別二 -->
+              <tr style="background: rgba(16, 185, 129, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-emerald);">【第二類：組織架構、規約與會議檔卷（治理決策與法制核心）】</td>
+              </tr>
+              <tr>
+                <td><strong>2-1</strong></td>
+                <td><strong>富宇大地社區管理規約</strong></td>
+                <td>經區權大會決議通過之規約本文，含停車位管理、裝潢施工、寵物管理附則。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>2-2</strong></td>
+                <td><strong>管委會組織報備證明函</strong></td>
+                <td>直轄市/縣市主管機關核發之公寓大廈管理組織報備證明（換屆登記依據）。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>2-3</strong></td>
+                <td><strong>區分所有權人及住戶名冊</strong></td>
+                <td>各棟戶號、產權人姓名、通訊地、緊急電話、承租人資料（依個資法防護）。</td>
+                <td style="text-align: center;">即時動態更新</td>
+              </tr>
+              <tr>
+                <td><strong>2-4</strong></td>
+                <td><strong>區分所有權人會議完整卷宗</strong></td>
+                <td>召集通知、簽到名冊、出席委託書、表決票、會議紀錄及建管備查公文。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+              <tr>
+                <td><strong>2-5</strong></td>
+                <td><strong>管委會歷次常會／臨會紀錄</strong></td>
+                <td>每月管委會例會會議紀錄、簽到表、各項審議提案附件與執行追蹤管制表。</td>
+                <td style="text-align: center;">至少保存 5 年</td>
+              </tr>
+              <tr>
+                <td><strong>2-6</strong></td>
+                <td><strong>核決權限表 (DOA 授權規章)</strong></td>
+                <td>管委會核定之小額動支、緊急防險、重大修繕比價發包簽核額度與授權書。</td>
+                <td style="text-align: center;">現行有效版</td>
+              </tr>
+              <tr>
+                <td><strong>2-7</strong></td>
+                <td><strong>法定印鑑清冊與換屆移交清單</strong></td>
+                <td>管委會大章、主委小章印模存查卡，歷屆新舊主委、監委移交點收簽認表。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別三 -->
+              <tr style="background: rgba(168, 85, 247, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-purple);">【第三類：外包採購與契約管理檔卷（履約督導與法律憑據）】</td>
+              </tr>
+              <tr>
+                <td><strong>3-1</strong></td>
+                <td><strong>物業管理維護委任合約書</strong></td>
+                <td>依內政部定型化契約範本簽署，含服務範圍、附件一至五標準工項、違約退場條款。</td>
+                <td style="text-align: center;">約滿後 5 年</td>
+              </tr>
+              <tr>
+                <td><strong>3-2</strong></td>
+                <td><strong>留駐從業人員證照登錄清冊</strong></td>
+                <td>總幹事（事務管理人員認可證）、防火避難證照、保全員良民證與體檢報告。</td>
+                <td style="text-align: center;">履約期間備查</td>
+              </tr>
+              <tr>
+                <td><strong>3-3</strong></td>
+                <td><strong>各專業設施設備保養合約</strong></td>
+                <td>電梯定期保養、緊急發電機季度維護、消防系統季檢、弱電門禁監視合約。</td>
+                <td style="text-align: center;">約滿後 3 年</td>
+              </tr>
+              <tr>
+                <td><strong>3-4</strong></td>
+                <td><strong>環衛委外合約（水塔/消毒/清潔）</strong></td>
+                <td>駐點清潔服務、每半年蓄水池高壓清洗、每半年滅鼠滅蟑消毒、化糞池抽運合約。</td>
+                <td style="text-align: center;">約滿後 3 年</td>
+              </tr>
+              <tr>
+                <td><strong>3-5</strong></td>
+                <td><strong>重大工程招標比價評選卷宗</strong></td>
+                <td>外牆修繕、地坪防水、主機汰換之 3 家廠商報價單、規格效益比較表、發包合約。</td>
+                <td style="text-align: center;">保固期滿後 5 年</td>
+              </tr>
+              <tr>
+                <td><strong>3-6</strong></td>
+                <td><strong>外包廠商月度 KPI 考評與扣款單</strong></td>
+                <td>保全巡邏打卡率統計（目標98%+）、清潔抽驗評分表、違約記點與扣款單據。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+
+              <!-- 類別四 -->
+              <tr style="background: rgba(245, 158, 11, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-amber);">【第四類：財務會計與公共基金檔卷（法定審計與金流憑證）】</td>
+              </tr>
+              <tr>
+                <td><strong>4-1</strong></td>
+                <td><strong>管理費收繳與未繳催告名冊</strong></td>
+                <td>每月各戶應收、實收金額、繳款虛擬帳號明細及積欠管理費法催催告存證清單。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>4-2</strong></td>
+                <td><strong>會計原始憑證（發票／收據）</strong></td>
+                <td>支出發票、收據、廠商勞務請款單、支出核銷單、支票領取簽收回執（三章分立）。</td>
+                <td style="text-align: center;"><span class="tag tag-cyan">法定 5 年</span></td>
+              </tr>
+              <tr>
+                <td><strong>4-3</strong></td>
+                <td><strong>會計傳票、日記帳與總分類帳</strong></td>
+                <td>收支轉帳傳票、會計總帳、各明細科目分戶帳簿與電腦資料庫加密備份。</td>
+                <td style="text-align: center;"><span class="tag tag-cyan">法定 10 年</span></td>
+              </tr>
+              <tr>
+                <td><strong>4-4</strong></td>
+                <td><strong>金融機構存摺與對帳單</strong></td>
+                <td>公共基金專戶活存、定存單影本、經常門營運帳戶存摺及每月銀行對帳單。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>4-5</strong></td>
+                <td><strong>財務收支月報表與公告底稿</strong></td>
+                <td>每月損益表、資產負債表、公共基金餘額表及公佈欄張貼拍照存查存證檔。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>4-6</strong></td>
+                <td><strong>年度預算書與決算審計報告</strong></td>
+                <td>經區權大會核定之年度經常門、資本門預算書及監委查核審計完畢之決算總表。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別五 -->
+              <tr style="background: rgba(244, 63, 94, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-rose);">【第五類：法定公共安全、消防與機電運維檔卷（法定義務申報）】</td>
+              </tr>
+              <tr>
+                <td><strong>5-1</strong></td>
+                <td><strong>建築物公共安全檢查申報書</strong></td>
+                <td>依法定期限委託專業建築公安機構簽證申報書、建築管理處核發之合格證明。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+              <tr>
+                <td><strong>5-2</strong></td>
+                <td><strong>消防安全設備檢修申報書</strong></td>
+                <td>每年消防設備師實施外觀、性能、綜合測試申報書、消防局受理與複查合格函。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+              <tr>
+                <td><strong>5-3</strong></td>
+                <td><strong>消防防護計畫書與演練紀錄</strong></td>
+                <td>自衛消防編組名冊、滅火班/通報班/避難引導班每年 2 次實體演練成果相片。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr>
+                <td><strong>5-4</strong></td>
+                <td><strong>昇降設備（電梯）安全許可證</strong></td>
+                <td>中華民國昇降設備安全檢查協會核發之有效使用許可證（梯廂張貼、正本建檔）。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+              <tr>
+                <td><strong>5-5</strong></td>
+                <td><strong>緊急發電機運轉測試紀錄卡</strong></td>
+                <td>每週常態無載試運轉、每月 ATS 負載切換測試、油位與電瓶液位檢查卡。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr>
+                <td><strong>5-6</strong></td>
+                <td><strong>水質檢驗報告與清洗消毒紀錄</strong></td>
+                <td>認可檢驗機構出具之總溶解固體、餘氯、大腸桿菌群檢測報告與施工全景相片。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr>
+                <td><strong>5-7</strong></td>
+                <td><strong>高低壓電氣定期檢測量測卡</strong></td>
+                <td>特約電氣技術人員對變壓器絕緣、高壓斷路器、接地電阻之定期量測報告。</td>
+                <td style="text-align: center;">3 年</td>
+              </tr>
+              <tr>
+                <td><strong>5-8</strong></td>
+                <td><strong>機械停車設備定期安全許可證</strong></td>
+                <td>立體機械車位定期維護保養卡與檢查機構每年換發之安全檢查合格證。</td>
+                <td style="text-align: center;">歷年全套保存</td>
+              </tr>
+
+              <!-- 類別六 -->
+              <tr style="background: rgba(56, 189, 248, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-cyan);">【第六類：住戶服務、裝潢施工與違規爭議檔卷（第一線維運作業）】</td>
+              </tr>
+              <tr>
+                <td><strong>6-1</strong></td>
+                <td><strong>室內裝修施工申請與切結書</strong></td>
+                <td>裝修圖說、台北/台中室內裝修許可證、施工保護計畫、保證金繳納收據存根。</td>
+                <td style="text-align: center;">退保後 2 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-2</strong></td>
+                <td><strong>裝修每日巡檢與退場驗收表</strong></td>
+                <td>物業人員每日梯廳公設保護巡查、清運廢料查驗及完工無損退場點交單。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-3</strong></td>
+                <td><strong>公共設施借用登記與維護表</strong></td>
+                <td>多功能交誼廳、視聽室、韻律教室之租借預約表、保證金收付與復原查核。</td>
+                <td style="text-align: center;">1 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-4</strong></td>
+                <td><strong>掛號包裹快遞代收領取登錄</strong></td>
+                <td>郵局掛號、低溫宅配、外送餐點之條碼建檔、住戶 App 簽收或領取流水紀錄。</td>
+                <td style="text-align: center;">1 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-5</strong></td>
+                <td><strong>住戶報修工單與追蹤反饋單</strong></td>
+                <td>報修受理時間、現場勘查、外包叫修、完工檢驗及住戶簽章滿意度閉環表。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr>
+                <td><strong>6-6</strong></td>
+                <td><strong>違規勸導單與拍照存證卷宗</strong></td>
+                <td>公共走道堆放鞋櫃雜物、違規喧囂噪音、冷氣滴水之拍照存證與違規簽收單。</td>
+                <td style="text-align: center;">3 年（爭訟永久）</td>
+              </tr>
+              <tr>
+                <td><strong>6-7</strong></td>
+                <td><strong>存證信函與訴訟法催公文卷</strong></td>
+                <td>積欠管理費法催存證信函、法院支付命令、民事裁定書及聲請強制執行卷宗。</td>
+                <td style="text-align: center;"><span class="tag tag-emerald">永久保存</span></td>
+              </tr>
+
+              <!-- 類別七 -->
+              <tr style="background: rgba(16, 185, 129, 0.04);">
+                <td colspan="4" style="font-weight: 700; color: var(--accent-emerald);">【第七類：日常現場作業與三級週期性彙報檔卷（管理閉環紀錄）】</td>
+              </tr>
+              <tr>
+                <td><strong>7-1</strong></td>
+                <td><strong>保全／物業交接班工作日誌</strong></td>
+                <td>24小時勤務交代簿、備份鑰匙借還登記簿、臨時突發事件現場處置速記。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-2</strong></td>
+                <td><strong>物業營運「日報表（Daily）」</strong></td>
+                <td>人員哨位出勤、機房日巡、當日工單處理狀況、突發異常通報處置表。</td>
+                <td style="text-align: center;">1 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-3</strong></td>
+                <td><strong>物業營運「週報表（Weekly）」</strong></td>
+                <td>管委會決議交辦進度（%）、滯留工單深究分析、保全打卡巡檢達成率統計。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-4</strong></td>
+                <td><strong>物業營運「月報表（Monthly）」</strong></td>
+                <td>常會專用全景審議資料包（財務報表、機電巡檢、外包考評、議案提案稿）。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-5</strong></td>
+                <td><strong>緊急重大事故處置調查報告</strong></td>
+                <td>自來水幹管爆裂、電梯困人、火警誤鳴等之現場處置時序、相片與善後報告。</td>
+                <td style="text-align: center;">5 年</td>
+              </tr>
+              <tr>
+                <td><strong>7-6</strong></td>
+                <td><strong>住戶陳情案件與滿意度問卷</strong></td>
+                <td>住戶意見箱處理回覆紀錄、年度物業管理服務滿意度統計問卷與改善方案。</td>
+                <td style="text-align: center;">2 年</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+        <!-- Termination clauses -->
+        <section id="bylaws-library" class="section searchable-section">
+      <div class="section-header">
+        <div class="section-eyebrow">Ready-to-use Bylaws & Clauses Repository</div>
+        <h2 class="section-title">八、社區管理規章與合約正式條款範本庫</h2>
+        <p class="section-subtitle">可直接複製應用於社區管理規約、管委會會議紀錄或工作群組之正式規範。</p>
+      </div>
+
+      <!-- 範本 1 -->
+      <div class="template-box">
+        <div class="template-header">
+          <div class="template-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            範本一：社區物業經理與管委會權責正式定位條款（會議紀錄／工作群組置頂版）
+          </div>
+          <button class="btn-copy" onclick="copyTemplate('tpl-text-1', this)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            複製條款內容
+          </button>
+        </div>
+        <pre class="template-content" id="tpl-text-1">【社區物業經理與管理委員會權責定位原則】
+
+第一條（定位劃分）
+本社區物業經理（管理服務人）係受管理委員會之委任與監督，依公寓大廈管理條例、合約委任範圍及本社區規約，專責社區日常管理事務之執行、協調、現場巡檢、請修追蹤與定期回報，並就專業管理維護事項提出評估與建議。
+
+第二條（決策權限專屬）
+凡涉及公共基金動支、各項預算支出、外包廠商評選與定約、重大工程修繕、住戶權益處置、規約條款適用與解釋、違規爭議裁處及其他重大管理維護決策，均應提請管理委員會討論並作成正式會議決議；其判斷、最終決策與法定管理責任仍由管理委員會主責承擔。
+
+第三條（資訊透明與閉環規範）
+物業經理應遵循「日報即時監控、週報專案追蹤、月報全景體檢」之三級資訊回報體系，並落實內政部《公寓大廈管理服務人管理辦法》第十六條第七款規定，處理相關事務留下書面紀錄與報告，建議事項一律以書面為之。</pre>
+      </div>
+
+      <!-- 範本 2 -->
+      <div class="template-box">
+        <div class="template-header">
+          <div class="template-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            範本二：社區核決權限（Delegation of Authority, DOA）授權規範
+          </div>
+          <button class="btn-copy" onclick="copyTemplate('tpl-text-2', this)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            複製條款內容
+          </button>
+        </div>
+        <pre class="template-content" id="tpl-text-2">【社區營運核決權限 (DOA) 授權作業準則】
+
+第一條（小額例行與零用金支出）
+單筆新台幣 3,000 元以下之例行消耗品採購與小額修繕，授權物業經理依年度核定預算科目先行叫修採購，每月檢附合法發票憑證經財務委員、監察委員審查後，由主任委員核銷。
+
+第二條（中額限額維修支出）
+單筆新台幣 3,001 元至 20,000 元以下之設備修繕，物業經理須取得至少 1 家合約或合格廠商報價單，提報主任委員或指定常務委員書面或通訊核准後始得動工，並於次月管委會例會提報核備。
+
+第三條（重大工程與採購審議）
+單筆逾新台幣 20,000 元以上之工程採購與合約簽訂，物業經理應取得至少 2 至 3 家合格廠商報價單，製作規格效益比較表，提請管理委員會全體會議審議並表決通過後，由主任委員代表管委會簽署合約。
+
+第四條（緊急突發搶修之阻卻防險處置）
+遇重大天災、火警、供水幹管爆裂淹水、高壓電氣異常或危及人身財產安全之突發急迫事件，物業經理得以「防止損害擴大」為原則先行叫修止損（緊急動支上限暫訂為新台幣 20,000 元）；但應於事發 2 小時內通報主任委員，並於 12 小時內提交緊急處置書面報告，於下次常會補行追認手續。</pre>
+      </div>
+
+      <!-- 範本 3 -->
+      <div class="template-box">
+        <div class="template-header">
+          <div class="template-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            範本三：物業管理公司履約考評與違約 15 日終止條款（契約特別約定）
+          </div>
+          <button class="btn-copy" onclick="copyTemplate('tpl-text-3', this)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            複製條款內容
+          </button>
+        </div>
+        <pre class="template-content" id="tpl-text-3">【物業管理公司履約考評與契約退場條款】
+
+第一條（留駐人員考核與更換）
+依內政部定型化契約範本第八條，留駐人員應受管委會監督。若留駐人員有擅離職守、態度傲慢、違反保密義務或違反社區規章等情事，管委會得以書面通知物業公司，物業公司應於接獲通知起 7 日內完成調換，不得推諉。
+
+第二條（轉委任禁止）
+物業公司受任之一般事務管理業務，非經管委會事先書面同意，絕不得擅自轉委任予第三人。如有違反，管委會得逕行解除或終止契約，物業公司並應賠償管委會因此所受之全部損失。
+
+第三條（限期改善與契約終止）
+依內政部定型化契約範本第十二條第二款，物業公司如未能善盡善良管理人注意義務、廢弛職務、財務未依規定公開或怠於執行日常業務，管委會得以書面具體列舉缺失要求改善。物業公司未能於接獲通知後 15 日內完成改善時，管委會得經會議決議逕行終止本契約，並請求違約損害賠償。</pre>
+      </div>
+
+      <!-- 範本 4 -->
+      <div class="template-box">
+        <div class="template-header">
+          <div class="template-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            範本四：社區重大突發事件緊急應變通報標準作業程序 (SOP)
+          </div>
+          <button class="btn-copy" onclick="copyTemplate('tpl-text-4', this)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            複製條款內容
+          </button>
+        </div>
+        <pre class="template-content" id="tpl-text-4">【社區重大突發事故緊急應變處置標準程序 (SOP)】
+
+一、第一階段：現場阻卻損害與避險 (0 ~ 15 分鐘)
+1. 人員受困或火警：立即撥打 119/110，物業主任/保全人員攜帶對講機與萬用鑰匙抵達現場引導疏散。
+2. 管線爆裂淹水：第一時間關閉主進水閥，切斷鄰近受影響受潮電盤電源，避免人員觸電與設備損壞。
+3. 電梯故障困人：立即啟動電梯內對講機安撫受困者情緒，嚴禁擅自強行扳撬外門，同步通知電梯保養廠商 24H 急修中心。
+
+二、第二階段：緊急通報與授權確認 (15 ~ 60 分鐘)
+1. 現場指揮官（物業主任或值班隊長）依序電話通報：主任委員 -> 監察委員/安全委員。
+2. 簡明通報四要素：「事發地點、事故現況、已採取的止損動作、需動員的外包廠商與初估費用」。
+3. 依 DOA 緊急授權啟動特約協力廠商進場抽水搶修或緊急排煙。
+
+三、第三階段：書面通報與善後復原 (12 ~ 24 小時)
+1. 物業於事發 12 小時內完成「緊急重大事故初報表（含現場相片、時序表、廠商處理工單）」。
+2. 於社區公告欄與住戶通訊群組發布事實說明，避免謠言恐慌。
+3. 於次月管委會例會正式提報結案調查報告，並補行費用追認核銷程序。</pre>
+      </div>
+
+    </section>
       </div>
 
       <!-- SUB-SECTION 2: 重要文件調閱申請規章 (PDF content integrated) -->
       <div id="govSubSection2" class="gov-sub-content" style="display: none;">
+
         <div class="section-header">
           <div>
-            <div class="section-subtitle">DOCUMENT INSPECTION REGULATIONS</div>
-            <h2>富宇大地社區相關資料閱覽（影印）申請標準作業程序</h2>
+            <div class="section-subtitle">DOCUMENT INSPECTION REGULATIONS & SOP</div>
+            <h2>富宇大地社區相關資料閱覽（影印）申請管理辦法本文暨作業手冊</h2>
           </div>
-          <span class="tag tag-amber">115.10修訂通過</span>
+          <span class="tag tag-amber">115.10核定修訂版</span>
+        </div>
+
+
+
+      <!-- SECTION 1: 緊急與重要文件缺口稽核清冊 -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">GAP ANALYSIS & COMPLIANCE PRIORITY</div>
+            <h2>一、依據來源辦法分析：仍須具備之關鍵文件清冊</h2>
+          </div>
+          <span class="tag tag-rose" style="font-size: 0.82rem; padding: 4px 10px;">法律防護急迫級別</span>
+        </div>
+
+        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 18px;">
+          本辦法雖已完備申請程序，但若管委會現場<strong>「缺乏原始佐證卷宗」</strong>或<strong>「缺乏個資防護子法」</strong>，一旦住戶向主管機關（台中市都發局）投訴或提告，管理委員會將面臨《條例》第 48 條罰鍰或侵害個資之民事求償。以下依急迫性嚴格劃分：
+        </p>
+
+        <!-- 1.1 緊急類清冊 -->
+        <div class="card" style="border: 1px solid rgba(244, 63, 94, 0.35); background: linear-gradient(180deg, rgba(244, 63, 94, 0.04) 0%, var(--card-bg) 100%); margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.25rem;">🚨</span>
+              <h3 style="font-size: 1.18rem; font-weight: 800; color: #f87171; margin: 0;">【緊急類】法定責任與裁罰防護（限期 1~2 週內必須立卷備齊）</h3>
+            </div>
+            <span class="tag tag-rose">條例第48條第3款罰則防護</span>
+          </div>
+
+          <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 80px;">代號</th>
+                  <th style="width: 200px;">仍須具備之核心文件</th>
+                  <th>對應來源與具體缺口警訊</th>
+                  <th style="width: 200px;">法律依據與裁罰風險</th>
+                  <th style="width: 170px;">管委會立即行動</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="tag tag-rose">緊-1</span></td>
+                  <td><strong>區權會歷屆「出席簽名簿正本」與「委託書原本」</strong></td>
+                  <td>辦法第肆點引述《條例》第 34 條第 2 項。申請表第 6 項只列會議紀錄，若<strong>遺失出席簽名簿與代理委託書原本</strong>，大會決議有遭法院訴請撤銷之高度法律風險。</td>
+                  <td>《條例》第 34 條第 2 項、第 35 條、第 48 條第 3 款（無正當理由拒絕提供處 <strong>1,000 ~ 5,000 元罰鍰</strong>）。</td>
+                  <td>要求物業將第一、二屆大會之簽名簿、委託書按年分冊裝訂成卷封存。</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-rose">緊-2</span></td>
+                  <td><strong>金融機構官方「銀行對帳單」與「定存單存根」</strong></td>
+                  <td>申請表第 2 項（公積金餘額）及第 3 項（財報）。物業軟體產出之月報只是打字，<strong>無法律實質證明力</strong>；住戶申請調閱時必須出示銀行蓋章之官方月結對帳單正本或存摺影本。</td>
+                  <td>《條例》第 20 條、第 36 條第 7 款、刑法第 342 條背信罪（防止公款遭侵占挪用）。</td>
+                  <td>財委即刻會同物業，向開戶銀行調印自成立迄今全期歷史官方紙本對帳單。</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-rose">緊-3</span></td>
+                  <td><strong>各廠商「公開招標比價紀錄、議價單與驗收簽收單」</strong></td>
+                  <td>申請表第 7 項（各廠商簽約合約書）。單看合約書無法消弭圖利質疑；必須附帶「3 家以上報價單」、「管委會比價紀錄表」及「完工驗收付款簽核單」，才能證明善盡注意義務。</td>
+                  <td>民法第 535 條受任人注意義務、刑法第 342 條背信罪防護。</td>
+                  <td>建立廠商專卷：每份合約首頁必須黏貼【招標評選表】與【驗收付款單】。</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-rose">緊-4</span></td>
+                  <td><strong>全套「建築與水電機電竣工圖說」及點交清冊</strong></td>
+                  <td>來源辦法第 1~9 項中<strong>遺漏了「工程圖說」</strong>！住戶裝潢改裝、滲漏水鑑定依法有權調閱管線圖；起造人（富宇建設）移交圖紙若有缺漏，管委會須及時催告補正。</td>
+                  <td>《條例》第 36 條第 8 款、第 57 條（起造人點交共用部分及圖說責任）。</td>
+                  <td>即刻盤點管理室全套建管執照圖、給水/排水/消防/弱電管線竣工圖與CAD光碟。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 1.2 重要類清冊 -->
+        <div class="card" style="border: 1px solid rgba(245, 158, 11, 0.35); background: linear-gradient(180deg, rgba(245, 158, 11, 0.04) 0%, var(--card-bg) 100%);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.25rem;">📌</span>
+              <h3 style="font-size: 1.18rem; font-weight: 800; color: #fbbf24; margin: 0;">【重要類】制度防護與個資金流健全（1 個月內應建立配套子法）</h3>
+            </div>
+            <span class="tag tag-amber">個資法與公共金流防護</span>
+          </div>
+
+          <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 80px;">代號</th>
+                  <th style="width: 200px;">仍須完備之制度文件</th>
+                  <th>風險與必要性說明</th>
+                  <th style="width: 240px;">具體規範與落地作法</th>
+                  <th style="width: 140px;">權責人員</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="tag tag-amber">重-1</span></td>
+                  <td><strong>《重要文件個資遮蔽處理作業指引 (SOP)》</strong></td>
+                  <td>辦法第陸點只寫「得予遮掩」，未明訂標準。若物業自由心證，把不該遮的戶號遮掉會遭投訴黑箱；把個人身分證字號流出則違反個資法遭起訴求償。</td>
+                  <td>明確表列：<br>• <strong>應遮蔽</strong>：私人生日、身分證字號、私人手機、銀行帳戶。<br>• <strong>不應遮蔽</strong>：區權人姓名、戶號、規約約定應公告之違規事證。</td>
+                  <td>監察委員 / 物業經理</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-amber">重-2</span></td>
+                  <td><strong>《住戶調閱資料保密與不得濫用切結承諾書》</strong></td>
+                  <td>辦法第陸點提及「不應隨意發布在其他地方」，但缺乏法律違約罰則。若住戶調閱後拍照上傳網路公審、抹黑管委會或打擊社區房價，管委會將無從追責。</td>
+                  <td>於申請表增訂保密切結款：<em>「申請人切結本資料僅供維護專有部分權益使用，絕不翻拍轉載於公開社群網路，違者負民刑損害賠償責任。」</em></td>
+                  <td>主任委員 / 法務諮詢</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-amber">重-3</span></td>
+                  <td><strong>《管委會審查調閱申請「准駁裁量基準表」》</strong></td>
+                  <td>附表二准駁欄若無標準，管委會若因私人糾紛擅自駁回申請，將被主管機關判定「無正當理由拒絕提供」而處以罰鍰。</td>
+                  <td>明訂正當駁回理由（如：非利害關係人、非條例第35條法定文件、涉及未公開廠商商業機密），審查過程全程留存書面紀錄。</td>
+                  <td>全體管理委員</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-amber">重-4</span></td>
+                  <td><strong>《影印規費收入三聯式收據聯與列管流水帳》</strong></td>
+                  <td>依附表三每張收取 2~15 元影印規費，屬社區公共收入（雜項收入）。若物業經理僅收現金卻未開發票或三聯收據，容易滋生公私不分之嫌隙。</td>
+                  <td>印製專屬「富宇大地影印規費收據三聯單」，物業收款時一聯交住戶、一聯入帳、一聯存根，每月併入財報核銷。</td>
+                  <td>財務委員 / 物業會計</td>
+                </tr>
+                <tr>
+                  <td><span class="tag tag-amber">重-5</span></td>
+                  <td><strong>《重要文件實體調閱與借出登記簽收簿》</strong></td>
+                  <td>附表二注意事項 (五)「不得將文件攜離指定處所」。若無專人陪同與進出簽名簿，難防文件被偷抽頁、塗改或調包。</td>
+                  <td>設置現場調閱登記簿，記載調閱起訖時分、調閱案號，由物業經理全程在場陪同錄影存證並雙方簽章確認。</td>
+                  <td>物業經理</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: 官方管理辦法本文與 5 步調閱標準作業程序 -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">REGULATORY FRAMEWORK & WORKFLOW</div>
+            <h2>二、富宇大地社區相關資料閱覽（影印）申請標準作業程序</h2>
+          </div>
+          <span class="tag tag-cyan">官方規章本文</span>
         </div>
 
         <!-- 5 Steps Flow Graphic -->
         <div class="card" style="background: #0b1324; border: 1px solid rgba(56, 189, 248, 0.3); margin-bottom: 24px;">
-          <h3 style="font-size: 1.05rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 14px;">
-            🔄 調閱申請 5 步閉環標準作業流程
+          <h3 style="font-size: 1.1rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 16px;">
+            🔄 住戶調閱重要文件 5 步閉環標準作業流程
           </h3>
-          <div class="grid-4" style="gap: 10px;">
-            <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-cyan);">
-              <strong style="color: #f8fafc; font-size: 0.9rem;">1. 填表申請</strong>
-              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">備妥身分證、建物謄本，填具附表一申請表。</div>
+          <div class="grid-4" style="gap: 12px;">
+            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-cyan);">
+              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 01</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">提出申請</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">申請人備妥身分證、建物二類謄本，填寫【附表一申請表】遞交管理中心。</div>
             </div>
-            <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-amber);">
-              <strong style="color: #f8fafc; font-size: 0.9rem;">2. 物業初審</strong>
-              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">社區經理 3 日內核驗利害關係並立案呈報。</div>
+            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-amber);">
+              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 02</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">物業初審與呈報</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">社區經理於 3 日內核對身分與利害關係，編立案號並呈報管委會。</div>
             </div>
-            <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-purple);">
-              <strong style="color: #f8fafc; font-size: 0.9rem;">3. 管委會核定</strong>
-              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">審查准駁，個資遮蔽去識別化，開立附表二。</div>
+            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-purple);">
+              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 03</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">管委會審查准駁</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">主委/監委審查合規性，依個資SOP進行必要遮蔽，開立【附表二准駁書】。</div>
             </div>
-            <div style="background: var(--card-bg-subtle); padding: 12px; border-radius: 6px; border-top: 3px solid var(--accent-emerald);">
-              <strong style="color: #f8fafc; font-size: 0.9rem;">4 & 5. 陪閱收費</strong>
-              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">專人陪同調閱，依附表三收費開立三聯單。</div>
+            <div style="background: var(--card-bg-subtle); padding: 14px; border-radius: 8px; border-top: 3px solid var(--accent-emerald);">
+              <div style="font-size: 0.76rem; color: var(--text-muted); font-weight: 700;">STEP 04 & 05</div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin: 4px 0;">專人陪閱與收費歸檔</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">指定時段專人陪同閱覽；依【附表三】收取規費開立收據，簽名結案歸檔。</div>
             </div>
           </div>
         </div>
 
-        <!-- Interactive Fee Calculator -->
-        <div class="card" style="margin-bottom: 24px;">
-          <h3 style="font-size: 1.1rem; color: var(--accent-emerald); margin-bottom: 12px;">💰 影印規費試算（依檔案法第21條/規費法第10條）</h3>
-          <div class="grid-2" style="gap: 16px;">
-            <div>
-              <div class="form-group" style="margin-bottom: 10px;">
-                <label class="form-label">影印規格</label>
-                <select id="calcTypeGov" class="form-select" onchange="calculateCopyFeeGov()">
-                  <option value="2">A4 黑白單面（NT$ 2 元 / 張）</option>
-                  <option value="4">A4 黑白雙面（NT$ 4 元 / 張）</option>
-                  <option value="8">A4 彩色單面（NT$ 8 元 / 張）</option>
-                  <option value="15">A4 彩色雙面（NT$ 15 元 / 張）</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label">影印張數</label>
-                <input type="number" id="calcPagesGov" class="form-input" value="10" min="1" max="1000" oninput="calculateCopyFeeGov()">
-              </div>
-              <div style="margin-top: 12px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                <span style="font-size: 0.82rem; color: var(--text-secondary);">應收規費合計：</span>
-                <span id="calcTotalTextGov" style="font-size: 1.3rem; font-weight: 900; color: var(--accent-emerald); margin-left: 6px;">NT$ 20 元</span>
-              </div>
+        <!-- Official Articles Accordion / Cards -->
+        <div class="grid-2">
+          <div class="card">
+            <h4 style="color: var(--accent-cyan); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">壹、適用法令與法源基準</h4>
+            <ul style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+              <li>《行政程序法》、《公寓大廈管理條例》第 34、35、48 條。</li>
+              <li>《政府資訊公開法》、《個人資料保護法》。</li>
+              <li>內政部營建署相關解釋令、臺中市公寓大廈管理組織報備注意事項。</li>
+              <li>富宇大地社區住戶規約與管理組織運作章程。</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4 style="color: var(--accent-amber); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">貳、住戶申請應檢附證件</h4>
+            <ul style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+              <li><strong>申請人本人</strong>：出示身分證正本或其他有效身分證明文件。</li>
+              <li><strong>委託代理人</strong>：申請人身分證影本、印章、委託書原本及受託人身分證正本。</li>
+              <li><strong>利害關係證明</strong>：專有部分建物第二類謄本或租賃租約（限利害關係事項）。</li>
+              <li><strong>法人或團體</strong>：設有管理人證明、營業登記影本及代表人身分證件。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 14px;">
+          <h4 style="color: var(--accent-purple); font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;">陸、隱私保護與資料安全限制條款</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; text-align: justify;">
+            依據《公寓大廈管理條例》第 35 條規定，利害關係人得請求閱覽或影印規約、公共基金餘額、會計憑證、財務報表、會議紀錄等資料，管理委員會無正當理由不得拒絕。惟若申請之內容涉及<strong>個人隱私（個人身分證字號、病歷、個人帳戶、私人生日）或第三方商業專利機密</strong>，管理委員會得依法僅提供對其權利義務有實質影響之部分，或於影印前進行<strong>遮蔽去識別化處理</strong>。調閱人應本於誠信原則，不得將取得之檔案擅自公開散布或移作侵害他人名譽及權益之用途。
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 3: 官方三大附表展示與規費計算機 -->
+      <section class="section">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">INTERACTIVE FORMS & FEE CALCULATOR</div>
+            <h2>三、官方三大申請附表與影印規費試算</h2>
+          </div>
+          <span class="tag tag-emerald">現場標準作業表單</span>
+        </div>
+
+        <!-- Tab Panels for 3 Forms -->
+        <div class="card" style="padding: 20px;">
+          <div style="display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;">
+            <button class="btn-action active" id="btnTabForm1" onclick="switchDocFormTab(1)">附表一：閱覽/影印申請表</button>
+            <button class="btn-action" id="btnTabForm2" onclick="switchDocFormTab(2)">附表二：准駁通知書與注意事項</button>
+            <button class="btn-action" id="btnTabForm3" onclick="switchDocFormTab(3)">附表三：收費標準與線上計算器</button>
+          </div>
+
+          <!-- FORM 1 -->
+          <div id="docFormTab1" class="doc-form-content">
+            <h3 style="font-size: 1.15rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 12px;">
+              📄 富宇大地社區文件閱覽／影印申請表（附表一範本）
+            </h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 16px;">
+              本表單供住戶依條例第 35 條提出申請，審查核定後由社區經理排定時間陪同查閱。
+            </p>
+
+            <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width: 60px;">序號</th>
+                    <th>檔案名稱或內容要旨</th>
+                    <th style="width: 100px; text-align: center;">閱覽</th>
+                    <th style="width: 100px; text-align: center;">影印</th>
+                    <th style="width: 180px;">法規依據與附件要求</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td><strong>社區管理規約</strong></td>
+                    <td style="text-align: center;"><input type="checkbox" checked disabled></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">含規約本文與歷次修正備查函</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td><strong>公共基金餘額</strong></td>
+                    <td style="text-align: center;"><input type="checkbox" checked disabled></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--accent-rose);">須檢附官方銀行對帳單原本</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td><strong>財務報表</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">資產負債表、收支損益計算表</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td><strong>會計財務憑證</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">傳票、統一發票與請款單據</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td><strong>管理委員會會議紀錄</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">定期常會及臨時會決議錄</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td><strong>區分所有權人會議紀錄</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--accent-rose);">必須連同出席簽名簿與委託書</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td><strong>各廠商簽約合約書</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--accent-rose);">須檢附評選比價紀錄與驗收單</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td><strong>社區規定辦法</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">裝潢施工、停車位、門禁辦法等</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td><strong>社區收發函文書</strong></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="text-align: center;"><input type="checkbox"></td>
+                    <td style="font-size: 0.8rem; color: var(--text-muted);">都發局公文、起造人往來函件</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7;">
-              <strong style="color: var(--text-primary);">調閱與繳費重點叮嚀：</strong><br>
-              1. 申請人調閱不得攜離管理室，影印由物業人員代印。<br>
-              2. 款項屬公共基金雜項收入，必須開立三聯式收據入帳。<br>
-              3. 涉及私人生日、電話、身分證字號與銀行帳號一律遮蔽。<br>
-              4. 申請人簽章切結「不得隨意發布於公開社群網路」。
+
+            <div style="background: rgba(16, 185, 129, 0.08); border: 1px dashed rgba(16, 185, 129, 0.4); padding: 12px 16px; border-radius: 8px; margin-top: 14px;">
+              <strong style="color: var(--accent-emerald); font-size: 0.88rem;">💡 A17 社區治理志工優化建議：</strong>
+              <span style="font-size: 0.84rem; color: var(--text-secondary);">
+                建議於申請人簽章處下方增加<strong>「個人資料保密切結宣誓條款」</strong>，保障管委會免受無端洩密責任追究。
+              </span>
+            </div>
+          </div>
+
+          <!-- FORM 2 -->
+          <div id="docFormTab2" class="doc-form-content" style="display: none;">
+            <h3 style="font-size: 1.15rem; color: var(--accent-amber); font-weight: 700; margin-bottom: 12px;">
+              📋 富宇大地社區文件閱覽／影印申請准駁通知書（附表二）
+            </h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 14px;">
+              載明准駁理由、預約閱覽時間、指定處所及 8 大現場閱覽遵守守則。
+            </p>
+
+            <div class="card" style="background: var(--card-bg-subtle); border-left: 4px solid var(--accent-amber); margin-bottom: 14px;">
+              <h4 style="color: #fbbf24; font-size: 0.95rem; font-weight: 700; margin-bottom: 8px;">現場調閱 8 大禁止與守則（重要摘錄）</h4>
+              <ol style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+                <li>應於管委會指定時間、指定管理中心處所為之，出示身分證件正本查驗。</li>
+                <li><strong>嚴禁添註、塗改、更換、抽取、圈點、拆散裝訂或污損檔案</strong>。</li>
+                <li><strong>不得將文件攜離指定處所</strong>，影印作業由社區物業管理人員執行。</li>
+                <li>涉及他人隱私個資時，管委會得僅提供權利影響部分或進行個資遮掩。</li>
+                <li>閱覽與影印完畢繳清規費後，應於原申請表簽章確認結案。</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- FORM 3 -->
+          <div id="docFormTab3" class="doc-form-content" style="display: none;">
+            <h3 style="font-size: 1.15rem; color: var(--accent-emerald); font-weight: 700; margin-bottom: 12px;">
+              💰 文件影印複製收費標準與線上計算器（附表三）
+            </h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 16px;">
+              本收費標準參考《檔案法》第 21 條與《規費法》第 10 條訂定，規費全數納入社區公共基金雜項收入。
+            </p>
+
+            <!-- Interactive Fee Calculator -->
+            <div class="grid-2" style="gap: 16px; margin-bottom: 20px;">
+              <div style="background: var(--card-bg-subtle); padding: 16px; border-radius: 8px;">
+                <h4 style="font-size: 0.95rem; color: #f8fafc; margin-bottom: 12px;">線上規費試算</h4>
+                <div class="form-group" style="margin-bottom: 10px;">
+                  <label class="form-label">選擇影印規格</label>
+                  <select id="calcTypeGov" class="form-select" onchange="calculateCopyFeeGov()">
+                    <option value="2">A4 黑白單面（NT$ 2 元 / 張）</option>
+                    <option value="4">A4 黑白雙面（NT$ 4 元 / 張）</option>
+                    <option value="8">A4 彩色單面（NT$ 8 元 / 張）</option>
+                    <option value="15">A4 彩色雙面（NT$ 15 元 / 張）</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 10px;">
+                  <label class="form-label">影印張數</label>
+                  <input type="number" id="calcPagesGov" class="form-input" value="10" min="1" max="1000" oninput="calculateCopyFeeGov()">
+                </div>
+                <div style="margin-top: 14px; padding: 12px; background: rgba(56, 189, 248, 0.1); border-radius: 6px;">
+                  <span style="font-size: 0.82rem; color: var(--text-secondary);">應收規費合計：</span>
+                  <span id="calcTotalTextGov" style="font-size: 1.4rem; font-weight: 900; color: var(--accent-cyan); margin-left: 6px;">NT$ 20 元</span>
+                </div>
+              </div>
+
+              <div style="background: var(--card-bg-subtle); padding: 16px; border-radius: 8px;">
+                <h4 style="font-size: 0.95rem; color: #f8fafc; margin-bottom: 12px;">規費法治管理要點</h4>
+                <ul style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.7; padding-left: 20px;">
+                  <li>所有影印款項嚴禁由物業人員私自挪用，必須<strong>開立三聯式規費收據</strong>。</li>
+                  <li>申請人繳費後，由物業管理負責人、主委、監委、財委依三章分立簽核確認。</li>
+                  <li>每月由財務委員盤點收費流水帳，全額存入社區公共基金帳戶。</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- Signature & Attribution Footer for this View -->
+      <div style="margin-top: 30px; padding: 18px; background: var(--card-bg-subtle); border-radius: 8px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <div style="font-size: 0.84rem; color: var(--text-muted);">
+          依據《公寓大廈管理條例》及富宇大地管委會 115.09.22 正式辦法核定編制
+        </div>
+        <div style="font-size: 0.86rem; color: var(--accent-cyan);">
+          富宇大地社區數位治理與公設點交社區治理志工：<strong>Howard Liao Ph.D.(A17)</strong>
+        </div>
+      </div>
+
+    
+      
       </div>
 
       <!-- SUB-SECTION 3: 官方數位公佈欄 -->
@@ -1919,23 +2882,22 @@
           </div>
         </div>
 
-        <!-- Filter and Search -->
         <div class="bulletin-controls">
           <div class="filter-tabs">
-            <button class="filter-btn active" onclick="filterCategory('all', this)">全部公告</button>
-            <button class="filter-btn" onclick="filterCategory('重大決議', this)">重大決議</button>
-            <button class="filter-btn" onclick="filterCategory('財務公告', this)">財務公告</button>
-            <button class="filter-btn" onclick="filterCategory('工程修繕', this)">工程修繕</button>
-            <button class="filter-btn" onclick="filterCategory('規約宣導', this)">規約宣導</button>
-            <button class="filter-btn" onclick="filterCategory('例行事務', this)">例行事務</button>
+            <button class="filter-btn active" onclick="filterBulletinCat('all', this)">全部公告 (<span id="count-all">5</span>)</button>
+            <button class="filter-btn" onclick="filterBulletinCat('重大決議', this)">重大決議 (<span id="count-major">2</span>)</button>
+            <button class="filter-btn" onclick="filterBulletinCat('財務收支', this)">財務收支 (<span id="count-finance">1</span>)</button>
+            <button class="filter-btn" onclick="filterBulletinCat('機電工程', this)">機電工程 (<span id="count-works">1</span>)</button>
+            <button class="filter-btn" onclick="filterBulletinCat('日常庶務', this)">日常庶務 (<span id="count-routine">1</span>)</button>
+            <button class="filter-btn" onclick="filterBulletinCat('法規規章', this)">法規規章 (<span id="count-rules">0</span>)</button>
           </div>
           <div class="search-box">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="searchInput" placeholder="搜尋公告關鍵字..." oninput="searchAnnouncements(this.value)">
+            <input type="text" id="bulletinSearchInput" placeholder="搜尋公告關鍵字..." oninput="renderBulletinList()">
           </div>
         </div>
 
-        <div id="announcementsList" class="announcements-grid">
+        <div id="announcementsGrid" class="announcements-grid">
           <!-- Rendered dynamically -->
         </div>
       </div>
@@ -1945,7 +2907,7 @@
         <div class="section-header">
           <div>
             <div class="section-subtitle">ADMIN CMS</div>
-            <h2>管理委員會後端上稿與發布中心</h2>
+            <h2>管理委員會後端上稿與發布中心 (<span id="adminListCount">5</span>)</h2>
           </div>
           <span class="tag tag-amber">主管專屬</span>
         </div>
@@ -1968,10 +2930,10 @@
                 <label class="form-label" for="formCategory">公告類別 *</label>
                 <select id="formCategory" class="form-select" required>
                   <option value="重大決議">重大決議</option>
-                  <option value="財務公告">財務公告</option>
-                  <option value="工程修繕">工程修繕</option>
-                  <option value="規約宣導">規約宣導</option>
-                  <option value="例行事務">例行事務</option>
+                  <option value="財務收支">財務收支</option>
+                  <option value="機電工程">機電工程</option>
+                  <option value="日常庶務">日常庶務</option>
+                  <option value="法規規章">法規規章</option>
                 </select>
               </div>
               <div class="form-group">
@@ -2015,7 +2977,6 @@
           </form>
         </div>
 
-        <!-- Management List -->
         <div class="card">
           <h3 style="font-size: 1.1rem; color: #f8fafc; margin-bottom: 12px;">已發布公文列表與管理</h3>
           <div class="mobile-table-hint">👆 表格可左右滑動檢視完整欄位</div>
@@ -2041,6 +3002,7 @@
     </main>
   </div>
 
+
   <!-- Announcement Reading Modal -->
   <div id="readModal" class="modal-backdrop" onclick="closeReadModal(event)">
     <div class="modal-box" onclick="event.stopPropagation()">
@@ -2050,7 +3012,7 @@
       <div class="modal-meta">
         <span>發布單位：<strong id="modalPublisher" style="color: var(--text-primary);">富宇大地管理委員會</strong></span>
         <span>發布日期：<span id="modalDate">2026-09-21</span></span>
-        <span>簽核主管：<span id="modalSigner" style="color: var(--accent-cyan);">Howard Liao Ph.D.(A17)</span></span>
+        <span>簽核主管：<span id="modalSigner" style="color: var(--accent-cyan);">主任委員 Howard Liao Ph.D.(A17)</span></span>
         <span>瀏覽人次：<span id="modalViews">0</span> 次</span>
       </div>
       <div id="modalContent" class="modal-content-body">
@@ -2078,433 +3040,248 @@
     </div>
   </footer>
 
+  <footer style="margin-top: 20px; padding: 30px 20px; border-top: 1px solid rgba(226, 232, 240, 0.1); background: #020617; text-align: center;">
+    <div class="container">
+      <div style="font-size: 1.05rem; font-weight: 800; color: #f8fafc; letter-spacing: 1px; margin-bottom: 8px;">
+        富宇大地智慧社區自治治理與數位公佈欄平台
+      </div>
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35); padding: 6px 16px; border-radius: 9999px; margin-bottom: 10px;">
+        <span style="font-size: 0.85rem; color: var(--text-secondary);">系統架構規劃與製作人：</span>
+        <strong style="color: var(--accent-cyan); font-size: 0.95rem; letter-spacing: 0.5px;">社區治理志工：Howard Liao Ph.D.(A17)</strong>
+      </div>
+      <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
+        全站搭載 Howard Liao Ph.D. 專屬防偽水印保護 | 富宇大地管理委員會 版權所有 © 2026
+      </div>
+    </div>
+  </footer>
+
   <div id="toast" class="toast">操作已成功完成！</div>
 
   <!-- JavaScript Application Logic -->
   <script>
-    
+    // Safe text setter to prevent crashes
+    function safeSetText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.innerText = text;
+    }
+
     const HANDOVER_ITEMS = [
-      {
-        id: "P0-01",
-        priority: "P0",
-        priorityLabel: "P0 緊急第一優先",
-        priorityClass: "tag-rose",
-        deadline: "進駐 3 日內必備",
-        title: "留駐從業人員法定認可證與登錄名冊",
-        req: "總幹事/主任事務管理人員認可證（5年有效內）、防火管理人證照、駐點保全員名冊、良民證及最近一年體檢報告。",
-        risk: "依條例第42條僱用無牌人員罰4~20萬元；出事涉刑事連帶過失。",
-        acceptTypes: ".pdf,.jpg,.jpeg,.png,.docx"
-      },
-      {
-        id: "P0-02",
-        priority: "P0",
-        priorityLabel: "P0 緊急第一優先",
-        priorityClass: "tag-rose",
-        deadline: "進駐 3 日內必備",
-        title: "法定公共安全、電梯與消防檢驗許可證",
-        req: "昇降設備安全使用許可證正本（檢視是否在有效期內）、最近期建築物公安申報合格證、消防檢修申報書及複驗合格函。",
-        risk: "防止電梯過期運轉遭勒令停機或發生墜梯死傷；確保消防系統正常連線。",
-        acceptTypes: ".pdf,.jpg,.jpeg,.png"
-      },
-      {
-        id: "P0-03",
-        priority: "P0",
-        priorityLabel: "P0 緊急第一優先",
-        priorityClass: "tag-rose",
-        deadline: "進駐 3 日內必備",
-        title: "受任管理維護合約書（含內政部五大附件）",
-        req: "依內政部定型化範本簽訂之正式合約正本，核對附件一至五標準工項無擅減，確認非經書面同意不得轉委任與15日退場條款。",
-        risk: "確立管委會對物業之法定監督權限，杜絕私自將保全清潔轉包無牌地下包商。",
-        acceptTypes: ".pdf,.docx"
-      },
-      {
-        id: "P0-04",
-        priority: "P0",
-        priorityLabel: "P0 緊急第一優先",
-        priorityClass: "tag-rose",
-        deadline: "進駐 3 日內必備",
-        title: "緊急突發事故 24H 聯絡網與特約廠商名冊",
-        req: "電梯原廠24H急修專線、發電機、給排水泵浦、車道鐵捲門特約搶修窗口、轄區派出所管區警員、消防分隊對口聯絡表。",
-        risk: "深夜遇水管爆裂、電梯困人或火警時，確保15分鐘內調動專業原廠到場止損。",
-        acceptTypes: ".pdf,.xlsx,.docx"
-      },
-      {
-        id: "P1-05",
-        priority: "P1",
-        priorityLabel: "P1 財務第二優先",
-        priorityClass: "tag-amber",
-        deadline: "第 1 週內必備",
-        title: "公共基金與營運帳戶存摺、定存單及印鑑清冊",
-        req: "銀行專戶存摺（活期、定存單）實體核驗、最新月結對帳單（核對帳面與存款一致）、管委會大小章印模存查卡與責任保管書。",
-        risk: "落實條例第20條公款專戶不得挪用；貫徹主委/財委/監委三章分立，物業絕不可持印。",
-        acceptTypes: ".pdf,.jpg,.jpeg,.png,.xlsx"
-      },
-      {
-        id: "P1-06",
-        priority: "P1",
-        priorityLabel: "P1 財務第二優先",
-        priorityClass: "tag-amber",
-        deadline: "第 1 週內必備",
-        title: "欠繳管理費催收清冊與法律追討進度卷宗",
-        req: "各戶管理費收繳總清冊、積欠逾2期名冊、已發出之存證信函、法院支付命令、強制執行裁定公文卷宗。",
-        risk: "民法管理費時效為5年，逾期未催告將成呆帳；依條例第21條催告滿期始得進行強制執行。",
-        acceptTypes: ".pdf,.xlsx,.docx"
-      },
-      {
-        id: "P1-07",
-        priority: "P1",
-        priorityLabel: "P1 財務第二優先",
-        priorityClass: "tag-amber",
-        deadline: "第 1 週內必備",
-        title: "起造人公設點交結案報告與保固合約清冊",
-        req: "建商與管委會點交清冊（水電、消防、機電、土建）、缺失改善列管清單、各項設備原廠保固期限合約書與保固金扣留明細。",
-        risk: "掌握建商保固到期日，在保固期滿前完成缺失索賠，避免建商脫身後由全體住戶自費修繕。",
-        acceptTypes: ".pdf,.docx,.xlsx"
-      },
-      {
-        id: "P2-08",
-        priority: "P2",
-        priorityLabel: "P2 營運第三優先",
-        priorityClass: "tag-cyan",
-        deadline: "第 2 週內必備",
-        title: "社區核決權限表 (DOA) 與零用金管理辦法",
-        req: "確立零用金（3,000元內）、常委請修（20,000元內）、管委會全體招標（逾20,000元）權限劃分與緊急防險簽核SOP。",
-        risk: "杜絕物業經理私自發包、先斬後奏或小額化整為零規避審查之舞弊空間。",
-        acceptTypes: ".pdf,.docx"
-      },
-      {
-        id: "P2-09",
-        priority: "P2",
-        priorityLabel: "P2 營運第三優先",
-        priorityClass: "tag-cyan",
-        deadline: "第 2 週內必備",
-        title: "三級週期性彙報模組（日報、週報、月報樣板）",
-        req: "日報（哨位出勤/機房日巡/工單閉環）、週報（決議進度%/工單結案率）、月報（損益表/消檢排程/常會議案包）標準樣板與交付管道。",
-        risk: "落實管理辦法第16條第7款處理事務留下書面紀錄，建議一律書面提出，作為KPI考核依據。",
-        acceptTypes: ".pdf,.docx,.xlsx"
-      },
-      {
-        id: "P2-10",
-        priority: "P2",
-        priorityLabel: "P2 營運第三優先",
-        priorityClass: "tag-cyan",
-        deadline: "第 2 週內必備",
-        title: "協力外包廠商履約稽核與 KPI 計罰作業標準",
-        req: "保全夜巡電子感應點紀錄（打卡率>=98%）、清潔大項施作簽驗單、外包廠商違約記點扣款標準作業書。",
-        risk: "物業不得護短外包保全與清潔，必須有量化數據（扣點扣款單）向管委會負責。",
-        acceptTypes: ".pdf,.docx"
-      },
-      {
-        id: "P2-11",
-        priority: "P2",
-        priorityLabel: "P2 營運第三優先",
-        priorityClass: "tag-cyan",
-        deadline: "第 2 週內必備",
-        title: "社區重大突發事故緊急應變 SOP",
-        req: "消防警報與真實火警應變流程、地下室爆管淹水切斷水源搶修SOP、電梯故障受困安撫與原廠通報手冊。",
-        risk: "避免夜間發生事故時現場保全慌亂無措、通報脫節導致公設災情擴大。",
-        acceptTypes: ".pdf,.docx"
-      },
-      {
-        id: "P3-12",
-        priority: "P3",
-        priorityLabel: "P3 檔案第四優先",
-        priorityClass: "tag-purple",
-        deadline: "第 3~4 週內必備",
-        title: "現行社區規約及住戶管理施行細則彙編",
-        req: "經區權大會核定之規約本文正本與修訂紀錄、裝潢施工管理辦法（含防護切結與保證金點交單）、停車位管理辦法、寵物飼養規範。",
-        risk: "物業第一線勸導違規、處理裝潢打石噪音及車位佔用爭端時的法定依據。",
-        acceptTypes: ".pdf,.docx"
-      },
-      {
-        id: "P3-13",
-        priority: "P3",
-        priorityLabel: "P3 檔案第四優先",
-        priorityClass: "tag-purple",
-        deadline: "第 3~4 週內必備",
-        title: "社區智慧管理 App（如智生活）最高權限移交",
-        req: "後台最高管理員（Super Admin）帳號移交管委會、銀行金流代收綁定管委會專戶核對、住戶開通清冊與瓦斯抄表歷史資料庫。",
-        risk: "確保管委會掌握數位資產與住戶個資主導權，避免更換物業公司時系統遭鎖定或歷史紀錄遺失。",
-        acceptTypes: ".pdf,.xlsx"
-      },
-      {
-        id: "P3-14",
-        priority: "P3",
-        priorityLabel: "P3 檔案第四優先",
-        priorityClass: "tag-purple",
-        deadline: "第 3~4 週內必備",
-        title: "全套建築與水電機電竣工圖說清冊與電子檔",
-        req: "建築使照圖、結構配筋圖、地籍圖、給水/排水/消防/弱電監控竣工圖紙與CAD電子檔，建立實體借閱登記簿。",
-        risk: "屬社區永久保存之法定資產，防止日後維修鑽孔誤擊主樑或鑽破暗管。",
-        acceptTypes: ".pdf,.dwg,.zip,.jpg"
-      }
+      { id: "P0-01", priority: "P0", priorityLabel: "P0 緊急第一優先", priorityClass: "tag-rose", deadline: "進駐 3 日內必備", title: "留駐從業人員法定認可證與登錄名冊", req: "總幹事/主任事務管理人員認可證（5年有效內）、防火管理人證照、駐點保全員名冊、良民證及最近一年體檢報告。", risk: "依條例第42條僱用無牌人員罰4~20萬元；出事涉刑事連帶過失。", acceptTypes: ".pdf,.jpg,.jpeg,.png,.docx" },
+      { id: "P0-02", priority: "P0", priorityLabel: "P0 緊急第一優先", priorityClass: "tag-rose", deadline: "進駐 3 日內必備", title: "法定公共安全、電梯與消防檢驗許可證", req: "昇降設備安全使用許可證正本（檢視是否在有效期內）、最近期建築物公安申報合格證、消防檢修申報書及複驗合格函。", risk: "防止電梯過期運轉遭勒令停機或發生墜梯死傷；確保消防系統正常連線。", acceptTypes: ".pdf,.jpg,.jpeg,.png" },
+      { id: "P0-03", priority: "P0", priorityLabel: "P0 緊急第一優先", priorityClass: "tag-rose", deadline: "進駐 3 日內必備", title: "受任管理維護合約書（含內政部五大附件）", req: "依內政部定型化範本簽訂之正式合約正本，核對附件一至五標準工項無擅減，確認非經書面同意不得轉委任與15日退場條款。", risk: "確立管委會對物業之法定監督權限，杜絕私自將保全清潔轉包無牌地下包商。", acceptTypes: ".pdf,.docx" },
+      { id: "P0-04", priority: "P0", priorityLabel: "P0 緊急第一優先", priorityClass: "tag-rose", deadline: "進駐 3 日內必備", title: "緊急突發事故 24H 聯絡網與特約廠商名冊", req: "電梯原廠24H急修專線、發電機、給排水泵浦、車道鐵捲門特約搶修窗口、轄區派出所管區警員、消防分隊對口聯絡表。", risk: "深夜遇水管爆裂、電梯困人或火警時，確保15分鐘內調動專業原廠到場止損。", acceptTypes: ".pdf,.xlsx,.docx" },
+      { id: "P1-05", priority: "P1", priorityLabel: "P1 財務第二優先", priorityClass: "tag-amber", deadline: "第 1 週內必備", title: "公共基金與營運帳戶存摺、定存單及印鑑清冊", req: "銀行專戶存摺（活期、定存單）實體核驗、最新月結對帳單（核對帳面與存款一致）、管委會大小章印模存查卡與責任保管書。", risk: "落實條例第20條公款專戶不得挪用；貫徹主委/財委/監委三章分立，物業絕不可持印。", acceptTypes: ".pdf,.jpg,.jpeg,.png,.xlsx" },
+      { id: "P1-06", priority: "P1", priorityLabel: "P1 財務第二優先", priorityClass: "tag-amber", deadline: "第 1 週內必備", title: "欠繳管理費催收清冊與法律追討進度卷宗", req: "各戶管理費收繳總清冊、積欠逾2期名冊、已發出之存證信函、法院支付命令、強制執行裁定公文卷宗。", risk: "民法管理費時效為5年，逾期未催告將成呆帳；依條例第21條催告滿期始得進行強制執行。", acceptTypes: ".pdf,.xlsx,.docx" },
+      { id: "P1-07", priority: "P1", priorityLabel: "P1 財務第二優先", priorityClass: "tag-amber", deadline: "第 1 週內必備", title: "起造人公設點交結案報告與保固合約清冊", req: "建商與管委會點交清冊（水電、消防、機電、土建）、缺失改善列管清單、各項設備原廠保固期限合約書與保固金扣留明細。", risk: "掌握建商保固到期日，在保固期滿前完成缺失索賠，避免建商脫身後由全體住戶自費修繕。", acceptTypes: ".pdf,.docx,.xlsx" },
+      { id: "P2-08", priority: "P2", priorityLabel: "P2 營運第三優先", priorityClass: "tag-cyan", deadline: "第 2 週內必備", title: "社區核決權限表 (DOA) 與零用金管理辦法", req: "確立零用金（3,000元內）、常委請修（20,000元內）、管委會全體招標（逾20,000元）權限劃分與緊急防險簽核SOP。", risk: "杜絕物業經理私自發包、先斬後奏或小額化整為零規避審查之舞弊空間。", acceptTypes: ".pdf,.docx" },
+      { id: "P2-09", priority: "P2", priorityLabel: "P2 營運第三優先", priorityClass: "tag-cyan", deadline: "第 2 週內必備", title: "三級週期性彙報模組（日報、週報、月報樣板）", req: "日報（哨位出勤/機房日巡/工單閉環）、週報（決議進度%/工單結案率）、月報（損益表/消檢排程/常會議案包）標準樣板與交付管道。", risk: "落實管理辦法第16條第7款處理事務留下書面紀錄，建議一律書面提出，作為KPI考核依據。", acceptTypes: ".pdf,.docx,.xlsx" },
+      { id: "P2-10", priority: "P2", priorityLabel: "P2 營運第三優先", priorityClass: "tag-cyan", deadline: "第 2 週內必備", title: "協力外包廠商履約稽核與 KPI 計罰作業標準", req: "保全夜巡電子感應點紀錄（打卡率>=98%）、清潔大項施作簽驗單、外包廠商違約記點扣款標準作業書。", risk: "物業不得護短外包保全與清潔，必須有量化數據（扣點扣款單）向管委會負責。", acceptTypes: ".pdf,.docx" },
+      { id: "P2-11", priority: "P2", priorityLabel: "P2 營運第三優先", priorityClass: "tag-cyan", deadline: "第 2 週內必備", title: "社區重大突發事故緊急應變 SOP", req: "消防警報與真實火警應變流程、地下室爆管淹水切斷水源搶修SOP、電梯故障受困安撫與原廠通報手冊。", risk: "避免夜間發生事故時現場保全慌亂無措、通報脫節導致公設災情擴大。", acceptTypes: ".pdf,.docx" },
+      { id: "P3-12", priority: "P3", priorityLabel: "P3 檔案第四優先", priorityClass: "tag-purple", deadline: "第 3~4 週內必備", title: "現行社區規約及住戶管理施行細則彙編", req: "經區權大會核定之規約本文正本與修訂紀錄、裝潢施工管理辦法（含防護切結與保證金點交單）、停車位管理辦法、寵物飼養規範。", risk: "物業第一線勸導違規、處理裝潢打石噪音及車位佔用爭端時的法定依據。", acceptTypes: ".pdf,.docx" },
+      { id: "P3-13", priority: "P3", priorityLabel: "P3 檔案第四優先", priorityClass: "tag-purple", deadline: "第 3~4 週內必備", title: "社區智慧管理 App（如智生活）最高權限移交", req: "後台最高管理員（Super Admin）帳號移交管委會、銀行金流代收綁定管委會專戶核對、住戶開通清冊與瓦斯抄表歷史資料庫。", risk: "確保管委會掌握數位資產與住戶個資主導權，避免更換物業公司時系統遭鎖定或歷史紀錄遺失。", acceptTypes: ".pdf,.xlsx" },
+      { id: "P3-14", priority: "P3", priorityLabel: "P3 檔案第四優先", priorityClass: "tag-purple", deadline: "第 3~4 週內必備", title: "全套建築與水電機電竣工圖說清冊與電子檔", req: "建築使照圖、結構配筋圖、地籍圖、給水/排水/消防/弱電監控竣工圖紙與CAD電子檔，建立實體借閱登記簿。", risk: "屬社區永久保存之法定資產，防止日後維修鑽孔誤擊主樑或鑽破暗管。", acceptTypes: ".pdf,.dwg,.zip,.jpg" }
     ];
 
+    let handoverState = {};
 
-    
-
-    // Tab switching inside ViewDocAccess
-    function switchDocFormTab(tabIdx) {
-      document.getElementById('docFormTab1').style.display = tabIdx === 1 ? 'block' : 'none';
-      document.getElementById('docFormTab2').style.display = tabIdx === 2 ? 'block' : 'none';
-      document.getElementById('docFormTab3').style.display = tabIdx === 3 ? 'block' : 'none';
-
-      document.getElementById('btnTabForm1').classList.toggle('active', tabIdx === 1);
-      document.getElementById('btnTabForm2').classList.toggle('active', tabIdx === 2);
-      document.getElementById('btnTabForm3').classList.toggle('active', tabIdx === 3);
+    function initHandoverState() {
+      localStorage.removeItem('fuyu_handover_state_v1');
+      const stored = localStorage.getItem('fuyu_handover_state_v2');
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          handoverState = {};
+          Object.keys(parsed).forEach(k => {
+            if (parsed[k] && parsed[k].fileName) {
+              handoverState[k] = parsed[k];
+            }
+          });
+        } catch (e) {
+          handoverState = {};
+        }
+      } else {
+        handoverState = {};
+      }
+      saveHandoverState();
+      renderHandoverList();
+      updateHandoverStats();
     }
 
-    function calculateCopyFee() {
-      const typePrice = parseInt(document.getElementById('calcType').value, 10) || 2;
-      const pages = parseInt(document.getElementById('calcPages').value, 10) || 0;
-      const total = typePrice * pages;
-      document.getElementById('calcTotalText').innerText = `NT$ ${total} 元`;
+    function saveHandoverState() {
+      localStorage.setItem('fuyu_handover_state_v2', JSON.stringify(handoverState));
+      updateHandoverStats();
     }
 
-    // Clean, real-only handover state strictly tied to actual uploaded files
-let handoverState = {};
+    function updateHandoverStats() {
+      let completed = 0;
+      let p0 = 0, p1 = 0, p2 = 0, p3 = 0;
 
-function initHandoverState() {
-  // Purge any legacy mock storage key if present
-  localStorage.removeItem('fuyu_handover_state_v1');
-
-  // Load real state from v2
-  const stored = localStorage.getItem('fuyu_handover_state_v2');
-  if (stored) {
-    try {
-      const parsed = JSON.parse(stored);
-      handoverState = {};
-      Object.keys(parsed).forEach(k => {
-        // Strict integrity: only load if it has an actual file attached
-        if (parsed[k] && parsed[k].fileName) {
-          handoverState[k] = parsed[k];
+      HANDOVER_ITEMS.forEach(item => {
+        const state = handoverState[item.id];
+        if (state && state.fileName && state.checked) {
+          completed++;
+          if (item.priority === 'P0') p0++;
+          if (item.priority === 'P1') p1++;
+          if (item.priority === 'P2') p2++;
+          if (item.priority === 'P3') p3++;
         }
       });
-    } catch (e) {
-      handoverState = {};
+
+      const pct = Math.round((completed / HANDOVER_ITEMS.length) * 100);
+      safeSetText('overallCompletedCount', completed);
+      safeSetText('overallPercentText', `(${pct}%)`);
+      const barEl = document.getElementById('masterProgressBar');
+      if (barEl) barEl.style.width = `${pct}%`;
+
+      safeSetText('p0Count', p0);
+      safeSetText('p1Count', p1);
+      safeSetText('p2Count', p2);
+      safeSetText('p3Count', p3);
     }
-  } else {
-    // Absolutely NO fake demo files: starts strictly at 0
-    handoverState = {};
-  }
-  
-  saveHandoverState();
-  renderHandoverList();
-  updateHandoverStats();
-}
 
-function saveHandoverState() {
-  localStorage.setItem('fuyu_handover_state_v2', JSON.stringify(handoverState));
-  updateHandoverStats();
-}
+    function renderHandoverList() {
+      const container = document.getElementById('handoverItemsContainer');
+      if (!container) return;
 
-// Progress bar and counts strictly map to items that have real uploaded files
-function updateHandoverStats() {
-  let completed = 0;
-  let p0 = 0, p1 = 0, p2 = 0, p3 = 0;
+      container.innerHTML = HANDOVER_ITEMS.map((item, idx) => {
+        const state = handoverState[item.id] || {};
+        const hasFile = !!state.fileName;
+        const isChecked = hasFile && !!state.checked;
 
-  HANDOVER_ITEMS.forEach(item => {
-    const state = handoverState[item.id];
-    // Strict requirement: MUST have a real uploaded file to be counted as completed
-    if (state && state.fileName && state.checked) {
-      completed++;
-      if (item.priority === 'P0') p0++;
-      if (item.priority === 'P1') p1++;
-      if (item.priority === 'P2') p2++;
-      if (item.priority === 'P3') p3++;
-    }
-  });
+        let borderHighlight = isChecked ? 'rgba(16, 185, 129, 0.45)' : (hasFile ? 'rgba(56, 189, 248, 0.4)' : 'var(--border-color)');
+        let cardBg = isChecked ? 'linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, var(--card-bg) 100%)' : 'var(--card-bg)';
 
-  const pct = Math.round((completed / HANDOVER_ITEMS.length) * 100);
-  const countEl = document.getElementById('overallCompletedCount');
-  const pctEl = document.getElementById('overallPercentText');
-  const barEl = document.getElementById('masterProgressBar');
-
-  if (countEl) countEl.innerText = completed;
-  if (pctEl) pctEl.innerText = `(${pct}%)`;
-  if (barEl) barEl.style.width = `${pct}%`;
-  
-  const p0El = document.getElementById('p0Count');
-  const p1El = document.getElementById('p1Count');
-  const p2El = document.getElementById('p2Count');
-  const p3El = document.getElementById('p3Count');
-  if (p0El) p0El.innerText = p0;
-  if (p1El) p1El.innerText = p1;
-  if (p2El) p2El.innerText = p2;
-  if (p3El) p3El.innerText = p3;
-}
-
-function renderHandoverList() {
-  const container = document.getElementById('handoverItemsContainer');
-  if (!container) return;
-
-  container.innerHTML = HANDOVER_ITEMS.map((item, idx) => {
-    const state = handoverState[item.id] || {};
-    const hasFile = !!state.fileName;
-    const isChecked = hasFile && !!state.checked;
-
-    let borderHighlight = isChecked ? 'rgba(16, 185, 129, 0.45)' : (hasFile ? 'rgba(56, 189, 248, 0.4)' : 'var(--border-color)');
-    let cardBg = isChecked ? 'linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, var(--card-bg) 100%)' : 'var(--card-bg)';
-
-    return `
-      <div class="card handover-item-card" id="card-${item.id}" style="border: 1px solid ${borderHighlight}; background: ${cardBg}; margin-bottom: 20px;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 12px;">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <!-- Checkbox strictly bound to file upload -->
-            <input type="checkbox" id="chk-${item.id}" style="width: 22px; height: 22px; accent-color: var(--accent-emerald); cursor: pointer;" ${isChecked ? 'checked' : ''} onchange="toggleHandoverCheck('${item.id}', this.checked)">
-            <div>
-              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                <span class="tag ${item.priorityClass}">${item.priorityLabel}</span>
-                <span style="font-size: 0.78rem; color: var(--accent-amber); font-weight: 700;">[期限: ${item.deadline}]</span>
-                <span style="font-size: 0.76rem; color: var(--text-muted);">代號: ${item.id}</span>
+        return `
+          <div class="card handover-item-card" id="card-${item.id}" style="border: 1px solid ${borderHighlight}; background: ${cardBg}; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <input type="checkbox" id="chk-${item.id}" style="width: 22px; height: 22px; accent-color: var(--accent-emerald); cursor: pointer;" ${isChecked ? 'checked' : ''} onchange="toggleHandoverCheck('${item.id}', this.checked)">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <span class="tag ${item.priorityClass}">${item.priorityLabel}</span>
+                    <span style="font-size: 0.78rem; color: var(--accent-amber); font-weight: 700;">[期限: ${item.deadline}]</span>
+                    <span style="font-size: 0.76rem; color: var(--text-muted);">代號: ${item.id}</span>
+                  </div>
+                  <h3 style="font-size: 1.18rem; font-weight: 700; color: var(--text-primary); margin-top: 4px;">
+                    ${item.title}
+                  </h3>
+                </div>
               </div>
-              <h3 style="font-size: 1.18rem; font-weight: 700; color: var(--text-primary); margin-top: 4px;">
-                ${item.title}
-              </h3>
+
+              <div>
+                ${isChecked ? 
+                  `<span style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">✓ 文件已上傳・核驗完成</span>` : 
+                  (hasFile ? 
+                    `<span style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">文件已上傳・待勾選核定</span>` : 
+                    `<span style="background: rgba(244, 63, 94, 0.15); color: #f87171; border: 1px solid rgba(244, 63, 94, 0.3); font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">❌ 尚未上傳文件 (待提報)</span>`
+                  )
+                }
+              </div>
+            </div>
+
+            <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; background: var(--card-bg-subtle); padding: 12px 16px; border-radius: 8px;">
+              <div style="margin-bottom: 4px;">
+                <strong style="color: var(--text-primary);">提報內容規範：</strong>${item.req}
+              </div>
+              <div style="font-size: 0.82rem; color: var(--accent-rose);">
+                <strong>風控警示目的：</strong>${item.risk}
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; border-top: 1px solid rgba(226, 232, 240, 0.08); padding-top: 12px;">
+              <div style="flex: 1; min-width: 260px;">
+                ${hasFile ? `
+                  <div style="display: flex; align-items: center; gap: 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); padding: 8px 12px; border-radius: 6px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <div style="flex: 1; overflow: hidden;">
+                      <div style="font-size: 0.86rem; font-weight: 600; color: #f8fafc; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+                        📄 ${escapeHtml(state.fileName)}
+                      </div>
+                      <div style="font-size: 0.74rem; color: var(--text-muted);">
+                        大小: ${state.fileSize || '未知'} | 上傳時間: ${state.uploadTime}
+                        ${state.reviewer ? ` | 查核狀態: <span style="color: #6ee7b7;">${escapeHtml(state.reviewer)}</span>` : ''}
+                      </div>
+                    </div>
+                    <button class="btn-action" style="padding: 3px 8px; font-size: 0.72rem; color: var(--accent-rose); border-color: rgba(244, 63, 94, 0.3);" onclick="removeUploadedFile('${item.id}')">刪除文件</button>
+                  </div>
+                ` : `
+                  <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span>尚未上傳任何附件檔卷（限制格式：${item.acceptTypes}）</span>
+                  </div>
+                `}
+              </div>
+
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="file" id="file-${item.id}" style="display: none;" accept="${item.acceptTypes}" onchange="handleItemFileUpload('${item.id}', this)">
+                <button class="btn-action" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3); color: var(--accent-cyan);" onclick="document.getElementById('file-${item.id}').click()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  ${hasFile ? '重新上傳替換' : '選擇文件檔案上傳'}
+                </button>
+                <button class="btn-action" style="background: ${isChecked ? 'rgba(16, 185, 129, 0.2)' : 'var(--card-bg-subtle)'}; color: ${isChecked ? '#10b981' : 'var(--text-secondary)'};" onclick="toggleHandoverCheck('${item.id}', ${!isChecked})">
+                  ${isChecked ? '取消核定' : '勾選確認完成'}
+                </button>
+              </div>
             </div>
           </div>
+        `;
+      }).join('');
+    }
 
-          <!-- Status Badge -->
-          <div>
-            ${isChecked ? 
-              `<span style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px;">✓ 文件已上傳・核驗完成</span>` : 
-              (hasFile ? 
-                `<span style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid #38bdf8; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">文件已上傳・待勾選核定</span>` : 
-                `<span style="background: rgba(244, 63, 94, 0.15); color: #f87171; border: 1px solid rgba(244, 63, 94, 0.3); font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 6px;">❌ 尚未上傳文件 (待提報)</span>`
-              )
-            }
-          </div>
-        </div>
+    function handleItemFileUpload(itemId, inputElement) {
+      if (!inputElement.files || inputElement.files.length === 0) return;
+      const file = inputElement.files[0];
+      const sizeStr = file.size > 1024 * 1024 ? (file.size / (1024 * 1024)).toFixed(1) + ' MB' : Math.round(file.size / 1024) + ' KB';
+      const now = new Date();
+      const timeStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
 
-        <!-- Content Description -->
-        <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; background: var(--card-bg-subtle); padding: 12px 16px; border-radius: 8px;">
-          <div style="margin-bottom: 4px;">
-            <strong style="color: var(--text-primary);">提報內容規範：</strong>${item.req}
-          </div>
-          <div style="font-size: 0.82rem; color: var(--accent-rose);">
-            <strong>風控警示目的：</strong>${item.risk}
-          </div>
-        </div>
+      if (!handoverState[itemId]) handoverState[itemId] = {};
+      handoverState[itemId].fileName = file.name;
+      handoverState[itemId].fileSize = sizeStr;
+      handoverState[itemId].uploadTime = timeStr;
+      handoverState[itemId].checked = true;
+      handoverState[itemId].reviewer = "物業已上傳實體檔卷・已確認";
 
-        <!-- Upload and Verified File Area -->
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; border-top: 1px solid rgba(226, 232, 240, 0.08); padding-top: 12px;">
-          
-          <!-- File Display -->
-          <div style="flex: 1; min-width: 260px;">
-            ${hasFile ? `
-              <div style="display: flex; align-items: center; gap: 10px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); padding: 8px 12px; border-radius: 6px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                <div style="flex: 1; overflow: hidden;">
-                  <div style="font-size: 0.86rem; font-weight: 600; color: #f8fafc; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
-                    📄 ${escapeHtml(state.fileName)}
-                  </div>
-                  <div style="font-size: 0.74rem; color: var(--text-muted);">
-                    大小: ${state.fileSize || '未知'} | 上傳時間: ${state.uploadTime}
-                    ${state.reviewer ? ` | 查核狀態: <span style="color: #6ee7b7;">${escapeHtml(state.reviewer)}</span>` : ''}
-                  </div>
-                </div>
-                <button class="btn-action" style="padding: 3px 8px; font-size: 0.72rem; color: var(--accent-rose); border-color: rgba(244, 63, 94, 0.3);" onclick="removeUploadedFile('${item.id}')">刪除文件</button>
-              </div>
-            ` : `
-              <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                <span>尚未上傳任何附件檔卷（限制格式：${item.acceptTypes}）</span>
-              </div>
-            `}
-          </div>
+      saveHandoverState();
+      renderHandoverList();
+      showToast(`✓ 代號 ${itemId} 已成功上傳檔案：${file.name}，進度已即時更新！`);
+    }
 
-          <!-- Upload and Check Button Action -->
-          <div style="display: flex; gap: 10px; align-items: center;">
-            <input type="file" id="file-${item.id}" style="display: none;" accept="${item.acceptTypes}" onchange="handleItemFileUpload('${item.id}', this)">
-            <button class="btn-action" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3); color: var(--accent-cyan);" onclick="document.getElementById('file-${item.id}').click()">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-              ${hasFile ? '重新上傳替換' : '選擇文件檔案上傳'}
-            </button>
-            <button class="btn-action" style="background: ${isChecked ? 'rgba(16, 185, 129, 0.2)' : 'var(--card-bg-subtle)'}; color: ${isChecked ? '#10b981' : 'var(--text-secondary)'};" onclick="toggleHandoverCheck('${item.id}', ${!isChecked})">
-              ${isChecked ? '取消核定' : '勾選確認完成'}
-            </button>
-          </div>
+    function toggleHandoverCheck(itemId, checked) {
+      const state = handoverState[itemId];
+      if (checked && (!state || !state.fileName)) {
+        alert(`【提示】代號 ${itemId} 尚未上傳任何文件檔案！\\n\\n依管委會稽核規範，必須先點擊「選擇文件檔案上傳」上傳真實法定檔卷後，始得勾選確認完成。`);
+        const fileInput = document.getElementById(`file-${itemId}`);
+        if (fileInput) fileInput.click();
+        return;
+      }
+      if (!handoverState[itemId]) handoverState[itemId] = {};
+      handoverState[itemId].checked = checked;
+      if (checked) handoverState[itemId].reviewer = "管委會審查合格簽認";
 
-        </div>
-      </div>
-    `;
-  }).join('');
-}
+      saveHandoverState();
+      renderHandoverList();
+      showToast(checked ? `✓ 代號 ${itemId} 已核定完成！` : `代號 ${itemId} 已取消完成標記`);
+    }
 
-// When a real file is chosen by user
-function handleItemFileUpload(itemId, inputElement) {
-  if (!inputElement.files || inputElement.files.length === 0) return;
-  const file = inputElement.files[0];
+    function removeUploadedFile(itemId) {
+      if (!confirm(`確定要刪除代號 ${itemId} 之上傳文件檔案嗎？\\n刪除後該項將回歸「未完成」狀態，進度表將同步扣減。`)) return;
+      if (handoverState[itemId]) delete handoverState[itemId];
+      saveHandoverState();
+      renderHandoverList();
+      showToast(`代號 ${itemId} 之文件已移除，進度表已同步扣除。`);
+    }
 
-  const sizeStr = file.size > 1024 * 1024 ? 
-    (file.size / (1024 * 1024)).toFixed(1) + ' MB' : 
-    Math.round(file.size / 1024) + ' KB';
+    function resetHandoverChecklist() {
+      if (!confirm("確定要重設清空所有上傳之文件與勾選紀錄嗎？此動作將使進度歸零。")) return;
+      handoverState = {};
+      localStorage.removeItem('fuyu_handover_state_v2');
+      saveHandoverState();
+      renderHandoverList();
+      showToast("已清空所有點交紀錄，進度歸零 0%");
+    }
 
-  const now = new Date();
-  const timeStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-
-  if (!handoverState[itemId]) {
-    handoverState[itemId] = {};
-  }
-
-  handoverState[itemId].fileName = file.name;
-  handoverState[itemId].fileSize = sizeStr;
-  handoverState[itemId].uploadTime = timeStr;
-  handoverState[itemId].checked = true; // Automatically mark as completed upon real upload
-  handoverState[itemId].reviewer = "物業已上傳實體檔卷・已確認";
-
-  saveHandoverState();
-  renderHandoverList();
-  showToast(`✓ 代號 ${itemId} 已成功上傳檔案：${file.name}，進度已即時更新！`);
-}
-
-// Toggle checkbox - strictly enforces file requirement
-function toggleHandoverCheck(itemId, checked) {
-  const state = handoverState[itemId];
-  
-  // If attempting to check without a file uploaded:
-  if (checked && (!state || !state.fileName)) {
-    alert(`【提示】代號 ${itemId} 尚未上傳任何文件檔案！\n\n依管委會稽核規範，必須先點擊「選擇文件檔案上傳」上傳真實法定檔卷後，始得勾選確認完成。`);
-    // Trigger file chooser directly
-    const fileInput = document.getElementById(`file-${itemId}`);
-    if (fileInput) fileInput.click();
-    return;
-  }
-
-  if (!handoverState[itemId]) {
-    handoverState[itemId] = {};
-  }
-  
-  handoverState[itemId].checked = checked;
-  if (checked) {
-    handoverState[itemId].reviewer = "管委會審查合格簽認";
-  }
-
-  saveHandoverState();
-  renderHandoverList();
-  showToast(checked ? `✓ 代號 ${itemId} 已核定完成！` : `代號 ${itemId} 已取消完成標記`);
-}
-
-function removeUploadedFile(itemId) {
-  if (!confirm(`確定要刪除代號 ${itemId} 之上傳文件檔案嗎？\n刪除後該項將回歸「未完成」狀態，進度表將同步扣減。`)) return;
-  if (handoverState[itemId]) {
-    delete handoverState[itemId];
-  }
-  saveHandoverState();
-  renderHandoverList();
-  showToast(`代號 ${itemId} 之文件已移除，進度表已同步扣除。`);
-}
-
-function resetHandoverChecklist() {
-  if (!confirm("確定要重設清空所有上傳之文件與勾選紀錄嗎？此動作將使進度歸零。")) return;
-  handoverState = {};
-  localStorage.removeItem('fuyu_handover_state_v2');
-  saveHandoverState();
-  renderHandoverList();
-  showToast("已清空所有點交紀錄，進度歸零 0%");
-}
-
-    // Initial Seed Data for "富宇大地"
+    // Default Articles Data
     const DEFAULT_ARTICLES = [
       {
         id: "FY-2026-001",
@@ -2515,27 +3292,7 @@ function resetHandoverChecklist() {
         date: "2026-09-21",
         pinned: true,
         summary: "為確立本社區「物業經理負責把事情做好做透明；管委會負責決定做什麼並承擔決策責任」之治理原則，全面實施日報、週報、月報制度與核決權限 (DOA) 規範。",
-        content: `全體區分所有權人與住戶女士、先生：
-
-為提升本社區管理服務品質、落實權責劃分並維護全體區權人共有資產，富宇大地管理委員會經第十屆第三次常會決議，正式頒布實施《物業管理經理與管理委員會權責界線與治理作業規範》：
-
-一、權責劃分核心：
-1. 物業經理（管理服務人）：係依管委會決議、合約委任授權及管理規約，負責日常庶務執行、廠商聯繫、機電巡檢、報修追蹤與定期回報，並就專業維護提供方案建議。
-2. 管理委員會：承擔公共基金運用、重大工程修繕決策、合約簽署、規約適用與違規處分之最終決定與法定管理責任。
-
-二、三級彙報機制：
-1. 日報：每日現場即時監控、機房巡檢及工單閉環紀錄。
-2. 週報：專案工程推進、外包廠商履約稽核（保全打卡率目標 98%+）。
-3. 月報：財務收支報表、公共安全與消防申報、廠商月度 KPI 綜合考評。
-
-三、核決權限 (DOA) 限額標準：
-- 零用金小額採購：單筆 3,000 元以下由物業依法定科目核實動銷。
-- 限額請修：單筆 3,001~20,000 元須報請常務委員或主委核准。
-- 重大工程：逾 20,000 元以上須經管委會全體會議比價審議表決。
-
-本辦法自即日起正式施行，特此公告。
-
-富宇大地管理委員會 敬啟`,
+        content: `全體區分所有權人與住戶女士、先生：\\n\\n為提升本社區管理服務品質、落實權責劃分並維護全體區權人共有資產，富宇大地管理委員會經第二屆第三次常會決議，正式頒布實施《物業管理經理與管理委員會權責界線與治理作業規範》：\\n\\n一、權責劃分核心：\\n1. 物業經理（管理服務人）：係依管委會決議、合約委任授權及管理規約，負責日常庶務執行、廠商聯繫、機電巡檢、報修追蹤與定期回報，並就專業維護提供方案建議。\\n2. 管理委員會：承擔公共基金運用、重大工程修繕決策、合約簽署、規約適用與違規處分之最終決定與法定管理責任。\\n\\n二、三級彙報機制：\\n1. 日報：每日現場即時監控、機房巡檢及工單閉環紀錄。\\n2. 週報：專案工程推進、外包廠商履約稽核（保全打卡率目標 98%+）。\\n3. 月報：財務收支報表、公共安全與消防申報、廠商月度 KPI 綜合考評。\\n\\n三、核決權限 (DOA) 限額標準：\\n- 零用金小額採購：單筆 3,000 元以下由物業依法定科目核實動銷。\\n- 限額請修：單筆 3,001~20,000 元須報請常務委員或主委核准。\\n- 重大工程：逾 20,000 元以上須經管委會全體會議比價審議表決。\\n\\n本辦法自即日起正式施行，特此公告。\\n\\n富宇大地管理委員會 敬啟`,
         views: 342
       },
       {
@@ -2547,26 +3304,7 @@ function resetHandoverChecklist() {
         date: "2026-09-24",
         pinned: true,
         summary: "依內政部定型化契約範本附件四規定，每六個月實施全區蓄水池高壓清洗及水質消毒，施作期間將暫停加壓供水，請各棟住戶預先儲水備用。",
-        content: `富宇大地全體住戶您好：
-
-依據內政部《公寓大廈管理維護契約範本》環境清潔維護規定，為維護全體住戶生活飲用水之衛生與安全，本處將辦理 115 年度第二次全區蓄水池及屋頂水塔高壓清洗與水質檢驗工程，作業期間將暫停供水，敬請查照配合：
-
-一、施工時程與影響範圍：
-1. 施作日期：民國 115 年 9 月 28 日（星期四）
-2. 停水時段：上午 08:30 至 下午 16:30（工程提早完成則提前恢復供水）
-3. 停水範圍：富宇大地 A棟、B棟、C棟全區專有及共用部分。
-
-二、住戶配合注意事項：
-1. 敬請於停水前預先儲備當日所需飲用及生活用水。
-2. 停水期間請務必關閉抽水馬達及熱水器電源開關，避免因管線無水空轉導致設備損壞燒毀。
-3. 恢復供水初期，出水可能夾帶些微管路氣泡或微量沉積物，請先開啟水龍頭排放約 1~2 分鐘即可正常使用。
-
-如遇不可抗力之天候因素（如颱風豪雨），施工期程將順延並另行發布公告通知。
-
-緊急聯繫電話：
-富宇大地物業服務中心：(04) 2345-6789 分機 101
-
-富宇大地物業管理處 敬啟`,
+        content: `富宇大地全體住戶您好：\\n\\n依據內政部《公寓大廈管理維護契約範本》環境清潔維護規定，為維護全體住戶生活飲用水之衛生與安全，本處將辦理 115 年度第二次全區蓄水池及屋頂水塔高壓清洗與水質檢驗工程，作業期間將暫停供水，敬請查照配合：\\n\\n一、施工時程與影響範圍：\\n1. 施作日期：民國 115 年 9 月 28 日（星期四）\\n2. 停水時段：上午 08:30 至 下午 16:30（工程提早完成則提前恢復供水）\\n3. 停水範圍：富宇大地 A棟、B棟、C棟全區專有及共用部分。\\n\\n二、住戶配合注意事項：\\n1. 敬請於停水前預先儲備當日所需飲用及生活用水。\\n2. 停水期間請務必關閉抽水馬達及熱水器電源開關，避免因管線無水空轉導致設備損壞燒毀。\\n3. 恢復供水初期，出水可能夾帶些微管路氣泡或微量沉積物，請先開啟水龍頭排放約 1~2 分鐘即可正常使用。\\n\\n富宇大地物業管理處 敬啟`,
         views: 289
       },
       {
@@ -2578,126 +3316,38 @@ function resetHandoverChecklist() {
         date: "2026-09-10",
         pinned: false,
         summary: "8 月份管理費準時收繳率達 98.4%，公共基金專戶活存與定存孳息結算正常，各項經常門支出均在預算限額之內，原始憑證已完成查核。",
-        content: `富宇大地全體區分所有權人公鑒：
-
-依《公寓大廈管理條例》第 20 條及第 36 條規定，茲公告本社區民國 115 年 8 月份管理費收支與公共基金帳務結算概況：
-
-一、管理費收繳狀況：
-- 應收管理費總額：新台幣 826,000 元整
-- 當月實收金額：新台幣 812,784 元整（收繳率 98.4%）
-- 逾期未繳戶數：3 戶（物業中心已寄發第一次催繳通知函）
-
-二、經常門主要支出項目：
-1. 物業、保全與清潔外包服務費：新台幣 480,000 元
-2. 公共水電設施費：新台幣 112,450 元
-3. 電梯定期保養合約費：新台幣 42,000 元
-4. 園藝與例行耗材維修：新台幣 18,320 元
-- 本月經常門結餘款：新台幣 160,014 元整（全數轉撥公共基金帳戶）
-
-三、公共基金專戶資產結算：
-- 台灣銀行專戶活期存款：新台幣 3,421,890 元整
-- 台灣銀行定存定期專戶：新台幣 12,000,000 元整（年利率 1.72%）
-- 本月利息孳息收入：新台幣 17,200 元整
-
-以上各項收支憑證、原始發票與金融機構對帳單，業經監察委員與財務委員共同抽查審核無誤，放置於管理中心供全體區權人閱覽。
-
-富宇大地管理委員會 敬啟`,
-        views: 198
+        content: `富宇大地全體區分所有權人公鑒：\\n\\n依《公寓大廈管理條例》第 20 條及第 36 條規定，茲公告本社區民國 115 年 8 月份管理費收支與公共基金帳務結算概況：\\n\\n一、管理費收繳狀況：\\n- 應收管理費總額：新台幣 826,000 元整\\n- 實收管理費總額：新台幣 812,784 元整（準時收繳率 98.4%）\\n- 欠繳累積金額：新台幣 13,216 元整（已依程序寄發首期溫馨催繳單）\\n\\n二、經常門支出明細（節錄）：\\n1. 物業暨保全管理服務費：420,000 元\\n2. 環衛清潔維護合約款：110,000 元\\n3. 機電消防保養合約款：65,000 元\\n4. 電梯月保養費（原廠保固維護）：38,000 元\\n5. 公共水電雜支費：42,150 元\\n\\n三、公共基金專戶結存餘額：\\n- 銀行活存專戶：新台幣 3,842,650 元整\\n- 銀行定期存單（一年期）：新台幣 12,000,000 元整\\n\\n全體帳冊、會計傳票及金融機構對帳單正本現存放於管理服務中心，歡迎利害關係人依規約申請調閱。\\n\\n富宇大地管理委員會 敬啟`,
+        views: 415
       },
       {
         id: "FY-2026-004",
-        title: "【會務公告】富宇大地第十屆管理委員會第 3 次定期常會決議事項摘要",
+        title: "【日常庶務】富宇大地住戶室內裝修施工防護管理辦法暨噪音管制時段宣導",
+        category: "日常庶務",
+        publisher: "富宇大地管理委員會",
+        signer: "安全委員 / 監察委員",
+        date: "2026-09-08",
+        pinned: false,
+        summary: "為維持社區安寧生活環境，重申各專有部分進行裝潢室內裝修時，必須依規約完成申請登記並繳交保證金，打石噪音嚴禁於午休及假日施作。",
+        content: `全體住戶女士、先生：\\n\\n近來接獲住戶反映部分棟別裝修施工噪音與梯廳走廊保護不足問題，為確保全體住戶公共安寧、安全與共用設施設備之完好，特別重申《富宇大地室內裝修管理辦法》核心守則：\\n\\n一、施工時段嚴格管制：\\n1. 准許施工時間：週一至週五 上午 08:30~12:00、下午 13:30~17:30。\\n2. 嚴禁施工時間：例假日、國定假日及每日午休時段（12:00~13:30）。任何產生強烈震動與尖銳噪音之打石、鑽孔、切割工程均不得施作。\\n\\n二、公共區域保護工程要求：\\n1. 施工單位進場前，必須自電梯車廂、公用梯廳至住戶門前，全面鋪設防潮布與夾板雙層保護防護毯。\\n2. 施工廢棄物應於當日裝袋妥善清運，嚴禁堆置於共同走廊、樓梯間或逃生安全門前。\\n\\n三、違規處置：\\n違反上述規定經物業管理處勸導不遵者，管委會將依法沒收部分裝修保證金，情節嚴重者得依《公寓大廈管理條例》第 16 條報請台中市都市發展局依法處以新台幣四萬元以上二十萬元以下罰鍰。\\n\\n富宇大地管理委員會 敬啟`,
+        views: 198
+      },
+      {
+        id: "FY-2026-005",
+        title: "【重大決議】富宇大地 115 年度第二次管委會定期常會決議事項暨超商多元繳費啟用通知",
         category: "重大決議",
         publisher: "富宇大地管理委員會",
         signer: "主任委員 Howard Liao Ph.D.(A17)",
         date: "2026-09-05",
         pinned: false,
-        summary: "本次常會全票通過外牆磁磚安全防墜拉力檢測案、B2停車場道閘感應天線更換案，並核定中秋社區聯誼園遊會活動企劃。",
-        content: `富宇大地全體住戶您好：
-
-富宇大地管理委員會於 115 年 9 月 3 日晚間 19:30 假社區多功能會議廳召開第十屆第 3 次定期常會，全體委員應到 11 位，實到 10 位，法定人數合規。會中審議重點決議如下：
-
-【第一案】外牆飾面安全防墜與拉拔測試委外檢驗案。
-- 決議：經比價 3 家合格營建專業檢測機構，全票通過由「全安結構科技」以新台幣 75,000 元承作，工期預計 10 個工作天，排定於 10 月初進行。
-
-【第二案】B2 地下室車道門禁 eTag 感應天線老化更新案。
-- 決議：考量近期住戶進出讀取靈敏度下降，決議動用維修準備金 18,500 元，由原廠「富捷智能弱電」進行感應模組汰換。
-
-【第三案】115 年中秋住戶聯歡園遊會籌辦案。
-- 決議：核定預算新台幣 60,000 元，定於 10 月 2 日（五）晚間於中庭花園舉辦，委由物業中心規劃互動遊戲與應景餐點。
-
-各案完整會議紀錄已依規約張貼於各梯廳公佈欄，住戶如需影本可向管理中心申請。
-
-富宇大地管理委員會 敬啟`,
-        views: 156
-      },
-      {
-        id: "FY-2026-005",
-        title: "【日常庶務】秋季社區走廊梯廳雜物清理勸導期公告",
-        category: "日常庶務",
-        publisher: "富宇大地物業管理處",
-        signer: "管理主任 / 防火避難組",
-        date: "2026-09-01",
-        pinned: false,
-        summary: "為落實消防逃生安全，提醒住戶切勿於各樓層公共走道、安全梯間堆置鞋櫃、嬰兒車或雜物，勸導期滿未改善者將通報工務機關處置。",
-        content: `富宇大地全體住戶女士、先生：
-
-依據《公寓大廈管理條例》第 16 條第 2 項明定：「住戶不得於樓梯間、共同走廊、防空避難設備等處所堆置雜物、設置柵欄或妨礙出入。」
-
-近期物業人員巡檢發現，部分樓層梯廳走道有堆置鞋盒、戶外腳踏車及私人物品之現象，不僅有礙社區觀瞻，更嚴重妨礙緊急逃生動線。
-
-本處訂於即日起至 9 月 15 日止為自主改善宣導期，請堆置物品之住戶儘速移置專有部分室內。宣導期滿後，物業將進行拍照存證並張貼個別限期勸導單；經制止仍不遵從者，將依管委會決議報請台中市政府工務局依公寓條例第 49 條依法處新台幣 4 萬元以上 20 萬元以下罰鍰。
-
-敬請各位芳鄰共同維護富宇大地之公共安全與優質居住環境！
-
-富宇大地物業管理處 敬啟`,
-        views: 220
+        summary: "審議通過第四季公設機電預防性保養合約評選標準、智慧管理 App 整合自動銷帳金流專案，正式開通 7-11、全家、萊爾富與街口多元繳納管道。",
+        content: `富宇大地全體住戶公鑒：\\n\\n本會於民國 115 年 9 月 3 日召開第二屆第二次例行常會，經全體管理委員出席審議，做成下列重大決議並正式公告週知：\\n\\n一、重大審議決議：\\n1. 通過第四季全區弱電監控系統高畫質攝影機升級評選案，由原廠以 48,000 元承作，保固兩年。\\n2. 審議核定重要文件調閱列印收費標準，貫徹公款專戶收據管理。\\n3. 通過管理費多元代收銷帳專案，即日起住戶可透過手機產出專屬條碼，至四大超商（7-11、全家、萊爾富、OK）或使用台灣 Pay、街口直接繳費並秒級銷帳。\\n\\n二、多元超商繳費實施辦法：\\n1. 自 115 年 10 月份管理費起，繳款單將印製三段式專屬條碼。\\n2. 繳納後款項將直接入帳於富宇大地管理委員會金融機構專戶，管委會不另行收取手續費。\\n\\n會議完整簽到簿與記錄正本置於管理中心，歡迎區權人查閱。\\n\\n富宇大地管理委員會 敬啟`,
+        views: 521
       }
     ];
 
-    // State
     let articles = [];
     let currentCategory = 'all';
 
-    
-    // Filter Smart Daily Cards
-    function filterSmartDaily(category, btn) {
-      document.querySelectorAll('#viewSmartDaily .cat-pill').forEach(el => el.classList.remove('active'));
-      btn.classList.add('active');
-
-      const cards = document.querySelectorAll('.sd-card');
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        if (category === 'all' || cat === category) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    
-    // Filter Gap Analysis Rows
-    function filterGapRows(type, btn) {
-      document.querySelectorAll('#gapFilterPills .cat-pill').forEach(el => el.classList.remove('active'));
-      btn.classList.add('active');
-
-      const rows = document.querySelectorAll('.gap-row');
-      rows.forEach(row => {
-        const support = row.getAttribute('data-support');
-        if (type === 'all' || support === type) {
-          row.style.display = '';
-        } else {
-          row.style.display = 'none';
-        }
-      });
-      // Show/hide category headers if all rows hidden
-      document.querySelectorAll('.gap-cat-header').forEach(header => {
-        header.style.display = (type === 'all') ? '' : '';
-      });
-    }
-
-    // Initialize LocalStorage
     function initData() {
       const stored = localStorage.getItem('fuyu_dadi_announcements_v1');
       if (stored) {
@@ -2710,8 +3360,10 @@ function resetHandoverChecklist() {
         articles = DEFAULT_ARTICLES;
         saveData();
       }
-      // Set today's date in form
-      document.getElementById('formDate').value = new Date().toISOString().split('T')[0];
+      
+      const formDateEl = document.getElementById('formDate');
+      if (formDateEl) formDateEl.value = new Date().toISOString().split('T')[0];
+
       updateAllBadges();
       renderBulletinList();
       renderAdminList();
@@ -2723,97 +3375,80 @@ function resetHandoverChecklist() {
     }
 
     function updateAllBadges() {
-      document.getElementById('bulletinCountBadge').innerText = articles.length;
-      document.getElementById('adminListCount').innerText = articles.length;
-      
-      // Counts per category
+      safeSetText('bulletinCountBadge', articles.length);
+      safeSetText('adminListCount', articles.length);
+      safeSetText('count-all', articles.length);
+
       const counts = { '重大決議': 0, '財務收支': 0, '機電工程': 0, '日常庶務': 0, '法規規章': 0 };
       articles.forEach(a => {
         if (counts[a.category] !== undefined) counts[a.category]++;
       });
-      document.getElementById('count-all').innerText = articles.length;
-      document.getElementById('count-major').innerText = counts['重大決議'] || 0;
-      document.getElementById('count-finance').innerText = counts['財務收支'] || 0;
-      document.getElementById('count-works').innerText = counts['機電工程'] || 0;
-      document.getElementById('count-routine').innerText = counts['日常庶務'] || 0;
-      document.getElementById('count-rules').innerText = counts['法規規章'] || 0;
+
+      safeSetText('count-major', counts['重大決議'] || 0);
+      safeSetText('count-finance', counts['財務收支'] || 0);
+      safeSetText('count-works', counts['機電工程'] || 0);
+      safeSetText('count-routine', counts['日常庶務'] || 0);
+      safeSetText('count-rules', counts['法規規章'] || 0);
     }
 
-    // View Navigation
     function switchMainView(viewId) {
       document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active-view'));
       document.querySelectorAll('.main-nav-btn').forEach(btn => btn.classList.remove('active'));
 
-      if (viewId === 'docaccess') {
-        document.getElementById('viewDocAccess').classList.add('active-view');
-        document.getElementById('navBtnDocAccess').classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (viewId === 'audit') {
+        const v = document.getElementById('viewAudit');
+        const b = document.getElementById('navBtnAudit');
+        if (v) v.classList.add('active-view');
+        if (b) b.classList.add('active');
       } else if (viewId === 'handover') {
-        document.getElementById('viewHandover').classList.add('active-view');
-        document.getElementById('navBtnHandover').classList.add('active');
+        const v = document.getElementById('viewHandover');
+        const b = document.getElementById('navBtnHandover');
+        if (v) v.classList.add('active-view');
+        if (b) b.classList.add('active');
         renderHandoverList();
         updateHandoverStats();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (viewId === 'gapanalysis') {
-        document.getElementById('viewSmartDaily').classList.add('active-view');
-        document.getElementById('navBtnGapAnalysis').classList.add('active');
-        const gapTarget = document.getElementById('gapAnalysisSection');
-        if (gapTarget) {
-          const navHeight = document.querySelector('.navbar').offsetHeight;
-          const pos = gapTarget.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
-          window.scrollTo({ top: pos, behavior: 'smooth' });
-        }
-      } else if (viewId === 'smartdaily') {
-        document.getElementById('viewSmartDaily').classList.add('active-view');
-        document.getElementById('navBtnSmartDaily').classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (viewId === 'manual') {
-        document.getElementById('viewManual').classList.add('active-view');
-        document.getElementById('navBtnManual').classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (viewId === 'bulletin') {
-        document.getElementById('viewBulletin').classList.add('active-view');
-        document.getElementById('navBtnBulletin').classList.add('active');
+      } else if (viewId === 'governance') {
+        const v = document.getElementById('viewGovernance');
+        const b = document.getElementById('navBtnGovernance');
+        if (v) v.classList.add('active-view');
+        if (b) b.classList.add('active');
         renderBulletinList();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (viewId === 'admin') {
-        document.getElementById('viewAdmin').classList.add('active-view');
-        document.getElementById('navBtnAdmin').classList.add('active');
         renderAdminList();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Report Tab Switcher (Inside Manual)
-    function switchReportTab(tabId, btn) {
-      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
-      btn.classList.add('active');
-      const target = document.getElementById('tab-' + tabId);
-      if (target) target.classList.add('active');
+    function switchGovSubSection(secIdx) {
+      for (let i = 1; i <= 4; i++) {
+        const sec = document.getElementById('govSubSection' + i);
+        const btn = document.getElementById('btnGovSection' + i);
+        if (sec) sec.style.display = (i === secIdx) ? 'block' : 'none';
+        if (btn) btn.classList.toggle('active', i === secIdx);
+      }
+      if (secIdx === 3) renderBulletinList();
+      if (secIdx === 4) renderAdminList();
     }
 
-    // Bulletin Category Filter
     function filterBulletinCat(cat, btn) {
       currentCategory = cat;
-      document.querySelectorAll('.cat-pill').forEach(el => el.classList.remove('active'));
-      btn.classList.add('active');
+      document.querySelectorAll('.filter-btn').forEach(el => el.classList.remove('active'));
+      if (btn) btn.classList.add('active');
       renderBulletinList();
     }
 
-    // Render Public Bulletin Grid
     function renderBulletinList() {
       const container = document.getElementById('announcementsGrid');
-      const query = (document.getElementById('bulletinSearchInput').value || '').trim().toLowerCase();
+      if (!container) return;
 
-      // Filter
+      const searchInput = document.getElementById('bulletinSearchInput');
+      const query = searchInput ? (searchInput.value || '').trim().toLowerCase() : '';
+
       let list = articles.filter(a => {
         const matchesCat = (currentCategory === 'all' || a.category === currentCategory);
         const matchesQuery = !query || a.title.toLowerCase().includes(query) || a.content.toLowerCase().includes(query) || a.publisher.toLowerCase().includes(query);
         return matchesCat && matchesQuery;
       });
 
-      // Sort: pinned first, then date descending
       list.sort((a, b) => {
         if (a.pinned && !b.pinned) return -1;
         if (!a.pinned && b.pinned) return 1;
@@ -2822,76 +3457,99 @@ function resetHandoverChecklist() {
 
       if (list.length === 0) {
         container.innerHTML = `
-          <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: var(--card-bg); border-radius: 12px; border: 1px dashed var(--border-color); color: var(--text-muted);">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 10px; opacity: 0.5;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <p style="font-size: 1rem; color: var(--text-secondary);">查無符合條件之公告</p>
-            <p style="font-size: 0.85rem; margin-top: 4px;">請調整搜尋關鍵字或分類篩選條件</p>
+          <div style="grid-column: 1 / -1; padding: 40px; text-align: center; color: var(--text-muted); background: var(--card-bg); border-radius: 12px; border: 1px dashed var(--border-color);">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin: 0 auto 12px auto; display: block; opacity: 0.5;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <div style="font-size: 1rem; font-weight: 600; color: var(--text-secondary);">查無符合條件之公告公文</div>
+            <div style="font-size: 0.82rem; margin-top: 4px;">請切換分類標籤或更換搜尋關鍵字</div>
           </div>
         `;
         return;
       }
 
-      container.innerHTML = list.map(item => {
-        let catClass = 'cat-tag-routine';
-        if (item.category === '重大決議') catClass = 'cat-tag-major';
-        if (item.category === '財務收支') catClass = 'cat-tag-finance';
-        if (item.category === '機電工程') catClass = 'cat-tag-works';
-        if (item.category === '法規規章') catClass = 'cat-tag-rules';
+      container.innerHTML = list.map(a => {
+        let tagClass = "cat-tag-routine";
+        if (a.category === "重大決議") tagClass = "cat-tag-major";
+        if (a.category === "財務收支") tagClass = "cat-tag-finance";
+        if (a.category === "機電工程") tagClass = "cat-tag-works";
+        if (a.category === "法規規章") tagClass = "cat-tag-rules";
 
         return `
-          <div class="announcement-card ${item.pinned ? 'pinned' : ''}">
-            ${item.pinned ? `<div class="pin-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3l1 1-4 4 3 3-1 1-3-3-4 4-2-2 4-4-3-3 1-1 3 3 4-4 1 1z"/></svg> 置頂公告</div>` : ''}
+          <article class="announcement-card ${a.pinned ? 'pinned' : ''}" onclick="openReadModal('${a.id}')">
+            ${a.pinned ? '<div class="pin-badge"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5v6l1 1 1-1v-6h5v-2l-2-2z"/></svg> 置頂重要公文</div>' : ''}
             <div>
               <div class="card-meta-top">
-                <span class="cat-tag ${catClass}">${item.category}</span>
-                <span class="card-date">${item.date}</span>
-                <span style="color: var(--text-muted);">•</span>
-                <span class="card-publisher">${item.publisher}</span>
+                <span class="cat-tag ${tagClass}">${a.category}</span>
+                <span class="card-date">${a.date}</span>
+                <span class="card-publisher">${a.publisher}</span>
               </div>
-              <h3 class="card-title">${escapeHtml(item.title)}</h3>
-              <p class="card-excerpt">${escapeHtml(item.summary || item.content.slice(0, 100))}</p>
+              <h3 class="card-title">${a.title}</h3>
+              <p class="card-excerpt">${a.summary || a.content.substring(0, 100) + '...'}</p>
             </div>
             <div class="card-footer-action">
               <span class="card-views">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                ${item.views || 0} 人閱覽
+                ${a.views || 0} 次點閱
               </span>
-              <button class="btn-read-more" onclick="openReadModal('${item.id}')">閱讀全文 &rarr;</button>
+              <button class="btn-read-more" onclick="event.stopPropagation(); openReadModal('${a.id}')">
+                閱覽全文
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
             </div>
-          </div>
+          </article>
         `;
       }).join('');
     }
 
-    // Render Admin Articles Table
     function renderAdminList() {
-      const tbody = document.getElementById('adminArticlesTbody');
-      if (articles.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 30px;">尚無任何公告，請自左側表單新增</td></tr>`;
-        return;
-      }
+      const tbody = document.getElementById('adminTableBody');
+      if (!tbody) return;
 
-      tbody.innerHTML = articles.map(item => `
+      tbody.innerHTML = articles.map(a => `
         <tr>
-          <td>
-            <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 2px;">
-              ${item.pinned ? '<span style="color: var(--accent-amber); font-weight: 800;">[置頂] </span>' : ''}
-              ${escapeHtml(item.title)}
+          <td><span class="cat-tag" style="font-size: 0.72rem; padding: 2px 6px;">${a.category}</span></td>
+          <td style="font-weight: 600; color: #f8fafc;">${a.pinned ? '<span style="color: var(--accent-amber); margin-right: 4px;">📌</span>' : ''}${a.title}</td>
+          <td style="font-size: 0.8rem; color: var(--text-muted);">${a.date}</td>
+          <td style="font-size: 0.82rem; color: var(--accent-cyan);">${a.signer}</td>
+          <td style="text-align: center;">
+            <div style="display: flex; gap: 6px; justify-content: center;">
+              <button class="btn-action" style="padding: 3px 8px; font-size: 0.72rem;" onclick="editArticle('${a.id}')">編輯</button>
+              <button class="btn-action" style="padding: 3px 8px; font-size: 0.72rem; color: var(--accent-rose);" onclick="deleteArticle('${a.id}')">刪除</button>
             </div>
-            <div style="font-size: 0.76rem; color: var(--text-muted);">編號：${item.id} | 簽核：${escapeHtml(item.signer)}</div>
-          </td>
-          <td><span style="font-size: 0.8rem; color: var(--accent-cyan);">${item.category}</span></td>
-          <td style="font-size: 0.8rem;">${item.date}</td>
-          <td style="text-align: center; white-space: nowrap;">
-            <button class="btn-action" style="padding: 3px 8px; font-size: 0.74rem; margin-right: 4px;" onclick="editArticle('${item.id}')">編輯</button>
-            <button class="btn-action" style="padding: 3px 8px; font-size: 0.74rem; color: var(--accent-rose); border-color: rgba(244, 63, 94, 0.4);" onclick="deleteArticle('${item.id}')">刪除</button>
           </td>
         </tr>
       `).join('');
     }
 
-    // Admin Role Switch
-    function changeAdminRole() {
+    function openReadModal(id) {
+      const a = articles.find(x => x.id === id);
+      if (!a) return;
+
+      a.views = (a.views || 0) + 1;
+      saveData();
+
+      safeSetText('modalTitle', a.title);
+      safeSetText('modalCategoryTag', a.category);
+      safeSetText('modalPublisher', a.publisher);
+      safeSetText('modalDate', a.date);
+      safeSetText('modalSigner', a.signer);
+      safeSetText('modalViews', a.views);
+
+      const contentEl = document.getElementById('modalContent');
+      if (contentEl) {
+        contentEl.innerHTML = a.content.split('\\n').map(p => p.trim() ? `<p style="margin-bottom: 12px; line-height: 1.8;">${escapeHtml(p)}</p>` : '<br>').join('');
+      }
+
+      const modal = document.getElementById('readModal');
+      if (modal) modal.style.display = 'flex';
+      renderBulletinList();
+    }
+
+    function closeReadModal(e) {
+      const modal = document.getElementById('readModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function updateRoleContext() {
       const role = document.getElementById('roleSelector').value;
       let pub = "富宇大地管理委員會";
       let signer = "主任委員 Howard Liao Ph.D.(A17)";
@@ -2900,181 +3558,121 @@ function resetHandoverChecklist() {
         signer = "主任委員 Howard Liao Ph.D.(A17)";
       } else if (role === '監察委員') {
         pub = "富宇大地管理委員會・監察小組";
-        signer = "監察委員 兼 審查召集人";
+        signer = "監察委員 (審計核章)";
+      } else if (role === '財務委員') {
+        pub = "富宇大地管理委員會・財務小組";
+        signer = "財務委員 (財務審核)";
       } else if (role === '物業經理') {
         pub = "富宇大地物業服務中心";
-        signer = "物業主任 / 社區經理";
-      } else if (role === '財務委員') {
-        pub = "富宇大地管理委員會・財務組";
-        signer = "財務委員";
+        signer = "富宇物業駐點主任 / 經理";
       }
-
-      document.getElementById('currentRoleName').innerText = `${pub} / ${role}`;
       document.getElementById('formPublisher').value = pub;
       document.getElementById('formSigner').value = signer;
-      showToast(`已切換發布身分為：${role}`);
     }
 
-    // Form Submit (Create or Update)
     function handleFormSubmit(e) {
       e.preventDefault();
-
-      const editId = document.getElementById('editArticleId').value;
-      const title = document.getElementById('formTitle').value.trim();
+      const editId = document.getElementById('formEditId').value;
       const category = document.getElementById('formCategory').value;
-      const publisher = document.getElementById('formPublisher').value.trim();
-      const signer = document.getElementById('formSigner').value.trim();
       const date = document.getElementById('formDate').value;
-      const summary = document.getElementById('formSummary').value.trim();
+      const publisher = document.getElementById('formPublisher').value;
+      const signer = document.getElementById('formSigner').value;
+      const title = document.getElementById('formTitle').value.trim();
       const content = document.getElementById('formContent').value.trim();
       const pinned = document.getElementById('formPinned').checked;
 
       if (!title || !content) {
-        alert('請填寫公告標題與完整內容！');
+        alert("請完整填寫公文標題與內文！");
         return;
       }
 
       if (editId) {
-        // Update existing
-        const idx = articles.findIndex(a => a.id === editId);
-        if (idx !== -1) {
-          articles[idx] = {
-            ...articles[idx],
-            title, category, publisher, signer, date, summary, content, pinned
-          };
-          showToast("✓ 公告內容已成功更新！");
+        const item = articles.find(x => x.id === editId);
+        if (item) {
+          item.category = category;
+          item.date = date;
+          item.publisher = publisher;
+          item.signer = signer;
+          item.title = title;
+          item.content = content;
+          item.pinned = pinned;
+          item.summary = content.substring(0, 100) + '...';
         }
+        showToast("✓ 公告已成功更新！");
       } else {
-        // Create new
-        const newId = 'FY-' + new Date().getFullYear() + '-' + String(articles.length + 1).padStart(3, '0');
-        const newArt = {
+        const newId = "FY-" + new Date().getFullYear() + "-" + String(articles.length + 1).padStart(3, '0');
+        articles.unshift({
           id: newId,
-          title, category, publisher, signer, date, summary, content, pinned,
+          category,
+          date,
+          publisher,
+          signer,
+          title,
+          content,
+          pinned,
+          summary: content.substring(0, 100) + '...',
           views: 1
-        };
-        articles.unshift(newArt);
-        showToast("✓ 新公告已成功發布於官方公佈欄！");
+        });
+        showToast("✓ 新公告已成功發布！");
       }
 
       saveData();
       resetForm();
       renderBulletinList();
       renderAdminList();
-      // Update top ticker if pinned
-      if (pinned) {
-        document.getElementById('tickerText').innerText = `【富宇大地】${title}`;
-      }
     }
 
     function editArticle(id) {
-      const art = articles.find(a => a.id === id);
-      if (!art) return;
-
-      document.getElementById('editArticleId').value = art.id;
-      document.getElementById('formTitle').value = art.title;
-      document.getElementById('formCategory').value = art.category;
-      document.getElementById('formPublisher').value = art.publisher;
-      document.getElementById('formSigner').value = art.signer;
-      document.getElementById('formDate').value = art.date;
-      document.getElementById('formSummary').value = art.summary || '';
-      document.getElementById('formContent').value = art.content;
-      document.getElementById('formPinned').checked = !!art.pinned;
-
-      document.getElementById('formModeTitle').innerText = `編輯公告 (${art.id})`;
-      document.getElementById('editModeIndicator').style.display = 'inline-block';
-      window.scrollTo({ top: 120, behavior: 'smooth' });
+      const a = articles.find(x => x.id === id);
+      if (!a) return;
+      document.getElementById('formEditId').value = a.id;
+      document.getElementById('formCategory').value = a.category;
+      document.getElementById('formDate').value = a.date;
+      document.getElementById('formPublisher').value = a.publisher;
+      document.getElementById('formSigner').value = a.signer;
+      document.getElementById('formTitle').value = a.title;
+      document.getElementById('formContent').value = a.content;
+      document.getElementById('formPinned').checked = !!a.pinned;
+      document.getElementById('btnSubmitForm').innerText = "確認修改並重新發布";
+      window.scrollTo({ top: document.getElementById('announcementForm').offsetTop - 100, behavior: 'smooth' });
     }
 
     function deleteArticle(id) {
-      if (!confirm("確定要刪除這篇社區公告嗎？此動作將自系統中永久移除。")) return;
-      articles = articles.filter(a => a.id !== id);
+      if (!confirm("確定要刪除此篇公告嗎？此動作將同步移除歷史閱覽紀錄。")) return;
+      articles = articles.filter(x => x.id !== id);
       saveData();
       renderBulletinList();
       renderAdminList();
-      showToast("✓ 該篇公告已成功刪除！");
+      showToast("公告已刪除完畢");
     }
 
     function resetForm() {
-      document.getElementById('announcementForm').reset();
-      document.getElementById('editArticleId').value = '';
-      document.getElementById('formDate').value = new Date().toISOString().split('T')[0];
-      document.getElementById('formModeTitle').innerText = "新增社區官方公告";
-      document.getElementById('editModeIndicator').style.display = 'none';
-      changeAdminRole(); // restore default publisher/signer
+      document.getElementById('formEditId').value = '';
+      document.getElementById('formTitle').value = '';
+      document.getElementById('formContent').value = '';
+      document.getElementById('formPinned').checked = false;
+      document.getElementById('btnSubmitForm').innerText = "立即審定發布公文";
+      updateRoleContext();
     }
 
-    function resetToDefaultArticles() {
-      if (!confirm("確定要將所有公告恢復為系統原廠預設範本嗎？目前修改的資料將被重置。")) return;
-      articles = JSON.parse(JSON.stringify(DEFAULT_ARTICLES));
-      saveData();
-      renderBulletinList();
-      renderAdminList();
-      showToast("✓ 公佈欄已重設為官方預設標準範本！");
-    }
-
-    function exportArticlesJSON() {
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(articles, null, 2));
-      const downloadAnchor = document.createElement('a');
-      downloadAnchor.setAttribute("href", dataStr);
-      downloadAnchor.setAttribute("download", `富宇大地社區公告備份_${new Date().toISOString().slice(0,10)}.json`);
-      document.body.appendChild(downloadAnchor);
-      downloadAnchor.click();
-      downloadAnchor.remove();
-      showToast("✓ 已成功匯出公告資料 JSON 檔！");
-    }
-
-    // Modal Display
-    function openReadModal(id) {
-      const art = articles.find(a => a.id === id);
-      if (!art) return;
-
-      art.views = (art.views || 0) + 1;
-      saveData();
-
-      document.getElementById('modalTitle').innerText = art.title;
-      document.getElementById('modalCategoryTag').innerText = art.category;
-      document.getElementById('modalPublisher').innerText = art.publisher;
-      document.getElementById('modalDate').innerText = art.date;
-      document.getElementById('modalSigner').innerText = art.signer || '管委會主委';
-      document.getElementById('modalViews').innerText = art.views;
-      document.getElementById('modalContent').innerText = art.content;
-
-      document.getElementById('readModal').style.display = 'flex';
-      renderBulletinList(); // refresh views in background
-    }
-
-    function closeReadModal() {
-      document.getElementById('readModal').style.display = 'none';
-    }
-
-    // Copy Helper
-    function copyTemplate(elemId, btn) {
-      const text = document.getElementById(elemId).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        showToast("✓ 已成功複製規章條款至剪貼簿！");
-      }).catch(err => {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        showToast("✓ 已成功複製規章條款至剪貼簿！");
-      });
+    function calculateCopyFeeGov() {
+      const typePrice = parseInt(document.getElementById('calcTypeGov').value, 10) || 2;
+      const pages = parseInt(document.getElementById('calcPagesGov').value, 10) || 0;
+      const total = typePrice * pages;
+      safeSetText('calcTotalTextGov', `NT$ ${total} 元`);
     }
 
     function showToast(msg) {
       const toast = document.getElementById('toast');
+      if (!toast) return;
       toast.innerText = msg;
-      toast.style.display = 'block';
-      setTimeout(() => {
-        toast.style.display = 'none';
-      }, 2500);
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2800);
     }
 
     function escapeHtml(text) {
       if (!text) return '';
-      return text
+      return String(text)
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -3082,28 +3680,12 @@ function resetHandoverChecklist() {
         .replace(/'/g, "&#039;");
     }
 
-    // Boot
     window.addEventListener('DOMContentLoaded', () => {
       initData();
       initHandoverState();
+      switchMainView('audit');
     });
   </script>
-
-  <footer style="margin-top: 60px; padding: 40px 20px; border-top: 1px solid rgba(226, 232, 240, 0.1); background: #020617; text-align: center;">
-    <div class="container">
-      <div style="font-size: 1.1rem; font-weight: 800; color: #f8fafc; letter-spacing: 1px; margin-bottom: 8px;">
-        富宇大地智慧社區自治治理與數位公佈欄平台
-      </div>
-      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35); padding: 8px 18px; border-radius: 9999px; margin-bottom: 12px;">
-        <span style="font-size: 0.85rem; color: var(--text-secondary);">社區治理志工：</span>
-        <strong style="color: var(--accent-cyan); font-size: 0.95rem; letter-spacing: 0.5px;">Howard Liao Ph.D.(A17)</strong>
-      </div>
-      <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
-        依據《公寓大廈管理條例》、內政部《公寓大廈管理維護公司受任管理維護契約範本》及住戶自治規約嚴格規劃<br>
-        全站搭載 Howard Liao Ph.D. 專屬防偽水印保護 | 富宇大地管理委員會 版權所有 © 2026
-      </div>
-    </div>
-  </footer>
 
 </body>
 </html>
