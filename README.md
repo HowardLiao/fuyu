@@ -1,10 +1,24 @@
 # 富宇大地社區管理維護治理體系暨官方數位公佈欄
-> Fuyu Dadi Community Governance Handbook, Property Management SOP & Digital Bulletin Board
+> Fuyu Dadi Community Governance Handbook, Property Management SOP & Digital Bulletin Board  
+> **系統架構規劃與製作人**：Howard Liao Ph.D.(A17)  
+> **全站官方防偽浮水印**：Howard Liao Ph.D.  
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Demo-38BDF8?style=flat&logo=github)](https://howardliao.github.io/fuyu/)
 [![License](https://img.shields.io/badge/License-MIT-emerald?style=flat)](LICENSE)
 [![Design](https://img.shields.io/badge/Theme-Deep%20Obsidian-020617?style=flat)](#)
 [![Compliance](https://img.shields.io/badge/MOI-Taiwan%20Condominium%20Act-F59E0B?style=flat)](#)
+
+---
+
+## 前言：凝聚初心，共築富宇大地的美好未來
+
+> 建築賦予我們遮風避雨的空間，而鄰里間的信任與守望，才真正讓這裡成為有溫度的家。富宇大地是我們每一位住戶安身立命、世代傳承的珍貴資產；為了迎向富宇大地更安全、優雅且具長遠價值的典範社區，制度的建立與智慧的治理是不可或缺的堅實基石。  
+>  
+> 在此，我們要向全體現任管理委員會的委員夥伴們致上最深摯的感謝與敬意。感謝您們在繁忙的工作與家庭生活之餘，無私犧牲寶貴的個人休憩時間，為社區公眾事務奔走勞碌。從公共設施設備的巡檢點交、財務收支的嚴格把關，到各項日常法規與住戶服務的溝通協調，每一處看似平凡的運轉細節，都凝聚著委員們默默守護家園的汗水與心血。  
+>  
+> 本治理平台與權責手冊的創立，初心正是為了減輕委員們的奔波負擔，透過權責分立、透明標準與數位工具的賦能，與專業物業團隊攜手並進。願我們心手相連，以彼此的包容與同理，共同守護這片土地，為富宇大地的美好未來奠定百年磐石。  
+>  
+> —— **系統架構規劃與製作人：Howard Liao Ph.D.(A17)**
 
 ---
 
