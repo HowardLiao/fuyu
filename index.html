@@ -1497,6 +1497,12 @@
           <span style="background: rgba(245, 158, 11, 0.25); color: var(--accent-amber); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">P0~P3驗收</span>
         </button>
 
+        <button id="navBtnBulletin" class="main-nav-btn" onclick="switchMainView('bulletin')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          公佈欄
+          <span style="background: rgba(56, 189, 248, 0.2); color: var(--accent-cyan); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">會議/公告</span>
+        </button>
+
         <button id="navBtnGovernance" class="main-nav-btn" onclick="switchMainView('governance')">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           治理規章與公佈欄
@@ -3407,34 +3413,7 @@
       </div>
 
       <!-- SUB-SECTION 3: 官方數位公佈欄 -->
-      <div id="govSubSection3" class="gov-sub-content" style="display: none;">
-        <div class="section-header">
-          <div>
-            <div class="section-subtitle">OFFICIAL BULLETIN</div>
-            <h2>富宇大地官方數位公佈欄（即時公告）</h2>
-          </div>
-        </div>
-
-        <div class="bulletin-controls">
-          <div class="filter-tabs">
-            <button class="filter-btn active" onclick="filterBulletinCat('all', this)">全部公告 (<span id="count-all">5</span>)</button>
-            <button class="filter-btn" onclick="filterBulletinCat('重大決議', this)">重大決議 (<span id="count-major">2</span>)</button>
-            <button class="filter-btn" onclick="filterBulletinCat('財務收支', this)">財務收支 (<span id="count-finance">1</span>)</button>
-            <button class="filter-btn" onclick="filterBulletinCat('機電工程', this)">機電工程 (<span id="count-works">1</span>)</button>
-            <button class="filter-btn" onclick="filterBulletinCat('日常庶務', this)">日常庶務 (<span id="count-routine">1</span>)</button>
-            <button class="filter-btn" onclick="filterBulletinCat('法規規章', this)">法規規章 (<span id="count-rules">0</span>)</button>
-          </div>
-          <div class="search-box">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="bulletinSearchInput" placeholder="搜尋公告關鍵字..." oninput="renderBulletinList()">
-          </div>
-        </div>
-
-        <div id="announcementsGrid" class="announcements-grid">
-          <!-- Rendered dynamically -->
-        </div>
-      </div>
-
+      <div id="govSubSection3" class="gov-sub-content" style="display: none;"><div style="padding: 24px; text-align: center;"><button class="btn-submit" onclick="switchMainView('bulletin')">📢 點此直接前往官方公佈欄專區</button></div></div>
       <!-- SUB-SECTION 4: 後端上稿中心 -->
       <div id="govSubSection4" class="gov-sub-content" style="display: none;">
         <div class="section-header">
@@ -3842,6 +3821,82 @@
     </div>
   </div>
 
+  
+  <!-- ========================================================================= -->
+  <!-- TAB: 官方數位公佈欄 (Dedicated Official Bulletin Board)                   -->
+  <!-- ========================================================================= -->
+  <section id="viewBulletin" class="view-container">
+    <header class="hero">
+      <div class="container">
+        <div class="hero-tags">
+          <span class="tag tag-cyan">官方數位公佈欄</span>
+          <span class="tag tag-amber">管委會法定會議記錄</span>
+          <span class="tag tag-emerald">PDF 原始檔公開下載</span>
+        </div>
+        <h1>富宇大地社區・官方數位公佈欄</h1>
+        <p class="hero-lead">
+          落實《公寓大廈管理條例》第 35 條及第 36 條資訊公開原則，即時公佈歷次管委會例行會議記錄、重大工程採購決議、財務收支報表與各項法規規章，保障全體區權人知情權益。
+        </p>
+      </div>
+    </header>
+
+    <main class="container" style="padding-top: 32px;">
+      <!-- Special Meeting Downloads Banner (Prominently featured in Bulletin) -->
+      <div id="meetingDownloadsBanner" style="margin-bottom: 24px; background: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(15, 23, 42, 0.8) 100%); border: 1.5px solid rgba(56, 189, 248, 0.35); border-radius: 12px; padding: 20px 24px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span class="tag tag-cyan">官方核定本</span>
+              <span style="font-size: 0.8rem; color: #94A3B8; font-weight: 700;">第二屆管理委員會例行會議紀錄原檔專區</span>
+            </div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: #F8FAFC;">
+              📁 歷次管委會例行會議記錄 PDF 原始檔案下載
+            </div>
+            <div style="font-size: 0.82rem; color: #CBD5E1; margin-top: 2px;">
+              包含委員出席簽名、各案討論決議、財務收支資產結算表與臨時動議，100% 原始掃描存查本。
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="九月例行會議紀錄.pdf" download="115年9月份富宇大地例行會議記錄.pdf" class="btn-action" style="background: rgba(56, 189, 248, 0.18); color: #38bdf8; border: 1.5px solid rgba(56, 189, 248, 0.45); font-weight: 800; text-decoration: none; padding: 8px 16px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              📥 下載 9 月例會紀錄 (704 KB)
+            </a>
+            <a href="八月例行會議紀錄.pdf" download="115年8月份富宇大地例行會議記錄.pdf" class="btn-action" style="background: rgba(56, 189, 248, 0.18); color: #38bdf8; border: 1.5px solid rgba(56, 189, 248, 0.45); font-weight: 800; text-decoration: none; padding: 8px 16px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              📥 下載 8 月例會紀錄 (551 KB)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bulletin Controls & The 9 Filter Pills -->
+      <div class="bulletin-controls" style="margin-bottom: 24px;">
+        <div class="filter-tabs" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+          <button class="filter-btn active" onclick="filterBulletinCat('all', this)">全部 (<span id="count-all">0</span>)</button>
+          <button class="filter-btn" onclick="filterBulletinCat('一般', this)">一般 (<span id="count-一般">0</span>)</button>
+          <button class="filter-btn" onclick="filterBulletinCat('會議', this)">會議 (<span id="count-會議">0</span>) 📥</button>
+          <button class="filter-btn" onclick="filterBulletinCat('財務', this)">財務 (<span id="count-財務">0</span>)</button>
+          <button class="filter-btn" onclick="filterBulletinCat('維修保養', this)">維修保養 (<span id="count-維修保養">0</span>)</button>
+          <button class="filter-btn" onclick="filterBulletinCat('活動', this)">活動 (<span id="count-活動">0</span>)</button>
+          <button class="filter-btn" onclick="filterBulletinCat('規約', this)">規約 (<span id="count-規約">0</span>)</button>
+          <button class="filter-btn" onclick="filterBulletinCat('系統', this)">系統 (<span id="count-系統">0</span>)</button>
+          <button class="filter-btn" onclick="filterBulletinCat('管理辦法', this)">管理辦法 (<span id="count-管理辦法">0</span>)</button>
+          <button class="filter-btn" onclick="filterBulletinCat('官方', this)">官方 (<span id="count-官方">0</span>)</button>
+        </div>
+
+        <div class="search-box" style="max-width: 400px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="bulletinSearchInput" placeholder="搜尋公告關鍵字、會議、決議..." oninput="renderBulletinList()">
+        </div>
+      </div>
+
+      <!-- Announcements Grid -->
+      <div id="announcementsGrid" class="announcements-grid">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+    </main>
+  </section>
+
   <footer class="footer">
     <div class="container">
       <p style="margin-bottom: 6px; color: var(--text-secondary); font-weight: 600;">
@@ -4130,65 +4185,247 @@
 
     // Default Articles Data
     const DEFAULT_ARTICLES = [
+      // 1. 會議類 (附 PDF 下載)
       {
-        id: "FY-2026-001",
-        title: "【重要公告】富宇大地物業管理經理與管委會權責定位及三級彙報機制正式實施公告",
-        category: "重大決議",
+        id: "FY-MEET-2026-09",
+        title: "【會議】富宇大地第二屆管委會 115 年 9 月份例行會議紀錄（核定本）",
+        category: "會議",
         publisher: "富宇大地管理委員會",
-        signer: "主任委員",
-        date: "2026-09-21",
+        signer: "主任委員 馬士傑",
+        date: "2026-09-08",
         pinned: true,
-        summary: "為確立本社區「物業經理負責把事情做好做透明；管委會負責決定做什麼並承擔決策責任」之治理原則，全面實施日報、週報、月報制度與核決權限 (DOA) 規範。",
-        content: `全體區分所有權人與住戶女士、先生：\\n\\n為提升本社區管理服務品質、落實權責劃分並維護全體區權人共有資產，富宇大地管理委員會經第二屆第三次常會決議，正式頒布實施《物業管理經理與管理委員會權責界線與治理作業規範》：\\n\\n一、權責劃分核心：\\n1. 物業經理（管理服務人）：係依管委會決議、合約委任授權及管理規約，負責日常庶務執行、廠商聯繫、機電巡檢、報修追蹤與定期回報，並就專業維護提供方案建議。\\n2. 管理委員會：承擔公共基金運用、重大工程修繕決策、合約簽署、規約適用與違規處分之最終決定與法定管理責任。\\n\\n二、三級彙報機制：\\n1. 日報：每日現場即時監控、機房巡檢及工單閉環紀錄。\\n2. 週報：專案工程推進、外包廠商履約稽核（保全打卡率目標 98%+）。\\n3. 月報：財務收支報表、公共安全與消防申報、廠商月度 KPI 綜合考評。\\n\\n三、核決權限 (DOA) 限額標準：\\n- 零用金小額採購：單筆 3,000 元以下由物業依法定科目核實動銷。\\n- 限額請修：單筆 3,001~20,000 元須報請常務委員或主委核准。\\n- 重大工程：逾 20,000 元以上須經管委會全體會議比價審議表決。\\n\\n本辦法自即日起正式施行，特此公告。\\n\\n富宇大地管理委員會 敬啟`,
-        views: 342
+        summary: "115年9月8日例行會議記錄。出席委員8名達法定門檻。重要決議：公設總檢由凱新水電承接、公共意外險由台灣產險承接、停車場抿石子絃盟實業承接、廚餘桶現階段不開放、公設人為損傷管委會先修再追償。附官方掃描 PDF 下載。",
+        pdfUrl: "九月例行會議紀錄.pdf",
+        pdfName: "115年9月份富宇大地例行會議記錄.pdf",
+        pdfSize: "704 KB",
+        content: `富宇大地 第二屆管理委員會 115 年 9 月份例行會議記錄\n\n會議時間：115 年 9 月 8 日（星期二）晚上 19:00\n會議地點：富宇大地社區會議室（貨櫃屋）\n會議主席：主任委員 馬士傑\n會議記錄：社區經理 曹鈺芳\n出席委員：監察委員 王佩如（委）、財務委員 蔡侑倢、庶務委員 陳郁芬（委）、園藝委員 陳朝清、公關委員 張庭瑄、環保委員 黎渝惠、公園委員 林春江（委）\n列席人員：福爾摩沙物業 處長 劉廣袤\n\n壹、主席報告：\n本次會議應到委員 12 名，實到委員 8 名（含委託），已達二分之一以上法定門檻，會議正式開始。\n\n貳、管理中心報告（節錄）：\n1. 8/10 完成話神弱電光纖融接作業；烏日警察局於龍社路 642 巷口增設巡邏箱。\n2. 和成公佈欄廠商完成戶外公告欄及識別牌安裝。\n3. 8/24 監視器鏡頭修繕；博勝流動廁所完成運送簽約；寶宸舊衣回收箱設置。\n4. 8月份財務報告：新光銀行活存結餘 $5,165,890 元，定存四筆合計 $2,672,282 元，零用金 $2,183 元，社區總資產達新台幣 7,840,355 元整。\n\n參、核心議題討論與決議：\n【議題一：公設總檢廠商決議案】\n決議：經出席委員表決一致同意，由「凱新水電工程行」承接本次公設機電總檢作業，另請廠商同步協助檢測社區公共電路、路燈及監視器是否存在漏電情形，以釐清近期公共電費增加之原因。\n\n【議題二：公共意外責任險廠商決議案】\n決議：經出席委員表決一致同意，由「台灣產險」承接本次公共意外責任險投保事宜。\n\n【議題三：C48 空地停車場抿石子廠商決議案】\n決議：經出席委員表決一致同意，暫定由「絃盟實業」承接，若施工排程過久則改由「江明興廠商」施作。\n\n【議題四：是否開放廚餘桶議案】\n決議：考量環境衛生維護不易，經出席委員表決一致決議，廚餘桶現階段不開放使用。\n\n肆、臨時動議：\n【動議一：公園電箱加裝小電錶】決議：委請凱新水電工程行於機電總檢時一併提供小電錶報價。\n【動議二：公設人為損傷管委會先行修繕再追償】決議：公共設施遭人為損傷，為顧及人車安全，管委會先行修繕墊付，後續追償損傷住戶，若逾期未繳直接納入下期管理費併收。\n\n下次例會時間：預計 115 年 10 月 7 日（三）晚上 19:00。\n主任委員 馬士傑 簽署公告。`,
+        views: 468
       },
       {
-        id: "FY-2026-002",
-        title: "【機電工程】富宇大地 115 年度全區地下蓄水池與屋頂水塔高壓清洗消毒停水作業通知",
-        category: "機電工程",
-        publisher: "富宇大地物業管理處",
-        signer: "物業經理 / 機電安全組",
-        date: "2026-09-24",
+        id: "FY-MEET-2026-08",
+        title: "【會議】富宇大地第二屆管委會 115 年 8 月份例行會議記錄（核定本）",
+        category: "會議",
+        publisher: "富宇大地管理委員會",
+        signer: "主任委員 馬士傑",
+        date: "2026-08-11",
         pinned: true,
-        summary: "依內政部定型化契約範本附件四規定，每六個月實施全區蓄水池高壓清洗及水質消毒，施作期間將暫停加壓供水，請各棟住戶預先儲水備用。",
-        content: `富宇大地全體住戶您好：\\n\\n依據內政部《公寓大廈管理維護契約範本》環境清潔維護規定，為維護全體住戶生活飲用水之衛生與安全，本處將辦理 115 年度第二次全區蓄水池及屋頂水塔高壓清洗與水質檢驗工程，作業期間將暫停供水，敬請查照配合：\\n\\n一、施工時程與影響範圍：\\n1. 施作日期：民國 115 年 9 月 28 日（星期四）\\n2. 停水時段：上午 08:30 至 下午 16:30（工程提早完成則提前恢復供水）\\n3. 停水範圍：富宇大地 A棟、B棟、C棟全區專有及共用部分。\\n\\n二、住戶配合注意事項：\\n1. 敬請於停水前預先儲備當日所需飲用及生活用水。\\n2. 停水期間請務必關閉抽水馬達及熱水器電源開關，避免因管線無水空轉導致設備損壞燒毀。\\n3. 恢復供水初期，出水可能夾帶些微管路氣泡或微量沉積物，請先開啟水龍頭排放約 1~2 分鐘即可正常使用。\\n\\n富宇大地物業管理處 敬啟`,
-        views: 289
+        summary: "115年8月11日例行會議記錄。出席委員10名。重要決議：追認貨櫃屋流動廁所租賃、戶外公佈欄識別牌、智能磁扣發放、環保室鐵捲門防壓紅外線、影印服務辦法通過、市府公共基金 B1/C1 共 $1,985,882 轉存定存。附官方掃描 PDF 下載。",
+        pdfUrl: "八月例行會議紀錄.pdf",
+        pdfName: "115年8月份富宇大地例行會議記錄.pdf",
+        pdfSize: "551 KB",
+        content: `富宇大地 第二屆管理委員會 115 年 8 月份例行會議記錄\n\n會議時間：115 年 8 月 11 日（星期二）晚上 19:00\n會議地點：富宇大地社區會議室（貨櫃屋）\n會議主席：主任委員 馬士傑\n會議記錄：社區秘書 曹鈺芳\n出席委員：副主委 莊毅君（委）、監委 王佩如、財委 蔡侑倢、設備 廖佩芬（委）、事務 姚廷穎、庶務 陳郁芬（委）、園藝 陳朝清、公關 張庭瑄、環保 黎渝惠\n列席人員：福爾摩沙物業 處長 劉廣袤\n\n壹、主席報告：本次會議應到 12 名，實到 10 名，達法定門檻，會議正式開始。\n\n貳、管理中心報告（節錄）：\n1. 7/1 新任清潔人員與物業經理交接報到；7/6 博泰環保全區消毒。\n2. 5-9 月份管理費繳交狀況：全區 241 戶，應收總額 $1,205,000 元，已繳 230 戶，未繳 11 戶（未繳金額 $55,000 元，未繳戶別：A3、B58、B86、C17、C25、C36、C81、C103、C122、C136、C137）。已寄發催繳通知單。\n3. 合約廠商：福爾摩沙物業服務費 $70,350/月、偉碩園藝 $27,300/月、品潔清潔 $23,000/月、睿豐垃圾清運 $1,000/桶。\n\n參、核心議題討論與決議：\n【議題一：貨櫃屋增設流動廁所】追認通過與博勝環保簽約租賃一年。\n【議題二：貨櫃屋增設戶外公佈欄與識別牌】追認通過由和成黑板教具社協助安裝。\n【議題三：智能磁扣發放時間】平日管理室開放時間（09:00~18:00）領取，完成後 1~2 週內正式啟用門禁。\n【議題四：環保室鐵捲門防壓紅外線增設】同意由磐石廠商施作。\n【議題五：事務機採購與影印服務收費】表決無異議通過「影印服務管理辦法草案」。\n【議題六：市府提撥公共基金定存】台中市政府核退入帳之 B1 ($791,574) 與 C1 ($1,194,308) 公共基金合計 $1,985,882 元整，依各區分別辦理銀行定期存款。\n\n肆、臨時動議：\n【動議一：貨櫃屋房屋稅】發給 241 戶住戶同意書決定申辦方式。\n【動議二：舊衣回收箱】由寶宸興業設置，年回饋社區新台幣 19,280 元整。\n【動議三：家用電箱補水電圖】函文富宇建設補上 B1、C1 區室內水電圖。\n【動議四：公園遊樂設施】涉及安全性與金額，提送區權人大會討論。\n【動議五：公設點交追蹤】函文富宇建設處理保護區滴灌補植、貨櫃屋加裝照明白燈與插座。\n\n主任委員 馬士傑 簽署公告。`,
+        views: 512
+      },
+
+      // 2. 財務類
+      {
+        id: "FY-FIN-2026-08",
+        title: "【財務】115 年 8 月份管理費收繳與公共基金帳務結算概況（241 戶 × $1,000）",
+        category: "財務",
+        publisher: "富宇大地管理委員會 財務組",
+        signer: "財務委員 蔡侑倢",
+        date: "2026-09-08",
+        pinned: true,
+        summary: "全區 241 戶每戶 1,000 元，8月份應收 241,000 元，實收 238,000 元（收繳率 98.8%），累積欠繳 3 戶已列管催收。經常門支出精算及新光銀行結餘公告。",
+        content: `全體區分所有權人與住戶女士、先生：\n\n依《公寓大廈管理條例》第 20 條及第 36 條規定，茲公告本社區民國 115 年 8 月份管理費收支與財務資產結算概況：\n\n一、管理費收繳狀況（基盤 NT$ 241,000）：\n- 全社區戶數規模：241 戶別墅住戶\n- 每戶管理費單價：新台幣 1,000 元整 / 月\n- 當月應收管理費總額：新台幣 241,000 元整\n- 當月實收管理費總額：新台幣 238,000 元整（準時收繳率 98.8%）\n- 欠繳戶數：3 戶（累積金額 3,000 元整，已寄發首期催告單）\n\n二、經常門支出明細（月度剛性維運）：\n1. 駐點物業暨保全管理服務費：150,000 元\n2. 環衛清潔維護與垃圾清運合約款：38,000 元\n3. 公共機電與消防系統定檢維保款：18,000 元\n4. 公共路燈水電費與耗材雜支：15,000 元\n5. 當月提撥公共基金預備金：20,000 元\n\n三、社區資產專戶結存概況（新光銀行）：\n- 活期存款專戶：新台幣 5,165,890 元整\n- 定期存款四筆：新台幣 2,672,282 元整\n- 管理室零用金：新台幣 2,183 元整\n- 社區總資產合計：新台幣 7,840,355 元整\n\n詳細憑證傳票存於管理室，歡迎區權人依調閱辦法查閱。\n\n富宇大地管理委員會 敬啟`,
+        views: 618
       },
       {
-        id: "FY-2026-003",
-        title: "【財務收支】富宇大地 115 年 8 月份管理費收繳成果與公共基金專戶結算月報",
-        category: "財務收支",
+        id: "FY-FIN-2026-01",
+        title: "【財務】台中市政府核退公共基金新台幣 1,985,882 元整辦理銀行定期存款公告",
+        category: "財務",
         publisher: "富宇大地管理委員會",
-        signer: "財務委員 / 主任委員",
+        signer: "主任委員 馬士傑",
+        date: "2026-08-15",
+        pinned: false,
+        summary: "台中市政府核退入帳之 B1 區（$791,574）與 C1 區（$1,194,308）公共基金合計 $1,985,882 元，已全數轉存新光銀行定期存款專戶。",
+        content: `富宇大地全體區權人台鑒：\n\n本社區申請台中市政府工務局提撥共用部分公共基金案，業經市府審核通過並完成撥付：\n1. B1 好境區：公共基金 $779,292 元 + 利息 $12,282 元，合計 $791,574 元整。\n2. C1 清境區：公共基金 $1,179,500 元 + 利息 $14,808 元，合計 $1,194,308 元整。\n二區總計金額：新台幣 1,985,882 元整。\n\n經第二屆管委會 8 月份例行會議決議，為確保資產孳息並嚴格保護公共基金本金，全數分別轉入新光銀行開立一年期定期存單，非經區權會重大修繕決議絕不任意動支，特此公告。\n\n富宇大地管理委員會 敬啟`,
+        views: 420
+      },
+
+      // 3. 維修保養類
+      {
+        id: "FY-MAINT-2026-01",
+        title: "【維修保養】全區公共電氣、水泵機電暨路燈總檢與防漏電工程公告",
+        category: "維修保養",
+        publisher: "富宇大地管理委員會 工務組",
+        signer: "設備委員",
+        date: "2026-09-12",
+        pinned: false,
+        summary: "經 9 月份例會議決，由凱新水電工程行承接全區公共機電設備總檢，並全面檢測公共電路、路燈及監視系統漏電情形，以維護用電安全並降低公家電費。",
+        content: `全體住戶您好：\n\n為確保社區公共機電安全並釐清近期公共電費增加之原因，管委會經公開比價審議，正式委託「凱新水電工程行」進場執行全區機電總檢：\n一、施作範圍：\n1. 地下蓄水池揚水泵浦、加壓馬達自動控制盤。\n2. 緊急柴油發電機電壓、ATS 自動切換系統。\n3. 全區公共路燈、景觀照明回路絕緣阻抗與漏電查測。\n4. 監控系統與門禁弱電箱電源防護檢測。\n二、施工期間若遇短暫局部試電或斷電，敬請住戶諒解與配合。\n\n富宇大地管理委員會 敬啟`,
+        views: 310
+      },
+      {
+        id: "FY-MAINT-2026-02",
+        title: "【維修保養】環保室鐵捲門防壓紅外線感應增設與全區公設維護通報",
+        category: "維修保養",
+        publisher: "富宇大地管理中心",
+        signer: "社區經理 曹鈺芳",
+        date: "2026-08-25",
+        pinned: false,
+        summary: "環保室門禁啟用與鐵捲門防夾紅外線感應設備安裝完成，大幅提升倒垃圾動線之安全防護。",
+        content: `各位住戶您好：\n\n為避免住戶進出環保室時遭鐵捲門下降夾傷，管理中心已洽請專業弱電廠商完成「環保室鐵捲門防壓紅外線感應器」安裝工程，當有行人或物品阻擋時鐵捲門將自動回升。\n請住戶進出環保室務必隨身攜帶智能磁扣感應開門，並遵守垃圾分類與回收規定。\n\n富宇大地管理中心 敬啟`,
+        views: 285
+      },
+
+      // 4. 一般類
+      {
+        id: "FY-GEN-2026-01",
+        title: "【一般】全區地下蓄水池高壓清洗消毒與減壓供水作業通知",
+        category: "一般",
+        publisher: "富宇大地管理中心",
+        signer: "社區經理 曹鈺芳",
+        date: "2026-09-15",
+        pinned: false,
+        summary: "依規定期程實施蓄水池高壓清洗與水質檢驗，施作期間將暫時減壓供水，請住戶預先儲水備用。",
+        content: `各位住戶您好：\n\n為確保全社區 241 戶生活飲用水之水質安全與衛生，管理中心將辦理下半年度全區地下蓄水池高壓水刀清洗及消毒工程：\n一、作業時程：民國 115 年 9 月 24 日（四）09:00 至 16:00。\n二、影響範圍：全社區加壓供水系統暫停，請各住戶於前一日預先儲水備用。\n三、清洗完畢後將抽樣送請合格實驗室進行大腸桿菌及水質檢驗，檢測報告將公佈於公佈欄。\n\n富宇大地管理中心 敬啟`,
+        views: 345
+      },
+      {
+        id: "FY-GEN-2026-02",
+        title: "【一般】貨櫃屋管理室與環保室戶外公告欄及識別牌安裝完成公告",
+        category: "一般",
+        publisher: "富宇大地管理中心",
+        signer: "社區經理",
+        date: "2026-08-18",
+        pinned: false,
+        summary: "和成廠商已完成貨櫃屋外戶外公佈欄及「管理室」、「環保室」識別牌設置，便利住戶洽公與閱覽公告。",
+        content: `全體住戶您好：\n\n為提升社區洽公便利度並明確標識功能動線，管理中心已完成貨櫃屋戶外耐候公告欄與入口識別標牌安裝。最新管委會會議記錄、管理費收繳月報及緊急通報均將同步張貼於戶外公告欄與數位公佈欄，歡迎住戶閱覽。\n\n富宇大地管理中心 敬啟`,
+        views: 220
+      },
+
+      // 5. 活動類
+      {
+        id: "FY-ACT-2026-01",
+        title: "【活動】社區舊衣回收箱啟用與資源循環回饋專案公告（寶宸興業設置）",
+        category: "活動",
+        publisher: "富宇大地管理委員會 環保組",
+        signer: "環保委員 黎渝惠",
+        date: "2026-09-01",
+        pinned: false,
+        summary: "貨櫃屋旁已完成舊衣回收箱增設，由寶宸興業定期收運，廠商每年回饋社區公共基金新台幣 19,280 元整。",
+        content: `各位鄰里住戶好：\n\n經 8 月份例會決議，為落實綠色低碳生活並增加社區公共收益，管理中心已協調「寶宸興業」於貨櫃屋旁設置舊衣回收箱：\n一、回收品項：乾淨衣物、外套、長短褲、背包等（棉被、枕頭、內衣褲請勿投入）。\n二、回饋機制：廠商每年固定回饋社區公共基金新台幣 19,280 元整。\n歡迎住戶整理家中乾淨二手衣物踴躍投入，珍惜資源護地球！\n\n富宇大地管理委員會 敬啟`,
+        views: 395
+      },
+      {
+        id: "FY-ACT-2026-02",
+        title: "【活動】中秋節鄰里聯誼茶會與防汛安全編組演練籌備通知",
+        category: "活動",
+        publisher: "富宇大地管理委員會 公關組",
+        signer: "公關委員 張庭瑄",
         date: "2026-09-10",
         pinned: false,
-        summary: "8 月份管理費（241 戶 × $1,000）準時收繳率達 98.8%，公共基金專戶活存與定存孳息結算正常，各項經常門支出均在預算限額之內，原始憑證已完成查核。",
-        content: `富宇大地全體區分所有權人公鑒：\\n\\n依《公寓大廈管理條例》第 20 條及第 36 條規定，茲公告本社區民國 115 年 8 月份管理費收支與公共基金帳務結算概況：\\n\\n一、管理費收繳狀況：\\n- 應收管理費總額：新台幣 241,000 元（全社區 241 戶 × $1,000）整\\n- 實收管理費總額：新台幣 238,000 元整（準時收繳率 98.4%）\\n- 欠繳累積金額：新台幣 3,000 元（3戶）整（已依程序寄發首期溫馨催繳單）\\n\\n二、經常門支出明細（節錄）：\\n1. 物業暨保全管理服務費：420,000 元\\n2. 環衛清潔維護合約款：110,000 元\\n3. 機電消防保養合約款：65,000 元\\n4. 電梯月保養費（原廠保固維護）：38,000 元\\n5. 公共水電雜支費：42,150 元\\n\\n三、公共基金專戶結存餘額：\\n- 銀行活存專戶：新台幣 3,842,650 元整\\n- 銀行定期存單（一年期）：新台幣 12,000,000 元整\\n\\n全體帳冊、會計傳票及金融機構對帳單正本現存放於管理服務中心，歡迎利害關係人依規約申請調閱。\\n\\n富宇大地管理委員會 敬啟`,
-        views: 415
+        summary: "凝聚鄰里情誼，管委會預計於 9 月底舉辦中秋茶會，並同步實施防汛沙包水閘門實務演練。",
+        content: `富宇大地親愛的住戶們：\n\n中秋佳節將至，管委會為增進全區 241 戶鄰里情感與守望互助精神，特籌辦中秋聯誼交流茶會，並由物業團隊現場示範防汛擋水閘門與沙包堆疊 SOP，守護萬坪家園安全。詳細活動細則與報名方式將於近期另行公告。\n\n富宇大地管理委員會 敬啟`,
+        views: 480
       },
+
+      // 6. 規約類
       {
-        id: "FY-2026-004",
-        title: "【日常庶務】富宇大地住戶室內裝修施工防護管理辦法暨噪音管制時段宣導",
-        category: "日常庶務",
+        id: "FY-REG-2026-01",
+        title: "【規約】富宇大地社區規約暨共用部分管理維護施行細則",
+        category: "規約",
         publisher: "富宇大地管理委員會",
-        signer: "安全委員 / 監察委員",
-        date: "2026-09-08",
+        signer: "主任委員 馬士傑",
+        date: "2026-09-01",
         pinned: false,
-        summary: "為維持社區安寧生活環境，重申各專有部分進行裝潢室內裝修時，必須依規約完成申請登記並繳交保證金，打石噪音嚴禁於午休及假日施作。",
-        content: `全體住戶女士、先生：\\n\\n近來接獲住戶反映部分棟別裝修施工噪音與梯廳走廊保護不足問題，為確保全體住戶公共安寧、安全與共用設施設備之完好，特別重申《富宇大地室內裝修管理辦法》核心守則：\\n\\n一、施工時段嚴格管制：\\n1. 准許施工時間：週一至週五 上午 08:30~12:00、下午 13:30~17:30。\\n2. 嚴禁施工時間：例假日、國定假日及每日午休時段（12:00~13:30）。任何產生強烈震動與尖銳噪音之打石、鑽孔、切割工程均不得施作。\\n\\n二、公共區域保護工程要求：\\n1. 施工單位進場前，必須自電梯車廂、公用梯廳至住戶門前，全面鋪設防潮布與夾板雙層保護防護毯。\\n2. 施工廢棄物應於當日裝袋妥善清運，嚴禁堆置於共同走廊、樓梯間或逃生安全門前。\\n\\n三、違規處置：\\n違反上述規定經物業管理處勸導不遵者，管委會將依法沒收部分裝修保證金，情節嚴重者得依《公寓大廈管理條例》第 16 條報請台中市都市發展局依法處以新台幣四萬元以上二十萬元以下罰鍰。\\n\\n富宇大地管理委員會 敬啟`,
-        views: 198
+        summary: "依第二屆區權會大會決議備查之規約全文與各項施行準則，規範住戶權利義務、公共設施使用與外觀一致性維護。",
+        content: `全體區權人台鑒：\n\n本社區規約依《公寓大廈管理條例》訂定，全文共計二十二條，包含公共基金提撥、管委會組織權責、住戶室內裝修防損規範、私家車道通行及外觀景觀維護標準。規約正本常態存於管理室 DOC-01 檔卷盒，區權人得隨時申請查閱。\n\n富宇大地管理委員會 敬啟`,
+        views: 370
       },
       {
-        id: "FY-2026-005",
-        title: "【重大決議】富宇大地 115 年度第二次管委會定期常會決議事項暨超商多元繳費啟用通知",
-        category: "重大決議",
+        id: "FY-REG-2026-02",
+        title: "【規約】公共設施遭人為損傷管委會先行修繕並向違規住戶追償實施規範",
+        category: "規約",
+        publisher: "富宇大地管理委員會",
+        signer: "主任委員 馬士傑",
+        date: "2026-09-09",
+        pinned: false,
+        summary: "經 115 年 9 月例會議決：公設遭人為毀損管委會先行修繕墊付，後續限期向行為人追償，逾期未繳直接納入次期管理費併收。",
+        content: `全體住戶請注意：\n\n為維護公共設施安全與正常運作，依 115 年 9 月 8 日管委會例會議決：\n1. 若有住戶或其訪客、施工廠商不慎破壞公共設施（如鐵捲門、路燈、景觀樹木），為確保整體人車安全，管委會得先行洽商報價並墊付修繕費用。\n2. 管理中心於完工驗收後檢附單據向損壞責任住戶追償。\n3. 若住戶於規定期限內仍未繳付修繕款，管委會將依法直接納入其下期管理費帳單併同收取，並得循法律程序求償。\n\n富宇大地管理委員會 敬啟`,
+        views: 530
+      },
+
+      // 7. 系統類
+      {
+        id: "FY-SYS-2026-01",
+        title: "【系統】智生活智慧社區 App 門禁智能磁扣領取與門禁系統啟用流程說明",
+        category: "系統",
+        publisher: "富宇大地管理中心",
+        signer: "社區經理 曹鈺芳",
+        date: "2026-08-20",
+        pinned: false,
+        summary: "管理室開放領取智能門禁磁扣，請各戶區權人或住戶於平日 09:00~18:00 親至管理室完成登記簽領。",
+        content: `各位住戶您好：\n\n本社區門禁系統即將正式連線啟用，相關磁扣領取說明如下：\n一、領取時間：平日週一至週五上午 09:00 至下午 18:00。\n二、領取地點：貨櫃屋管理室。\n三、領取手續：請攜帶身分證明文件，填妥智能磁扣簽領名冊。\n四、智慧 App：請住戶同步下載綁定「今網智生活 App」，享有包裹到件推播、訪客預約及線上繳費服務。\n\n富宇大地管理中心 敬啟`,
+        views: 650
+      },
+      {
+        id: "FY-SYS-2026-02",
+        title: "【系統】智生活金流管理費多元代收（超商條碼、信用卡、ATM 虛擬帳號）功能指引",
+        category: "系統",
+        publisher: "富宇大地管理委員會 財務組",
+        signer: "財務委員 蔡侑倢",
+        date: "2026-08-28",
+        pinned: false,
+        summary: "全區 241 戶每月管理費 $1,000 元全面支援智生活超商 7-11/全家/萊爾富/OK 條碼掃碼繳費、LINE Pay 與信用卡多元金流。",
+        content: `各位住戶好：\n\n為簡化每月管理費繳納流程，管委會已與智生活完成金流整合：\n1. 超商繳費：每月 1 日 App 自動產出四大超商條碼，手機出示即可掃碼繳納。\n2. 線上刷卡 / 行動支付：支援 LINE Pay、各大銀行信用卡及自動扣款。\n3. ATM 虛擬帳號：每戶專屬獨立虛擬帳號，轉帳即時銷帳。\n敬請住戶按期繳納，共同守護萬坪社區營運。\n\n富宇大地管理委員會 敬啟`,
+        views: 430
+      },
+
+      // 8. 管理辦法類
+      {
+        id: "FY-BYLAW-2026-01",
+        title: "【管理辦法】115.09.22 富宇大地重要文件調閱列印管理辦法與三大附表施行細則",
+        category: "管理辦法",
         publisher: "富宇大地管理委員會",
         signer: "主任委員",
-        date: "2026-09-05",
+        date: "2026-09-22",
+        pinned: true,
+        summary: "落實公寓大廈第 35 條利害關係人查閱權，明訂 5 步閉環流程、附表一申請書、附表二查閱紀錄、附表三委託書及 A4 單張 2 元規費標準。附 PDF 規章下載。",
+        pdfUrl: "115.09.22富宇大地重要文件調閱列印管理辦法.pdf",
+        pdfName: "115.09.22富宇大地重要文件調閱列印管理辦法.pdf",
+        pdfSize: "169 KB",
+        content: `富宇大地全體住戶女士、先生：\n\n為落實《公寓大廈管理條例》第 35 條及施行細則規範，保障區分所有權人與住戶合法查閱社區重要文件之權利，並兼顧個人資料保護，正式頒布施行《重要文件調閱列印管理辦法》：\n\n一、查閱標的：\n1. 規約本文與歷次修訂施行細則。\n2. 歷屆區權人大會及管理委員會會議紀錄。\n3. 歷年財務收支月報、資產負債表與會計憑證傳票。\n4. 各項外包服務合約書與採購比價標單。\n\n二、五步申請程序：\n填具附表一申請書 -> 3 日內審查利害關係 -> 預約時間遮蔽個資 -> 管理室現場陪同閱覽 -> 依收費標準開立收據簽認歸檔。\n\n三、影印工本費標準：\nA4 黑白每頁 2 元、A4 彩色每頁 10 元、A3 黑白每頁 5 元，規費全數解繳管委會公款專戶。\n\n富宇大地管理委員會 敬啟`,
+        views: 580
+      },
+      {
+        id: "FY-BYLAW-2026-02",
+        title: "【管理辦法】管理室影印事務機服務與工本費收費管理辦法",
+        category: "管理辦法",
+        publisher: "富宇大地管理中心",
+        signer: "社區經理 曹鈺芳",
+        date: "2026-08-15",
         pinned: false,
-        summary: "審議通過第四季公設機電預防性保養合約評選標準、智慧管理 App 整合自動銷帳金流專案，正式開通 7-11、全家、萊爾富與街口多元繳納管道。",
-        content: `富宇大地全體住戶公鑒：\\n\\n本會於民國 115 年 9 月 3 日召開第二屆第二次例行常會，經全體管理委員出席審議，做成下列重大決議並正式公告週知：\\n\\n一、重大審議決議：\\n1. 通過第四季全區弱電監控系統高畫質攝影機升級評選案，由原廠以 48,000 元承作，保固兩年。\\n2. 審議核定重要文件調閱列印收費標準，貫徹公款專戶收據管理。\\n3. 通過管理費多元代收銷帳專案，即日起住戶可透過手機產出專屬條碼，至四大超商（7-11、全家、萊爾富、OK）或使用台灣 Pay、街口直接繳費並秒級銷帳。\\n\\n二、多元超商繳費實施辦法：\\n1. 自 115 年 10 月份管理費起，繳款單將印製三段式專屬條碼。\\n2. 繳納後款項將直接入帳於富宇大地管理委員會金融機構專戶，管委會不另行收取手續費。\\n\\n會議完整簽到簿與記錄正本置於管理中心，歡迎區權人查閱。\\n\\n富宇大地管理委員會 敬啟`,
-        views: 521
+        summary: "第二屆 8 月份例會議決無異議通過：管理室事務機開放住戶小額影印代印服務，黑白每張 2 元，彩色每張 10 元，收入全數列管公共基金。",
+        content: `全體住戶您好：\n\n經第二屆管委會 8 月例會正式審議通過，管理室公務事務機即日起開放提供住戶日常急需之影印及掃描服務：\n一、服務時間：管理室開放時間（09:00~18:00）。\n二、收費標準：A4 黑白單面 2 元/張、雙面 4 元/張；A4 彩色單面 10 元/張。\n三、管理要求：現場由秘書登記影印張數並開立臨時收據，規費全數入帳管委會雜項收入。\n\n富宇大地管理中心 敬啟`,
+        views: 290
+      },
+
+      // 9. 官方類
+      {
+        id: "FY-OFFICIAL-2026-01",
+        title: "【官方】台中市政府工務局公寓大廈管理委員會第二屆合法報備核准公函",
+        category: "官方",
+        publisher: "台中市政府住宅發展工程處",
+        signer: "局長",
+        date: "2026-05-15",
+        pinned: false,
+        summary: "台中市政府住宅發展工程處核發第二屆管理委員會公寓大廈報備證明文件，正式確認管委會合法法人團體身分。",
+        content: `受文者：富宇大地公寓大廈管理委員會\n\n主旨：貴公寓大廈申請第二屆管理委員會報備乙案，經審查符合《公寓大廈管理條例》相關規定，准予備查，發給報備證明。\n\n說明：\n一、主任委員：馬士傑。\n二、管理組織名稱：富宇大地公寓大廈管理委員會。\n三、社區地址：台中市龍井區龍社路。\n四、請依規定確實保管規約、大會紀錄及財務帳簿，維護全體區分所有權人權益。\n\n台中市政府住宅發展工程處 印`,
+        views: 495
+      },
+      {
+        id: "FY-OFFICIAL-2026-02",
+        title: "【官方】台中沙鹿稅務局貨櫃屋房屋稅籍設立申辦與全區 241 戶住戶同意書調查",
+        category: "官方",
+        publisher: "富宇大地管理委員會",
+        signer: "主任委員 馬士傑",
+        date: "2026-08-16",
+        pinned: false,
+        summary: "依台中沙鹿稅務局來函，為申辦貨櫃屋管理室房屋稅籍，管理中心已發放 241 戶同意書至各戶信箱，請於期限內填妥繳回。",
+        content: `全體區權人台鑒：\n\n管理室於 115 年 7 月 27 日接獲台中沙鹿稅務局公函，需申辦設立貨櫃屋辦公室之房屋稅籍。\n經管委會 8 月份例會議決，為簡化稅務行政並避免逐戶課徵低於百元之繁瑣困擾，規劃以管委會（主委代表）名義統籌申辦，未來房屋稅金由社區帳戶定期公款繳納。\n管理中心已將「房屋稅同意書」分發至各戶信箱，請住戶簽章後繳回管理室以利造冊呈報。\n\n富宇大地管理委員會 敬啟`,
+        views: 410
       }
     ];
 
@@ -4196,7 +4433,7 @@
     let currentCategory = 'all';
 
     function initData() {
-      const stored = localStorage.getItem('fuyu_dadi_announcements_v2');
+      const stored = localStorage.getItem('fuyu_dadi_announcements_v4');
       if (stored) {
         try {
           articles = JSON.parse(stored);
@@ -4217,7 +4454,7 @@
     }
 
     function saveData() {
-      localStorage.setItem('fuyu_dadi_announcements_v2', JSON.stringify(articles));
+      localStorage.setItem('fuyu_dadi_announcements_v4', JSON.stringify(articles));
       updateAllBadges();
     }
 
@@ -4238,6 +4475,9 @@
       safeSetText('count-rules', counts['法規規章'] || 0);
     }
 
+    // =========================================================================
+    // SWITCH MAIN VIEW
+    // =========================================================================
     function switchMainView(viewId) {
       document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active-view'));
       document.querySelectorAll('.main-nav-btn').forEach(btn => btn.classList.remove('active'));
@@ -4252,18 +4492,20 @@
         const b = document.getElementById('navBtnHandover');
         if (v) v.classList.add('active-view');
         if (b) b.classList.add('active');
-        renderHandoverList();
-        updateHandoverStats();
-      } else if (viewId === 'governance') {
-        const v = document.getElementById('viewGovernance');
-        const b = document.getElementById('navBtnGovernance');
+      } else if (viewId === 'bulletin') {
+        const v = document.getElementById('viewBulletin');
+        const b = document.getElementById('navBtnBulletin');
         if (v) v.classList.add('active-view');
         if (b) b.classList.add('active');
         renderBulletinList();
-        renderAdminList();
+      } else if (viewId === 'gov') {
+        const v = document.getElementById('viewGov');
+        const b = document.getElementById('navBtnGov');
+        if (v) v.classList.add('active-view');
+        if (b) b.classList.add('active');
       } else if (viewId === 'smartdaily') {
-        const v = document.getElementById('viewSmartDaily');
-        const b = document.getElementById('navBtnSmartDaily');
+        const v = document.getElementById('viewSmartdaily');
+        const b = document.getElementById('navBtnSmartdaily');
         if (v) v.classList.add('active-view');
         if (b) b.classList.add('active');
       }
