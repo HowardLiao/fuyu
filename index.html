@@ -3000,151 +3000,182 @@
         <!-- ========================================================================= -->
         <!-- 🏛️ 富宇大地第二屆管委會：視覺化組織架構圖 (ORGANIZATION CHART)                -->
         <!-- ========================================================================= -->
+                <!-- ========================================================================= -->
+        <!-- 🏛️ 富宇大地第二屆管委會：動態互動組織架構圖 (DYNAMIC INTERACTIVE ORG CHART)    -->
+        <!-- ========================================================================= -->
         <div class="card" id="sec-org-chart" style="margin-top: 24px; margin-bottom: 24px; border: 1px solid rgba(56, 189, 248, 0.4); background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(2, 6, 23, 0.98) 100%);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
             <div style="display: flex; align-items: center; gap: 10px;">
               <span class="diagram-badge">示意圖</span>
               <h3 style="font-size: 1.25rem; color: #FFFFFF; margin: 0; font-weight: 800;">
-                🏛️ 富宇大地第二屆管理委員會：視覺化組織架構圖
+                🏛️ 富宇大地第二屆管理委員會：動態互動組織架構圖
               </h3>
             </div>
-            <span class="tag tag-cyan" style="font-size: 0.78rem;">115年度六區合併法定核備編制</span>
+            <span class="tag tag-cyan" style="font-size: 0.76rem;">👆 點擊任一節點，即時展開法定職權與對接廠商</span>
           </div>
 
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">
-            依據 115 年 4 月 18 日區分所有權人會議合法選舉，並獲台中市龍井區公所正式備查。全區 241 戶設委員編制，落實「決策主體、三章分立、專業分工、受任執行」之現代化社區治理體系：
-          </p>
+          <!-- Dynamic View Switcher Pills -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px;" id="orgChartFilterWrap">
+            <button class="filter-btn active" onclick="filterOrgView('all', this)">🌟 全景架構</button>
+            <button class="filter-btn" onclick="filterOrgView('leaders', this)">🏛️ 決策四長 (主委/副主委/財委/監委)</button>
+            <button class="filter-btn" onclick="filterOrgView('functions', this)">⚙️ 八大功能專業分工</button>
+            <button class="filter-btn" onclick="filterOrgView('property', this)">🏢 物業與協力廠商</button>
+          </div>
 
-          <!-- Interactive Tree Organization Chart Container -->
-          <div style="background: rgba(2, 6, 23, 0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px 16px; margin-bottom: 24px; overflow-x: auto;">
+          <!-- Dynamic Tree Canvas Container -->
+          <div style="background: rgba(2, 6, 23, 0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px 14px; margin-bottom: 20px; overflow-x: auto;">
             
-            <!-- Level 1: 區分所有權人會議 -->
-            <div style="text-align: center; margin-bottom: 16px;">
-              <div style="display: inline-block; background: rgba(56, 189, 248, 0.15); border: 2px solid var(--accent-cyan); border-radius: 10px; padding: 10px 24px; box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);">
-                <div style="font-size: 0.76rem; color: var(--accent-cyan); font-weight: 800; letter-spacing: 1px;">SUPREME AUTHORITY</div>
+            <!-- LEVEL 1: 區分所有權人會議 -->
+            <div class="org-node-group" id="nodeGroupAuthority" style="text-align: center; margin-bottom: 14px;">
+              <div class="org-node-box" onclick="inspectOrgMember('hoa')" style="cursor: pointer; display: inline-block; background: rgba(56, 189, 248, 0.12); border: 2px solid var(--accent-cyan); border-radius: 10px; padding: 10px 24px; transition: all 0.25s ease;">
+                <div style="font-size: 0.74rem; color: var(--accent-cyan); font-weight: 800; letter-spacing: 1px;">SUPREME AUTHORITY</div>
                 <div style="font-size: 1.15rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">區分所有權人會議（241 戶最高權力機構）</div>
-                <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;">選任委員・修訂規約・決議重大修繕與公共基金</div>
+                <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;">選任委員・修訂規約・決議重大修繕動支 👆 點擊查看權限</div>
               </div>
             </div>
 
-            <!-- Vertical Connector 1 -->
-            <div style="width: 2px; height: 24px; background: var(--accent-cyan); margin: 0 auto; opacity: 0.7;"></div>
+            <!-- Connector 1 -->
+            <div class="org-connector" style="width: 2px; height: 20px; background: var(--accent-cyan); margin: 0 auto; opacity: 0.7;"></div>
 
-            <!-- Level 2: 主任委員 -->
-            <div style="text-align: center; margin-bottom: 16px;">
-              <div style="display: inline-block; background: rgba(245, 158, 11, 0.15); border: 2px solid var(--accent-amber); border-radius: 10px; padding: 12px 28px; box-shadow: 0 0 16px rgba(245, 158, 11, 0.25);">
-                <div style="font-size: 0.76rem; color: var(--accent-amber); font-weight: 800; letter-spacing: 1px;">CHAIRMAN / LEGAL REPRESENTATIVE</div>
+            <!-- LEVEL 2: 主任委員 -->
+            <div class="org-node-group" id="nodeGroupChair" style="text-align: center; margin-bottom: 14px;">
+              <div class="org-node-box" id="node-chair" onclick="inspectOrgMember('chair')" style="cursor: pointer; display: inline-block; background: rgba(245, 158, 11, 0.15); border: 2px solid var(--accent-amber); border-radius: 10px; padding: 12px 28px; transition: all 0.25s ease; box-shadow: 0 0 14px rgba(245, 158, 11, 0.25);">
+                <div style="font-size: 0.74rem; color: var(--accent-amber); font-weight: 800; letter-spacing: 1px;">CHAIRMAN / 法定代表人</div>
                 <div style="font-size: 1.25rem; font-weight: 900; color: #FFFFFF; margin-top: 2px;">主任委員：馬士傑</div>
-                <div style="font-size: 0.8rem; color: #fde68a; margin-top: 2px;">對外代表管委會・主持會議・督導物業・保管印鑑大章</div>
+                <div style="font-size: 0.8rem; color: #fde68a; margin-top: 2px;">對外代表管委會・主持例會・保管管委會印鑑大章 👆 點擊查閱職權</div>
               </div>
             </div>
 
-            <!-- Vertical Connector 2 -->
-            <div style="width: 2px; height: 20px; background: var(--border-color); margin: 0 auto;"></div>
+            <!-- Connector 2 -->
+            <div class="org-connector" style="width: 2px; height: 20px; background: var(--border-color); margin: 0 auto;"></div>
 
-            <!-- Level 3: 三大核心幹部 (副主委、財委、監委) -->
-            <div style="max-width: 900px; margin: 0 auto 24px auto;">
+            <!-- LEVEL 3: 常務三長 (副主委、財委、監委) -->
+            <div class="org-node-group" id="nodeGroupCore" style="max-width: 960px; margin: 0 auto 20px auto;">
               <div class="grid-3" style="gap: 12px;">
                 
                 <!-- 副主委 -->
-                <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 8px; padding: 12px; text-align: center;">
-                  <span class="tag tag-cyan" style="font-size: 0.72rem; margin-bottom: 4px;">決策副手・工程會勘</span>
-                  <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF;">副主任委員：莊毅君</div>
-                  <div style="font-size: 0.78rem; color: var(--accent-cyan); font-weight: 700;">戶別：B81 (5月推選)</div>
-                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">襄助主委、主委差假時代理其職能、跨區工程研議</div>
+                <div class="org-node-box" id="node-vice" onclick="inspectOrgMember('vice')" style="cursor: pointer; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 8px; padding: 14px 12px; text-align: center; transition: all 0.25s ease;">
+                  <span class="tag tag-cyan" style="font-size: 0.72rem;">決策副手・會勘主持</span>
+                  <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; margin: 4px 0;">副主任委員：莊毅君</div>
+                  <div style="font-size: 0.78rem; color: var(--accent-cyan); font-weight: 700;">戶別：B81 (5月例會推選)</div>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">代理主委職權・工程會勘複核 👆</div>
                 </div>
 
                 <!-- 財委 -->
-                <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 8px; padding: 12px; text-align: center;">
-                  <span class="tag tag-emerald" style="font-size: 0.72rem; margin-bottom: 4px;">公款管理・財務把關</span>
-                  <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF;">財務委員：蔡侑倢</div>
-                  <div style="font-size: 0.78rem; color: var(--accent-emerald); font-weight: 700;">戶別：A02 (5月接任)</div>
-                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">掌管新光銀行帳戶、月報編製、保管財委印鑑小章</div>
+                <div class="org-node-box" id="node-finance" onclick="inspectOrgMember('finance')" style="cursor: pointer; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 8px; padding: 14px 12px; text-align: center; transition: all 0.25s ease;">
+                  <span class="tag tag-emerald" style="font-size: 0.72rem;">公款保管・月報編製</span>
+                  <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; margin: 4px 0;">財務委員：蔡侑倢</div>
+                  <div style="font-size: 0.78rem; color: var(--accent-emerald); font-weight: 700;">戶別：A02 (5月例會接任)</div>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">新光銀行專戶・保管財委小章 👆</div>
                 </div>
 
                 <!-- 監委 -->
-                <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 8px; padding: 12px; text-align: center;">
-                  <span class="tag tag-purple" style="font-size: 0.72rem; margin-bottom: 4px;">獨立監察・發包監驗</span>
-                  <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF;">監察委員：王佩如</div>
-                  <div style="font-size: 0.78rem; color: var(--accent-purple); font-weight: 700;">執掌：稽核會務帳目</div>
-                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">稽核財務收支傳票、外包工程比價、調閱申請初審</div>
+                <div class="org-node-box" id="node-audit" onclick="inspectOrgMember('audit')" style="cursor: pointer; background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 8px; padding: 14px 12px; text-align: center; transition: all 0.25s ease;">
+                  <span class="tag tag-purple" style="font-size: 0.72rem;">獨立監察・比價監驗</span>
+                  <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; margin: 4px 0;">監察委員：王佩如</div>
+                  <div style="font-size: 0.78rem; color: var(--accent-purple); font-weight: 700;">法定執掌：帳目獨立稽核</div>
+                  <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 4px;">傳票會簽・工程比價・調閱初審 👆</div>
                 </div>
 
               </div>
             </div>
 
-            <!-- Level 4: 八大專業分工功能執掌矩陣 -->
-            <div style="border-top: 1px dashed var(--border-color); padding-top: 20px; margin-bottom: 24px;">
+            <!-- LEVEL 4: 八大專業功能委員分工 -->
+            <div class="org-node-group" id="nodeGroupFunctions" style="border-top: 1px dashed var(--border-color); padding-top: 20px; margin-bottom: 20px;">
               <div style="text-align: center; margin-bottom: 14px;">
-                <span style="font-size: 0.8rem; font-weight: 800; color: var(--accent-amber); background: rgba(245,158,11,0.15); padding: 3px 12px; border-radius: 9999px;">
-                  八大專業維護與行政功能分工
+                <span style="font-size: 0.8rem; font-weight: 800; color: var(--accent-amber); background: rgba(245,158,11,0.15); padding: 3px 14px; border-radius: 9999px;">
+                  八大專業維護與行政功能分工（點選查看對接協力廠商與職掌）
                 </span>
               </div>
 
               <div class="grid-4" style="gap: 10px;">
                 <!-- 1. 設備 -->
-                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px;">
-                  <div style="font-size: 0.74rem; color: var(--accent-cyan); font-weight: 700;">設備工務</div>
-                  <div style="font-size: 0.92rem; font-weight: 800; color: #FFFFFF;">廖佩芬 / 林春江</div>
+                <div class="org-node-box" id="node-fn-equip" onclick="inspectOrgMember('equip')" style="cursor: pointer; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.74rem; color: var(--accent-cyan); font-weight: 700;">設備工務</span>
+                    <span style="font-size: 0.68rem; background: rgba(56,189,248,0.15); color: var(--accent-cyan); padding: 1px 5px; border-radius: 4px;">凱新水電</span>
+                  </div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;">廖佩芬 / 林春江</div>
                   <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">水電/泵浦/發電機/凱新總檢/漏電</div>
                 </div>
 
                 <!-- 2. 事務 -->
-                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px;">
-                  <div style="font-size: 0.74rem; color: var(--accent-emerald); font-weight: 700;">行政事務</div>
-                  <div style="font-size: 0.92rem; font-weight: 800; color: #FFFFFF;">姚廷穎</div>
-                  <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">規章辦法/公文審核/磁扣發放管理</div>
+                <div class="org-node-box" id="node-fn-affairs" onclick="inspectOrgMember('affairs')" style="cursor: pointer; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.74rem; color: var(--accent-emerald); font-weight: 700;">行政事務</span>
+                    <span style="font-size: 0.68rem; background: rgba(16,185,129,0.15); color: var(--accent-emerald); padding: 1px 5px; border-radius: 4px;">法規/磁扣</span>
+                  </div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;">姚廷穎</div>
+                  <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">調閱辦法/公文審核/門禁磁扣管理</div>
                 </div>
 
                 <!-- 3. 庶務 -->
-                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px;">
-                  <div style="font-size: 0.74rem; color: var(--accent-amber); font-weight: 700;">總務庶務</div>
-                  <div style="font-size: 0.92rem; font-weight: 800; color: #FFFFFF;">陳郁芬</div>
+                <div class="org-node-box" id="node-fn-general" onclick="inspectOrgMember('general')" style="cursor: pointer; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.74rem; color: var(--accent-amber); font-weight: 700;">總務庶務</span>
+                    <span style="font-size: 0.68rem; background: rgba(245,158,11,0.15); color: var(--accent-amber); padding: 1px 5px; border-radius: 4px;">博勝/和成</span>
+                  </div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;">陳郁芬</div>
                   <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">貨櫃屋/事務機/博勝廁所/耗材採購</div>
                 </div>
 
                 <!-- 4. 園藝 -->
-                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px;">
-                  <div style="font-size: 0.74rem; color: var(--accent-emerald); font-weight: 700;">景觀園藝</div>
-                  <div style="font-size: 0.92rem; font-weight: 800; color: #FFFFFF;">陳朝清 (陳佳渝)</div>
+                <div class="org-node-box" id="node-fn-garden" onclick="inspectOrgMember('garden')" style="cursor: pointer; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.74rem; color: var(--accent-emerald); font-weight: 700;">景觀園藝</span>
+                    <span style="font-size: 0.68rem; background: rgba(16,185,129,0.15); color: var(--accent-emerald); padding: 1px 5px; border-radius: 4px;">偉碩園藝</span>
+                  </div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;">陳朝清 (陳佳渝)</div>
                   <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">偉碩園藝/植栽養護/邊坡噴灌督工</div>
                 </div>
 
                 <!-- 5. 公關 -->
-                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px;">
-                  <div style="font-size: 0.74rem; color: var(--accent-purple); font-weight: 700;">公關聯絡</div>
-                  <div style="font-size: 0.92rem; font-weight: 800; color: #FFFFFF;">張庭瑄</div>
+                <div class="org-node-box" id="node-fn-pr" onclick="inspectOrgMember('pr')" style="cursor: pointer; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.74rem; color: var(--accent-purple); font-weight: 700;">公關聯絡</span>
+                    <span style="font-size: 0.68rem; background: rgba(168,85,247,0.15); color: var(--accent-purple); padding: 1px 5px; border-radius: 4px;">區公所/警局</span>
+                  </div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;">張庭瑄</div>
                   <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">住戶溝通/Youbike站點/公部門接洽</div>
                 </div>
 
                 <!-- 6. 環保 -->
-                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px;">
-                  <div style="font-size: 0.74rem; color: var(--accent-cyan); font-weight: 700;">環保衛生</div>
-                  <div style="font-size: 0.92rem; font-weight: 800; color: #FFFFFF;">黎渝惠</div>
+                <div class="org-node-box" id="node-fn-env" onclick="inspectOrgMember('env')" style="cursor: pointer; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.74rem; color: var(--accent-cyan); font-weight: 700;">環保衛生</span>
+                    <span style="font-size: 0.68rem; background: rgba(56,189,248,0.15); color: var(--accent-cyan); padding: 1px 5px; border-radius: 4px;">睿豐/鉦諦</span>
+                  </div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;">黎渝惠</div>
                   <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">環保室/睿豐清運/鉦諦回收/寶宸舊衣</div>
                 </div>
 
                 <!-- 7. 公園 -->
-                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px;">
-                  <div style="font-size: 0.74rem; color: var(--accent-emerald); font-weight: 700;">公園綠地</div>
-                  <div style="font-size: 0.92rem; font-weight: 800; color: #FFFFFF;">林春江</div>
+                <div class="org-node-box" id="node-fn-park" onclick="inspectOrgMember('park')" style="cursor: pointer; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.74rem; color: var(--accent-emerald); font-weight: 700;">公園綠地</span>
+                    <span style="font-size: 0.68rem; background: rgba(16,185,129,0.15); color: var(--accent-emerald); padding: 1px 5px; border-radius: 4px;">安全保護區</span>
+                  </div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;">林春江</div>
                   <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">保護區綠地/公園用電/遊樂設施評估</div>
                 </div>
 
                 <!-- 8. 安全 -->
-                <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px;">
-                  <div style="font-size: 0.74rem; color: var(--accent-rose); font-weight: 700;">安全治安</div>
-                  <div style="font-size: 0.92rem; font-weight: 800; color: #FFFFFF;">賴怡良</div>
+                <div class="org-node-box" id="node-fn-security" onclick="inspectOrgMember('security')" style="cursor: pointer; background: rgba(15, 23, 42, 0.7); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; transition: all 0.2s;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.74rem; color: var(--accent-rose); font-weight: 700;">安全治安</span>
+                    <span style="font-size: 0.68rem; background: rgba(244,63,94,0.15); color: var(--accent-rose); padding: 1px 5px; border-radius: 4px;">64支監控</span>
+                  </div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-top: 4px;">賴怡良</div>
                   <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 2px;">64支監視器/車辨門禁/烏日巡邏箱</div>
                 </div>
               </div>
             </div>
 
-            <!-- Level 5: 受任物業與協力廠商 -->
-            <div style="border-top: 1px dashed var(--border-color); padding-top: 18px;">
-              <div style="background: rgba(15, 23, 42, 0.95); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <!-- LEVEL 5: 受任物業與協力廠商 -->
+            <div class="org-node-group" id="nodeGroupProperty" style="border-top: 1px dashed var(--border-color); padding-top: 18px;">
+              <div class="org-node-box" id="node-property" onclick="inspectOrgMember('property')" style="cursor: pointer; background: rgba(15, 23, 42, 0.95); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; transition: all 0.2s;">
                 <div>
-                  <span class="tag tag-cyan" style="font-size: 0.72rem;">受任管理維護人</span>
+                  <span class="tag tag-cyan" style="font-size: 0.72rem;">受任管理維護人（點擊查閱日課表）</span>
                   <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; margin-top: 2px;">
                     福爾摩沙物業管理維護（$70,350/月）
                   </div>
@@ -3162,8 +3193,54 @@
             </div>
 
           </div>
-        </div>
 
+          <!-- DYNAMIC INSPECTOR DRAWER (即時展示被點選委員之詳細職權與對接廠商) -->
+          <div id="orgMemberInspector" style="background: rgba(15, 23, 42, 0.9); border: 1px solid var(--accent-cyan); border-radius: 10px; padding: 18px 20px; transition: all 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div id="inspIcon" style="font-size: 1.8rem; background: rgba(56, 189, 248, 0.15); width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--accent-cyan);">
+                  👑
+                </div>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <h4 id="inspTitle" style="color: #FFFFFF; font-size: 1.2rem; font-weight: 800; margin: 0;">主任委員：馬士傑</h4>
+                    <span id="inspBadge" class="tag tag-amber" style="font-size: 0.72rem;">法定代表人</span>
+                  </div>
+                  <div id="inspSub" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">
+                    代表全體 241 戶區權人・主持管委會例行會議與年度區權大會
+                  </div>
+                </div>
+              </div>
+              <span style="font-size: 0.74rem; color: var(--accent-cyan); background: rgba(56,189,248,0.1); padding: 3px 10px; border-radius: 9999px;">
+                動態選取面板 (點擊上方任一節點即時切換)
+              </span>
+            </div>
+
+            <div class="grid-3" style="gap: 12px; margin-top: 14px;">
+              <div style="background: rgba(2, 6, 23, 0.6); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+                <div style="font-size: 0.75rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 4px;">核心法定職掌</div>
+                <div id="inspDuty" style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6;">
+                  對外代表管理委員會、執行區權會及管委會決議事項、簽署各項正式對外合約與公文、統籌六區治理協調。
+                </div>
+              </div>
+
+              <div style="background: rgba(2, 6, 23, 0.6); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+                <div style="font-size: 0.75rem; color: var(--accent-amber); font-weight: 700; margin-bottom: 4px;">印鑑管制與 DOA 權限</div>
+                <div id="inspDOA" style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6;">
+                  保管管委會印鑑大章；簽發公款支票；核決 1 萬元以下日常緊急修繕（Level 2）；緊急重大事故動用避險權。
+                </div>
+              </div>
+
+              <div style="background: rgba(2, 6, 23, 0.6); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+                <div style="font-size: 0.75rem; color: var(--accent-emerald); font-weight: 700; margin-bottom: 4px;">對接廠商與 5~9 月關鍵決策</div>
+                <div id="inspCases" style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6;">
+                  對接福爾摩沙物業管理；主持 5 次例會；決標凱新水電機電總檢與台灣產險；簽發管理基金 241 萬入帳。
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
 
         <!-- 富宇大地第二屆管委會 12 席委員完整組織架構與法定職能矩陣表                  -->
         <!-- ========================================================================= -->
@@ -5862,6 +5939,213 @@
       initHandoverState();
       switchMainView('audit');
     });
+  
+    // =========================================================================
+    // DYNAMIC INTERACTIVE ORGANIZATION CHART CONTROLLER
+    // =========================================================================
+    const ORG_MEMBERS_DATA = {
+      'hoa': {
+        icon: '🏛️',
+        title: '區分所有權人會議（241 戶）',
+        badge: '最高權力機構',
+        sub: '由全體 241 戶透天別墅業主組成之法定最高自治表決機構',
+        duty: '選任及解任管理委員、修訂社區住戶規約、決議公共基金之籌集與重大共用部分之重大修繕或改良（依法需法定出席與表決門檻通過）。',
+        doa: '擁有超越管委會之最終表決權；動支超過管理費經常門之重大資本門修繕需經區權會正式決議。',
+        cases: '115年1月24日好境與清境決議無異議合併；4月18日完成六區第二次（第一次合併）區分所有權人會議通過新規約。'
+      },
+      'chair': {
+        icon: '👑',
+        title: '主任委員：馬士傑',
+        badge: '法定代表人',
+        sub: '對外代表富宇大地管理委員會・主持每月例行會議與年度區權會',
+        duty: '對外代表管理委員會、執行區權會及管委會決議事項、簽署各項正式對外維護合約與公文、統籌六區合併後治理事務。',
+        doa: '保管管委會印鑑大章；簽發公款支票；核定 1 萬元以下日常緊急修繕支出（Level 2）；具備緊急避險搶修處置權。',
+        cases: '5/5領取建商管理基金241萬存入新光銀行；主持5~9月例會；簽署凱新水電總檢決標；核定台灣產險公共意外責任險投保。'
+      },
+      'vice': {
+        icon: '⚔️',
+        title: '副主任委員：莊毅君 (B81)',
+        badge: '常務決策副手',
+        sub: '戶別：B81 ｜ 115年5月6日例行會議出席委員無異議推選',
+        duty: '襄助主任委員處理社區全般會務與工程研議；主任委員因故不能視事或請假時代理其法定職務；常務委員會審議委員。',
+        doa: '於主委差假時代行其核決權限；共同審議重大廠商採購案（5萬元以上）；主持工務工程跨區會勘。',
+        cases: '5月接任副主委；協助研議社區628巷路面不平整會勘；督導各區巷道臨停管制與停車證製作發放。'
+      },
+      'finance': {
+        icon: '💰',
+        title: '財務委員：蔡侑倢 (A02)',
+        badge: '公款掌管・財務把關',
+        sub: '戶別：A02 ｜ 115年5月6日第一次例行會議無異議通過接任',
+        duty: '管理社區公款帳戶（新光銀行活存、定存專戶）；編製每月財務收支報表；監督 241 戶管理費催繳與對帳；審核各項發票傳票。',
+        doa: '保管管委會印鑑小章（財委章）；掌控支出支票會簽；掌控市府公共基金轉定存；嚴禁物業經理代持存摺印鑑。',
+        cases: '5月至新光銀行完成印鑑變更；8月完成市府核退公共基金 $1,985,882 元轉銀行定存；督導 5-9 月管理費收繳達 237 戶（98.3%）。'
+      },
+      'audit': {
+        icon: '⚖️',
+        title: '監察委員：王佩如',
+        badge: '獨立監察・發包監驗',
+        sub: '獨立行使監督職權・查核財務帳冊與工程比價驗收',
+        duty: '獨立監督管委會會務執行是否符合法律與規約；查核每月財務帳冊、傳票、新光銀行對帳單；監督工程招標比價公平性；調閱申請初審。',
+        doa: '支出傳票監察會簽章；對違反法令規約之動支具備拒簽與糾正權；獨立向區權人會議提出監察報告。',
+        cases: '監察國霖、太古機電與凱新水電比價過程；查驗新光銀行活存 $4,824,072 與定存四筆 $2,672,282；審核住戶調閱帳冊申請。'
+      },
+      'equip': {
+        icon: '⚡',
+        title: '設備委員：廖佩芬 / 林春江',
+        badge: '機電工務組',
+        sub: '全區公共水電機電、抽水泵浦、柴油發電機、監視弱電之維護監督',
+        duty: '掌管全區公共水電設備巡查；主導「凱新水電公設總檢案」；夜間公共電費飆漲查測；公園電箱加裝分電表工程會勘。',
+        doa: '工務修繕請購單初審；設備突發跳脫緊急通報會勘。',
+        cases: '9月例會決標由凱新水電承接全區公設機電總檢；推動公共電路、路燈、監視器漏電檢測；督導抽水水泵正常運轉。'
+      },
+      'affairs': {
+        icon: '📜',
+        title: '事務委員：姚廷穎',
+        badge: '行政法制組',
+        sub: '社區行政法制規範研擬與住戶門禁磁扣管理',
+        duty: '督導管理室公務行政與公文往來；研擬修訂《重要文件調閱列印管理辦法》、《社區巷道停車管理辦法》；監督全區 241 戶磁扣發放。',
+        doa: '行政管理規章草案初審；住戶陳情公文擬辦初核。',
+        cases: '7月例會議定智能磁扣每戶免費2顆（第3顆起100元）；8月推動磁扣平日發放；9月核定重要文件調閱列印辦法（A4黑白2元/彩色10元）。'
+      },
+      'general': {
+        icon: '🪑',
+        title: '庶務委員：陳郁芬',
+        badge: '總務庶務組',
+        sub: '管理室貨櫃屋設備維護、事務用品採購與辦公耗材核銷',
+        duty: '掌管管理室（貨櫃屋）辦公設備維護；公務電腦與影印事務機評估租賃；博勝流動廁所租賃合約及清潔耗材核銷。',
+        doa: '零用金 3,000 元以下庶務支出初審。',
+        cases: '7月追認貨櫃屋加裝華生飲水機與洗滌水槽；8月追認博勝環保流動廁所一年期合約；和成黑板戶外公告欄及標牌安裝。'
+      },
+      'garden': {
+        icon: '🌿',
+        title: '園藝委員：陳朝清 (陳佳渝)',
+        badge: '景觀植栽組',
+        sub: '萬坪景觀植栽養護督導・邊坡滴灌噴灌系統巡視',
+        duty: '督導「偉碩景觀園藝」（隔月定期養護，月費 $27,300）現場工進；巡查邊坡灌木、滴灌系統運作；超出圍籬雜木砍伐修剪會勘。',
+        doa: '園藝養護工作驗收單簽核。',
+        cases: '6月審定偉碩園藝合約；7/8~7/10偉碩進場施作3天園藝維養；8/11欄杆旁超出雜木砍伐作業督工；列管滴灌系統枯萎補植。'
+      },
+      'pr': {
+        icon: '🤝',
+        title: '公關委員：張庭瑄',
+        badge: '公共關係組',
+        sub: '住戶公共關係協調・公部門業務對接爭取',
+        duty: '促進社區鄰里關係與節慶活動籌辦；對外公部門業務接洽（如台中市政府交通局 Youbike 設站、烏日分局巡邏箱增設）。',
+        doa: '社區聯誼活動企劃初審；公部門陳情公文會辦。',
+        cases: '5月例會提案函文交通局爭取龍社路增設 Youbike 站；7月動議發函警察局增設龍社路巡邏箱。'
+      },
+      'env': {
+        icon: '♻️',
+        title: '環保委員：黎渝惠',
+        badge: '環保清運組',
+        sub: '環保室運作督導・垃圾清運・資源回收・舊衣回收',
+        duty: '掌管環保室運作與環境清消；監督「睿豐廢棄物」（每週三五清運子母車）品質；督導「鉦諦環保」資源回收與「寶宸興業」舊衣回收箱。',
+        doa: '垃圾清運簽單審核；環保室違規分類處置初核。',
+        cases: '7月決標睿豐子母車清運（$1,000/桶）；8月增設寶宸舊衣回收箱（年回饋公款 $19,280 元）；9月決議廚餘桶現階段不開放。'
+      },
+      'park': {
+        icon: '🌲',
+        title: '公園委員：林春江',
+        badge: '公園綠地組',
+        sub: '公園保護區綠地巡視・公共遊樂設施評估・公園用電安全',
+        duty: '負責社區公園保護區綠地維護巡查；評估公共遊樂設施之安全性與設置可行性；公園用電獨立分電表加裝與安全控管。',
+        doa: '公園公共綠地改善方案初審。',
+        cases: '8月例會評估公園遊樂設施因金額高且涉及安全建議不採購；9月動議通過公園保護區電箱加裝小電錶以釐清用電度數。'
+      },
+      'security': {
+        icon: '🛡️',
+        title: '安全委員：賴怡良',
+        badge: '治安防護組',
+        sub: '全區 64 支監視器・車辨車道門禁・社區治安聯防',
+        duty: '掌管全區治安維護；門禁車辨系統及全區 64 支監視器妥善率；公設遭外車碰撞毀損之錄影調閱與責任求償舉證；烏日分局巡邏箱聯繫。',
+        doa: '監視器調閱核准權；安全門禁弱電報修初審。',
+        cases: '6月評估環保室智能門禁磁扣系統；8月追認磐石寬頻施作鐵捲門防壓紅外線；9月動議通過公設人為損傷管委會先修再追償辦法。'
+      },
+      'property': {
+        icon: '🏢',
+        title: '受任物業：福爾摩沙物業管理維護',
+        badge: '受任執行幕僚 ($70,350/月)',
+        sub: '督導處長：劉廣袤 ｜ 駐點社區經理：曹鈺芳（平日 09:00~18:00，六日見紅休）',
+        duty: '管理室櫃檯行政接待、掛號信件與生鮮包裹代收、智生活系統操作維護、管理費出單對帳、公設每日巡查、例會資料繕製與外包廠商督工。',
+        doa: '執行管委會決議事項；無獨立公款動支權；每日填寫公務日誌向管委會負責。',
+        cases: '7月曹鈺芳經理接任交接；執行5-9月管理費催繳至237戶；每日督考品潔清潔平日4小時；對接偉碩園藝、凱新水電、睿豐清運。'
+      }
+    };
+
+    function inspectOrgMember(key) {
+      const data = ORG_MEMBERS_DATA[key];
+      if (!data) return;
+
+      safeSetText('inspIcon', data.icon);
+      safeSetText('inspTitle', data.title);
+      safeSetText('inspBadge', data.badge);
+      safeSetText('inspSub', data.sub);
+      safeSetText('inspDuty', data.duty);
+      safeSetText('inspDOA', data.doa);
+      safeSetText('inspCases', data.cases);
+
+      // Highlight active node in tree
+      document.querySelectorAll('.org-node-box').forEach(el => {
+        el.style.boxShadow = '';
+        el.style.borderColor = '';
+        el.style.transform = 'scale(1)';
+      });
+
+      const activeNode = event ? event.currentTarget : null;
+      if (activeNode) {
+        activeNode.style.boxShadow = '0 0 20px rgba(56, 189, 248, 0.6)';
+        activeNode.style.borderColor = 'var(--accent-cyan)';
+        activeNode.style.transform = 'scale(1.03)';
+      }
+
+      // Smooth scroll inspector drawer into comfortable view if on mobile
+      if (window.innerWidth <= 768) {
+        const inspector = document.getElementById('orgMemberInspector');
+        if (inspector) {
+          inspector.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }
+
+    function filterOrgView(mode, btn) {
+      document.querySelectorAll('#orgChartFilterWrap .filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const gAuth = document.getElementById('nodeGroupAuthority');
+      const gChair = document.getElementById('nodeGroupChair');
+      const gCore = document.getElementById('nodeGroupCore');
+      const gFunc = document.getElementById('nodeGroupFunctions');
+      const gProp = document.getElementById('nodeGroupProperty');
+
+      if (mode === 'all') {
+        if (gAuth) gAuth.style.display = 'block';
+        if (gChair) gChair.style.display = 'block';
+        if (gCore) gCore.style.display = 'block';
+        if (gFunc) gFunc.style.display = 'block';
+        if (gProp) gProp.style.display = 'block';
+      } else if (mode === 'leaders') {
+        if (gAuth) gAuth.style.display = 'block';
+        if (gChair) gChair.style.display = 'block';
+        if (gCore) gCore.style.display = 'block';
+        if (gFunc) gFunc.style.display = 'none';
+        if (gProp) gProp.style.display = 'none';
+        inspectOrgMember('chair');
+      } else if (mode === 'functions') {
+        if (gAuth) gAuth.style.display = 'none';
+        if (gChair) gChair.style.display = 'none';
+        if (gCore) gCore.style.display = 'none';
+        if (gFunc) gFunc.style.display = 'block';
+        if (gProp) gProp.style.display = 'none';
+        inspectOrgMember('equip');
+      } else if (mode === 'property') {
+        if (gAuth) gAuth.style.display = 'none';
+        if (gChair) gChair.style.display = 'block';
+        if (gCore) gCore.style.display = 'none';
+        if (gFunc) gFunc.style.display = 'none';
+        if (gProp) gProp.style.display = 'block';
+        inspectOrgMember('property');
+      }
+    }
   </script>
 
 
