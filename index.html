@@ -1619,6 +1619,217 @@
       }
     }
 
+
+    /* =========================================================================
+       ULTRA COMPACT NAVBAR & NATIVE MOBILE APP UX (PHONE FRIENDLY)
+       ========================================================================= */
+    .navbar {
+      padding: 10px 0;
+      background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: nowrap;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: nowrap;
+      background: rgba(15, 23, 42, 0.6);
+      padding: 4px 6px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .main-nav-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-secondary);
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .main-nav-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .main-nav-btn.active {
+      color: #020617;
+      background: var(--accent-cyan);
+      font-weight: 700;
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    .main-nav-btn.active svg {
+      stroke: #020617;
+    }
+
+    /* Floating Action Button (FAB) */
+    .fab-scroll-top {
+      position: fixed;
+      right: 18px;
+      bottom: 74px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      color: #020617;
+      border: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(56, 189, 248, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fab-scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Mobile Bottom Tab Bar (Only visible on screens <= 768px) */
+    .mobile-bottom-nav {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 68px !important;
+      }
+
+      .desktop-only-btn {
+        display: none !important;
+      }
+
+      /* On mobile, hide desktop top tabs and use clean bottom app bar */
+      .nav-tabs#desktopNavTabs {
+        display: none !important;
+      }
+
+      .navbar {
+        padding: 8px 0 !important;
+      }
+
+      .nav-content {
+        justify-content: space-between !important;
+      }
+
+      .nav-brand {
+        font-size: 0.92rem !important;
+      }
+
+      .community-badge {
+        display: none !important;
+      }
+
+      /* Native App Bottom Tab Bar */
+      .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 58px !important;
+        background: rgba(2, 6, 23, 0.96) !important;
+        backdrop-filter: blur(16px) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+        z-index: 10000 !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        padding: 0 4px env(safe-area-inset-bottom) 4px !important;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6) !important;
+      }
+
+      .mobile-tab-btn {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: none !important;
+        color: #94A3B8 !important;
+        font-size: 0.68rem !important;
+        font-weight: 600 !important;
+        padding: 4px 2px !important;
+        gap: 2px !important;
+        flex: 1 !important;
+        cursor: pointer !important;
+        transition: all 0.18s ease !important;
+        -webkit-tap-highlight-color: transparent !important;
+      }
+
+      .mobile-tab-btn svg {
+        stroke: #94A3B8 !important;
+        transition: stroke 0.18s ease !important;
+      }
+
+      .mobile-tab-btn.active {
+        color: var(--accent-cyan) !important;
+        font-weight: 800 !important;
+      }
+
+      .mobile-tab-btn.active svg {
+        stroke: var(--accent-cyan) !important;
+      }
+
+      /* Compact Meeting Downloads on Mobile */
+      .meeting-downloads-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+      }
+      .meeting-dl-btn {
+        padding: 8px 10px !important;
+        font-size: 0.8rem !important;
+      }
+
+      /* Cards & Tables */
+      .card {
+        padding: 16px 14px !important;
+        border-radius: 10px !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .meeting-downloads-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -1644,60 +1855,54 @@
   <!-- Sticky Navbar -->
   <nav class="navbar">
     <div class="container nav-content">
-            <div class="nav-brand">
-        <span style="background: rgba(245, 158, 11, 0.2); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.5); padding: 2px 8px; border-radius: 4px; font-weight: 800; font-size: 0.74rem; letter-spacing: 0.5px;">示意圖</span>
-        <img src="logo.png" alt="富宇大地 Logo" style="height: 38px; width: 38px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.45); box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);">
-        <span>富宇大地社區</span>
-        <span class="community-badge">管理資訊中心</span>
+      <div class="nav-brand">
+        <span style="background: rgba(245, 158, 11, 0.2); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.5); padding: 2px 7px; border-radius: 4px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.5px;">示意圖</span>
+        <img src="logo.png" alt="富宇大地 Logo" style="height: 34px; width: 34px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.45); box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);">
+        <span style="font-weight: 800; font-size: 1.05rem; letter-spacing: 0.5px; color: #FFFFFF;">富宇大地社區</span>
+        <span class="community-badge" style="font-size: 0.72rem; padding: 2px 8px;">241戶・管理資訊中心</span>
       </div>
 
-      <!-- Consolidated 3 Core Navigation Tabs -->
-      <div class="nav-tabs">
+      <!-- Compact & Responsive 6-Tab Navigation (Desktop & Tablet) -->
+      <div class="nav-tabs" id="desktopNavTabs">
         <button id="navBtnAudit" class="main-nav-btn active" onclick="switchMainView('audit')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          物業體檢與改進重點
-          <span style="background: rgba(244, 63, 94, 0.25); color: var(--accent-rose); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">現況體檢</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          物業體檢
         </button>
 
         <button id="navBtnHandover" class="main-nav-btn" onclick="switchMainView('handover')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          物業點交與檔案提報
-          <span style="background: rgba(245, 158, 11, 0.25); color: var(--accent-amber); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">P0~P3驗收</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          點交驗收
         </button>
 
         <button id="navBtnBulletin" class="main-nav-btn" onclick="switchMainView('bulletin')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-          公佈欄
-          <span style="background: rgba(56, 189, 248, 0.25); color: var(--accent-cyan); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">會議/公告 📥</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          公佈欄 <span id="navBulletinBadge" style="background: rgba(56, 189, 248, 0.25); color: var(--accent-cyan); font-size: 0.7rem; padding: 1px 6px; border-radius: 9999px; margin-left: 2px;">5</span>
         </button>
 
         <button id="navBtnGovernance" class="main-nav-btn" onclick="switchMainView('governance')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          治理規章手冊
-          <span style="background: rgba(16, 185, 129, 0.25); color: var(--accent-emerald); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">權責&SOP</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          規章手冊
         </button>
 
         <button id="navBtnSmartDaily" class="main-nav-btn" onclick="switchMainView('smartdaily')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
-          智生活調研評鑑
-          <span style="background: rgba(168, 85, 247, 0.25); color: var(--accent-purple); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">SaaS評鑑</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          智生活評鑑
         </button>
 
-        <button id="navBtnSitemap" class="main-nav-btn" onclick="switchMainView('sitemap')" style="border-color: rgba(56, 189, 248, 0.4);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <button id="navBtnSitemap" class="main-nav-btn" onclick="switchMainView('sitemap')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
           網頁導覽
-          <span style="background: rgba(245, 158, 11, 0.25); color: var(--accent-amber); font-size: 0.72rem; padding: 1px 6px; border-radius: 9999px;">全站架構 🗺️</span>
         </button>
       </div>
 
       <div class="nav-actions" style="display: flex; align-items: center; gap: 8px;">
-        <a href="fuyu_governance_20page_report.html" target="_blank" class="btn-action" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.4); font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-          20 頁白皮書專刊
+        <a href="fuyu_governance_20page_report.html" target="_blank" class="btn-action" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.4); font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          20頁報告
         </a>
-        <button class="btn-action" onclick="window.print()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
-          列印存檔
+        <button class="btn-action desktop-only-btn" onclick="window.print()" style="padding: 6px 12px; font-size: 0.8rem; border-radius: 6px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+          列印
         </button>
       </div>
     </div>
@@ -4976,41 +5181,45 @@
     function switchMainView(viewId) {
       document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active-view'));
       document.querySelectorAll('.main-nav-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.mobile-tab-btn').forEach(btn => btn.classList.remove('active'));
 
-      if (viewId === 'audit') {
-        const v = document.getElementById('viewAudit');
-        const b = document.getElementById('navBtnAudit');
-        if (v) v.classList.add('active-view');
-        if (b) b.classList.add('active');
-      } else if (viewId === 'handover') {
-        const v = document.getElementById('viewHandover');
-        const b = document.getElementById('navBtnHandover');
-        if (v) v.classList.add('active-view');
-        if (b) b.classList.add('active');
-      } else if (viewId === 'bulletin') {
-        const v = document.getElementById('viewBulletin');
-        const b = document.getElementById('navBtnBulletin');
-        if (v) v.classList.add('active-view');
-        if (b) b.classList.add('active');
+      const map = {
+        'audit': { v: 'viewAudit', d: 'navBtnAudit', m: 'mTabAudit' },
+        'handover': { v: 'viewHandover', d: 'navBtnHandover', m: 'mTabHandover' },
+        'bulletin': { v: 'viewBulletin', d: 'navBtnBulletin', m: 'mTabBulletin' },
+        'governance': { v: 'viewGovernance', d: 'navBtnGovernance', m: 'mTabGovernance' },
+        'gov': { v: 'viewGovernance', d: 'navBtnGovernance', m: 'mTabGovernance' },
+        'smartdaily': { v: 'viewSmartDaily', d: 'navBtnSmartDaily', m: 'mTabSmartDaily' },
+        'sitemap': { v: 'viewSitemap', d: 'navBtnSitemap', m: 'mTabSitemap' }
+      };
+
+      const target = map[viewId] || map['audit'];
+      const vEl = document.getElementById(target.v);
+      const dBtn = document.getElementById(target.d);
+      const mBtn = document.getElementById(target.m);
+
+      if (vEl) vEl.classList.add('active-view');
+      if (dBtn) dBtn.classList.add('active');
+      if (mBtn) mBtn.classList.add('active');
+
+      if (viewId === 'bulletin') {
         renderBulletinList();
-      } else if (viewId === 'governance' || viewId === 'gov') {
-        const v = document.getElementById('viewGovernance');
-        const b = document.getElementById('navBtnGovernance');
-        if (v) v.classList.add('active-view');
-        if (b) b.classList.add('active');
-      } else if (viewId === 'smartdaily') {
-        const v = document.getElementById('viewSmartdaily') || document.getElementById('viewSmartDaily');
-        const b = document.getElementById('navBtnSmartdaily') || document.getElementById('navBtnSmartDaily');
-        if (v) v.classList.add('active-view');
-        if (b) b.classList.add('active');
-      } else if (viewId === 'sitemap') {
-        const v = document.getElementById('viewSitemap');
-        const b = document.getElementById('navBtnSitemap');
-        if (v) v.classList.add('active-view');
-        if (b) b.classList.add('active');
       }
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Scroll listener for FAB scroll-to-top
+    window.addEventListener('scroll', () => {
+      const fab = document.getElementById('fabScrollTop');
+      if (fab) {
+        if (window.scrollY > 350) {
+          fab.classList.add('visible');
+        } else {
+          fab.classList.remove('visible');
+        }
+      }
+    });
 
     function switchGovSubSection(secIdx) {
       for (let i = 1; i <= 4; i++) {
@@ -5281,5 +5490,43 @@
     });
   </script>
 
+
+  <!-- =========================================================================
+       NATIVE MOBILE APP-LIKE BOTTOM TAB BAR (HIGH MOBILE AFFINITY & USABILITY)
+       ========================================================================= -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="手機端快捷導覽">
+    <button class="mobile-tab-btn active" id="mTabAudit" onclick="switchMainView('audit')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span>體檢</span>
+    </button>
+    <button class="mobile-tab-btn" id="mTabHandover" onclick="switchMainView('handover')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      <span>點交</span>
+    </button>
+    <button class="mobile-tab-btn" id="mTabBulletin" onclick="switchMainView('bulletin')">
+      <div style="position: relative;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        <span style="position: absolute; top: -4px; right: -8px; background: var(--accent-cyan); color: #020617; font-size: 0.6rem; font-weight: 900; padding: 0 4px; border-radius: 9999px;">5</span>
+      </div>
+      <span>公佈欄</span>
+    </button>
+    <button class="mobile-tab-btn" id="mTabGovernance" onclick="switchMainView('governance')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <span>規章</span>
+    </button>
+    <button class="mobile-tab-btn" id="mTabSmartDaily" onclick="switchMainView('smartdaily')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+      <span>智生活</span>
+    </button>
+    <button class="mobile-tab-btn" id="mTabSitemap" onclick="switchMainView('sitemap')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      <span>導覽</span>
+    </button>
+  </nav>
+
+  <!-- Mobile Floating Scroll-to-Top Button (FAB) -->
+  <button id="fabScrollTop" class="fab-scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="回到頁首">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
 </body>
 </html>
