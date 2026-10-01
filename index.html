@@ -2441,6 +2441,324 @@
       </section>
 
 
+      
+      <!-- ========================================================================= -->
+      <!-- SECTION: 管委會督考專用：物業管理 24 項必備基本表格與填寫頻率總表            -->
+      <!-- ========================================================================= -->
+      <section class="section" id="sec-committee-forms-schedule" style="margin-top: 36px; margin-bottom: 36px;">
+        <div class="section-header">
+          <div>
+            <div class="section-subtitle">MANAGEMENT COMMITTEE AUDIT TOOLKIT</div>
+            <h2 style="color: #FFFFFF; font-size: 1.4rem; font-weight: 800;">
+              📋 管委會督考專用：物業管理必備基本表格與填寫頻率總表
+            </h2>
+          </div>
+          <span class="tag tag-emerald" style="font-size: 0.8rem; padding: 4px 10px;">日/週/月/季/年 全週期管考</span>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--accent-emerald); background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--card-bg) 100%); margin-bottom: 22px;">
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px;">
+            為解決單人駐點經理（曹鈺芳經理，平日 09:00~18:00）「口頭回報無紀錄、公務外出常撲空、修繕拖延一整月」之長年痛點，依據 115 年 5～9 月五次例會公文與《公寓大廈管理服務人管理辦法》第 16 條，管理委員會應要求物業管理團隊<strong>「嚴格落實以下 24 項核心實體表格」</strong>，依頻率定時提報簽審：
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700;">週期速篩：</span>
+            <button class="filter-btn active" onclick="filterFormsSchedule('ALL', this)">全部 24 項表格</button>
+            <button class="filter-btn" onclick="filterFormsSchedule('DAILY', this)">📅 每日必填 (6)</button>
+            <button class="filter-btn" onclick="filterFormsSchedule('WEEKLY', this)">📅 每週管考 (4)</button>
+            <button class="filter-btn" onclick="filterFormsSchedule('MONTHLY', this)">📅 每月例會 (5)</button>
+            <button class="filter-btn" onclick="filterFormsSchedule('QUARTERLY', this)">📅 季/隔月工程 (4)</button>
+            <button class="filter-btn" onclick="filterFormsSchedule('YEARLY', this)">📅 年度法定 (5)</button>
+          </div>
+        </div>
+
+        <!-- Forms Table Container -->
+        <div class="card" style="padding: 0; overflow: hidden; border: 1px solid var(--border-color);">
+          <div class="mobile-table-hint" style="padding: 12px 16px 0 16px;">👆 提示：左右滑動表格可檢視完整審核委員與查核重點</div>
+          <div class="table-responsive" style="margin-bottom: 0;">
+            <table id="tableCommitteeFormsSchedule" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: rgba(15, 23, 42, 0.95); border-bottom: 2px solid var(--border-color);">
+                  <th style="width: 8%; text-align: center;">頻率</th>
+                  <th style="width: 8%; text-align: center;">編號</th>
+                  <th style="width: 22%;">表格名稱與法定依據</th>
+                  <th style="width: 12%;">物業主責填寫</th>
+                  <th style="width: 14%;">管委會審核人</th>
+                  <th style="width: 26%;">管委會查核重點與防弊目的</th>
+                  <th style="width: 10%; text-align: center;">重要性</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyFormsSchedule">
+                <!-- D-01 -->
+                <tr class="form-row form-daily">
+                  <td style="text-align: center;"><span class="tag tag-rose" style="font-size: 0.72rem;">每日 (日)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">D-01</td>
+                  <td><strong>《社區經理每日執勤公務日誌》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">管理服務人第16條第7款留痕</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-amber);">主任委員</strong> 馬士傑</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">記錄每日洽公人次、公文收發、工程施工與異常事件速記，每週一呈報主委。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- D-02 -->
+                <tr class="form-row form-daily">
+                  <td style="text-align: center;"><span class="tag tag-rose" style="font-size: 0.72rem;">每日 (日)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">D-02</td>
+                  <td><strong>《社區經理公務外出登記簿》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">杜絕隨興脫哨大唱空城計</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-amber);">主委 / 財委</strong> (事先報備)</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">記錄出發/返館時間、前往地點、公務事由，集中於平日 14~15:30 辦理。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- D-03 -->
+                <tr class="form-row form-daily">
+                  <td style="text-align: center;"><span class="tag tag-rose" style="font-size: 0.72rem;">每日 (日)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">D-03</td>
+                  <td><strong>《公共機電水電每日巡檢表》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">每日 09:30~11:00 現場巡檢</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-cyan);">設備委員</strong> 廖佩芬 / 林春江</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">查驗地下蓄水池給水馬達水壓、污水泵浦、發電機電瓶、大門鐵捲門感應。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- D-04 -->
+                <tr class="form-row form-daily">
+                  <td style="text-align: center;"><span class="tag tag-rose" style="font-size: 0.72rem;">每日 (日)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">D-04</td>
+                  <td><strong>《掛號信件與包裹收發簽領簿》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">6月例會郵件代收責任辦法</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td>領件住戶 / <strong style="color: var(--accent-emerald);">事務委員</strong> 姚廷穎</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">登錄智生活條碼、住戶親簽領取；生鮮包裹落實當日未取物業免責聲明。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+                <!-- D-05 -->
+                <tr class="form-row form-daily">
+                  <td style="text-align: center;"><span class="tag tag-rose" style="font-size: 0.72rem;">每日 (日)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">D-05</td>
+                  <td><strong>《品潔清潔現場每日抽驗簽認單》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">平日每天4小時清洁督考</span></td>
+                  <td>品潔清潔工<br>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-cyan);">環保委員</strong> 黎渝惠</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">查驗環保室子母車清消、落葉清掃、公設玻璃擦拭，未達標依合約扣罰。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+                <!-- D-06 -->
+                <tr class="form-row form-daily">
+                  <td style="text-align: center;"><span class="tag tag-rose" style="font-size: 0.72rem;">每日 (日)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">D-06</td>
+                  <td><strong>《住戶報修／公設修繕工單管制表》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">終結「報修一拖數週」惡習</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-cyan);">設備委員</strong> / 凱新水電</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">記錄報修戶別、受損情況、派工廠商，限期 3 日內結案，杜絕口頭敷衍。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+                <!-- W-01 -->
+                <tr class="form-row form-weekly">
+                  <td style="text-align: center;"><span class="tag tag-amber" style="font-size: 0.72rem;">每週 (週)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">W-01</td>
+                  <td><strong>《全區公共電表每週抄表紀錄表》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">9月例會動議一漏電排查</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-cyan);">設備委員</strong> 廖佩芬</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">每週一抄錄各區公電總表與公園獨立分電表，度數波動 >15% 當日抓漏電。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- W-02 -->
+                <tr class="form-row form-weekly">
+                  <td style="text-align: center;"><span class="tag tag-amber" style="font-size: 0.72rem;">每週 (週)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">W-02</td>
+                  <td><strong>《睿豐垃圾子母車清運現場簽收單》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">每週三、五垃圾車進場簽單</span></td>
+                  <td>曹鈺芳 經理<br>睿豐司機</td>
+                  <td><strong style="color: var(--accent-cyan);">環保委員</strong> 黎渝惠</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">經理親自現場清點 6 桶子母車數量並拍照簽單，<strong>防止每桶 $1,000 清運費虛報</strong>。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- W-03 -->
+                <tr class="form-row form-weekly">
+                  <td style="text-align: center;"><span class="tag tag-amber" style="font-size: 0.72rem;">每週 (週)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">W-03</td>
+                  <td><strong>《241 戶管理費收繳對帳週報表》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">超商/ATM 繳費每週銷帳</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-emerald);">財務委員</strong> 蔡侑倢</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">掌握月收 $241,000 進度，每週滾動更新未繳名單並電話溫馨提醒。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+                <!-- W-04 -->
+                <tr class="form-row form-weekly">
+                  <td style="text-align: center;"><span class="tag tag-amber" style="font-size: 0.72rem;">每週 (週)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">W-04</td>
+                  <td><strong>《管委會每週公務交辦追蹤週報》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">每週一上午向主委書面呈報</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-amber);">主任委員</strong> 馬士傑</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">彙整上週例會決議落實進度、待辦公文、未結工單，確保件件有著落。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+                <!-- M-01 -->
+                <tr class="form-row form-monthly">
+                  <td style="text-align: center;"><span class="tag tag-cyan" style="font-size: 0.72rem;">每月 (月)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">M-01</td>
+                  <td><strong>《新光銀行存款調節表與月收支財報》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">條例第20條法定月報</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-emerald);">財委</strong> 蔡侑倢 / <strong style="color: var(--accent-purple);">監委</strong> 王佩如</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">核對新光活存（482萬）與定存四筆（267萬），列出損益表與三章分立簽核。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- M-02 -->
+                <tr class="form-row form-monthly">
+                  <td style="text-align: center;"><span class="tag tag-cyan" style="font-size: 0.72rem;">每月 (月)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">M-02</td>
+                  <td><strong>《全區 241 戶管理費催繳管制清冊》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">聲請法院支付命令依據</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-emerald);">財務委員</strong> 蔡侑倢</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">列管長滯欠繳戶（B58/C17/C81/C103），記載催繳公文函號與法院執行進度。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- M-03 -->
+                <tr class="form-row form-monthly">
+                  <td style="text-align: center;"><span class="tag tag-cyan" style="font-size: 0.72rem;">每月 (月)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">M-03</td>
+                  <td><strong>《定額零用金支用明細黏存單》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">小額 3,000 元以下庶務支出</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-emerald);">財務委員</strong> / <strong style="color: var(--accent-purple);">監察委員</strong></td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">核銷郵資、文具、影印紙發票，檢附單據正本，實報實銷，嚴禁無憑動支。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+                <!-- M-04 -->
+                <tr class="form-row form-monthly">
+                  <td style="text-align: center;"><span class="tag tag-cyan" style="font-size: 0.72rem;">每月 (月)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">M-04</td>
+                  <td><strong>《管委會例行會議開會通知與簽到簿》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">每月第一週平日晚間 19:00</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-amber);">主任委員</strong> 馬士傑</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">會前7日發出通知，現場出席簽到，核對過半10員法定門檻，保障決議效力。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- M-05 -->
+                <tr class="form-row form-monthly">
+                  <td style="text-align: center;"><span class="tag tag-cyan" style="font-size: 0.72rem;">每月 (月)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">M-05</td>
+                  <td><strong>《重要文件調閱規費月度彙總表》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">9月調閱辦法法定附表二</span></td>
+                  <td>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-purple);">監察委員</strong> 王佩如</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">彙總當月住戶查閱公文次數，黑白2元/彩色10元規費全數入公款，杜絕私吞。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+                <!-- Q-01 -->
+                <tr class="form-row form-quarterly">
+                  <td style="text-align: center;"><span class="tag tag-emerald" style="font-size: 0.72rem;">季/隔月</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">Q-01</td>
+                  <td><strong>《偉碩景觀園藝定檢施作驗收單》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">隔月一次 (7,9,11,1,3,5月)</span></td>
+                  <td>偉碩負責人<br>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-emerald);">園藝委員</strong> 陳朝清</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">驗收萬坪植栽修剪、超出圍籬雜木砍伐、滴灌噴頭疏通，檢附前後照片撥款。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+                <!-- Q-02 -->
+                <tr class="form-row form-quarterly">
+                  <td style="text-align: center;"><span class="tag tag-emerald" style="font-size: 0.72rem;">季/隔月</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">Q-02</td>
+                  <td><strong>《緊急柴油發電機季度試運轉測試表》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">每季運轉一次 (3,6,9,12月)</span></td>
+                  <td>凱新水電<br>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-cyan);">設備委員</strong> 廖佩芬</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">運轉15分鐘檢查冷卻水、機油、電瓶比重，防大停電時抽水馬達失靈。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- Q-03 -->
+                <tr class="form-row form-quarterly">
+                  <td style="text-align: center;"><span class="tag tag-emerald" style="font-size: 0.72rem;">季/隔月</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">Q-03</td>
+                  <td><strong>《64 支監視器與弱電系統季度檢驗表》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">每季全區檢測一次</span></td>
+                  <td>話神 / 磐石弱電<br>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-rose);">安全委員</strong> 賴怡良</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">鏡頭清潔、錄影天數確認（>=30天）、車辨率測試，防車禍破損調閱黑屏。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+                <!-- Q-04 -->
+                <tr class="form-row form-quarterly">
+                  <td style="text-align: center;"><span class="tag tag-emerald" style="font-size: 0.72rem;">季/隔月</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">Q-04</td>
+                  <td><strong>《全區環境衛生機動消毒施作驗收單》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">6月例會動議二機動施作</span></td>
+                  <td>博泰消毒<br>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-cyan);">環保委員</strong> 黎渝惠</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">確認水溝、落葉集中區噴藥無偷工減料，有效控制蚊蠅與登革熱。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-cyan); font-weight: 600; font-size: 0.8rem;">🟢 P2 中</span></td>
+                </tr>
+
+                <!-- Y-01 -->
+                <tr class="form-row form-yearly">
+                  <td style="text-align: center;"><span class="tag tag-purple" style="font-size: 0.72rem;">年度 (年)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">Y-01</td>
+                  <td><strong>《建築物公共安全自主檢查與申報書》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">建築法規年度法定申報</span></td>
+                  <td>公安代辦<br>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-amber);">主任委員</strong> 馬士傑</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">依建築法辦理公設公安申報，領取台中市府工務局備查合格函，防6~30萬罰鍰。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- Y-02 -->
+                <tr class="form-row form-yearly">
+                  <td style="text-align: center;"><span class="tag tag-purple" style="font-size: 0.72rem;">年度 (年)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">Y-02</td>
+                  <td><strong>《消防安全設備檢修申報與複驗合格表》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">消防法規年度法定申報</span></td>
+                  <td>消防設備師<br>凱新水電</td>
+                  <td><strong style="color: var(--accent-cyan);">設備委員</strong> / <strong style="color: var(--accent-amber);">主委</strong></td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">全區消防栓、火警警報、滅火器檢驗送台中市消防局備查，防2~10萬罰款。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- Y-03 -->
+                <tr class="form-row form-yearly">
+                  <td style="text-align: center;"><span class="tag tag-purple" style="font-size: 0.72rem;">年度 (年)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">Y-03</td>
+                  <td><strong>《地下蓄水池清洗消毒與水質檢驗報告》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">241 戶飲用水衛生安全</span></td>
+                  <td>洗水池廠商<br>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-cyan);">設備委員</strong> 廖佩芬</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">高壓清洗消毒蓄水池，檢驗大腸桿菌群、濁度、餘氯出具合格報告並公告。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- Y-04 -->
+                <tr class="form-row form-yearly">
+                  <td style="text-align: center;"><span class="tag tag-purple" style="font-size: 0.72rem;">年度 (年)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">Y-04</td>
+                  <td><strong>《台灣產險公共意外責任險年度續保單》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">9月例會決標全區保單</span></td>
+                  <td>台灣產險<br>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-amber);">主委</strong> / <strong style="color: var(--accent-emerald);">財委</strong></td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">每年9月核對投保公共區域範圍、保額與保費，防止公設滑倒受傷巨額求償。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-rose); font-weight: 800; font-size: 0.8rem;">🔴 P0 極高</span></td>
+                </tr>
+
+                <!-- Y-05 -->
+                <tr class="form-row form-yearly">
+                  <td style="text-align: center;"><span class="tag tag-purple" style="font-size: 0.72rem;">年度 (年)</span></td>
+                  <td style="text-align: center; font-family: monospace; font-weight: 700;">Y-05</td>
+                  <td><strong>《寶宸舊衣回收箱年度回饋金結算單》</strong><br><span style="font-size: 0.76rem; color: var(--text-muted);">8-9月合約年回饋 $19,280</span></td>
+                  <td>寶宸興業<br>曹鈺芳 經理</td>
+                  <td><strong style="color: var(--accent-emerald);">財務委員</strong> 蔡侑倢</td>
+                  <td style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">核算全區回饋公款 NT$ 19,280 元支票存入新光銀行，保障公款收益入帳。</td>
+                  <td style="text-align: center;"><span style="color: var(--accent-amber); font-weight: 700; font-size: 0.8rem;">🟡 P1 高</span></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+
       <section class="section" id="sec-missing-forms">
         <div class="section-header">
           <div>
@@ -6146,6 +6464,30 @@
         inspectOrgMember('property');
       }
     }
+  
+    function filterFormsSchedule(period, btn) {
+      const btns = btn.parentElement.querySelectorAll('.filter-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const rows = document.querySelectorAll('#tbodyFormsSchedule .form-row');
+      rows.forEach(r => {
+        if (period === 'ALL') {
+          r.style.display = '';
+        } else if (period === 'DAILY') {
+          r.style.display = r.classList.contains('form-daily') ? '' : 'none';
+        } else if (period === 'WEEKLY') {
+          r.style.display = r.classList.contains('form-weekly') ? '' : 'none';
+        } else if (period === 'MONTHLY') {
+          r.style.display = r.classList.contains('form-monthly') ? '' : 'none';
+        } else if (period === 'QUARTERLY') {
+          r.style.display = r.classList.contains('form-quarterly') ? '' : 'none';
+        } else if (period === 'YEARLY') {
+          r.style.display = r.classList.contains('form-yearly') ? '' : 'none';
+        }
+      });
+    }
+
   </script>
 
 
