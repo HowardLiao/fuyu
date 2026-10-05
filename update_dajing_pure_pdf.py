@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+# -*- coding: utf-8 -*-
+import os
+
+html_content = """<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -552,3 +555,10 @@
   </div>
 </body>
 </html>
+"""
+
+out_path = '/Users/howardliao/Desktop/HermesAgent/PortFilio/fuyu/dajing.html'
+with open(out_path, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Updated dajing.html: strictly PDF preview and download only, zero zip, zero docx, zero pptx!")
