@@ -879,7 +879,7 @@ html_code = """<!DOCTYPE html>
       <h1>富宇大境（A2 區・6 戶）<br><span>法定獨立分割卷宗與專案報告下載專區</span></h1>
       <p class="subtitle">台中市沙鹿區龍社路 593～603 號全體住戶專屬 ｜ 迎回 28 萬自有公款 ｜ 管理費自 $1,000 大降至 $400</p>
       <div class="reporter-bar">
-        <span>專案受託召集人：<strong>廖倫豪 博士（Howard Liao Ph.D.）</strong></span>
+        <span>專案受託召集人：<strong>廖倫豪</strong></span>
         <span>戶別門牌：<strong>A17 棟（沙鹿區龍社路 595 號）</strong></span>
         <span>法定門檻：<strong>6 戶全數連署即啟動</strong></span>
       </div>
@@ -1053,14 +1053,35 @@ html_code = """<!DOCTYPE html>
     </div>
 
     <!-- ======================================================================= -->
-    <!-- SECTION: 5 LEGAL DOSSIERS (PDF ONLY)                                    -->
+    <!-- SECTION: 6 LEGAL DOSSIERS (PDF ONLY)                                    -->
     <!-- ======================================================================= -->
     <div class="section-title">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      法定公文五大卷宗（PDF 印刷檔）
+      全套法定公文卷宗與全權委任授權書（PDF 印刷檔）
     </div>
 
     <div class="dossier-list">
+      <!-- Item 0: 全權委任授權書 -->
+      <div class="dossier-row spotlight" style="border-color: var(--emerald);">
+        <div class="dossier-meta">
+          <div class="dossier-badge" style="background: rgba(16, 185, 129, 0.2); color: #10B981; border: 1px solid #10B981;">法定授權</div>
+          <div class="dossier-texts">
+            <h3>富宇大境（A2 區）全體區分所有權人獨立分割全權委任授權書</h3>
+            <p>共 1 頁 ｜ 依據《民法》第 528 條委任契約，全體 6 戶專案全權委任 廖倫豪 辦理提案、交涉、迎回 28 萬公款與公所報備；載明排除任何不動產私權處分，保障全體委任人權益。</p>
+          </div>
+        </div>
+        <div class="dossier-actions">
+          <button class="btn-pdf btn-preview" onclick="openPdfModal('富宇大境A2獨立分割全權委任授權書.pdf', '法定全權委任授權書：全體 6 戶專案委任 廖倫豪')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            在線預覽 PDF
+          </button>
+          <a href="富宇大境A2獨立分割全權委任授權書.pdf" class="btn-pdf btn-download" download>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            下載 PDF
+          </a>
+        </div>
+      </div>
+
       <!-- Item 1: 主件 -->
       <div class="dossier-row">
         <div class="dossier-meta">
@@ -1223,7 +1244,7 @@ html_code = """<!DOCTYPE html>
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <strong>完全不需要！大家只需安心簽名，全權由召集人代辦。</strong>受託召集人 廖倫豪 博士（A17 龍社路 595 號）承諾代表全體 6 戶出席管委會例會提案、與主委簽署分割協議書，並親赴台中市龍井區公所辦理變更備查與新光銀行開戶接收，大家免除一切繁瑣公務負擔！
+          <strong>完全不需要！大家只需安心簽名，全權由召集人代辦。</strong>受託召集人 廖倫豪（A17 龍社路 595 號）承諾代表全體 6 戶出席管委會例會提案、與主委簽署分割協議書，並親赴台中市龍井區公所辦理變更備查與新光銀行開戶接收，大家免除一切繁瑣公務負擔！
         </div>
       </div>
     </div>
@@ -1232,7 +1253,7 @@ html_code = """<!DOCTYPE html>
     <div class="notice-box">
       <strong>【法定連署簽署說明】</strong><br>
       依據《公寓大廈管理條例》第 26 條第 1 項，本分割案只需我們 <strong>A2 大境 6 戶（龍社路 593～603 號）區權人 100% 簽署</strong> 即可具備完整法定效力。<br>
-      紙本提案申請書正本備於受託召集人 廖倫豪 先生（龍社路 595 號 A17）處，隨時歡迎各位鄰居翻閱完整原件並簽章！
+      紙本提案申請書與全權委任授權書正本備於受託召集人 廖倫豪（龍社路 595 號 A17）處，隨時歡迎各位鄰居翻閱完整原件並簽章！
     </div>
 
     <div class="back-nav">
@@ -1374,7 +1395,7 @@ html_code = """<!DOCTYPE html>
       1: {
         title: '階段一：A2 大境內部 100% 連署凝聚（共識準備）',
         badge: '進行中・現正發動',
-        desc: '• 召開大境 6 戶客廳會，確認共同推選 廖倫豪 博士為受託召集人。<br>• 簽署《正式提案申請書暨全體連署同意書》（第二頁連署冊），取得 6 戶區權人 100% 親筆簽章。<br>• 備齊地籍圖、會議記錄與切結書，完成全套法定卷宗立案。'
+        desc: '• 召開大境 6 戶客廳會，確認共同推選 廖倫豪 為受託召集人兼法定代理人。<br>• 簽署《正式提案申請書》與《專案全權委任授權書》，取得 6 戶區權人 100% 親筆簽章。<br>• 備齊地籍圖、會議記錄與切結書，完成全套法定卷宗立案。'
       },
       2: {
         title: '階段二：向富宇大地管委會正式提案（溝通與審議）',
