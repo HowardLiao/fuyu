@@ -165,6 +165,7 @@ html_code = """<!DOCTYPE html>
       color: var(--text-muted);
       font-weight: 500;
       margin-bottom: 3px;
+      text-align: right;
     }
 
     .bento-val {
@@ -173,13 +174,15 @@ html_code = """<!DOCTYPE html>
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 2px;
+      text-align: right;
     }
 
-    .bento-card.highlight .bento-val { color: var(--gold-primary); }
+    .bento-card.highlight .bento-val { color: var(--gold-primary); text-align: right; }
 
     .bento-desc {
       font-size: 0.78rem;
       color: var(--text-muted);
+      text-align: right;
     }
 
     /* Section Header */
@@ -891,9 +894,9 @@ html_code = """<!DOCTYPE html>
     <!-- 4 Bento Stats -->
     <div class="bento-stats">
       <div class="bento-card">
-        <div class="bento-label">專案標的建物</div>
-        <div class="bento-val"><span id="cntHouses">6</span> 戶別墅</div>
-        <div class="bento-desc">龍社路 593～603 號全體住戶</div>
+        <div class="bento-label" style="text-align: right;">專案標的建物</div>
+        <div class="bento-val" style="text-align: right;"><span id="cntHouses">6</span> 戶別墅</div>
+        <div class="bento-desc" style="text-align: right;">龍社路 593～603 號全體住戶</div>
       </div>
       <div class="bento-card highlight">
         <div class="bento-label" style="text-align: right;">依法迎回自有公款</div>
@@ -1370,10 +1373,10 @@ html_code = """<!DOCTYPE html>
           <div class="cmp-card ${isBad ? 'bad' : 'good'}">
             <div class="cmp-topic">
               <span>${item.topic}</span>
-              <span>${isBad ? '⚠️ 困境' : '✅ 破局'}</span>
+              <span style="text-align: right;">${isBad ? '⚠️ 困境' : '✅ 破局'}</span>
             </div>
-            <div class="cmp-title">${item.title}</div>
-            <div class="cmp-desc">${item.desc}</div>
+            <div class="cmp-title" style="text-align: right;">${item.title}</div>
+            <div class="cmp-desc" style="text-align: right;">${item.desc}</div>
           </div>
         `;
       });
