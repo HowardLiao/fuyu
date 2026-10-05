@@ -1182,16 +1182,6 @@ html_code = """<!DOCTYPE html>
       </div>
     </div>
 
-    <!-- 徹底刪除廢棄舊檔公告 -->
-    <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 14px 18px; margin-bottom: 24px;">
-      <div style="color: #EF4444; font-weight: 700; font-size: 13.5px; margin-bottom: 6px;">❌ 本次已徹底刪除的「3 份廢棄舊檔」（切勿再使用，雲端與本機已全數清除）：</div>
-      <ol style="margin: 0; padding-left: 20px; font-size: 12.5px; color: #C5BCAD; line-height: 1.6;">
-        <li><code style="color:#EF4444;">富宇大境社區管理委員會法定獨立分割報告書.pdf</code> 👉 <strong>原因</strong>：早期草案，已被唯一正本《附件一：法定獨立分割可行性研究報告書》完全取代。</li>
-        <li><code style="color:#EF4444;">富宇大境區分所有權人獨立分割正式提案申請書暨全體連署同意書.pdf</code> 👉 <strong>原因</strong>：標題易被誤會為全社區 241 戶，已被精準正名《富宇大境（A2區・6戶）管理分流提案申請書暨連署同意名冊》完全取代。</li>
-        <li><code style="color:#EF4444;">富宇大境A2獨立分割專案報告.pdf</code> 👉 <strong>原因</strong>：舊版 15 頁簡報，已被最新 16 頁完整版《富宇大境A2獨立分區管理專案報告》完全取代。</li>
-      </ol>
-    </div>
-
     <!-- ======================================================================= -->
     <!-- SECTION: 6 LEGAL DOSSIERS (PDF ONLY)                                    -->
     <!-- ======================================================================= -->
