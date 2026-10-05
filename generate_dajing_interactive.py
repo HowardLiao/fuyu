@@ -1092,16 +1092,16 @@ html_code = """<!DOCTYPE html>
         <div class="dossier-meta">
           <div class="dossier-badge">法定主件</div>
           <div class="dossier-texts">
-            <h3>富宇大境區分所有權人獨立分割正式提案申請書暨全體連署同意書</h3>
-            <p>共 2 頁 ｜ 含主旨說明辦法、雙贏分流提案條款、合意移交方案及第二頁 6 戶親筆連署立案簽章冊。</p>
+            <h3>富宇大境（A2 區・6 戶）全體區分所有權人管理分流提案申請書暨連署同意名冊</h3>
+            <p>共 2 頁 ｜ 含大境 6 戶主旨說明辦法、雙贏分流提案條款、合意移交方案及第二頁 A2 區 6 戶專屬親筆連署立案簽章冊（非全社區連署）。</p>
           </div>
         </div>
         <div class="dossier-actions">
-          <button class="btn-pdf btn-preview" onclick="openPdfModal('富宇大境區分所有權人獨立分割正式提案申請書暨全體連署同意書.pdf', '法定主件：提案申請書暨全體連署同意書')">
+          <button class="btn-pdf btn-preview" onclick="openPdfModal('富宇大境（A2區・6戶）全體區分所有權人管理分流提案申請書暨連署同意名冊.pdf', '法定主件：A2 區 6 戶管理分流提案申請書暨連署同意名冊')">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             在線預覽 PDF
           </button>
-          <a href="富宇大境區分所有權人獨立分割正式提案申請書暨全體連署同意書.pdf" class="btn-pdf btn-download" download>
+          <a href="富宇大境（A2區・6戶）全體區分所有權人管理分流提案申請書暨連署同意名冊.pdf" class="btn-pdf btn-download" download>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             下載 PDF
           </a>
