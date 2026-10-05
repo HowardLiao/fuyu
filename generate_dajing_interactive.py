@@ -429,9 +429,9 @@ html_code = """<!DOCTYPE html>
     }
 
     .sim-res-box {
-      text-align: center;
+      text-align: right;
       border-right: 1px solid var(--border-subtle);
-      padding: 4px 10px;
+      padding: 6px 14px;
     }
 
     .sim-res-box:last-child { border-right: none; }
@@ -440,6 +440,7 @@ html_code = """<!DOCTYPE html>
       font-size: 0.78rem;
       color: var(--text-muted);
       margin-bottom: 4px;
+      text-align: right;
     }
 
     .sim-res-val {
@@ -447,12 +448,14 @@ html_code = """<!DOCTYPE html>
       font-size: 1.6rem;
       font-weight: 900;
       color: var(--emerald);
+      text-align: right;
     }
 
     .sim-res-sub {
       font-size: 0.74rem;
       color: var(--text-muted);
       margin-top: 2px;
+      text-align: right;
     }
 
     /* ========================================================================= */
@@ -893,19 +896,19 @@ html_code = """<!DOCTYPE html>
         <div class="bento-desc">龍社路 593～603 號全體住戶</div>
       </div>
       <div class="bento-card highlight">
-        <div class="bento-label">依法迎回自有公款</div>
-        <div class="bento-val">$<span id="cntFunds">284,731</span></div>
-        <div class="bento-desc">定存 22 萬 ＋ 交屋基金 6 萬 ＋ 結餘</div>
+        <div class="bento-label" style="text-align: right;">依法迎回自有公款</div>
+        <div class="bento-val" style="text-align: right;">$<span id="cntFunds">284,731</span></div>
+        <div class="bento-desc" style="text-align: right;">定存 22 萬 ＋ 交屋基金 6 萬 ＋ 結餘</div>
       </div>
       <div class="bento-card">
-        <div class="bento-label">每月管理費負擔</div>
-        <div class="bento-val">-<span id="cntDiscount">60</span>%</div>
-        <div class="bento-desc">每戶由 $1,000 降至 $400（年省 $7,200）</div>
+        <div class="bento-label" style="text-align: right;">每月管理費負擔</div>
+        <div class="bento-val" style="text-align: right;">-<span id="cntDiscount">60</span>%</div>
+        <div class="bento-desc" style="text-align: right;">每戶由 $1,000 降至 $400（年省 $7,200）</div>
       </div>
       <div class="bento-card">
-        <div class="bento-label">年度常態滾存結餘</div>
-        <div class="bento-val">+$<span id="cntSurplus">21,600</span></div>
-        <div class="bento-desc">扣除門前路燈公電後，老本越滾越多</div>
+        <div class="bento-label" style="text-align: right;">年度常態滾存結餘</div>
+        <div class="bento-val" style="text-align: right;">+$<span id="cntSurplus">21,600</span></div>
+        <div class="bento-desc" style="text-align: right;">扣除門前路燈公電後，老本越滾越多</div>
       </div>
     </div>
 
