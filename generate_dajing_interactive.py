@@ -879,14 +879,14 @@ html_code = """<!DOCTYPE html>
     <header>
       <div class="tag-badge">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        《公寓大廈管理條例》第 26 條第 1 項法定程序 ｜ 專案編號：FY-SPLIT-2026-A2
+        《公寓大廈管理條例》第 53 條、第 31 條管理分流程序 ｜ 專案編號：FY-SPLIT-2026-A2
       </div>
       <h1>富宇大境（A2 區・6 戶）<br><span>法定獨立分割卷宗與專案報告下載專區</span></h1>
       <p class="subtitle">台中市沙鹿區龍社路 593～603 號全體住戶專屬 ｜ 迎回 28 萬自有公款 ｜ 管理費自 $1,000 大降至 $400</p>
       <div class="reporter-bar">
         <span>專案受託召集人：<strong>廖倫豪</strong></span>
         <span>戶別門牌：<strong>A17 棟（沙鹿區龍社路 595 號）</strong></span>
-        <span>法定門檻：<strong>6 戶全數連署即啟動</strong></span>
+        <span>推進程序：<strong>6 戶連署提請大會審議</strong></span>
       </div>
     </header>
 
@@ -956,7 +956,7 @@ html_code = """<!DOCTYPE html>
         <div class="sim-res-box">
           <div class="sim-res-lbl">貴戶累計實質省下管理費</div>
           <div class="sim-res-val" id="resFamilySavings">$36,000</div>
-          <div class="sim-res-sub">每年現省 $7,200 元，純粹家庭私有</div>
+          <div class="sim-res-sub">每戶每年實質節省 $7,200 元管理費負擔</div>
         </div>
         <div class="sim-res-box">
           <div class="sim-res-lbl">貴戶享有之自有定存儲備份額</div>
@@ -1204,22 +1204,22 @@ html_code = """<!DOCTYPE html>
     <div class="faq-list">
       <div class="faq-item open">
         <div class="faq-question" onclick="toggleFaq(this)">
-          <span>Q1：我們大境才 6 戶透天，在法律上真的能合法獨立成立管委會嗎？</span>
+          <span>Q1：我們大境才 6 戶透天，在法律程序上如何合法獨立成立管委會？</span>
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <strong>100% 絕對合法！</strong>《公寓大廈管理條例》第 26 條第 1 項明定「多數各自獨立使用之建築物……如各該區得獨立使用且能分別成立管理委員會者，得分別成立管理委員會。」<br>
-          更重要的是，內政部 86 年台內營字第 8673955 號權威函釋白紙黑字指出：條例第 26 條所稱各該區，係指該分區自身，<strong>「毋庸經全集居地區母體全體住戶多數決」</strong>。只要我們 6 戶達成共識，區公所依法必須受理！
+          <strong>完全合於法定程序！</strong>依據《公寓大廈管理條例》第 53 條規定，多數各自獨立使用之建築物，如設施使用無整體不可分性，準用本條例管理。<br>
+          大境 6 戶出入臨公有計畫道路龍社路、水電排污自理、生活廢棄物自行等免費清潔隊，客觀上具備完整獨立性。實務上將依《條例》第 31 條特別決議程序，提請富宇大地全體區分所有權人會議審議變更規約第二條管理範圍（排除 A2），大會通過後即可向主管機關區公所申辦變更報備與大境獨立報備！
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
-          <span>Q2：這筆 NT$ 284,731 元的公款，真的能從大社區全額拿回來嗎？</span>
+          <span>Q2：這筆 NT$ 284,731 元的公款，如何向大社區辦理移交撥還？</span>
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <strong>絕對拿得回來，產權有據！</strong>管委會 5 月與 9 月例會官方財報已明確將台中市政府核退之公款定存，其中的第 2 筆獨立立卷為「A2 大境定存單 NT$ 220,231 元」；再加上富宇建設交屋管理基金（每戶 1 萬，6 戶共 60,000 元）。產權邊界涇渭分明，誰也無法扣押！
+          <strong>款項來源清楚，依審計公平原則專案協商撥還！</strong>管委會 5 月與 9 月例會官方財報已明確將台中市政府核退之公款獨立開立「A2 大境定存單 NT$ 220,231 元」專單保管；加上起造人富宇建設交屋管理基金（每戶 1 萬，大境 6 戶共 60,000 元）。本區建請大會同意於合意分割後專案撥還移交至大境公庫專戶專管專用。
         </div>
       </div>
 
@@ -1256,8 +1256,8 @@ html_code = """<!DOCTYPE html>
 
     <!-- Notice Footer Box -->
     <div class="notice-box">
-      <strong>【法定連署簽署說明】</strong><br>
-      依據《公寓大廈管理條例》第 26 條第 1 項，本分割案只需我們 <strong>A2 大境 6 戶（龍社路 593～603 號）區權人 100% 簽署</strong> 即可具備完整法定效力。<br>
+      <strong>【法定連署與大會提案說明】</strong><br>
+      依據《公寓大廈管理條例》第 53 條與第 31 條，本案由 <strong>A2 大境 6 戶（沙鹿區龍社路 593～603 號）全體區權人 100% 簽署連署書與授權書</strong>，正式向管委會提案並協助排入區分所有權人會議審議。<br>
       紙本提案申請書與全權委任授權書正本備於受託召集人 廖倫豪（龍社路 595 號 A17）處，隨時歡迎各位鄰居翻閱完整原件並簽章！
     </div>
 
