@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+# -*- coding: utf-8 -*-
+import os
+
+html_code = """<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -1419,7 +1422,7 @@
 
     // 6. Contact Modal / Toast
     function openContactModal() {
-      const contactInfo = "受託召集人：廖倫豪 博士 (Howard Liao Ph.D.)\n門牌：台中市沙鹿區龍社路 595 號 (A17)\nEmail: liao.howard@gmail.com";
+      const contactInfo = "受託召集人：廖倫豪 博士 (Howard Liao Ph.D.)\\n門牌：台中市沙鹿區龍社路 595 號 (A17)\\nEmail: liao.howard@gmail.com";
       navigator.clipboard.writeText("廖倫豪 博士 (龍社路 595 號 A17) - liao.howard@gmail.com").then(() => {
         showToast("已複製召集人 廖博士 聯絡資訊至剪貼簿！隨時歡迎來客廳翻閱正本公文！");
       }).catch(() => {
@@ -1436,3 +1439,10 @@
   </script>
 </body>
 </html>
+"""
+
+out_path = '/Users/howardliao/Desktop/HermesAgent/PortFilio/fuyu/dajing.html'
+with open(out_path, 'w', encoding='utf-8') as f:
+    f.write(html_code)
+
+print(f"Generated ultimate interactive Dajing portal: {out_path} ({os.path.getsize(out_path)} bytes)")
