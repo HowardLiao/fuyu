@@ -165,7 +165,7 @@ html_code = """<!DOCTYPE html>
       color: var(--text-muted);
       font-weight: 500;
       margin-bottom: 3px;
-      text-align: right;
+      text-align: center;
     }
 
     .bento-val {
@@ -182,7 +182,7 @@ html_code = """<!DOCTYPE html>
     .bento-desc {
       font-size: 0.78rem;
       color: var(--text-muted);
-      text-align: right;
+      text-align: center;
     }
 
     /* Section Header */
@@ -432,7 +432,6 @@ html_code = """<!DOCTYPE html>
     }
 
     .sim-res-box {
-      text-align: right;
       border-right: 1px solid var(--border-subtle);
       padding: 6px 14px;
     }
@@ -443,7 +442,7 @@ html_code = """<!DOCTYPE html>
       font-size: 0.78rem;
       color: var(--text-muted);
       margin-bottom: 4px;
-      text-align: right;
+      text-align: center;
     }
 
     .sim-res-val {
@@ -458,7 +457,7 @@ html_code = """<!DOCTYPE html>
       font-size: 0.74rem;
       color: var(--text-muted);
       margin-top: 2px;
-      text-align: right;
+      text-align: center;
     }
 
     /* ========================================================================= */
@@ -894,24 +893,24 @@ html_code = """<!DOCTYPE html>
     <!-- 4 Bento Stats -->
     <div class="bento-stats">
       <div class="bento-card">
-        <div class="bento-label" style="text-align: right;">專案標的建物</div>
+        <div class="bento-label">專案標的建物</div>
         <div class="bento-val" style="text-align: right;"><span id="cntHouses">6</span> 戶別墅</div>
-        <div class="bento-desc" style="text-align: right;">龍社路 593～603 號全體住戶</div>
+        <div class="bento-desc">龍社路 593～603 號全體住戶</div>
       </div>
       <div class="bento-card highlight">
-        <div class="bento-label" style="text-align: right;">依法迎回自有公款</div>
+        <div class="bento-label">依法迎回自有公款</div>
         <div class="bento-val" style="text-align: right;">$<span id="cntFunds">284,731</span></div>
-        <div class="bento-desc" style="text-align: right;">定存 22 萬 ＋ 交屋基金 6 萬 ＋ 結餘</div>
+        <div class="bento-desc">定存 22 萬 ＋ 交屋基金 6 萬 ＋ 結餘</div>
       </div>
       <div class="bento-card">
-        <div class="bento-label" style="text-align: right;">每月管理費負擔</div>
+        <div class="bento-label">每月管理費負擔</div>
         <div class="bento-val" style="text-align: right;">-<span id="cntDiscount">60</span>%</div>
-        <div class="bento-desc" style="text-align: right;">每戶由 $1,000 降至 $400（年省 $7,200）</div>
+        <div class="bento-desc">每戶由 $1,000 降至 $400（年省 $7,200）</div>
       </div>
       <div class="bento-card">
-        <div class="bento-label" style="text-align: right;">年度常態滾存結餘</div>
+        <div class="bento-label">年度常態滾存結餘</div>
         <div class="bento-val" style="text-align: right;">+$<span id="cntSurplus">21,600</span></div>
-        <div class="bento-desc" style="text-align: right;">扣除門前路燈公電後，老本越滾越多</div>
+        <div class="bento-desc">扣除門前路燈公電後，老本越滾越多</div>
       </div>
     </div>
 
@@ -1370,13 +1369,13 @@ html_code = """<!DOCTYPE html>
       let html = '<div class="compare-grid">';
       list.forEach(item => {
         html += `
-          <div class="cmp-card ${isBad ? 'bad' : 'good'}">
-            <div class="cmp-topic">
+          <div class="cmp-card ${isBad ? 'bad' : 'good'}" style="text-align: center;">
+            <div class="cmp-topic" style="display: flex; justify-content: space-between; align-items: center;">
               <span>${item.topic}</span>
-              <span style="text-align: right;">${isBad ? '⚠️ 困境' : '✅ 破局'}</span>
+              <span style="text-align: right; font-weight: 700;">${isBad ? '⚠️ 困境' : '✅ 破局'}</span>
             </div>
-            <div class="cmp-title" style="text-align: right;">${item.title}</div>
-            <div class="cmp-desc" style="text-align: right;">${item.desc}</div>
+            <div class="cmp-title" style="text-align: center; margin: 8px 0 6px 0;">${item.title}</div>
+            <div class="cmp-desc" style="text-align: center;">${item.desc}</div>
           </div>
         `;
       });
