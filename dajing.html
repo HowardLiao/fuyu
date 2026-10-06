@@ -1087,6 +1087,202 @@
       scroll-margin-top: 80px;
     }
 
+
+    /* ========================================================================= */
+    /* INTERACTIVE BOTTOM SHEET STYLES (MOBILE & TABLET DRAWER)                  */
+    /* ========================================================================= */
+    .bottom-sheet-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000000 !important;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      touch-action: manipulation;
+    }
+    .bottom-sheet-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .bottom-sheet-content {
+      background: var(--bg-card);
+      border-top: 2px solid var(--border-accent);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 680px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 16px 20px calc(24px + env(safe-area-inset-bottom, 16px));
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.7);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+    }
+    .bottom-sheet-overlay.active .bottom-sheet-content {
+      transform: translateY(0);
+    }
+    .sheet-drag-handle {
+      width: 44px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--border-subtle);
+      margin: 0 auto 14px;
+    }
+    .sheet-panel {
+      display: none;
+    }
+    .sheet-panel.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-subtle);
+      margin-bottom: 16px;
+    }
+    .sheet-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .sheet-close-btn {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Dossier Sheet Items */
+    .sheet-dossier-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+    .sheet-doc-item {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .sheet-doc-item:active {
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.08);
+      transform: scale(0.98);
+    }
+    .sheet-doc-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .sheet-doc-text {
+      flex: 1;
+    }
+    .sheet-doc-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+    .sheet-doc-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .sheet-doc-arrow {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Calc Sheet Scenarios */
+    .sheet-calc-scenarios {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .sheet-sc-btn {
+      background: var(--bg-paper);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+    }
+    .sheet-sc-btn.active {
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.08);
+    }
+    .sheet-sc-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+    .sheet-sc-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+    .sheet-sc-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .sheet-calc-result-box {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .sheet-res-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border-subtle);
+      font-size: 0.88rem;
+    }
+    .sheet-res-total {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
   </style>
 </head>
 <body>
@@ -1111,10 +1307,7 @@
           <option value="ninagawa">蜷川實花 (Mika Ninagawa)</option>
           <option value="miro">胡安·米羅 (Joan Miró)</option>
         </select>
-        <button class="btn-header-action" onclick="printActiveDoc()">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"></path></svg>
-          列印當前公文
-        </button>
+        
       </div>
     </div>
   </header>
@@ -1311,10 +1504,8 @@
               <div class="doc-meta">受文機關：臺中市政府（都市發展局住宅發展工程處 / 公寓大廈爭議事件調處委員會） ｜ 類別：正式公文主件</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/01-mediation-application.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc1-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc1')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc1-body">
             <h4>一、當事人基本資料</h4>
@@ -1442,10 +1633,8 @@
               <div class="doc-meta">受文者：富宇大地社區管理委員會 ｜ 副本：區公所、都發局 ｜ 速別：最速件</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/02-section35-request.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc2-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc2')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc2-body">
             <p><strong>主旨</strong>：為維護區分所有權人合法權益並釐清社區資產與規約現況，本區全體 6 戶區分所有權人謹依《公寓大廈管理條例》第 35 條規定，正式向貴管理委員會申請閱覽、影印如說明二所示之會議紀錄、財務報表及報備公文等文件，敬請於文到 7 日內惠予排定查閱時間與提供影本，請 查照惠復。</p>
@@ -1473,7 +1662,7 @@
             </ol>
 
             <p><strong>三、作業期限與費用負擔</strong>：<br>
-            請貴會於收受本函翌日起算 7 日內，指派專人聯繫受託代表廖倫豪先生（電話：09XX-XXX-XXX），排定於社區管理室現場閱覽正本並交付影印本。查閱與影印所需之紙張規費，由申請人全額核實支付，絕不增加貴會負擔。倘貴會無正當理由逾期不予置理，申請人將依法報請臺中市政府都市發展局進行行政裁罰。</p>
+            請貴會於收受本函翌日起算 7 日內，指派專人聯繫受託代表廖倫豪先生，排定於社區管理室現場閱覽正本並交付影印本。查閱與影印所需之紙張規費，由申請人全額核實支付，絕不增加貴會負擔。倘貴會無正當理由逾期不予置理，申請人將依法報請臺中市政府都市發展局進行行政裁罰。</p>
           </div>
         </div>
 
@@ -1485,10 +1674,8 @@
               <div class="doc-meta">依民法第 528 條、第 534 條 ｜ 修正版（排除代收、增列共管專戶、期限 1 年、禁複委任、共有戶全員簽署）</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/03-power-of-attorney.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc3-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc3')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc3-body">
             <p><strong>委任人</strong>（即臺中市沙鹿區龍社路 593、595、597、599、601、603 號全體區分所有權人，含共有持分人全體）茲因辦理富宇大地社區管理範圍變更協商、臺中市政府公寓大廈爭議事件調處及款項專戶移交等事宜，特依法委任 <strong>受任人：廖倫豪 先生</strong> 為代理人，委任條款如下：</p>
@@ -1526,7 +1713,7 @@
                 <strong>受任人（代理人）簽署</strong><br>
                 受任人：廖倫豪（親筆簽名蓋章）<br>
                 通訊地址：臺中市沙鹿區龍社路 595 號<br>
-                聯絡電話：09XX-XXX-XXX<br>
+                
                 簽署日期：中華民國 115 年【待查證】月【待查證】日
               </div>
             </div>
@@ -1541,10 +1728,8 @@
               <div class="doc-meta">立約人：龍社路 593 至 603 號 6 戶區權人 ｜ 專款專用 ｜ 雙人簽章共管 ｜ 不另設管委會</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/04-co-management-agreement.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc4-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc4')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc4-body">
             <p><strong>緣起</strong>：立約人 6 戶透天別墅緊鄰公有計畫道路龍社路，考量居住機能各自獨立，為落實《公寓大廈管理條例》第 53 條權責相符原則，於依合規程序自富宇大地社區完成管理範圍調整後，<strong>本區決議回歸一般透天自律生活，不另成立管理委員會</strong>。為妥善管理維護門前公用設施及本區自富宇大地社區結算返還之共有專案款項，特訂立本《共管協議書》：</p>
@@ -1577,10 +1762,8 @@
               <div class="doc-meta">基準本金：280,231 元 ｜ 扣抵抗辯預判 ｜ 三級談判區間設計</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/05-fund-settlement.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc5-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc5')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc5-body">
             <h4>一、專案資產基礎事實（客觀基準數：280,231 元）</h4>
@@ -1654,10 +1837,8 @@
               <div class="doc-meta">類別：規約第二條管理範圍修正案 ｜ 附第 31 條特別決議與第 32 條重新召集門檻分析</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/06-assembly-proposal.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc6-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc6')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc6-body">
             <p><strong>案由</strong>：審議「富宇大地社區規約第二條管理範圍修正案（排除沙鹿區龍社路 593 至 603 號共 6 戶，管理規模由 241 戶調整為 235 戶）」暨專案資產結算移交事宜。</p>
@@ -1716,10 +1897,8 @@
               <div class="doc-meta">用途：對外溝通宣傳、向管委會與內部住戶理性說明 ｜ 徹底掃除對抗與誇大用語</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/07-public-statement.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc7-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc7')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc7-body">
             <p><strong>親愛的富宇大地社區鄰里先進：</strong><br>
@@ -1748,10 +1927,8 @@
               <div class="doc-meta">律師專業備案指南 ｜ 產權共有持分影響 ｜ 三軌推動路徑與勝算分析</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/08-risk-assessment.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc8-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc8')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc8-body">
             <h4>一、產權持分關鍵查核：基地公同共有持分對第 53 條主張之深遠影響</h4>
@@ -1797,10 +1974,8 @@
               <div class="doc-meta">諮詢單位：臺中市政府都發局住宅發展工程處（公寓大廈管理科） ｜ 電話：(04) 2228-9111</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/09-inquiry-checklist.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc9-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc9')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc9-body">
             <table class="legal-table">
@@ -1852,10 +2027,8 @@
               <div class="doc-meta">律師自我審查覆核表 ｜ 確保 10 份文件內部邏輯 100% 嚴謹對齊</div>
             </div>
             <div class="doc-actions">
-              <a href="a2/10-consistency-check.pdf" target="_blank" rel="noopener" class="btn-action-tool" style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.78rem; text-decoration: none;">🖨️ 紙本列印檔 (電腦印表機用)</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc10-body')">複製全文</button>
-              <button class="btn-action-tool" onclick="printDoc('doc10')">列印此件</button>
-            </div>
+              </div>
           </div>
           <div class="legal-doc-body" id="doc10-body">
             <table class="legal-table">
@@ -2085,25 +2258,25 @@
     </section>
 
     
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT SECTION (PURE LINE INTERACTION) -->
     <section class="content-section" id="sec-contact">
-      <div class="card" style="border: 2px solid var(--accent); text-align: center; padding: 28px 20px;">
-        <h3 style="font-size: 1.35rem; color: var(--accent); font-weight: 900; margin-bottom: 8px;">📞 住戶諮詢與連署接洽</h3>
+      <div class="card" style="border: 2px solid #059669; text-align: center; padding: 28px 20px; box-shadow: var(--shadow);">
+        <h3 style="font-size: 1.35rem; color: #10B981; font-weight: 900; margin-bottom: 8px;">💬 住戶專屬 LINE 線上諮詢與互動</h3>
         <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6;">
           本案由 A2 區 595 號廖倫豪召集推動。<br>
-          若鄰居對公文內容、共管專戶或法規程序有任何疑問，歡迎隨時聯繫！
+          為維護住戶隱私並提供即時一對一諮詢，全案全面以 LINE 進行交流與文件說明！
         </p>
         <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-          <a href="tel:0922868266" class="btn-header-action" style="background: #059669; color: #FFFFFF; font-size: 1rem; padding: 12px 24px; border-radius: 10px; text-decoration: none; min-height: 48px; display: inline-flex; align-items: center; gap: 8px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            一鍵撥打電話諮詢 (0922-868-266)
-          </a>
-          <button class="btn-action-tool" onclick="copyContactInfo()" style="padding: 12px 20px; font-size: 0.95rem; min-height: 48px;">
-            📋 複製聯絡資料
+          <button class="btn-header-action" onclick="openInteractiveSheet('sheetLine')" style="background: #059669; color: #FFFFFF; font-size: 1rem; padding: 12px 24px; border-radius: 10px; border: none; cursor: pointer; min-height: 48px; display: inline-flex; align-items: center; gap: 8px; font-weight: 800;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.3C24 4.6 18.6 0 12 0S0 4.6 0 10.3c0 5.1 4.3 9.4 10.1 10.2.4.1.9.3 1.1.7.1.3.1.8 0 1.2l-.4 1.7c-.1.5-.4 1.7 1.5.9 1.9-.8 10.3-6.1 11.4-9.3.2-.8.3-1.6.3-2.4z"/></svg>
+            LINE 立即傳訊互動
+          </button>
+          <button class="btn-action-tool" onclick="copyLineId()" style="padding: 12px 20px; font-size: 0.95rem; min-height: 48px;">
+            📋 複製 LINE ID (howardliao)
           </button>
         </div>
-        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 14px;">
-          💬 LINE 聯絡：請於住戶群組或搜尋電話號碼直接傳訊，召集人將親自為您詳細解說。
+        <div style="font-size: 0.88rem; color: var(--text-muted); margin-top: 14px;">
+          💬 LINE 搜尋 ID：<strong>howardliao</strong> ｜ 召集人將親自為您詳細解說卷宗與調處進度。
         </div>
       </div>
     </section>
@@ -2123,29 +2296,30 @@
   <!-- MOBILE BOTTOM DOCK NAVIGATION BAR (STICKY AT BOTTOM ON MOBILE) -->
   <!-- MOBILE BOTTOM DOCK NAVIGATION BAR (STICKY AT BOTTOM ON MOBILE) -->
   <!-- MOBILE BOTTOM DOCK NAVIGATION BAR (PLAN A: 5-KEY FOCUS) -->
+  <!-- MOBILE BOTTOM DOCK (5 INTERACTIVE BUTTONS) -->
   <nav class="mobile-bottom-dock" id="mobileBottomDock" role="navigation" aria-label="手機快捷導航">
     <a href="#sec-winwin" class="dock-item" data-section="sec-winwin" onclick="handleDockNav(event, 'sec-winwin')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       <span>雙贏效益</span>
     </a>
-    <a href="#sec-dossiers" class="dock-item" data-section="sec-dossiers" onclick="handleDockNav(event, 'sec-dossiers')">
+    <button type="button" class="dock-item" data-section="sec-dossiers" onclick="openInteractiveSheet('sheetDossiers')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       <span>法定卷宗</span>
-    </a>
-    <a href="#sec-finance" class="dock-item highlight" data-section="sec-finance" onclick="handleDockNav(event, 'sec-finance')">
+    </button>
+    <button type="button" class="dock-item highlight" data-section="sec-finance" onclick="openInteractiveSheet('sheetCalc')">
       <div class="dock-icon-circle">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
       </div>
       <span>28萬試算</span>
-    </a>
+    </button>
     <a href="#sec-faq" class="dock-item" data-section="sec-faq" onclick="handleDockNav(event, 'sec-faq')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       <span>常見問答</span>
     </a>
-    <a href="tel:0922868266" class="dock-item" data-section="sec-contact" onclick="handleDockPhone(event)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>撥打電話</span>
-    </a>
+    <button type="button" class="dock-item" data-section="sec-contact" onclick="openInteractiveSheet('sheetLine')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <span>LINE 互動</span>
+    </button>
   </nav>
 
   <!-- TOAST NOTIFICATION -->
@@ -2359,7 +2533,7 @@
     }
 
     function copyContactInfo() {
-      const text = "富宇大境 A2 區召集人：廖倫豪\n電話：0922-868-266\n門牌：台中市沙鹿區龍社路 595 號";
+      const text = "富宇大境 A2 區召集人：廖倫豪\n電話：\n門牌：台中市沙鹿區龍社路 595 號";
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
           showToast("已成功複製召集人聯絡電話至剪貼簿！");
@@ -2453,11 +2627,274 @@
       });
     });
 
+    
+    // =========================================================================
+    // INTERACTIVE BOTTOM SHEETS CONTROLLER
+    // =========================================================================
+    function openInteractiveSheet(sheetId) {
+      // Hide all sheet panels
+      document.querySelectorAll('.sheet-panel').forEach(p => p.classList.remove('active'));
+      
+      // Activate requested panel
+      const targetPanel = document.getElementById(sheetId);
+      if (targetPanel) targetPanel.classList.add('active');
+
+      // Show overlay
+      const overlay = document.getElementById('bottomSheetOverlay');
+      if (overlay) {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeBottomSheet() {
+      const overlay = document.getElementById('bottomSheetOverlay');
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeBottomSheetOnOverlay(e) {
+      if (e.target.id === 'bottomSheetOverlay') {
+        closeBottomSheet();
+      }
+    }
+
+    function selectDocFromSheet(docId) {
+      closeBottomSheet();
+      const idxMap = {
+        'doc1': 0, 'doc2': 1, 'doc3': 2, 'doc4': 3, 'doc5': 4,
+        'doc6': 5, 'doc7': 6, 'doc8': 7, 'doc9': 8, 'doc10': 9
+      };
+      const btn = document.querySelectorAll('.doc-tab-btn')[idxMap[docId]];
+      switchDoc(docId, btn);
+    }
+
+    function selectSheetScenario(scType, btnEl) {
+      document.querySelectorAll('.sheet-sc-btn').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
+
+      const resDeduction = document.getElementById('sheetResDeduction');
+      const resTotal = document.getElementById('sheetResTotal');
+
+      if (scType === 'A') {
+        resDeduction.innerText = '-$0 元';
+        resDeduction.style.color = 'var(--emerald)';
+        resTotal.innerText = '$280,231 元 ＋ 孳息';
+      } else if (scType === 'B') {
+        resDeduction.innerText = '-$25,231 元 (過渡合約公攤)';
+        resDeduction.style.color = 'var(--rose)';
+        resTotal.innerText = '$255,000 元整';
+      } else if (scType === 'C') {
+        resDeduction.innerText = '-$60,000 元 (交屋款折抵)';
+        resDeduction.style.color = 'var(--rose)';
+        resTotal.innerText = '$220,231 元 (保全定存)';
+      }
+    }
+
+    function copyLineId() {
+      const lineId = "howardliao";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(lineId).then(() => {
+          showToast("已成功複製召集人 LINE ID：howardliao！");
+        }).catch(() => {
+          alert("召集人 LINE ID: " + lineId);
+        });
+      } else {
+        alert("召集人 LINE ID: " + lineId);
+      }
+    }
+
     // 6. FAQ Accordion Toggle
     function toggleFaq(btn) {
       const item = btn.parentElement;
       item.classList.toggle('open');
     }
   </script>
+
+  <!-- ========================================================================= -->
+  <!-- INTERACTIVE MOBILE BOTTOM SHEETS (互動式彈出抽屜畫面)                         -->
+  <!-- ========================================================================= -->
+  <div class="bottom-sheet-overlay" id="bottomSheetOverlay" onclick="closeBottomSheetOnOverlay(event)">
+    <div class="bottom-sheet-content" id="bottomSheetContent" onclick="event.stopPropagation()">
+      <div class="sheet-drag-handle"></div>
+      
+      <!-- SHEET 1: 法定卷宗快速選單 -->
+      <div id="sheetDossiers" class="sheet-panel">
+        <div class="sheet-header">
+          <h3 class="sheet-title">📂 10 份法定公文快速切換</h3>
+          <button class="sheet-close-btn" onclick="closeBottomSheet()">✕</button>
+        </div>
+        <div class="sheet-dossier-list">
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc1')">
+            <span class="sheet-doc-badge">01</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">臺中市公寓大廈爭議事件調處申請書</div>
+              <div class="sheet-doc-sub">正式公文主件 ｜ 提請市府調處協商</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc2')">
+            <span class="sheet-doc-badge">02</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">依第 35 條請求閱覽影印資料函</div>
+              <div class="sheet-doc-sub">合法調閱 5/6 會議紀錄與定存存根原本</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc3')">
+            <span class="sheet-doc-badge">03</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">全體區權人特別委任書</div>
+              <div class="sheet-doc-sub">特別授權代理人 ｜ 排除代收公款保障</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc4')">
+            <span class="sheet-doc-badge">04</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">六戶專款共管協議書</div>
+              <div class="sheet-doc-sub">雙人簽章專戶 ｜ 專用於路燈側溝維護</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc5')">
+            <span class="sheet-doc-badge">05</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">資產結算事實說明與計算書</div>
+              <div class="sheet-doc-sub">280,231 元客觀基準與談判策略方案</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc6')">
+            <span class="sheet-doc-badge">06</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">區權會提案草案（規約第二條修正案）</div>
+              <div class="sheet-doc-sub">241 戶變更為 235 戶 ｜ §31/§32 門檻分析</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc7')">
+            <span class="sheet-doc-badge">07</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">外部理性溝通公開說明版</div>
+              <div class="sheet-doc-sub">訴求雙贏互利 ｜ 減輕大社區管理責任</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc8')">
+            <span class="sheet-doc-badge">08</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">調處風險評估與備案說明書</div>
+              <div class="sheet-doc-sub">共有持分查核影響 ｜ 三軌推進勝算分析</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc9')">
+            <span class="sheet-doc-badge">09</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">都發局住宅處送件電詢清單</div>
+              <div class="sheet-doc-sub">5 大電詢提問話術與審查要點確認</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+          <div class="sheet-doc-item" onclick="selectDocFromSheet('doc10')">
+            <span class="sheet-doc-badge">10</span>
+            <div class="sheet-doc-text">
+              <div class="sheet-doc-name">法規與事實一致性檢查表</div>
+              <div class="sheet-doc-sub">律師合規審核通過紀錄表</div>
+            </div>
+            <span class="sheet-doc-arrow">➔</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHEET 2: 28 萬財務談判試算抽屜 -->
+      <div id="sheetCalc" class="sheet-panel">
+        <div class="sheet-header">
+          <h3 class="sheet-title">💡 280,231 元專案款項與談判試算</h3>
+          <button class="sheet-close-btn" onclick="closeBottomSheet()">✕</button>
+        </div>
+        <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px;">
+          請點選不同和解方案，實時預覽移交專管專戶之預估結算金額：
+        </div>
+        <div class="sheet-calc-scenarios">
+          <div class="sheet-sc-btn active" onclick="selectSheetScenario('A', this)">
+            <div class="sheet-sc-top">
+              <strong>方案 A：最優方案</strong>
+              <span class="sheet-sc-val">$280,231+</span>
+            </div>
+            <div class="sheet-sc-desc">定存單全額移交＋交屋基金全數返還，門前設施全數自理。</div>
+          </div>
+          <div class="sheet-sc-btn" onclick="selectSheetScenario('B', this)">
+            <div class="sheet-sc-top">
+              <strong>方案 B：合理調處和解 (推薦)</strong>
+              <span class="sheet-sc-val">$255,000</span>
+            </div>
+            <div class="sheet-sc-desc">提撥交屋款約 2.5 萬補貼過渡物業公攤，委員會最易促成和解。</div>
+          </div>
+          <div class="sheet-sc-btn" onclick="selectSheetScenario('C', this)">
+            <div class="sheet-sc-top">
+              <strong>方案 C：底線保全方案</strong>
+              <span class="sheet-sc-val">$220,231</span>
+            </div>
+            <div class="sheet-sc-desc">交屋款折抵歷史分攤，守住新光銀行 A2 獨立立卷定存本金。</div>
+          </div>
+        </div>
+        <div class="sheet-calc-result-box">
+          <div class="sheet-res-row">
+            <span>新光銀行 A2 定存單本金：</span>
+            <strong>$220,231 元</strong>
+          </div>
+          <div class="sheet-res-row">
+            <span>起造人交屋管理基金 (6戶)：</span>
+            <strong>$60,000 元</strong>
+          </div>
+          <div class="sheet-res-row">
+            <span>過渡期合約行政補貼扣抵：</span>
+            <strong id="sheetResDeduction" style="color: var(--emerald);">-$0 元</strong>
+          </div>
+          <div class="sheet-res-total">
+            <span>預估撥入共管專戶總額：</span>
+            <span id="sheetResTotal" style="color: var(--accent); font-size: 1.25rem;">$280,231 元 ＋ 孳息</span>
+          </div>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 10px; line-height: 1.5;">
+          * 註：款項全數存入 6 戶設立之「雙人簽章共管專戶」，專門用於門前公共路燈側溝維護，嚴禁分配流入任何個人私帳。
+        </div>
+      </div>
+
+      <!-- SHEET 3: LINE 互動抽屜 -->
+      <div id="sheetLine" class="sheet-panel">
+        <div class="sheet-header">
+          <h3 class="sheet-title">💬 住戶專屬 LINE 線上互動</h3>
+          <button class="sheet-close-btn" onclick="closeBottomSheet()">✕</button>
+        </div>
+        <div style="text-align: center; padding: 10px 0;">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: #059669; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; box-shadow: 0 4px 16px rgba(5, 150, 105, 0.4);">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M24 10.3C24 4.6 18.6 0 12 0S0 4.6 0 10.3c0 5.1 4.3 9.4 10.1 10.2.4.1.9.3 1.1.7.1.3.1.8 0 1.2l-.4 1.7c-.1.5-.4 1.7 1.5.9 1.9-.8 10.3-6.1 11.4-9.3.2-.8.3-1.6.3-2.4z"/></svg>
+          </div>
+          <h4 style="font-size: 1.2rem; color: var(--text-main); font-weight: 800; margin-bottom: 6px;">一對一線上即時諮詢</h4>
+          <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; max-width: 440px; margin: 0 auto 18px;">
+            全案以 LINE 進行住戶間之即時交流與意見溝通，召集人廖倫豪將親自為您詳細解說公文條文與調處進度！
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 10px; max-width: 380px; margin: 0 auto;">
+            <a href="https://line.me/R/ti/p/~howardliao" target="_blank" rel="noopener" class="btn-header-action" style="background: #059669; color: #FFFFFF; font-size: 1.05rem; padding: 14px; border-radius: 10px; text-decoration: none; justify-content: center; font-weight: 800;">
+              💬 開啟 LINE 立即傳訊洽詢
+            </a>
+            <button class="btn-action-tool" onclick="copyLineId()" style="padding: 12px; font-size: 0.95rem; justify-content: center; background: var(--bg-card); border: 1.5px solid var(--border-accent); font-weight: 700;">
+              📋 複製召集人 LINE ID (howardliao)
+            </button>
+          </div>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 14px;">
+            LINE ID：<strong>howardliao</strong>（歡迎隨時加好友交流）
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>
