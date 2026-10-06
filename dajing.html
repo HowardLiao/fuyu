@@ -971,6 +971,102 @@
         flex-direction: column;
       }
     }
+
+    /* PROGRESS BAR STYLES */
+    .progress-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .step-card {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .step-card.active {
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.08);
+    }
+    .step-badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--border-subtle);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .step-card.active .step-badge {
+      background: var(--accent);
+      color: #000000;
+    }
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .step-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .progress-steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CARD-BASED RESPONSIVE TABLES UNDER 650PX (ZERO HORIZONTAL SCROLL) */
+    @media (max-width: 650px) {
+      .legal-table, .legal-table tbody, .legal-table tr, .legal-table td {
+        display: block;
+        width: 100%;
+      }
+      .legal-table thead {
+        display: none;
+      }
+      .legal-table tr {
+        margin-bottom: 14px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        padding: 12px 14px;
+        box-shadow: var(--shadow);
+      }
+      .legal-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 8px 0;
+        border: none;
+        border-bottom: 1px dashed var(--border-subtle);
+        font-size: 15px;
+      }
+      .legal-table td:last-child {
+        border-bottom: none;
+      }
+      .legal-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        font-size: 13px;
+        color: var(--accent);
+        text-align: left;
+        padding-right: 12px;
+        flex-shrink: 0;
+        min-width: 80px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -986,9 +1082,6 @@
         <div class="brand-desc">依《公寓大廈管理條例》第 53 條 ｜ 臺中市爭議事件調處程序專案</div>
       </div>
       <div class="nav-actions">
-        <a href="a2/index.html" class="btn-header-action" style="background: #059669; color: #FFFFFF; text-decoration: none;">
-          📱 手機優先版
-        </a>
         <!-- 6-Theme Switcher -->
         <select id="themeSelect" class="theme-select" onchange="switchTheme(this.value)">
           <option value="obsidian" selected>曜石黑 (Deep Obsidian)</option>
@@ -1009,17 +1102,6 @@
   <!-- MAIN CONTAINER -->
   <main class="container">
 
-    <!-- MOBILE RECOMMENDATION BANNER -->
-    <div style="background: rgba(5, 150, 105, 0.12); border: 1.5px solid #059669; border-radius: 10px; padding: 12px 18px; margin: 20px 0 10px; display: flex; justify-content: space-between; align-items: center; font-size: 15px; flex-wrap: wrap; gap: 10px;">
-      <div>
-        <span style="font-weight: 800; color: #10B981;">📱 手機與 LINE 用戶推薦：</span>
-        <span>專為手機直式閱讀打造之「手機優先・長輩友善 17px・A4 PDF 下載」專屬極速版已上線。</span>
-      </div>
-      <a href="a2/index.html" style="background: #059669; color: #FFFFFF; padding: 8px 16px; border-radius: 8px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-        前往手機版 ➔
-      </a>
-    </div>
-
     <!-- HERO SECTION -->
     <section class="hero-section" id="sec-winwin">
       <div class="hero-pill">
@@ -1030,6 +1112,55 @@
       <p class="hero-subtitle">
         回歸《公寓大廈管理條例》第 53 條集居分流本質，藉由臺中市政府公寓大廈爭議事件調處委員會平台，促成管委會將規約修正案排入區分所有權人會議特別決議，共創 235 戶內部封閉聚落與外側 6 戶臨路透天雙贏格局。
       </p>
+
+      
+    <!-- 1. 30 秒看懂本案全貌 (MOBILE & DESKTOP QUICK READ) -->
+    <div class="quick-intro-card" style="background: var(--bg-card); border: 2px solid var(--accent); border-radius: 12px; padding: 20px 18px; margin: 24px 0 20px; text-align: left; box-shadow: var(--shadow);">
+      <div style="font-size: 1.15rem; font-weight: 900; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        30 秒看懂本案全貌
+      </div>
+      <div style="font-size: 0.95rem; line-height: 1.75; color: var(--text-main);">
+        <p style="margin-bottom: 8px;"><strong>這件事是什麼？</strong> A2 區 6 戶透天因出入直接面臨龍社路、水電排污完全自理、生活垃圾門前等公有垃圾車，並未使用內部封閉公設。依《公寓大廈管理條例》第 53 條集居分流精神，我們向管委會提出退出大社區管理範圍，回歸透天自律共管，不設管委會。</p>
+        <p style="margin-bottom: 8px;"><strong>目前在哪個階段？</strong> 目前正處於「<strong>第一階段：§35 調閱資料與準備市府調處送件</strong>」。我們正向管委會行使法定調閱權以核實帳目，並完成 6 戶共識委任。</p>
+        <p style="margin-bottom: 0;"><strong>住戶需要做什麼？</strong> 住戶僅需檢閱本專區之公文草案，並在紙本「委任書」與「共管協議書」空白範本上簽署用印。本案所有款項結算後均存入 6 戶共管專戶，專門用於門前公共路燈與水溝維護，嚴禁流入任何個人私帳。</p>
+      </div>
+    </div>
+
+    <!-- 2. 法定推動進度條 -->
+    <div class="progress-section" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px; margin-bottom: 24px; text-align: left; box-shadow: var(--shadow);">
+      <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">📌 法定推動進度追蹤</div>
+      <div class="progress-steps-grid">
+        <div class="step-card active">
+          <div class="step-badge">1</div>
+          <div class="step-body">
+            <div class="step-title">§35 調閱 ➔ 爭議調處</div>
+            <div class="step-sub">【目前階段】調閱會議紀錄與存單，完備市府調處</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">2</div>
+          <div class="step-body">
+            <div class="step-title">區權大會特別決議</div>
+            <div class="step-sub">調處和解促成管委會將規約修正案排入大會 (§31/§32)</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">3</div>
+          <div class="step-body">
+            <div class="step-title">區公所變更組織備查</div>
+            <div class="step-sub">檢具大會紀錄與新版規約，申辦 241 戶變更為 235 戶</div>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-badge">4</div>
+          <div class="step-body">
+            <div class="step-title">專案款項入共管專戶</div>
+            <div class="step-sub">專案定存單 (220,231元) 與交屋款解約匯入雙人簽章專戶</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
       <!-- 4 BENTO METRIC CARDS -->
       <div class="bento-grid">
@@ -1143,6 +1274,7 @@
               <div class="doc-meta">受文機關：臺中市政府（都市發展局住宅發展工程處 / 公寓大廈爭議事件調處委員會） ｜ 類別：正式公文主件</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/01-mediation-application.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc1-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc1')">列印此件</button>
             </div>
@@ -1273,6 +1405,7 @@
               <div class="doc-meta">受文者：富宇大地社區管理委員會 ｜ 副本：區公所、都發局 ｜ 速別：最速件</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/02-section35-request.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc2-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc2')">列印此件</button>
             </div>
@@ -1315,6 +1448,7 @@
               <div class="doc-meta">依民法第 528 條、第 534 條 ｜ 修正版（排除代收、增列共管專戶、期限 1 年、禁複委任、共有戶全員簽署）</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/03-power-of-attorney.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc3-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc3')">列印此件</button>
             </div>
@@ -1370,6 +1504,7 @@
               <div class="doc-meta">立約人：龍社路 593 至 603 號 6 戶區權人 ｜ 專款專用 ｜ 雙人簽章共管 ｜ 不另設管委會</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/04-co-management-agreement.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc4-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc4')">列印此件</button>
             </div>
@@ -1405,6 +1540,7 @@
               <div class="doc-meta">基準本金：280,231 元 ｜ 扣抵抗辯預判 ｜ 三級談判區間設計</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/05-fund-settlement.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc5-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc5')">列印此件</button>
             </div>
@@ -1481,6 +1617,7 @@
               <div class="doc-meta">類別：規約第二條管理範圍修正案 ｜ 附第 31 條特別決議與第 32 條重新召集門檻分析</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/06-assembly-proposal.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc6-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc6')">列印此件</button>
             </div>
@@ -1542,6 +1679,7 @@
               <div class="doc-meta">用途：對外溝通宣傳、向管委會與內部住戶理性說明 ｜ 徹底掃除對抗與誇大用語</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/07-public-statement.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc7-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc7')">列印此件</button>
             </div>
@@ -1573,6 +1711,7 @@
               <div class="doc-meta">律師專業備案指南 ｜ 產權共有持分影響 ｜ 三軌推動路徑與勝算分析</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/08-risk-assessment.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc8-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc8')">列印此件</button>
             </div>
@@ -1621,6 +1760,7 @@
               <div class="doc-meta">諮詢單位：臺中市政府都發局住宅發展工程處（公寓大廈管理科） ｜ 電話：(04) 2228-9111</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/09-inquiry-checklist.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc9-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc9')">列印此件</button>
             </div>
@@ -1675,6 +1815,7 @@
               <div class="doc-meta">律師自我審查覆核表 ｜ 確保 10 份文件內部邏輯 100% 嚴謹對齊</div>
             </div>
             <div class="doc-actions">
+              <a href="a2/10-consistency-check.pdf" download class="btn-action-tool" style="background: var(--accent); color: #000; font-weight: 700; text-decoration: none;">📥 下載 A4 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc10-body')">複製全文</button>
               <button class="btn-action-tool" onclick="printDoc('doc10')">列印此件</button>
             </div>
