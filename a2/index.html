@@ -586,6 +586,110 @@
         color: #000000 !important;
       }
     }
+
+    /* MOBILE BOTTOM DOCK NAVIGATION */
+    .mobile-bottom-dock {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: calc(62px + env(safe-area-inset-bottom, 0px));
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 2px solid var(--primary);
+      box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.15);
+      z-index: 999999 !important;
+      padding: 0 4px;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      align-items: center;
+      justify-content: space-around;
+      touch-action: manipulation;
+    }
+
+    body {
+      padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    .dock-item {
+      background: transparent;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 6px 2px;
+      flex: 1;
+      text-decoration: none;
+      min-width: 48px;
+      min-height: 48px;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .dock-item:active {
+      transform: scale(0.92);
+      color: var(--primary);
+    }
+
+    .dock-item span {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .dock-item svg {
+      stroke: var(--text-muted);
+      width: 22px;
+      height: 22px;
+    }
+
+    .dock-item:active svg {
+      stroke: var(--primary);
+    }
+
+    .dock-item:active span {
+      color: var(--primary);
+    }
+
+    /* Center Highlight (Raised Shield) */
+    .dock-item.highlight {
+      position: relative;
+      margin-top: -20px;
+    }
+
+    .dock-icon-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(154, 52, 18, 0.4);
+      border: 3px solid var(--bg-color);
+      margin-bottom: 2px;
+    }
+
+    .dock-icon-circle svg {
+      stroke: #FFFFFF !important;
+      width: 26px;
+      height: 26px;
+      stroke-width: 2.2;
+    }
+
+    .dock-item.highlight span {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 11px;
+    }
+
   </style>
 </head>
 <body>
@@ -599,7 +703,7 @@
     </header>
 
     <!-- 1. 30 秒看懂 -->
-    <section class="quick-intro-card">
+    <section class="quick-intro-card" id="sec-winwin">
       <div class="quick-intro-title">
         <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         30 秒看懂本案全貌
@@ -647,7 +751,7 @@
     </section>
 
     <!-- 3. 目錄與每份文件區塊 -->
-    <h2 class="section-head">📂 全套法定卷宗目錄（點擊展開各篇）</h2>
+    <h2 class="section-head" id="sec-dossiers">📂 全套法定卷宗目錄（點擊展開各篇）</h2>
     
     <div style="margin-bottom: 14px;">
       <a href="00-full-dossier.pdf" download class="btn-pdf-download" style="background: #1E293B; color: #F8FAFC; border: 1px solid var(--border-color);">
@@ -1436,7 +1540,7 @@
 
 
     <!-- 5. 常見問題 -->
-    <h2 class="section-head">❓ 常見問題白話解答</h2>
+    <h2 class="section-head" id="sec-faq">❓ 常見問題白話解答</h2>
     
     <div class="faq-card">
       <div class="faq-q">問：市府調處成立，是否等於可以不用開大會直接退出？</div>
@@ -1464,7 +1568,7 @@
     </div>
 
     <!-- 6. 聯絡方式 -->
-    <section class="contact-card">
+    <section class="contact-card" id="sec-contact">
       <div class="contact-title">📞 住戶諮詢與連署接洽</div>
       <div class="contact-desc">
         本案由 A2 區 595 號（A17）廖倫豪 召集推動。<br>
@@ -1487,6 +1591,49 @@
     </footer>
 
   </div>
+
+
+  <!-- MOBILE BOTTOM DOCK -->
+  <nav class="mobile-bottom-dock" id="mobileBottomDock" role="navigation" aria-label="手機快捷導航">
+    <a href="#sec-winwin" class="dock-item" onclick="a2DockNav(event, 'sec-winwin')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>雙贏效益</span>
+    </a>
+    <a href="#sec-dossiers" class="dock-item" onclick="a2DockNav(event, 'sec-dossiers')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <span>法定卷宗</span>
+    </a>
+    <a href="#doc-01" class="dock-item highlight" onclick="a2DockNav(event, 'doc-01', true)">
+      <div class="dock-icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <span>調處申請</span>
+    </a>
+    <a href="#sec-faq" class="dock-item" onclick="a2DockNav(event, 'sec-faq')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span>常見問答</span>
+    </a>
+    <a href="#sec-contact" class="dock-item" onclick="a2DockNav(event, 'sec-contact')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>聯繫主事</span>
+    </a>
+  </nav>
+
+  <script>
+    function a2DockNav(e, targetId, isDoc1 = false) {
+      if (isDoc1) {
+        const d1 = document.getElementById('doc-01');
+        if (d1) d1.open = true;
+      }
+      const el = document.getElementById(targetId);
+      if (el) {
+        if (e && e.preventDefault) e.preventDefault();
+        const headerOffset = 20;
+        const pos = el.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: Math.max(0, pos), behavior: 'smooth' });
+      }
+    }
+  </script>
 
 </body>
 </html>

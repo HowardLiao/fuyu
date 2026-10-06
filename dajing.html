@@ -762,68 +762,128 @@
     }
 
     /* ==========================================================================
-       7. MOBILE BOTTOM DOCK
+       7. BULLETPROOF MOBILE BOTTOM DOCK (TOUCH-OPTIMIZED, ZERO CLIPPING)
        ========================================================================== */
-    .mobile-dock {
+    .mobile-bottom-dock {
+      display: none;
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
+      height: calc(62px + env(safe-area-inset-bottom, 0px));
       background: var(--header-bg);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      justify-content: space-around;
+      border-top: 1.5px solid var(--border-accent);
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.7);
+      z-index: 999999 !important;
+      padding: 0 4px;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
       align-items: center;
-      padding: 8px 10px;
-      z-index: 99;
+      justify-content: space-around;
+      pointer-events: auto !important;
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      user-select: none;
     }
-    .dock-btn {
+
+    @media (max-width: 900px) {
+      .mobile-bottom-dock {
+        display: flex !important;
+      }
+      body {
+        padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+    }
+
+    .dock-item {
+      background: transparent;
+      border: none;
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: var(--text-muted);
-      font-size: 0.72rem;
-      font-weight: 600;
+      justify-content: center;
       gap: 3px;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 6px 2px;
+      flex: 1;
       text-decoration: none;
-      min-width: 54px;
-      padding: 4px 6px;
-      border-radius: 6px;
+      min-width: 48px;
+      min-height: 48px;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      pointer-events: auto !important;
+      transition: transform 0.15s ease, color 0.15s ease;
     }
-    .dock-btn:hover, .dock-btn.active {
+
+    .dock-item:active {
+      transform: scale(0.92);
       color: var(--accent);
     }
-    .dock-btn svg {
-      width: 18px;
-      height: 18px;
-    }
 
-    /* TOAST NOTIFICATION */
-    #toast {
-      position: fixed;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%) translateY(30px);
-      background: #10B981;
-      color: #FFFFFF;
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-size: 0.85rem;
+    .dock-item span {
+      font-size: 11px;
       font-weight: 700;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-    #toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
+      color: var(--text-muted);
+      white-space: nowrap;
+      line-height: 1.2;
     }
 
-    /* ==========================================================================
+    .dock-item svg {
+      stroke: var(--text-muted);
+      width: 22px;
+      height: 22px;
+      transition: stroke 0.15s ease;
+    }
+
+    .dock-item:active svg,
+    .dock-item.active svg {
+      stroke: var(--accent);
+    }
+
+    .dock-item:active span,
+    .dock-item.active span {
+      color: var(--accent);
+    }
+
+    /* Center Highlight (Raised Gold Shield) */
+    .dock-item.highlight {
+      position: relative;
+      margin-top: -20px;
+    }
+
+    .dock-icon-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.55);
+      border: 3px solid var(--bg-primary);
+      margin-bottom: 2px;
+      transition: transform 0.15s ease;
+    }
+
+    .dock-icon-circle svg {
+      stroke: #0B0F19 !important;
+      width: 26px;
+      height: 26px;
+      stroke-width: 2.2;
+    }
+
+    .dock-item.highlight:active .dock-icon-circle {
+      transform: scale(0.9);
+    }
+
+    .dock-item.highlight span {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 11px;
+    }
+/* ==========================================================================
        8. PRINT STYLES (@media print)
        ========================================================================== */
     @media print {
@@ -961,7 +1021,7 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="hero-section">
+    <section class="hero-section" id="sec-winwin">
       <div class="hero-pill">
         <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
         全案恪遵法規資料庫原文 ｜ 專款共管專用 ｜ 互利減負雙贏
@@ -1846,6 +1906,30 @@
       </div>
     </section>
 
+    
+    <!-- CONTACT SECTION -->
+    <section class="content-section" id="sec-contact">
+      <div class="card" style="border: 2px solid var(--accent); text-align: center; padding: 28px 20px;">
+        <h3 style="font-size: 1.35rem; color: var(--accent); font-weight: 900; margin-bottom: 8px;">📞 住戶諮詢與連署接洽</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6;">
+          本案由 A2 區 595 號（A17）廖倫豪 博士 召集推動。<br>
+          若鄰居對公文內容、共管專戶或法規程序有任何疑問，歡迎隨時聯繫！
+        </p>
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <a href="tel:0922868266" class="btn-header-action" style="background: #059669; color: #FFFFFF; font-size: 1rem; padding: 12px 24px; border-radius: 10px; text-decoration: none; min-height: 48px; display: inline-flex; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            一鍵撥打電話諮詢 (0922-868-266)
+          </a>
+          <button class="btn-action-tool" onclick="copyContactInfo()" style="padding: 12px 20px; font-size: 0.95rem; min-height: 48px;">
+            📋 複製聯絡資料
+          </button>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 14px;">
+          💬 LINE 聯絡：請於住戶群組或搜尋電話號碼直接傳訊，召集人將親自為您詳細解說。
+        </div>
+      </div>
+    </section>
+
     <!-- LEGAL DISCLAIMER -->
     <div class="callout" style="border-left-color: var(--emerald); margin-top: 40px;">
       <div class="callout-title" style="color: var(--emerald);">
@@ -1858,26 +1942,29 @@
   </main>
 
   <!-- MOBILE BOTTOM DOCK -->
-  <nav class="mobile-dock">
-    <a href="#sec-framework" class="dock-btn">
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
-      <span>法規定性</span>
+  <!-- MOBILE BOTTOM DOCK NAVIGATION BAR (STICKY AT BOTTOM ON MOBILE) -->
+  <nav class="mobile-bottom-dock" id="mobileBottomDock" role="navigation" aria-label="手機快捷導航">
+    <a href="#sec-winwin" class="dock-item" onclick="handleDockNav(event, 'sec-winwin')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>雙贏效益</span>
     </a>
-    <a href="#sec-dossiers" class="dock-btn active">
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-      <span>法定公文</span>
+    <a href="#sec-dossiers" class="dock-item" onclick="handleDockNav(event, 'sec-dossiers')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <span>法定卷宗</span>
     </a>
-    <a href="#sec-finance" class="dock-btn">
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-      <span>財務試算</span>
+    <a href="#doc1" class="dock-item highlight" onclick="handleDockNav(event, 'doc1', true)">
+      <div class="dock-icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <span>調處申請</span>
     </a>
-    <a href="#sec-threshold" class="dock-btn">
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-      <span>大會門檻</span>
+    <a href="#sec-faq" class="dock-item" onclick="handleDockNav(event, 'sec-faq')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span>常見問答</span>
     </a>
-    <a href="#sec-faq" class="dock-btn">
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-      <span>法務 Q&A</span>
+    <a href="#sec-contact" class="dock-item" onclick="handleDockNav(event, 'sec-contact')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>聯繫主事</span>
     </a>
   </nav>
 
@@ -1968,6 +2055,47 @@
         resDeduction.innerText = '-$60,000 元（交屋基金全數折抵）';
         resDeduction.style.color = 'var(--rose)';
         resTotal.innerText = '$220,231 元（保全定存單本金）';
+      }
+    }
+
+    
+    // Touch-optimized Mobile Dock Navigation
+    function handleDockNav(e, targetId, isDoc1 = false) {
+      if (isDoc1) {
+        // Activate doc1 panel & tab
+        const firstTab = document.querySelectorAll('.doc-tab-btn')[0];
+        if (firstTab) switchDoc('doc1', firstTab);
+      }
+
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        if (e && e.preventDefault) e.preventDefault();
+        const headerOffset = 64;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+
+        // Visual flash highlight
+        targetEl.style.transition = 'outline 0.3s ease';
+        targetEl.style.outline = '3px solid var(--accent)';
+        setTimeout(() => { targetEl.style.outline = ''; }, 1600);
+      }
+    }
+
+    function copyContactInfo() {
+      const text = "富宇大境 A2 區召集人：廖倫豪 博士\n電話：0922-868-266\n門牌：台中市沙鹿區龍社路 595 號 (A17)";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast("已成功複製召集人 廖博士 聯絡電話至剪貼簿！");
+        }).catch(() => {
+          alert(text);
+        });
+      } else {
+        alert(text);
       }
     }
 
