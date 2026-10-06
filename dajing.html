@@ -770,15 +770,16 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: calc(62px + env(safe-area-inset-bottom, 0px));
+      height: auto;
+      min-height: 68px;
+      padding-top: 8px;
+      padding-bottom: max(18px, env(safe-area-inset-bottom, 18px));
       background: var(--header-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border-top: 1.5px solid var(--border-accent);
       box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.7);
       z-index: 999999 !important;
-      padding: 0 4px;
-      padding-bottom: env(safe-area-inset-bottom, 0px);
       align-items: center;
       justify-content: space-around;
       pointer-events: auto !important;
@@ -792,7 +793,7 @@
         display: flex !important;
       }
       body {
-        padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important;
+        padding-bottom: calc(96px + env(safe-area-inset-bottom, 18px)) !important;
       }
     }
 
@@ -810,7 +811,7 @@
       flex: 1;
       text-decoration: none;
       min-width: 48px;
-      min-height: 48px;
+      min-height: 52px;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
       pointer-events: auto !important;
@@ -828,6 +829,7 @@
       color: var(--text-muted);
       white-space: nowrap;
       line-height: 1.2;
+      transition: color 0.15s ease;
     }
 
     .dock-item svg {
@@ -837,45 +839,56 @@
       transition: stroke 0.15s ease;
     }
 
-    .dock-item:active svg,
-    .dock-item.active svg {
-      stroke: var(--accent);
+    /* Active Highlight States */
+    .dock-item.active svg,
+    .dock-item:active svg {
+      stroke: var(--accent) !important;
     }
 
-    .dock-item:active span,
-    .dock-item.active span {
-      color: var(--accent);
+    .dock-item.active span,
+    .dock-item:active span {
+      color: var(--accent) !important;
+      font-weight: 800;
     }
 
     /* Center Highlight (Raised Gold Shield) */
     .dock-item.highlight {
       position: relative;
-      margin-top: -20px;
+      margin-top: -24px;
+      flex: 1.1;
     }
 
     .dock-icon-circle {
-      width: 50px;
-      height: 50px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: var(--accent-gradient);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.55);
-      border: 3px solid var(--bg-primary);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.55);
+      border: 3.5px solid var(--bg-primary);
       margin-bottom: 2px;
-      transition: transform 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .dock-icon-circle svg {
-      stroke: #0B0F19 !important;
+      stroke: #020617 !important;
       width: 26px;
       height: 26px;
-      stroke-width: 2.2;
+      stroke-width: 2.3;
     }
 
-    .dock-item.highlight:active .dock-icon-circle {
-      transform: scale(0.9);
+    html[data-theme="milan"] .dock-icon-circle svg,
+    html[data-theme="pharaoh"] .dock-icon-circle svg,
+    html[data-theme="miro"] .dock-icon-circle svg {
+      stroke: #FFFFFF !important;
+    }
+
+    .dock-item.highlight:active .dock-icon-circle,
+    .dock-item.highlight.active .dock-icon-circle {
+      transform: scale(0.92);
+      box-shadow: 0 2px 10px rgba(217, 119, 6, 0.7);
     }
 
     .dock-item.highlight span {
@@ -1067,6 +1080,13 @@
       }
     }
 
+
+    /* SCROLL MARGIN FOR ACCURATE STICKY HEADER OFFSET */
+    #sec-winwin, #sec-dossiers, #doc1, #sec-faq, #sec-contact,
+    .content-section, .bento-grid, .doc-view-panel {
+      scroll-margin-top: 80px;
+    }
+
   </style>
 </head>
 <body>
@@ -1103,7 +1123,7 @@
   <main class="container">
 
     <!-- HERO SECTION -->
-    <section class="hero-section" id="sec-winwin">
+    <section class="hero-section" >
       <div class="hero-pill">
         <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
         全案恪遵法規資料庫原文 ｜ 專款共管專用 ｜ 互利減負雙贏
@@ -1163,7 +1183,7 @@
     </div>
 
       <!-- 4 BENTO METRIC CARDS -->
-      <div class="bento-grid">
+      <div class="bento-grid" id="sec-winwin">
         <div class="bento-card">
           <div class="bento-tag">治理規模調整</div>
           <div class="bento-val">235 + 6 戶</div>
@@ -2084,28 +2104,30 @@
 
   <!-- MOBILE BOTTOM DOCK -->
   <!-- MOBILE BOTTOM DOCK NAVIGATION BAR (STICKY AT BOTTOM ON MOBILE) -->
+  <!-- MOBILE BOTTOM DOCK NAVIGATION BAR (STICKY AT BOTTOM ON MOBILE) -->
+  <!-- MOBILE BOTTOM DOCK NAVIGATION BAR (PLAN A: 5-KEY FOCUS) -->
   <nav class="mobile-bottom-dock" id="mobileBottomDock" role="navigation" aria-label="手機快捷導航">
-    <a href="#sec-winwin" class="dock-item" onclick="handleDockNav(event, 'sec-winwin')">
+    <a href="#sec-winwin" class="dock-item" data-section="sec-winwin" onclick="handleDockNav(event, 'sec-winwin')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       <span>雙贏效益</span>
     </a>
-    <a href="#sec-dossiers" class="dock-item" onclick="handleDockNav(event, 'sec-dossiers')">
+    <a href="#sec-dossiers" class="dock-item" data-section="sec-dossiers" onclick="handleDockNav(event, 'sec-dossiers')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       <span>法定卷宗</span>
     </a>
-    <a href="#doc1" class="dock-item highlight" onclick="handleDockNav(event, 'doc1', true)">
+    <a href="#sec-finance" class="dock-item highlight" data-section="sec-finance" onclick="handleDockNav(event, 'sec-finance')">
       <div class="dock-icon-circle">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
       </div>
-      <span>調處申請</span>
+      <span>28萬試算</span>
     </a>
-    <a href="#sec-faq" class="dock-item" onclick="handleDockNav(event, 'sec-faq')">
+    <a href="#sec-faq" class="dock-item" data-section="sec-faq" onclick="handleDockNav(event, 'sec-faq')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       <span>常見問答</span>
     </a>
-    <a href="#sec-contact" class="dock-item" onclick="handleDockNav(event, 'sec-contact')">
+    <a href="tel:0922868266" class="dock-item" data-section="sec-contact" onclick="handleDockPhone(event)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>聯繫主事</span>
+      <span>撥打電話</span>
     </a>
   </nav>
 
@@ -2200,13 +2222,85 @@
     }
 
     
-    // Touch-optimized Mobile Dock Navigation
+    
+    // =========================================================================
+    // BULLETPROOF MOBILE DOCK NAVIGATION & SCROLLSPY
+    // =========================================================================
     function handleDockNav(e, targetId, isDoc1 = false) {
+      if (e && e.preventDefault) e.preventDefault();
+
+      // 1. Instant tactile feedback
+      const clickedBtn = e ? e.currentTarget : null;
+      document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
+      if (clickedBtn) clickedBtn.classList.add('active');
+
+      // 2. If clicking '調處申請', activate doc1 tab & panel first
       if (isDoc1) {
-        // Activate doc1 panel & tab
         const firstTab = document.querySelectorAll('.doc-tab-btn')[0];
         if (firstTab) switchDoc('doc1', firstTab);
       }
+
+      // 3. Robust scrolling with fallback
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        // Preferred modern scroll with CSS scroll-margin-top
+        try {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } catch (err) {
+          // Fallback calculation
+          const headerOffset = 76;
+          const elementPos = targetEl.getBoundingClientRect().top;
+          const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+          window.scrollTo({
+            top: Math.max(0, elementPos + currentY - headerOffset),
+            behavior: 'smooth'
+          });
+        }
+
+        // 4. Visual target flash confirmation
+        targetEl.style.transition = 'box-shadow 0.3s ease, outline 0.3s ease';
+        targetEl.style.outline = '3px solid var(--accent)';
+        setTimeout(() => { targetEl.style.outline = ''; }, 1400);
+      } else {
+        // Fallback hash jump
+        window.location.hash = '#' + targetId;
+      }
+    }
+
+    // Scrollspy to auto-highlight active dock button as user scrolls
+    window.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+      };
+
+      const sections = [
+        { id: 'sec-winwin', btn: document.querySelector('.dock-item[data-section="sec-winwin"]') },
+        { id: 'sec-dossiers', btn: document.querySelector('.dock-item[data-section="sec-dossiers"]') },
+        { id: 'doc1', btn: document.querySelector('.dock-item[data-section="doc1"]') },
+        { id: 'sec-faq', btn: document.querySelector('.dock-item[data-section="sec-faq"]') },
+        { id: 'sec-contact', btn: document.querySelector('.dock-item[data-section="sec-contact"]') }
+      ];
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const match = sections.find(s => s.id === entry.target.id);
+            if (match && match.btn) {
+              document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
+              match.btn.classList.add('active');
+            }
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (el) observer.observe(el);
+      });
+    });
+
 
       const targetEl = document.getElementById(targetId);
       if (targetEl) {
@@ -2239,6 +2333,88 @@
         alert(text);
       }
     }
+
+    
+    // =========================================================================
+    // PLAN A: TOUCH-OPTIMIZED MOBILE DOCK NAVIGATION & SCROLLSPY
+    // =========================================================================
+    function handleDockNav(e, targetId) {
+      if (e && e.preventDefault) e.preventDefault();
+
+      // Active state highlight
+      const clickedBtn = e ? e.currentTarget : null;
+      document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
+      if (clickedBtn) clickedBtn.classList.add('active');
+
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        try {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } catch (err) {
+          const headerOffset = 76;
+          const elementPos = targetEl.getBoundingClientRect().top;
+          const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+          window.scrollTo({
+            top: Math.max(0, elementPos + currentY - headerOffset),
+            behavior: 'smooth'
+          });
+        }
+
+        // Visual target pulse confirmation
+        targetEl.style.transition = 'box-shadow 0.3s ease, outline 0.3s ease';
+        targetEl.style.outline = '3px solid var(--accent)';
+        setTimeout(() => { targetEl.style.outline = ''; }, 1400);
+      } else {
+        window.location.hash = '#' + targetId;
+      }
+    }
+
+    function handleDockPhone(e) {
+      // Set active state on button
+      document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
+      if (e && e.currentTarget) e.currentTarget.classList.add('active');
+
+      // Scroll to contact card
+      const contactEl = document.getElementById('sec-contact');
+      if (contactEl) {
+        contactEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      // Note: Do not e.preventDefault() so native tel: prompt opens on mobile devices!
+    }
+
+    // Scrollspy to auto-highlight active dock button as user scrolls
+    window.addEventListener('DOMContentLoaded', () => {
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+      };
+
+      const sections = [
+        { id: 'sec-winwin', btn: document.querySelector('.dock-item[data-section="sec-winwin"]') },
+        { id: 'sec-dossiers', btn: document.querySelector('.dock-item[data-section="sec-dossiers"]') },
+        { id: 'sec-finance', btn: document.querySelector('.dock-item[data-section="sec-finance"]') },
+        { id: 'sec-faq', btn: document.querySelector('.dock-item[data-section="sec-faq"]') },
+        { id: 'sec-contact', btn: document.querySelector('.dock-item[data-section="sec-contact"]') }
+      ];
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const match = sections.find(s => s.id === entry.target.id);
+            if (match && match.btn) {
+              document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
+              match.btn.classList.add('active');
+            }
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (el) observer.observe(el);
+      });
+    });
 
     // 6. FAQ Accordion Toggle
     function toggleFaq(btn) {
