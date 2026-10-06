@@ -2053,7 +2053,7 @@
       <div class="card" style="border: 2px solid var(--accent); text-align: center; padding: 28px 20px;">
         <h3 style="font-size: 1.35rem; color: var(--accent); font-weight: 900; margin-bottom: 8px;">📞 住戶諮詢與連署接洽</h3>
         <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.6;">
-          本案由 A2 區 595 號（A17）廖倫豪 博士 召集推動。<br>
+          本案由 A2 區 595 號廖倫豪召集推動。<br>
           若鄰居對公文內容、共管專戶或法規程序有任何疑問，歡迎隨時聯繫！
         </p>
         <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
@@ -2228,10 +2228,10 @@
     }
 
     function copyContactInfo() {
-      const text = "富宇大境 A2 區召集人：廖倫豪 博士\n電話：0922-868-266\n門牌：台中市沙鹿區龍社路 595 號 (A17)";
+      const text = "富宇大境 A2 區召集人：廖倫豪\n電話：0922-868-266\n門牌：台中市沙鹿區龍社路 595 號";
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
-          showToast("已成功複製召集人 廖博士 聯絡電話至剪貼簿！");
+          showToast("已成功複製召集人聯絡電話至剪貼簿！");
         }).catch(() => {
           alert(text);
         });
