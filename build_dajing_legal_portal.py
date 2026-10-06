@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+# -*- coding: utf-8 -*-
+"""
+Script to build the comprehensive, legally rigorous dajing.html legal portal for 富宇大境 A2.
+Incorporates all 8 deliverables, full legal documents, executive design system (6 themes),
+interactive calculator, tabs, print CSS, and mobile dock.
+"""
+
+import os
+
+HTML_CONTENT = """<!DOCTYPE html>
 <html lang="zh-TW" data-theme="obsidian">
 <head>
   <meta charset="UTF-8">
@@ -1965,3 +1974,15 @@
   </script>
 </body>
 </html>
+"""
+
+def main():
+    target_path = '/Users/howardliao/Desktop/HermesAgent/PortFilio/fuyu/dajing.html'
+    print(f"Writing updated dajing.html to {target_path}...")
+    with open(target_path, 'w', encoding='utf-8') as f:
+        f.write(HTML_CONTENT)
+    size = os.path.getsize(target_path)
+    print(f"Successfully generated dajing.html! File size: {size:,} bytes")
+
+if __name__ == '__main__':
+    main()
