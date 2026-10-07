@@ -1297,18 +1297,7 @@
         </div>
         <div class="brand-desc">依《公寓大廈管理條例》第 53 條 ｜ 臺中市爭議事件調處程序專案</div>
       </div>
-      <div class="nav-actions">
-        <!-- 6-Theme Switcher -->
-        <select id="themeSelect" class="theme-select" onchange="switchTheme(this.value)">
-          <option value="obsidian" selected>曜石黑 (Deep Obsidian)</option>
-          <option value="milan">米蘭暖琥珀 (Milan Editorial)</option>
-          <option value="pharaoh">埃及法老 (Egyptian Pharaoh)</option>
-          <option value="klimt">克林姆金箔 (Gustav Klimt)</option>
-          <option value="ninagawa">蜷川實花 (Mika Ninagawa)</option>
-          <option value="miro">胡安·米羅 (Joan Miró)</option>
-        </select>
-        
-      </div>
+      
     </div>
   </header>
 
@@ -2288,8 +2277,7 @@
       const savedTheme = localStorage.getItem('fuyu_theme');
       if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
-        const sel = document.getElementById('themeSelect');
-        if (sel) sel.value = savedTheme;
+        // themeSelect removed
       }
     });
 
