@@ -1453,36 +1453,40 @@
           手機住戶線上閱讀提示（全文已直接內嵌於本網頁）
         </div>
         <p style="margin-bottom: 6px; color: var(--text-main);">
-          全套 10 份公文與協議書<strong>已直接在下方完整呈現</strong>！您可點選下方標籤或選單切換，即可在手機上直接閱讀，<strong>完全不需下載 PDF，手機請勿點擊外部檔案以免白屏或破圖</strong>！
+          全案卷宗嚴謹劃分為<strong>【6 份對外正式法定公文與協議】</strong>及<strong>【4 份內部策略與查核手冊】</strong>（共 10 項完整法律卷宗），已直接在下方分類呈現！您可點選下方標籤或選單切換線上閱讀，<strong>不需下載 PDF，手機請勿點擊外部檔案以免白屏或破圖</strong>！
         </p>
         <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
           <span style="font-weight: 700; color: var(--text-main); font-size: 14px;">快速切換公文：</span>
           <select id="mobileDocPicker" onchange="pickMobileDoc(this.value)" style="background: var(--bg-card); color: var(--text-main); border: 1.5px solid var(--border-accent); padding: 8px 12px; border-radius: 8px; font-size: 15px; font-weight: 700; outline: none; cursor: pointer; max-width: 100%;">
-            <option value="doc1">01. 臺中市調處申請書</option>
-            <option value="doc2">02. §35 閱覽影印資料函</option>
-            <option value="doc3">03. 全體區權人特別委任書</option>
-            <option value="doc4">04. 六戶專款共管協議書</option>
-            <option value="doc5">05. 資產結算事實說明與計算書</option>
-            <option value="doc6">06. 區權會規約修正提案草案</option>
-            <option value="doc7">07. 外部理性溝通公開說明版</option>
-            <option value="doc8">08. 風險評估與三軌備案說明</option>
-            <option value="doc9">09. 都發局送件電詢清單</option>
-            <option value="doc10">10. 法規與事實一致性檢查表</option>
+            <optgroup label="🏛️ 對外正式法定公文與協議（共 6 份）">
+              <option value="doc1">【公文 01】臺中市調處申請書</option>
+              <option value="doc2">【公文 02】§35 閱覽影印資料函</option>
+              <option value="doc3">【公文 03】全體區權人特別委任書</option>
+              <option value="doc4">【協議 04】六戶專款共管協議書</option>
+              <option value="doc5">【公文 05】資產結算計算書暨說明</option>
+              <option value="doc6">【提案 06】區權會規約修正提案書</option>
+            </optgroup>
+            <optgroup label="📋 內部法律策略與查核手冊（共 4 份）">
+              <option value="doc7">【策略 07】外部理性溝通公開說帖</option>
+              <option value="doc8">【策略 08】風險評估與三軌備案說明</option>
+              <option value="doc9">【手冊 09】都發局送件電詢清單</option>
+              <option value="doc10">【手冊 10】法規與事實一致性檢查表</option>
+            </optgroup>
           </select>
         </div>
       </div>
 
         <div class="doc-nav-tabs">
-          <button class="doc-tab-btn active" onclick="switchDoc('doc1', this)">01. 調處申請書</button>
-          <button class="doc-tab-btn" onclick="switchDoc('doc2', this)">02. §35 閱覽影印函</button>
-          <button class="doc-tab-btn" onclick="switchDoc('doc3', this)">03. 特別委任書</button>
-          <button class="doc-tab-btn" onclick="switchDoc('doc4', this)">04. 六戶共管協議書</button>
-          <button class="doc-tab-btn" onclick="switchDoc('doc5', this)">05. 款項計算書</button>
-          <button class="doc-tab-btn" onclick="switchDoc('doc6', this)">06. 區權會提案草案</button>
-          <button class="doc-tab-btn" onclick="switchDoc('doc7', this)">07. 理性溝通版網頁</button>
-          <button class="doc-tab-btn" onclick="switchDoc('doc8', this)">08. 風險與備案說明</button>
-          <button class="doc-tab-btn" onclick="switchDoc('doc9', this)">09. 送件電詢清單</button>
-          <button class="doc-tab-btn" onclick="switchDoc('doc10', this)">10. 一致性檢查表</button>
+          <button class="doc-tab-btn active" onclick="switchDoc('doc1', this)">【公文01】調處申請書</button>
+          <button class="doc-tab-btn" onclick="switchDoc('doc2', this)">【公文02】§35 閱覽函</button>
+          <button class="doc-tab-btn" onclick="switchDoc('doc3', this)">【公文03】特別委任書</button>
+          <button class="doc-tab-btn" onclick="switchDoc('doc4', this)">【協議04】共管協議書</button>
+          <button class="doc-tab-btn" onclick="switchDoc('doc5', this)">【公文05】款項計算書</button>
+          <button class="doc-tab-btn" onclick="switchDoc('doc6', this)">【提案06】區權大會提案</button>
+          <button class="doc-tab-btn" onclick="switchDoc('doc7', this)">【策略07】理性溝通說帖</button>
+          <button class="doc-tab-btn" onclick="switchDoc('doc8', this)">【策略08】風險備案說明</button>
+          <button class="doc-tab-btn" onclick="switchDoc('doc9', this)">【手冊09】住宅處電詢清單</button>
+          <button class="doc-tab-btn" onclick="switchDoc('doc10', this)">【手冊10】一致性檢查表</button>
         </div>
 
         <!-- PANEL 1: 調處申請書 -->
@@ -2661,15 +2665,18 @@
       <!-- SHEET 1: 法定卷宗快速選單 -->
       <div id="sheetDossiers" class="sheet-panel">
         <div class="sheet-header">
-          <h3 class="sheet-title">📂 10 份法定公文快速切換</h3>
+          <h3 class="sheet-title">📂 全案卷宗（法定公文 6 份 ＋ 內部策略 4 份）</h3>
           <button class="sheet-close-btn" onclick="closeBottomSheet()">✕</button>
         </div>
         <div class="sheet-dossier-list">
+          <div style="font-size: 0.85rem; font-weight: 800; color: var(--accent); padding: 4px 6px; border-bottom: 1px solid var(--border-subtle); margin-top: 4px;">
+            🏛️ 對外正式法定公文與協議（共 6 份）
+          </div>
           <div class="sheet-doc-item" onclick="selectDocFromSheet('doc1')">
             <span class="sheet-doc-badge">01</span>
             <div class="sheet-doc-text">
               <div class="sheet-doc-name">臺中市公寓大廈爭議事件調處申請書</div>
-              <div class="sheet-doc-sub">正式公文主件 ｜ 提請市府調處協商</div>
+              <div class="sheet-doc-sub">正式法定公文主件 ｜ 提請市府調處協商</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
@@ -2677,7 +2684,7 @@
             <span class="sheet-doc-badge">02</span>
             <div class="sheet-doc-text">
               <div class="sheet-doc-name">依第 35 條請求閱覽影印資料函</div>
-              <div class="sheet-doc-sub">合法調閱 5/6 會議紀錄與定存存根原本</div>
+              <div class="sheet-doc-sub">行文管委會 ｜ 調閱會議紀錄與定存原本</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
@@ -2685,7 +2692,7 @@
             <span class="sheet-doc-badge">03</span>
             <div class="sheet-doc-text">
               <div class="sheet-doc-name">全體區權人特別委任書</div>
-              <div class="sheet-doc-sub">特別授權代理人 ｜ 排除代收公款保障</div>
+              <div class="sheet-doc-sub">法定委任憑據 ｜ 嚴格排除代收公款保障</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
@@ -2693,7 +2700,7 @@
             <span class="sheet-doc-badge">04</span>
             <div class="sheet-doc-text">
               <div class="sheet-doc-name">六戶專款共管協議書</div>
-              <div class="sheet-doc-sub">雙人簽章專戶 ｜ 專用於路燈側溝維護</div>
+              <div class="sheet-doc-sub">法定內部共管 ｜ 雙人簽章專戶不設管委會</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
@@ -2701,47 +2708,51 @@
             <span class="sheet-doc-badge">05</span>
             <div class="sheet-doc-text">
               <div class="sheet-doc-name">資產結算事實說明與計算書</div>
-              <div class="sheet-doc-sub">280,231 元客觀基準與談判策略方案</div>
+              <div class="sheet-doc-sub">調處佐證附件 ｜ 280,231 元客觀基準與方案</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
           <div class="sheet-doc-item" onclick="selectDocFromSheet('doc6')">
             <span class="sheet-doc-badge">06</span>
             <div class="sheet-doc-text">
-              <div class="sheet-doc-name">區權會提案草案（規約第二條修正案）</div>
-              <div class="sheet-doc-sub">241 戶變更為 235 戶 ｜ §31/§32 門檻分析</div>
+              <div class="sheet-doc-name">區權會提案申請書（規約修正案）</div>
+              <div class="sheet-doc-sub">行文大會議程 ｜ 241 戶變更為 235 戶草案</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
+
+          <div style="font-size: 0.85rem; font-weight: 800; color: var(--emerald); padding: 8px 6px 4px; border-bottom: 1px solid var(--border-subtle); margin-top: 10px;">
+            📋 內部法律策略與查核手冊（共 4 份）
+          </div>
           <div class="sheet-doc-item" onclick="selectDocFromSheet('doc7')">
-            <span class="sheet-doc-badge">07</span>
+            <span class="sheet-doc-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald);">07</span>
             <div class="sheet-doc-text">
-              <div class="sheet-doc-name">外部理性溝通公開說明版</div>
-              <div class="sheet-doc-sub">訴求雙贏互利 ｜ 減輕大社區管理責任</div>
+              <div class="sheet-doc-name">外部理性溝通公開說明說帖</div>
+              <div class="sheet-doc-sub">內部策略 ｜ 向社區理性溝通雙贏效益</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
           <div class="sheet-doc-item" onclick="selectDocFromSheet('doc8')">
-            <span class="sheet-doc-badge">08</span>
+            <span class="sheet-doc-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald);">08</span>
             <div class="sheet-doc-text">
               <div class="sheet-doc-name">調處風險評估與備案說明書</div>
-              <div class="sheet-doc-sub">共有持分查核影響 ｜ 三軌推進勝算分析</div>
+              <div class="sheet-doc-sub">內部幕僚 ｜ 共有持分查核與三軌勝算</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
           <div class="sheet-doc-item" onclick="selectDocFromSheet('doc9')">
-            <span class="sheet-doc-badge">09</span>
+            <span class="sheet-doc-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald);">09</span>
             <div class="sheet-doc-text">
               <div class="sheet-doc-name">都發局住宅處送件電詢清單</div>
-              <div class="sheet-doc-sub">5 大電詢提問話術與審查要點確認</div>
+              <div class="sheet-doc-sub">內部工具 ｜ 送件前 5 大行政要點確認</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
           <div class="sheet-doc-item" onclick="selectDocFromSheet('doc10')">
-            <span class="sheet-doc-badge">10</span>
+            <span class="sheet-doc-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald);">10</span>
             <div class="sheet-doc-text">
-              <div class="sheet-doc-name">法規與事實一致性檢查表</div>
-              <div class="sheet-doc-sub">律師合規審核通過紀錄表</div>
+              <div class="sheet-doc-name">法規與事實一致性自我檢查表</div>
+              <div class="sheet-doc-sub">內部審核 ｜ 律師合規檢驗軌跡</div>
             </div>
             <span class="sheet-doc-arrow">➔</span>
           </div>
