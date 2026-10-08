@@ -1283,6 +1283,231 @@
       font-weight: 900;
     }
 
+
+    /* ========================================================================= */
+    /* DOSSIER CATALOG GRID STYLES                                               */
+    /* ========================================================================= */
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 14px;
+    }
+    @media (max-width: 640px) {
+      .dossier-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .dossier-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow);
+    }
+    .dossier-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+    .dossier-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .dossier-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-weight: 800;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dossier-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+    .tag-formal {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent);
+      border: 1px solid var(--border-accent);
+    }
+    .tag-internal {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      border: 1px solid var(--emerald);
+    }
+    .dossier-card-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0 0 6px 0;
+      line-height: 1.4;
+    }
+    .dossier-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0 0 12px 0;
+      flex: 1;
+    }
+    .dossier-card-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-doc-act {
+      font-size: 0.82rem;
+      padding: 7px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      border: none;
+    }
+    .btn-doc-act.preview {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent);
+      border: 1px solid var(--border-accent);
+    }
+    .btn-doc-act.preview:hover {
+      background: var(--accent);
+      color: #020617;
+    }
+    .btn-doc-act.download {
+      background: var(--bg-paper);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-doc-act.download:hover {
+      border-color: var(--border-accent);
+    }
+    .btn-doc-act.view {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      margin-left: auto;
+    }
+    .btn-doc-act.view:hover {
+      color: var(--accent);
+    }
+
+    /* ========================================================================= */
+    /* PDF MODAL STYLES                                                          */
+    /* ========================================================================= */
+    .pdf-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000000 !important;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .pdf-modal-overlay.active {
+      display: flex;
+    }
+    .pdf-modal-container {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-accent);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 960px;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+    }
+    .pdf-modal-header {
+      background: var(--bg-paper);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .pdf-modal-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+    .pdf-modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .btn-modal-action {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+    .btn-modal-close:hover {
+      color: var(--accent);
+    }
+    .pdf-modal-body {
+      flex: 1;
+      background: #1e293b;
+      position: relative;
+    }
+    .pdf-modal-body iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .pdf-modal-footer {
+      background: var(--bg-paper);
+      border-top: 1px solid var(--border-subtle);
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -1446,35 +1671,239 @@
       <div class="dossier-hub">
         <!-- Navigation Tabs -->
         
-      <!-- MOBILE IN-PAGE READING GUIDE (PREVENTS BLANK SCREEN / LINE WEBVIEW ERRORS) -->
-      <div style="background: rgba(16, 185, 129, 0.12); border: 1.5px solid var(--emerald); border-radius: 12px; padding: 14px 18px; margin-bottom: 20px; font-size: 15px; line-height: 1.7; box-shadow: var(--shadow);">
-        <div style="font-weight: 800; color: var(--emerald); font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          手機住戶線上閱讀提示（全文已直接內嵌於本網頁）
+      <!-- COMPREHENSIVE DOCUMENT CATALOG (ALL LISTED OUT WITH PDF PREVIEW & DOWNLOAD) -->
+      <div class="dossier-catalog-container" style="margin-bottom: 24px;">
+        <div style="background: rgba(245, 158, 11, 0.08); border: 1.5px solid var(--border-accent); border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; box-shadow: var(--shadow);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h3 style="font-size: 1.15rem; color: var(--accent); font-weight: 900; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                📑 全案法定公文與卷宗總覽清單
+              </h3>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+                全案 10 項文件已全數列表於下方，每一份均支援 <strong>「👁️ PDF 在線預覽」</strong>、<strong>「📥 下載 A4 PDF」</strong> 與 <strong>「📖 檢視內文」</strong>。
+              </p>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <button class="btn-header-action" onclick="openPdfPreview('a2/00-full-dossier.pdf', '全案法定公文與卷宗完整合輯 (15頁)')" style="background: var(--accent-gradient); color: #020617; font-weight: 800; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                👁️ 預覽全套卷宗合輯
+              </button>
+              <a href="a2/00-full-dossier.pdf" download class="btn-action-tool" style="background: var(--bg-card); color: var(--accent); border: 1.5px solid var(--border-accent); font-weight: 800; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                📥 一鍵下載全套合輯 (PDF)
+              </a>
+            </div>
+          </div>
         </div>
-        <p style="margin-bottom: 6px; color: var(--text-main);">
-          全案卷宗嚴謹劃分為<strong>【6 份對外正式法定公文與協議】</strong>及<strong>【4 份內部策略與查核手冊】</strong>（共 10 項完整法律卷宗），已直接在下方分類呈現！您可點選下方標籤或選單切換線上閱讀，<strong>不需下載 PDF，手機請勿點擊外部檔案以免白屏或破圖</strong>！
-        </p>
-        <div style="display: flex; align-items: center; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
-          <span style="font-weight: 700; color: var(--text-main); font-size: 14px;">快速切換公文：</span>
-          <select id="mobileDocPicker" onchange="pickMobileDoc(this.value)" style="background: var(--bg-card); color: var(--text-main); border: 1.5px solid var(--border-accent); padding: 8px 12px; border-radius: 8px; font-size: 15px; font-weight: 700; outline: none; cursor: pointer; max-width: 100%;">
-            <optgroup label="🏛️ 對外正式法定公文與協議（共 6 份）">
-              <option value="doc1">【公文 01】臺中市調處申請書</option>
-              <option value="doc2">【公文 02】§35 閱覽影印資料函</option>
-              <option value="doc3">【公文 03】全體區權人特別委任書</option>
-              <option value="doc4">【協議 04】六戶專款共管協議書</option>
-              <option value="doc5">【公文 05】資產結算計算書暨說明</option>
-              <option value="doc6">【提案 06】區權會規約修正提案書</option>
-            </optgroup>
-            <optgroup label="📋 內部法律策略與查核手冊（共 4 份）">
-              <option value="doc7">【策略 07】外部理性溝通公開說帖</option>
-              <option value="doc8">【策略 08】風險評估與三軌備案說明</option>
-              <option value="doc9">【手冊 09】都發局送件電詢清單</option>
-              <option value="doc10">【手冊 10】法規與事實一致性檢查表</option>
-            </optgroup>
-          </select>
+
+        <!-- GROUP 1: FORMAL LEGAL DOCUMENTS (6) -->
+        <div style="margin-bottom: 18px;">
+          <div style="font-size: 1.05rem; font-weight: 900; color: var(--accent); display: flex; align-items: center; gap: 8px; padding-bottom: 8px; border-bottom: 2px solid var(--border-accent); margin-bottom: 12px;">
+            <span>🏛️ 第一組：對外正式法定公文與協議（共 6 份）</span>
+          </div>
+          <div class="dossier-grid">
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge">01</span>
+                <span class="dossier-tag tag-formal">法定公文</span>
+              </div>
+              <h4 class="dossier-card-title">臺中市公寓大廈爭議事件調處申請書</h4>
+              <p class="dossier-card-desc">正式公文主件 ｜ 提請臺中市政府都發局住宅處爭議調處委員會協商</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/01-mediation-application.pdf', '臺中市公寓大廈爭議事件調處申請書')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/01-mediation-application.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc1')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge">02</span>
+                <span class="dossier-tag tag-formal">法定公文</span>
+              </div>
+              <h4 class="dossier-card-title">依第 35 條請求閱覽影印資料函</h4>
+              <p class="dossier-card-desc">正式公函 ｜ 行文富宇大地管委會調閱 5/6 紀錄原本、存單與 9 月財報</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/02-section35-request.pdf', '依第 35 條請求閱覽影印資料函')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/02-section35-request.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc2')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge">03</span>
+                <span class="dossier-tag tag-formal">法定公文</span>
+              </div>
+              <h4 class="dossier-card-title">全體區分所有權人特別委任書</h4>
+              <p class="dossier-card-desc">特別授權 ｜ 民法 §528、§534 特別委任（嚴格排除代收公款、禁止複委任）</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/03-power-of-attorney.pdf', '全體區分所有權人特別委任書')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/03-power-of-attorney.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc3')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge">04</span>
+                <span class="dossier-tag tag-formal">法定協議</span>
+              </div>
+              <h4 class="dossier-card-title">六戶專款共管協議書</h4>
+              <p class="dossier-card-desc">法定契約 ｜ 6 戶設立雙人簽章專戶、專用於門前路燈側溝、不另設管委會</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/04-co-management-agreement.pdf', '六戶專款共管協議書')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/04-co-management-agreement.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc4')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge">05</span>
+                <span class="dossier-tag tag-formal">佐證文書</span>
+              </div>
+              <h4 class="dossier-card-title">資產結算事實說明與計算書</h4>
+              <p class="dossier-card-desc">調處附件 ｜ 280,231 元客觀基準本金、公攤扣抵預判與三級談判方案</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/05-fund-settlement.pdf', '資產結算事實說明與計算書')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/05-fund-settlement.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc5')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge">06</span>
+                <span class="dossier-tag tag-formal">大會提案</span>
+              </div>
+              <h4 class="dossier-card-title">區權會提案申請書（規約第二條修正案）</h4>
+              <p class="dossier-card-desc">正式提案 ｜ 管理範圍由 241 戶修正為 235 戶，附 §31/§32 決議門檻分析</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/06-assembly-proposal.pdf', '區權會提案申請書（規約第二條修正案）')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/06-assembly-proposal.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc6')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP 2: INTERNAL STRATEGY & MANUALS (4) -->
+        <div style="margin-bottom: 24px;">
+          <div style="font-size: 1.05rem; font-weight: 900; color: var(--emerald); display: flex; align-items: center; gap: 8px; padding-bottom: 8px; border-bottom: 2px solid var(--emerald); margin-bottom: 12px;">
+            <span>📋 第二組：內部法律策略與查核手冊（共 4 份）</span>
+          </div>
+          <div class="dossier-grid">
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald);">07</span>
+                <span class="dossier-tag tag-internal">內部策略</span>
+              </div>
+              <h4 class="dossier-card-title">外部理性溝通公開說帖</h4>
+              <p class="dossier-card-desc">溝通手冊 ｜ 向社區其餘 235 戶理性說明雙贏效益，掃除對抗誇大用語</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/07-public-statement.pdf', '外部理性溝通公開說帖')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/07-public-statement.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc7')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald);">08</span>
+                <span class="dossier-tag tag-internal">內部策略</span>
+              </div>
+              <h4 class="dossier-card-title">調處風險評估與備案說明書</h4>
+              <p class="dossier-card-desc">法律幕僚 ｜ 土地建物共有持分查核影響、重行召集門檻與三軌勝算評估</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/08-risk-assessment.pdf', '調處風險評估與備案說明書')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/08-risk-assessment.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc8')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald);">09</span>
+                <span class="dossier-tag tag-internal">查核手冊</span>
+              </div>
+              <h4 class="dossier-card-title">都發局住宅處送件電詢清單</h4>
+              <p class="dossier-card-desc">行政要點 ｜ 正式送件前致電公務機關之 5 大確認話術與審查標準</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/09-inquiry-checklist.pdf', '都發局住宅處送件電詢清單')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/09-inquiry-checklist.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc9')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+            <div class="dossier-card">
+              <div class="dossier-card-header">
+                <span class="dossier-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald);">10</span>
+                <span class="dossier-tag tag-internal">查核手冊</span>
+              </div>
+              <h4 class="dossier-card-title">法規與事實一致性自我檢查表</h4>
+              <p class="dossier-card-desc">律師內控 ｜ 全案 10 項文件法理與金額 100% 嚴謹對齊自我審查紀錄</p>
+              <div class="dossier-card-actions">
+                <button class="btn-doc-act preview" onclick="openPdfPreview('a2/10-consistency-check.pdf', '法規與事實一致性自我檢查表')">
+                  👁️ 預覽 PDF
+                </button>
+                <a href="a2/10-consistency-check.pdf" download class="btn-doc-act download">
+                  📥 下載 PDF
+                </a>
+                <button class="btn-doc-act view" onclick="switchDocAndScroll('doc10')">
+                  📖 檢視內文
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- END COMPREHENSIVE CATALOG -->
+
 
         <div class="doc-nav-tabs">
           <button class="doc-tab-btn active" onclick="switchDoc('doc1', this)">【公文01】調處申請書</button>
@@ -1497,8 +1926,10 @@
               <div class="doc-meta">受文機關：臺中市政府（都市發展局住宅發展工程處 / 公寓大廈爭議事件調處委員會） ｜ 類別：正式公文主件</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc1-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/01-mediation-application.pdf', '臺中市公寓大廈爭議事件調處申請書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/01-mediation-application.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc1-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc1-body">
             <h4>一、當事人基本資料</h4>
@@ -1609,8 +2040,10 @@
               <div class="doc-meta">受文者：富宇大地社區管理委員會 ｜ 副本：區公所、都發局 ｜ 速別：最速件</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc2-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/02-section35-request.pdf', '依第 35 條請求閱覽影印資料函')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/02-section35-request.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc2-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc2-body">
             <p><strong>主旨</strong>：為維護區分所有權人合法權益並釐清社區資產與規約現況，本區全體 6 戶區分所有權人謹依《公寓大廈管理條例》第 35 條規定，正式向貴管理委員會申請閱覽、影印如說明二所示之會議紀錄、財務報表及報備公文等文件，敬請於文到 7 日內惠予排定查閱時間與提供影本，請 查照惠復。</p>
@@ -1650,8 +2083,10 @@
               <div class="doc-meta">依民法第 528 條、第 534 條 ｜ 修正版（排除代收、增列共管專戶、期限 1 年、禁複委任、共有戶全員簽署）</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc3-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/03-power-of-attorney.pdf', '全體區分所有權人特別委任書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/03-power-of-attorney.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc3-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc3-body">
             <p><strong>委任人</strong>（即臺中市沙鹿區龍社路 593、595、597、599、601、603 號全體區分所有權人，含共有持分人全體）茲因辦理富宇大地社區管理範圍變更協商、臺中市政府公寓大廈爭議事件調處及款項專戶移交等事宜，特依法委任 <strong>受任人：廖倫豪 先生</strong> 為代理人，委任條款如下：</p>
@@ -1686,8 +2121,10 @@
               <div class="doc-meta">立約人：龍社路 593 至 603 號 6 戶區權人 ｜ 專款專用 ｜ 雙人簽章共管 ｜ 不另設管委會</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc4-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/04-co-management-agreement.pdf', '六戶專款共管協議書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/04-co-management-agreement.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc4-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc4-body">
             <p><strong>緣起</strong>：立約人 6 戶透天別墅緊鄰公有計畫道路龍社路，考量居住機能各自獨立，為落實《公寓大廈管理條例》第 53 條權責相符原則，於依合規程序自富宇大地社區完成管理範圍調整後，<strong>本區決議回歸一般透天自律生活，不另成立管理委員會</strong>。為妥善管理維護門前公用設施及本區自富宇大地社區結算返還之共有專案款項，特訂立本《共管協議書》：</p>
@@ -1720,8 +2157,10 @@
               <div class="doc-meta">基準本金：280,231 元 ｜ 扣抵抗辯預判 ｜ 三級談判區間設計</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc5-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/05-fund-settlement.pdf', '資產結算事實說明與計算書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/05-fund-settlement.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc5-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc5-body">
             <h4>一、專案資產基礎事實（客觀基準數：280,231 元）</h4>
@@ -1795,8 +2234,10 @@
               <div class="doc-meta">類別：規約第二條管理範圍修正案 ｜ 附第 31 條特別決議與第 32 條重新召集門檻分析</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc6-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/06-assembly-proposal.pdf', '區權會提案申請書（規約第二條修正案）')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/06-assembly-proposal.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc6-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc6-body">
             <p><strong>案由</strong>：審議「富宇大地社區規約第二條管理範圍修正案（排除沙鹿區龍社路 593 至 603 號共 6 戶，管理規模由 241 戶調整為 235 戶）」暨專案資產結算移交事宜。</p>
@@ -1855,8 +2296,10 @@
               <div class="doc-meta">用途：對外溝通宣傳、向管委會與內部住戶理性說明 ｜ 徹底掃除對抗與誇大用語</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc7-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/07-public-statement.pdf', '外部理性溝通公開說帖')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/07-public-statement.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc7-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc7-body">
             <p><strong>親愛的富宇大地社區鄰里先進：</strong><br>
@@ -1885,8 +2328,10 @@
               <div class="doc-meta">律師專業備案指南 ｜ 產權共有持分影響 ｜ 三軌推動路徑與勝算分析</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc8-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/08-risk-assessment.pdf', '調處風險評估與備案說明書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/08-risk-assessment.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc8-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc8-body">
             <h4>一、產權持分關鍵查核：基地公同共有持分對第 53 條主張之深遠影響</h4>
@@ -1932,8 +2377,10 @@
               <div class="doc-meta">諮詢單位：臺中市政府都發局住宅發展工程處（公寓大廈管理科） ｜ 電話：(04) 2228-9111</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc9-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/09-inquiry-checklist.pdf', '都發局住宅處送件電詢清單')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/09-inquiry-checklist.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc9-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc9-body">
             <table class="legal-table">
@@ -1985,8 +2432,10 @@
               <div class="doc-meta">律師自我審查覆核表 ｜ 確保 10 份文件內部邏輯 100% 嚴謹對齊</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="copyDocContent('doc10-body')">複製全文</button>
-              </div>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/10-consistency-check.pdf', '法規與事實一致性自我檢查表')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <a href="a2/10-consistency-check.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
+              <button class="btn-action-tool" onclick="copyDocContent('doc10-body')">📋 複製全文</button>
+            </div>
           </div>
           <div class="legal-doc-body" id="doc10-body">
             <table class="legal-table">
@@ -2648,6 +3097,57 @@
       }
     }
 
+    
+    // =========================================================================
+    // PDF PREVIEW MODAL CONTROLLER
+    // =========================================================================
+    function openPdfPreview(pdfUrl, title) {
+      const modal = document.getElementById('pdfModalOverlay');
+      const iframe = document.getElementById('pdfModalIframe');
+      const nameEl = document.getElementById('pdfModalName');
+      const dlBtn = document.getElementById('pdfModalDownloadBtn');
+      const newTabBtn = document.getElementById('pdfModalNewTabBtn');
+
+      if (nameEl) nameEl.innerText = title;
+      if (dlBtn) dlBtn.href = pdfUrl;
+      if (newTabBtn) newTabBtn.href = pdfUrl;
+      if (iframe) iframe.src = pdfUrl;
+
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closePdfModal() {
+      const modal = document.getElementById('pdfModalOverlay');
+      const iframe = document.getElementById('pdfModalIframe');
+      if (iframe) iframe.src = 'about:blank';
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closePdfModalOnOverlay(e) {
+      if (e.target.id === 'pdfModalOverlay') {
+        closePdfModal();
+      }
+    }
+
+    function switchDocAndScroll(docId) {
+      const idxMap = {
+        'doc1': 0, 'doc2': 1, 'doc3': 2, 'doc4': 3, 'doc5': 4,
+        'doc6': 5, 'doc7': 6, 'doc8': 7, 'doc9': 8, 'doc10': 9
+      };
+      const btn = document.querySelectorAll('.doc-tab-btn')[idxMap[docId]];
+      switchDoc(docId, btn);
+      const targetPanel = document.getElementById(docId);
+      if (targetPanel) {
+        targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
     // 6. FAQ Accordion Toggle
     function toggleFaq(btn) {
       const item = btn.parentElement;
@@ -2842,6 +3342,32 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- PDF PREVIEW MODAL (在線 PDF 預覽視窗)                                         -->
+  <!-- ========================================================================= -->
+  <div class="pdf-modal-overlay" id="pdfModalOverlay" onclick="closePdfModalOnOverlay(event)">
+    <div class="pdf-modal-container" onclick="event.stopPropagation()">
+      <div class="pdf-modal-header">
+        <div class="pdf-modal-title" id="pdfModalTitle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span id="pdfModalName">文件在線預覽</span>
+        </div>
+        <div class="pdf-modal-actions">
+          <a id="pdfModalDownloadBtn" href="#" download class="btn-modal-action">📥 下載</a>
+          <a id="pdfModalNewTabBtn" href="#" target="_blank" rel="noopener" class="btn-modal-action">↗ 另開分頁</a>
+          <button class="btn-modal-close" onclick="closePdfModal()">✕</button>
+        </div>
+      </div>
+      <div class="pdf-modal-body">
+        <iframe id="pdfModalIframe" src="about:blank" title="PDF 在線預覽"></iframe>
+      </div>
+      <div class="pdf-modal-footer">
+        <span>📱 提示：若您的手機或 LINE 無法直接載入內嵌預覽，請點擊上方<strong>「另開分頁」</strong>或<strong>「下載」</strong>直接閱讀！</span>
+      </div>
     </div>
   </div>
 
