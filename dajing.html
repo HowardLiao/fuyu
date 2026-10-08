@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-theme="obsidian">
+<html lang="zh-TW" data-theme="pharaoh">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
@@ -21,24 +21,29 @@
        1. EXECUTIVE DESIGN SYSTEM - 6 CORE THEMES
        ========================================================================== */
     :root {
-      /* Default: Deep Obsidian (曜石黑) */
-      --bg-primary: #020617;
-      --bg-card: #0F172A;
-      --bg-card-hover: #1E293B;
-      --bg-paper: #111827;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(245, 158, 11, 0.4);
-      --text-main: #F8FAFC;
-      --text-muted: #94A3B8;
-      --accent: #F59E0B;
-      --accent-secondary: #38BDF8;
-      --emerald: #10B981;
-      --rose: #F43F5E;
-      --accent-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      --header-bg: rgba(2, 6, 23, 0.88);
-      --table-header: #1E293B;
-      --table-row-alt: rgba(255, 255, 255, 0.02);
-      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      /* Default: Egyptian Pharaoh (埃及法老藝術美學) */
+      --bg-primary: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FFFBF5;
+      --bg-paper: #FAF8F5;
+      --border-subtle: rgba(232, 117, 36, 0.22);
+      --border-accent: #E87524;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --accent: #E87524;
+      --accent-secondary: #D98B19;
+      --gold: #E5B300;
+      --rust: #B6532D;
+      --pale-orange: #FBE8D7;
+      --emerald: #059669;
+      --rose: #DC2626;
+      --accent-gradient: linear-gradient(135deg, #E87524 0%, #D98B19 100%);
+      --header-bg: rgba(255, 255, 255, 0.96);
+      --table-header: #FFF7ED;
+      --table-row-alt: #FAFAFA;
+      --shadow: 0 10px 25px -5px rgba(232, 117, 36, 0.08);
+      --badge-bg: #FBE8D7;
+      --badge-text: #B6532D;
     }
 
     html[data-theme="milan"] {
@@ -1535,7 +1540,7 @@
     .pdf-modal-body-doc {
       flex: 1;
       overflow-y: auto;
-      background: #0b0f19;
+      background: #FAF8F5;
       padding: 20px 16px;
       -webkit-overflow-scrolling: touch;
     }
@@ -3176,7 +3181,7 @@
   <script>
 // 1. Theme state (default Deep Obsidian)
 window.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('fuyu_theme') || 'obsidian';
+  const savedTheme = localStorage.getItem('fuyu_theme') || 'pharaoh';
   document.documentElement.setAttribute('data-theme', savedTheme);
 });
 
