@@ -1508,6 +1508,93 @@
       text-align: center;
     }
 
+
+    /* DUAL PREVIEW MODAL STYLES */
+    .pdf-modal-tabs {
+      display: flex;
+      background: var(--bg-paper);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 4px 16px;
+      gap: 8px;
+    }
+    .modal-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 14px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .modal-tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .pdf-modal-body-doc {
+      flex: 1;
+      overflow-y: auto;
+      background: #0b0f19;
+      padding: 20px 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .doc-paper-sheet {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 28px 24px;
+      max-width: 820px;
+      margin: 0 auto;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+      color: var(--text-main);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    .doc-paper-sheet h4 {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin-top: 20px;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed var(--border-subtle);
+      padding-bottom: 6px;
+    }
+    .doc-paper-sheet table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 0.9rem;
+    }
+    .doc-paper-sheet th, .doc-paper-sheet td {
+      border: 1px solid var(--border-subtle);
+      padding: 8px 12px;
+    }
+    .doc-paper-sheet th {
+      background: rgba(245, 158, 11, 0.08);
+      color: var(--accent);
+      font-weight: 800;
+      text-align: left;
+    }
+    .pdf-modal-body-iframe {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #1e293b;
+    }
+    .pdf-modal-body-iframe iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+    }
+    .pdf-fallback-bar {
+      background: var(--bg-paper);
+      border-top: 1px solid var(--border-subtle);
+      padding: 8px 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -1674,23 +1761,13 @@
       <!-- COMPREHENSIVE DOCUMENT CATALOG (ALL LISTED OUT WITH PDF PREVIEW & DOWNLOAD) -->
       <div class="dossier-catalog-container" style="margin-bottom: 24px;">
         <div style="background: rgba(245, 158, 11, 0.08); border: 1.5px solid var(--border-accent); border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; box-shadow: var(--shadow);">
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-            <div>
-              <h3 style="font-size: 1.15rem; color: var(--accent); font-weight: 900; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
-                📑 全案法定公文與卷宗總覽清單
-              </h3>
-              <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
-                全案 10 項文件已全數列表於下方，每一份均支援 <strong>「👁️ PDF 在線預覽」</strong>、<strong>「📥 下載 A4 PDF」</strong> 與 <strong>「📖 檢視內文」</strong>。
-              </p>
-            </div>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <button class="btn-header-action" onclick="openPdfPreview('a2/00-full-dossier.pdf', '全案法定公文與卷宗完整合輯 (15頁)')" style="background: var(--accent-gradient); color: #020617; font-weight: 800; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
-                👁️ 預覽全套卷宗合輯
-              </button>
-              <a href="a2/00-full-dossier.pdf" download class="btn-action-tool" style="background: var(--bg-card); color: var(--accent); border: 1.5px solid var(--border-accent); font-weight: 800; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
-                📥 一鍵下載全套合輯 (PDF)
-              </a>
-            </div>
+          <div>
+            <h3 style="font-size: 1.15rem; color: var(--accent); font-weight: 900; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+              📑 全案法定公文與卷宗總覽清單
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin: 0; line-height: 1.6;">
+              全案 10 項文件已全數列表於下方，每一份均支援 <strong>「👁️ 預覽公文」</strong>（線上即時清晰閱讀）、<strong>「📥 下載 PDF」</strong> 與 <strong>「📖 檢視內文」</strong>。
+            </p>
           </div>
         </div>
 
@@ -1709,7 +1786,7 @@
               <p class="dossier-card-desc">正式公文主件 ｜ 提請臺中市政府都發局住宅處爭議調處委員會協商</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/01-mediation-application.pdf', '臺中市公寓大廈爭議事件調處申請書')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/01-mediation-application.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1728,7 +1805,7 @@
               <p class="dossier-card-desc">正式公函 ｜ 行文富宇大地管委會調閱 5/6 紀錄原本、存單與 9 月財報</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/02-section35-request.pdf', '依第 35 條請求閱覽影印資料函')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/02-section35-request.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1747,7 +1824,7 @@
               <p class="dossier-card-desc">特別授權 ｜ 民法 §528、§534 特別委任（嚴格排除代收公款、禁止複委任）</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/03-power-of-attorney.pdf', '全體區分所有權人特別委任書')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/03-power-of-attorney.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1766,7 +1843,7 @@
               <p class="dossier-card-desc">法定契約 ｜ 6 戶設立雙人簽章專戶、專用於門前路燈側溝、不另設管委會</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/04-co-management-agreement.pdf', '六戶專款共管協議書')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/04-co-management-agreement.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1785,7 +1862,7 @@
               <p class="dossier-card-desc">調處附件 ｜ 280,231 元客觀基準本金、公攤扣抵預判與三級談判方案</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/05-fund-settlement.pdf', '資產結算事實說明與計算書')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/05-fund-settlement.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1804,7 +1881,7 @@
               <p class="dossier-card-desc">正式提案 ｜ 管理範圍由 241 戶修正為 235 戶，附 §31/§32 決議門檻分析</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/06-assembly-proposal.pdf', '區權會提案申請書（規約第二條修正案）')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/06-assembly-proposal.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1832,7 +1909,7 @@
               <p class="dossier-card-desc">溝通手冊 ｜ 向社區其餘 235 戶理性說明雙贏效益，掃除對抗誇大用語</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/07-public-statement.pdf', '外部理性溝通公開說帖')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/07-public-statement.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1851,7 +1928,7 @@
               <p class="dossier-card-desc">法律幕僚 ｜ 土地建物共有持分查核影響、重行召集門檻與三軌勝算評估</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/08-risk-assessment.pdf', '調處風險評估與備案說明書')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/08-risk-assessment.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1870,7 +1947,7 @@
               <p class="dossier-card-desc">行政要點 ｜ 正式送件前致電公務機關之 5 大確認話術與審查標準</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/09-inquiry-checklist.pdf', '都發局住宅處送件電詢清單')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/09-inquiry-checklist.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1889,7 +1966,7 @@
               <p class="dossier-card-desc">律師內控 ｜ 全案 10 項文件法理與金額 100% 嚴謹對齊自我審查紀錄</p>
               <div class="dossier-card-actions">
                 <button class="btn-doc-act preview" onclick="openPdfPreview('a2/10-consistency-check.pdf', '法規與事實一致性自我檢查表')">
-                  👁️ 預覽 PDF
+                  👁️ 預覽公文
                 </button>
                 <a href="a2/10-consistency-check.pdf" download class="btn-doc-act download">
                   📥 下載 PDF
@@ -1926,7 +2003,7 @@
               <div class="doc-meta">受文機關：臺中市政府（都市發展局住宅發展工程處 / 公寓大廈爭議事件調處委員會） ｜ 類別：正式公文主件</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/01-mediation-application.pdf', '臺中市公寓大廈爭議事件調處申請書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/01-mediation-application.pdf', '臺中市公寓大廈爭議事件調處申請書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/01-mediation-application.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc1-body')">📋 複製全文</button>
             </div>
@@ -2040,7 +2117,7 @@
               <div class="doc-meta">受文者：富宇大地社區管理委員會 ｜ 副本：區公所、都發局 ｜ 速別：最速件</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/02-section35-request.pdf', '依第 35 條請求閱覽影印資料函')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/02-section35-request.pdf', '依第 35 條請求閱覽影印資料函')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/02-section35-request.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc2-body')">📋 複製全文</button>
             </div>
@@ -2083,7 +2160,7 @@
               <div class="doc-meta">依民法第 528 條、第 534 條 ｜ 修正版（排除代收、增列共管專戶、期限 1 年、禁複委任、共有戶全員簽署）</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/03-power-of-attorney.pdf', '全體區分所有權人特別委任書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/03-power-of-attorney.pdf', '全體區分所有權人特別委任書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/03-power-of-attorney.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc3-body')">📋 複製全文</button>
             </div>
@@ -2121,7 +2198,7 @@
               <div class="doc-meta">立約人：龍社路 593 至 603 號 6 戶區權人 ｜ 專款專用 ｜ 雙人簽章共管 ｜ 不另設管委會</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/04-co-management-agreement.pdf', '六戶專款共管協議書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/04-co-management-agreement.pdf', '六戶專款共管協議書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/04-co-management-agreement.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc4-body')">📋 複製全文</button>
             </div>
@@ -2157,7 +2234,7 @@
               <div class="doc-meta">基準本金：280,231 元 ｜ 扣抵抗辯預判 ｜ 三級談判區間設計</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/05-fund-settlement.pdf', '資產結算事實說明與計算書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/05-fund-settlement.pdf', '資產結算事實說明與計算書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/05-fund-settlement.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc5-body')">📋 複製全文</button>
             </div>
@@ -2234,7 +2311,7 @@
               <div class="doc-meta">類別：規約第二條管理範圍修正案 ｜ 附第 31 條特別決議與第 32 條重新召集門檻分析</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/06-assembly-proposal.pdf', '區權會提案申請書（規約第二條修正案）')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/06-assembly-proposal.pdf', '區權會提案申請書（規約第二條修正案）')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/06-assembly-proposal.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc6-body')">📋 複製全文</button>
             </div>
@@ -2296,7 +2373,7 @@
               <div class="doc-meta">用途：對外溝通宣傳、向管委會與內部住戶理性說明 ｜ 徹底掃除對抗與誇大用語</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/07-public-statement.pdf', '外部理性溝通公開說帖')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/07-public-statement.pdf', '外部理性溝通公開說帖')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/07-public-statement.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc7-body')">📋 複製全文</button>
             </div>
@@ -2328,7 +2405,7 @@
               <div class="doc-meta">律師專業備案指南 ｜ 產權共有持分影響 ｜ 三軌推動路徑與勝算分析</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/08-risk-assessment.pdf', '調處風險評估與備案說明書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/08-risk-assessment.pdf', '調處風險評估與備案說明書')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/08-risk-assessment.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc8-body')">📋 複製全文</button>
             </div>
@@ -2377,7 +2454,7 @@
               <div class="doc-meta">諮詢單位：臺中市政府都發局住宅發展工程處（公寓大廈管理科） ｜ 電話：(04) 2228-9111</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/09-inquiry-checklist.pdf', '都發局住宅處送件電詢清單')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/09-inquiry-checklist.pdf', '都發局住宅處送件電詢清單')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/09-inquiry-checklist.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc9-body')">📋 複製全文</button>
             </div>
@@ -2432,7 +2509,7 @@
               <div class="doc-meta">律師自我審查覆核表 ｜ 確保 10 份文件內部邏輯 100% 嚴謹對齊</div>
             </div>
             <div class="doc-actions">
-              <button class="btn-action-tool" onclick="openPdfPreview('a2/10-consistency-check.pdf', '法規與事實一致性自我檢查表')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽 PDF</button>
+              <button class="btn-action-tool" onclick="openPdfPreview('a2/10-consistency-check.pdf', '法規與事實一致性自我檢查表')" style="background: rgba(245, 158, 11, 0.12); color: var(--accent); border-color: var(--border-accent);">👁️ 預覽公文</button>
               <a href="a2/10-consistency-check.pdf" download class="btn-action-tool" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 6px;">📥 下載 PDF</a>
               <button class="btn-action-tool" onclick="copyDocContent('doc10-body')">📋 複製全文</button>
             </div>
@@ -2719,440 +2796,270 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
-    // 1. Theme Switcher Logic
-    function switchTheme(themeKey) {
-      document.documentElement.setAttribute('data-theme', themeKey);
-      localStorage.setItem('fuyu_theme', themeKey);
-    }
+// 1. Theme state (default Deep Obsidian)
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('fuyu_theme') || 'obsidian';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+});
 
-    // Load saved theme on boot
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedTheme = localStorage.getItem('fuyu_theme');
-      if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        // themeSelect removed
-      }
+// 2. Document Switcher & Viewer
+function switchDoc(docId, btn) {
+  document.querySelectorAll('.doc-view-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.doc-tab-btn').forEach(b => b.classList.remove('active'));
+
+  const target = document.getElementById(docId);
+  if (target) {
+    target.classList.add('active');
+  }
+
+  if (btn) {
+    btn.classList.add('active');
+  } else {
+    const idxMap = {
+      'doc1': 0, 'doc2': 1, 'doc3': 2, 'doc4': 3, 'doc5': 4,
+      'doc6': 5, 'doc7': 6, 'doc8': 7, 'doc9': 8, 'doc10': 9
+    };
+    const tabs = document.querySelectorAll('.doc-tab-btn');
+    if (tabs[idxMap[docId]]) tabs[idxMap[docId]].classList.add('active');
+  }
+}
+
+function switchDocAndScroll(docId) {
+  switchDoc(docId);
+  const targetPanel = document.getElementById(docId);
+  if (targetPanel) {
+    targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// 3. Document Copy Tool
+function copyDocContent(elementId) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const text = el.innerText;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('公文內容已成功複製至剪貼簿！');
+    }).catch(() => {
+      showToast('已選取內容，請按 Ctrl+C / Cmd+C 複製！');
+    });
+  } else {
+    showToast('已選取內容，請按 Ctrl+C / Cmd+C 複製！');
+  }
+}
+
+// 4. Toast Notification
+function showToast(msg) {
+  let toast = document.getElementById('siteToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'siteToast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.innerText = msg;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2500);
+}
+
+// 5. Interactive 280k Calculator (In-page model)
+function selectScenario(scType, cardEl) {
+  document.querySelectorAll('.calc-scenario-card').forEach(c => c.classList.remove('active'));
+  if (cardEl) cardEl.classList.add('active');
+
+  const valSettlement = document.getElementById('calcValSettlement');
+  const valDeduction = document.getElementById('calcValDeduction');
+  const valNetRefund = document.getElementById('calcValNetRefund');
+  const valPerHousehold = document.getElementById('calcValPerHousehold');
+
+  if (scType === 'A') {
+    if (valSettlement) valSettlement.innerText = '280,231 元 ＋ 孳息';
+    if (valDeduction) valDeduction.innerText = '0 元 (自理折抵)';
+    if (valNetRefund) valNetRefund.innerText = '280,231 元';
+    if (valPerHousehold) valPerHousehold.innerText = '專戶共管（不分配個人）';
+  } else if (scType === 'B') {
+    if (valSettlement) valSettlement.innerText = '280,231 元';
+    if (valDeduction) valDeduction.innerText = '約 25,231 元 (過渡公攤)';
+    if (valNetRefund) valNetRefund.innerText = '255,000 元整';
+    if (valPerHousehold) valPerHousehold.innerText = '專戶共管（不分配個人）';
+  } else if (scType === 'C') {
+    if (valSettlement) valSettlement.innerText = '280,231 元';
+    if (valDeduction) valDeduction.innerText = '60,000 元 (交屋款折抵)';
+    if (valNetRefund) valNetRefund.innerText = '220,231 元 (保全定存)';
+    if (valPerHousehold) valPerHousehold.innerText = '專戶共管（不分配個人）';
+  }
+}
+
+// 6. FAQ Accordion Toggle
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  if (item) {
+    item.classList.toggle('active');
+  }
+}
+
+// 7. Navigation & Smooth Scroll
+function handleDockNav(e, targetId) {
+  if (e && e.preventDefault) e.preventDefault();
+  const targetEl = document.getElementById(targetId);
+  if (targetEl) {
+    const headerOffset = 64;
+    const elementPosition = targetEl.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: Math.max(0, offsetPosition),
+      behavior: 'smooth'
     });
 
-    // 2. Dossier Document Tabs & Mobile Picker
-    function switchDoc(docId, btn) {
-      document.querySelectorAll('.doc-tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.doc-view-panel').forEach(p => p.classList.remove('active'));
+    targetEl.style.transition = 'outline 0.3s ease';
+    targetEl.style.outline = '3px solid var(--accent)';
+    setTimeout(() => { targetEl.style.outline = ''; }, 1600);
+  }
+}
 
-      if (btn) btn.classList.add('active');
-      const panel = document.getElementById(docId);
-      if (panel) {
-        panel.classList.add('active');
-        
-        // Sync mobile dropdown picker
-        const picker = document.getElementById('mobileDocPicker');
-        if (picker) picker.value = docId;
+// 8. Mobile Bottom Sheets (Drawers)
+function openInteractiveSheet(sheetId) {
+  document.querySelectorAll('.sheet-panel').forEach(p => p.classList.remove('active'));
+  const targetPanel = document.getElementById(sheetId);
+  if (targetPanel) targetPanel.classList.add('active');
 
-        // Auto-scroll on mobile/tablet to ensure content is immediately visible
-        if (window.innerWidth <= 900) {
-          const headerOffset = 76;
-          const panelPos = panel.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-          window.scrollTo({ top: Math.max(0, panelPos), behavior: 'smooth' });
-        }
-      }
-    }
+  const overlay = document.getElementById('bottomSheetOverlay');
+  if (overlay) {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
 
-    function pickMobileDoc(docId) {
-      const idxMap = {
-        'doc1': 0, 'doc2': 1, 'doc3': 2, 'doc4': 3, 'doc5': 4,
-        'doc6': 5, 'doc7': 6, 'doc8': 7, 'doc9': 8, 'doc10': 9
-      };
-      const btn = document.querySelectorAll('.doc-tab-btn')[idxMap[docId]];
-      switchDoc(docId, btn);
-    }
+function closeBottomSheet() {
+  const overlay = document.getElementById('bottomSheetOverlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
 
-    // 3. Copy Document Text
-    function copyDocContent(elementId) {
-      const el = document.getElementById(elementId);
-      if (!el) return;
-      const text = el.innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        showToast('已成功複製公文條文內容至剪貼簿！');
-      }).catch(err => {
-        alert('複製失敗，請手動選取複製');
-      });
-    }
+function closeBottomSheetOnOverlay(e) {
+  if (e.target.id === 'bottomSheetOverlay') {
+    closeBottomSheet();
+  }
+}
 
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.innerText = msg;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 2500);
-    }
+function selectDocFromSheet(docId) {
+  closeBottomSheet();
+  switchDocAndScroll(docId);
+}
 
-    // 4. Print Specific Document
-    function printDoc(docId) {
-      // Ensure the target panel is active before triggering window.print()
-      document.querySelectorAll('.doc-view-panel').forEach(p => p.classList.remove('active'));
-      const panel = document.getElementById(docId);
-      if (panel) panel.classList.add('active');
-      window.print();
-    }
+function selectSheetScenario(scType, btnEl) {
+  document.querySelectorAll('.sheet-sc-btn').forEach(b => b.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
 
-    function printActiveDoc() {
-      window.print();
-    }
+  const resDeduction = document.getElementById('sheetResDeduction');
+  const resTotal = document.getElementById('sheetResTotal');
 
-    // 5. Interactive Financial Settlement Calculator
-    function selectScenario(scType, cardEl) {
-      document.querySelectorAll('.scenario-card').forEach(c => c.classList.remove('active'));
-      cardEl.classList.add('active');
+  if (scType === 'A') {
+    if (resDeduction) { resDeduction.innerText = '-$0 元'; resDeduction.style.color = 'var(--emerald)'; }
+    if (resTotal) resTotal.innerText = '$280,231 元 ＋ 孳息';
+  } else if (scType === 'B') {
+    if (resDeduction) { resDeduction.innerText = '-$25,231 元 (過渡合約公攤)'; resDeduction.style.color = 'var(--rose)'; }
+    if (resTotal) resTotal.innerText = '$255,000 元整';
+  } else if (scType === 'C') {
+    if (resDeduction) { resDeduction.innerText = '-$60,000 元 (交屋款折抵)'; resDeduction.style.color = 'var(--rose)'; }
+    if (resTotal) resTotal.innerText = '$220,231 元 (保全定存)';
+  }
+}
 
-      const resDeduction = document.getElementById('resDeduction');
-      const resTotal = document.getElementById('resTotal');
-
-      if (scType === 'A') {
-        resDeduction.innerText = '-$0 元';
-        resDeduction.style.color = 'var(--emerald)';
-        resTotal.innerText = '$280,231 元 ＋ 孳息';
-      } else if (scType === 'B') {
-        resDeduction.innerText = '-$25,231 元（過渡合約與行政公攤）';
-        resDeduction.style.color = 'var(--rose)';
-        resTotal.innerText = '$255,000 元整';
-      } else if (scType === 'C') {
-        resDeduction.innerText = '-$60,000 元（交屋基金全數折抵）';
-        resDeduction.style.color = 'var(--rose)';
-        resTotal.innerText = '$220,231 元（保全定存單本金）';
-      }
-    }
-
-    
-    
-    // =========================================================================
-    // BULLETPROOF MOBILE DOCK NAVIGATION & SCROLLSPY
-    // =========================================================================
-    function handleDockNav(e, targetId, isDoc1 = false) {
-      if (e && e.preventDefault) e.preventDefault();
-
-      // 1. Instant tactile feedback
-      const clickedBtn = e ? e.currentTarget : null;
-      document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
-      if (clickedBtn) clickedBtn.classList.add('active');
-
-      // 2. If clicking '調處申請', activate doc1 tab & panel first
-      if (isDoc1) {
-        const firstTab = document.querySelectorAll('.doc-tab-btn')[0];
-        if (firstTab) switchDoc('doc1', firstTab);
-      }
-
-      // 3. Robust scrolling with fallback
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) {
-        // Preferred modern scroll with CSS scroll-margin-top
-        try {
-          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } catch (err) {
-          // Fallback calculation
-          const headerOffset = 76;
-          const elementPos = targetEl.getBoundingClientRect().top;
-          const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
-          window.scrollTo({
-            top: Math.max(0, elementPos + currentY - headerOffset),
-            behavior: 'smooth'
-          });
-        }
-
-        // 4. Visual target flash confirmation
-        targetEl.style.transition = 'box-shadow 0.3s ease, outline 0.3s ease';
-        targetEl.style.outline = '3px solid var(--accent)';
-        setTimeout(() => { targetEl.style.outline = ''; }, 1400);
-      } else {
-        // Fallback hash jump
-        window.location.hash = '#' + targetId;
-      }
-    }
-
-    // Scrollspy to auto-highlight active dock button as user scrolls
-    window.addEventListener('DOMContentLoaded', () => {
-      const observerOptions = {
-        root: null,
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: 0
-      };
-
-      const sections = [
-        { id: 'sec-winwin', btn: document.querySelector('.dock-item[data-section="sec-winwin"]') },
-        { id: 'sec-dossiers', btn: document.querySelector('.dock-item[data-section="sec-dossiers"]') },
-        { id: 'doc1', btn: document.querySelector('.dock-item[data-section="doc1"]') },
-        { id: 'sec-faq', btn: document.querySelector('.dock-item[data-section="sec-faq"]') },
-        { id: 'sec-contact', btn: document.querySelector('.dock-item[data-section="sec-contact"]') }
-      ];
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const match = sections.find(s => s.id === entry.target.id);
-            if (match && match.btn) {
-              document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
-              match.btn.classList.add('active');
-            }
-          }
-        });
-      }, observerOptions);
-
-      sections.forEach(s => {
-        const el = document.getElementById(s.id);
-        if (el) observer.observe(el);
-      });
+// 9. LINE Interaction Helper
+function copyLineId() {
+  const lineId = 'howardliao';
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(lineId).then(() => {
+      showToast('已成功複製召集人 LINE ID：howardliao！');
+    }).catch(() => {
+      alert('召集人 LINE ID: ' + lineId);
     });
+  } else {
+    alert('召集人 LINE ID: ' + lineId);
+  }
+}
 
+// 10. DUAL HIGH-FIDELITY DOCUMENT & PDF PREVIEW CONTROLLER
+function openDocPreview(docId, title, pdfUrl) {
+  const modal = document.getElementById('pdfModalOverlay');
+  const nameEl = document.getElementById('pdfModalName');
+  const dlBtn = document.getElementById('pdfModalDownloadBtn');
+  const newTabBtn = document.getElementById('pdfModalNewTabBtn');
+  const paperSheet = document.getElementById('docPaperSheet');
+  const iframe = document.getElementById('pdfModalIframe');
 
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) {
-        if (e && e.preventDefault) e.preventDefault();
-        const headerOffset = 64;
-        const elementPosition = targetEl.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  if (nameEl) nameEl.innerText = title;
+  if (dlBtn) dlBtn.href = pdfUrl;
+  if (newTabBtn) newTabBtn.href = pdfUrl;
 
-        window.scrollTo({
-          top: Math.max(0, offsetPosition),
-          behavior: 'smooth'
-        });
+  // Clone HTML body content into paper sheet (100% visible on every phone/browser)
+  const srcBody = document.getElementById(docId + '-body');
+  if (srcBody && paperSheet) {
+    paperSheet.innerHTML = srcBody.innerHTML;
+  }
 
-        // Visual flash highlight
-        targetEl.style.transition = 'outline 0.3s ease';
-        targetEl.style.outline = '3px solid var(--accent)';
-        setTimeout(() => { targetEl.style.outline = ''; }, 1600);
-      }
-    }
+  if (iframe) iframe.src = pdfUrl;
 
-    function copyContactInfo() {
-      const text = "富宇大境 A2 區召集人：廖倫豪\n電話：\n門牌：台中市沙鹿區龍社路 595 號";
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => {
-          showToast("已成功複製召集人聯絡電話至剪貼簿！");
-        }).catch(() => {
-          alert(text);
-        });
-      } else {
-        alert(text);
-      }
-    }
+  switchPreviewMode('doc');
 
-    
-    // =========================================================================
-    // PLAN A: TOUCH-OPTIMIZED MOBILE DOCK NAVIGATION & SCROLLSPY
-    // =========================================================================
-    function handleDockNav(e, targetId) {
-      if (e && e.preventDefault) e.preventDefault();
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
 
-      // Active state highlight
-      const clickedBtn = e ? e.currentTarget : null;
-      document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
-      if (clickedBtn) clickedBtn.classList.add('active');
+function openPdfPreview(pdfUrl, title) {
+  let docId = 'doc1';
+  for (const [k, v] of Object.entries({
+    '01': 'doc1', '02': 'doc2', '03': 'doc3', '04': 'doc4', '05': 'doc5',
+    '06': 'doc6', '07': 'doc7', '08': 'doc8', '09': 'doc9', '10': 'doc10'
+  })) {
+    if (pdfUrl.includes(k)) { docId = v; break; }
+  }
+  openDocPreview(docId, title, pdfUrl);
+}
 
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) {
-        try {
-          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } catch (err) {
-          const headerOffset = 76;
-          const elementPos = targetEl.getBoundingClientRect().top;
-          const currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
-          window.scrollTo({
-            top: Math.max(0, elementPos + currentY - headerOffset),
-            behavior: 'smooth'
-          });
-        }
+function closePdfModal() {
+  const modal = document.getElementById('pdfModalOverlay');
+  const iframe = document.getElementById('pdfModalIframe');
+  if (iframe) iframe.src = 'about:blank';
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
 
-        // Visual target pulse confirmation
-        targetEl.style.transition = 'box-shadow 0.3s ease, outline 0.3s ease';
-        targetEl.style.outline = '3px solid var(--accent)';
-        setTimeout(() => { targetEl.style.outline = ''; }, 1400);
-      } else {
-        window.location.hash = '#' + targetId;
-      }
-    }
+function closePdfModalOnOverlay(e) {
+  if (e.target.id === 'pdfModalOverlay') {
+    closePdfModal();
+  }
+}
 
-    function handleDockPhone(e) {
-      // Set active state on button
-      document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
-      if (e && e.currentTarget) e.currentTarget.classList.add('active');
+function switchPreviewMode(mode) {
+  const docView = document.getElementById('pdfModalDocView');
+  const iframeView = document.getElementById('pdfModalIframeView');
+  const tabDoc = document.getElementById('tabDocPreview');
+  const tabPdf = document.getElementById('tabPdfPreview');
 
-      // Scroll to contact card
-      const contactEl = document.getElementById('sec-contact');
-      if (contactEl) {
-        contactEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      // Note: Do not e.preventDefault() so native tel: prompt opens on mobile devices!
-    }
+  if (mode === 'doc') {
+    if (docView) docView.style.display = 'block';
+    if (iframeView) iframeView.style.display = 'none';
+    if (tabDoc) tabDoc.classList.add('active');
+    if (tabPdf) tabPdf.classList.remove('active');
+  } else {
+    if (docView) docView.style.display = 'none';
+    if (iframeView) iframeView.style.display = 'flex';
+    if (tabDoc) tabDoc.classList.remove('active');
+    if (tabPdf) tabPdf.classList.add('active');
+  }
+}
 
-    // Scrollspy to auto-highlight active dock button as user scrolls
-    window.addEventListener('DOMContentLoaded', () => {
-      const observerOptions = {
-        root: null,
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: 0
-      };
-
-      const sections = [
-        { id: 'sec-winwin', btn: document.querySelector('.dock-item[data-section="sec-winwin"]') },
-        { id: 'sec-dossiers', btn: document.querySelector('.dock-item[data-section="sec-dossiers"]') },
-        { id: 'sec-finance', btn: document.querySelector('.dock-item[data-section="sec-finance"]') },
-        { id: 'sec-faq', btn: document.querySelector('.dock-item[data-section="sec-faq"]') },
-        { id: 'sec-contact', btn: document.querySelector('.dock-item[data-section="sec-contact"]') }
-      ];
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const match = sections.find(s => s.id === entry.target.id);
-            if (match && match.btn) {
-              document.querySelectorAll('.dock-item').forEach(b => b.classList.remove('active'));
-              match.btn.classList.add('active');
-            }
-          }
-        });
-      }, observerOptions);
-
-      sections.forEach(s => {
-        const el = document.getElementById(s.id);
-        if (el) observer.observe(el);
-      });
-    });
-
-    
-    // =========================================================================
-    // INTERACTIVE BOTTOM SHEETS CONTROLLER
-    // =========================================================================
-    function openInteractiveSheet(sheetId) {
-      // Hide all sheet panels
-      document.querySelectorAll('.sheet-panel').forEach(p => p.classList.remove('active'));
-      
-      // Activate requested panel
-      const targetPanel = document.getElementById(sheetId);
-      if (targetPanel) targetPanel.classList.add('active');
-
-      // Show overlay
-      const overlay = document.getElementById('bottomSheetOverlay');
-      if (overlay) {
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeBottomSheet() {
-      const overlay = document.getElementById('bottomSheetOverlay');
-      if (overlay) {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
-
-    function closeBottomSheetOnOverlay(e) {
-      if (e.target.id === 'bottomSheetOverlay') {
-        closeBottomSheet();
-      }
-    }
-
-    function selectDocFromSheet(docId) {
-      closeBottomSheet();
-      const idxMap = {
-        'doc1': 0, 'doc2': 1, 'doc3': 2, 'doc4': 3, 'doc5': 4,
-        'doc6': 5, 'doc7': 6, 'doc8': 7, 'doc9': 8, 'doc10': 9
-      };
-      const btn = document.querySelectorAll('.doc-tab-btn')[idxMap[docId]];
-      switchDoc(docId, btn);
-    }
-
-    function selectSheetScenario(scType, btnEl) {
-      document.querySelectorAll('.sheet-sc-btn').forEach(b => b.classList.remove('active'));
-      btnEl.classList.add('active');
-
-      const resDeduction = document.getElementById('sheetResDeduction');
-      const resTotal = document.getElementById('sheetResTotal');
-
-      if (scType === 'A') {
-        resDeduction.innerText = '-$0 元';
-        resDeduction.style.color = 'var(--emerald)';
-        resTotal.innerText = '$280,231 元 ＋ 孳息';
-      } else if (scType === 'B') {
-        resDeduction.innerText = '-$25,231 元 (過渡合約公攤)';
-        resDeduction.style.color = 'var(--rose)';
-        resTotal.innerText = '$255,000 元整';
-      } else if (scType === 'C') {
-        resDeduction.innerText = '-$60,000 元 (交屋款折抵)';
-        resDeduction.style.color = 'var(--rose)';
-        resTotal.innerText = '$220,231 元 (保全定存)';
-      }
-    }
-
-    function copyLineId() {
-      const lineId = "howardliao";
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(lineId).then(() => {
-          showToast("已成功複製召集人 LINE ID：howardliao！");
-        }).catch(() => {
-          alert("召集人 LINE ID: " + lineId);
-        });
-      } else {
-        alert("召集人 LINE ID: " + lineId);
-      }
-    }
-
-    
-    // =========================================================================
-    // PDF PREVIEW MODAL CONTROLLER
-    // =========================================================================
-    function openPdfPreview(pdfUrl, title) {
-      const modal = document.getElementById('pdfModalOverlay');
-      const iframe = document.getElementById('pdfModalIframe');
-      const nameEl = document.getElementById('pdfModalName');
-      const dlBtn = document.getElementById('pdfModalDownloadBtn');
-      const newTabBtn = document.getElementById('pdfModalNewTabBtn');
-
-      if (nameEl) nameEl.innerText = title;
-      if (dlBtn) dlBtn.href = pdfUrl;
-      if (newTabBtn) newTabBtn.href = pdfUrl;
-      if (iframe) iframe.src = pdfUrl;
-
-      if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closePdfModal() {
-      const modal = document.getElementById('pdfModalOverlay');
-      const iframe = document.getElementById('pdfModalIframe');
-      if (iframe) iframe.src = 'about:blank';
-      if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
-
-    function closePdfModalOnOverlay(e) {
-      if (e.target.id === 'pdfModalOverlay') {
-        closePdfModal();
-      }
-    }
-
-    function switchDocAndScroll(docId) {
-      const idxMap = {
-        'doc1': 0, 'doc2': 1, 'doc3': 2, 'doc4': 3, 'doc5': 4,
-        'doc6': 5, 'doc7': 6, 'doc8': 7, 'doc9': 8, 'doc10': 9
-      };
-      const btn = document.querySelectorAll('.doc-tab-btn')[idxMap[docId]];
-      switchDoc(docId, btn);
-      const targetPanel = document.getElementById(docId);
-      if (targetPanel) {
-        targetPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    // 6. FAQ Accordion Toggle
-    function toggleFaq(btn) {
-      const item = btn.parentElement;
-      item.classList.toggle('open');
-    }
   </script>
 
   <!-- ========================================================================= -->
@@ -3346,27 +3253,44 @@
   </div>
 
 
-  <!-- ========================================================================= -->
-  <!-- PDF PREVIEW MODAL (在線 PDF 預覽視窗)                                         -->
-  <!-- ========================================================================= -->
+  <!-- HIGH-FIDELITY DOCUMENT & PDF PREVIEW MODAL (100% VISIBLE GUARANTEED) -->
   <div class="pdf-modal-overlay" id="pdfModalOverlay" onclick="closePdfModalOnOverlay(event)">
     <div class="pdf-modal-container" onclick="event.stopPropagation()">
       <div class="pdf-modal-header">
         <div class="pdf-modal-title" id="pdfModalTitle">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          <span id="pdfModalName">文件在線預覽</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span id="pdfModalName">公文在線預覽</span>
         </div>
         <div class="pdf-modal-actions">
-          <a id="pdfModalDownloadBtn" href="#" download class="btn-modal-action">📥 下載</a>
-          <a id="pdfModalNewTabBtn" href="#" target="_blank" rel="noopener" class="btn-modal-action">↗ 另開分頁</a>
+          <a id="pdfModalDownloadBtn" href="#" download class="btn-modal-action">📥 下載 PDF</a>
+          <a id="pdfModalNewTabBtn" href="#" target="_blank" rel="noopener" class="btn-modal-action">↗ 另開 PDF</a>
           <button class="btn-modal-close" onclick="closePdfModal()">✕</button>
         </div>
       </div>
-      <div class="pdf-modal-body">
-        <iframe id="pdfModalIframe" src="about:blank" title="PDF 在線預覽"></iframe>
+
+      <!-- PREVIEW MODE SWITCHER -->
+      <div class="pdf-modal-tabs">
+        <button id="tabDocPreview" class="modal-tab-btn active" onclick="switchPreviewMode('doc')">
+          📄 公文全文即時閱讀（100% 清晰可見）
+        </button>
+        <button id="tabPdfPreview" class="modal-tab-btn" onclick="switchPreviewMode('pdf')">
+          📎 原生 PDF 視窗
+        </button>
       </div>
-      <div class="pdf-modal-footer">
-        <span>📱 提示：若您的手機或 LINE 無法直接載入內嵌預覽，請點擊上方<strong>「另開分頁」</strong>或<strong>「下載」</strong>直接閱讀！</span>
+
+      <!-- MODE 1: GUARANTEED VISIBLE DOCUMENT SHEET -->
+      <div id="pdfModalDocView" class="pdf-modal-body-doc">
+        <div class="doc-paper-sheet" id="docPaperSheet">
+          <!-- Document full text renders here -->
+        </div>
+      </div>
+
+      <!-- MODE 2: RAW PDF IFRAME WITH FALLBACK -->
+      <div id="pdfModalIframeView" class="pdf-modal-body-iframe" style="display: none;">
+        <iframe id="pdfModalIframe" src="about:blank" title="PDF 在線預覽"></iframe>
+        <div class="pdf-fallback-bar">
+          📱 提示：若手機或 LINE 無法直接顯示內嵌 PDF 檔，請點擊上方<strong>「另開 PDF」</strong>或<strong>「下載 PDF」</strong>直接閱讀！
+        </div>
       </div>
     </div>
   </div>
