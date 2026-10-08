@@ -1595,6 +1595,134 @@
       text-align: center;
     }
 
+
+    /* ========================================================================= */
+    /* EXECUTIVE SIGNATURE BLOCK STYLES                                          */
+    /* ========================================================================= */
+    .sig-block-executive {
+      margin-top: 26px;
+      padding: 20px 18px;
+      background: var(--bg-paper);
+      border: 1.5px solid var(--border-accent);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+    .sig-block-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .sig-block-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin: 0 0 14px 0;
+      line-height: 1.5;
+    }
+    .sig-table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 14px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sig-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .sig-table th {
+      background: rgba(245, 158, 11, 0.08);
+      color: var(--accent);
+      padding: 10px 12px;
+      border: 1px solid var(--border-subtle);
+      font-weight: 800;
+      text-align: left;
+    }
+    .sig-table td {
+      padding: 10px 12px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      vertical-align: middle;
+      height: 48px;
+    }
+    .sig-fill-line {
+      display: inline-block;
+      width: 90%;
+      min-width: 80px;
+      border-bottom: 1px dashed var(--border-subtle);
+      height: 22px;
+    }
+    .fill-line-inline {
+      display: inline-block;
+      border-bottom: 1.5px solid currentColor;
+      min-width: 50px;
+      height: 16px;
+      vertical-align: middle;
+      margin: 0 4px;
+    }
+    .stamp-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      white-space: nowrap;
+      border: 1.5px dashed rgba(239, 68, 68, 0.45);
+      border-radius: 50%;
+      color: rgba(239, 68, 68, 0.7);
+      font-size: 11px;
+      font-weight: 700;
+      margin: 0 auto;
+      background: rgba(239, 68, 68, 0.03);
+    }
+    .stamp-box-large {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border: 2px dashed rgba(239, 68, 68, 0.5);
+      border-radius: 8px;
+      color: rgba(239, 68, 68, 0.75);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+      padding: 4px;
+      line-height: 1.3;
+      background: rgba(239, 68, 68, 0.03);
+    }
+    .agent-sig-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .agent-sig-details {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      flex: 1;
+    }
+    .sig-footer-date {
+      text-align: right;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border-subtle);
+    }
+
   </style>
 </head>
 <body>
@@ -1732,7 +1860,7 @@
             </tr>
             <tr>
               <td><strong>專案款項共管機制</strong></td>
-              <td>依公平會計原則，新光銀行 A2 專單定存（220,231 元及孳息【待查證】）連同交屋基金（60,000 元）合計 <strong>280,231 元</strong>，於完成報備後全數移交匯入 6 戶設立之<strong>雙人共同簽章共管專戶</strong>，專款專用於門前公共路燈與設施維護。</td>
+              <td>依公平會計原則，新光銀行 A2 專單定存（220,231 元及孳息 <span class="fill-line-inline" style="min-width: 80px;"></span> 元）連同交屋基金（60,000 元）合計 <strong>280,231 元</strong>，於完成報備後全數移交匯入 6 戶設立之<strong>雙人共同簽章共管專戶</strong>，專款專用於門前公共路燈與設施維護。</td>
             </tr>
           </tbody>
         </table>
@@ -2032,21 +2160,21 @@
               <tr>
                 <td><strong>相對人</strong></td>
                 <td>富宇大地社區管理委員會</td>
-                <td>統一編號：【待查證】</td>
-                <td>臺中市【待查證：沙鹿區或龍井區】龍社路【待查證】號管理室</td>
+                <td>統一編號：<span class="fill-line-inline" style="min-width: 140px;"></span></td>
+                <td>臺中市 <span class="fill-line-inline" style="min-width: 60px;"></span> 區龍社路 <span class="fill-line-inline" style="min-width: 50px;"></span> 號管理室</td>
               </tr>
             </table>
 
             <h4>二、申請調處之請求事項</h4>
             <ol>
-              <li><strong>議案排審之合意</strong>：相對人應同意於收受調處紀錄之日起算下次定期區分所有權人會議（或於【待查證：三個月】內召集臨時區分所有權人會議），將申請人所提「修正富宇大地社區規約第二條管理範圍（將報備戶數 241 戶修正規約排除沙鹿區龍社路 593、595、597、599、601、603 號共 6 戶，變更為 235 戶）」議案，正式列為大會審議之特別決議議案。</li>
-              <li><strong>專案定存單歸屬之確認與移交</strong>：確認相對人以新光銀行專單列卷保管之「A2 大境區定存單」本金新臺幣（下同）220,231 元及其自存入日起至解約日止之法定孳息【待查證】，其權利專屬申請人 6 戶全體共有，俟前開規約修正完成報備後，由相對人會同申請人代理人辦理解約，並全數匯入申請人 6 戶所指定之「富宇大境 A2 雙人簽章共管專戶」。</li>
+              <li><strong>議案排審之合意</strong>：相對人應同意於收受調處紀錄之日起算下次定期區分所有權人會議（或於 <span class="fill-line-inline" style="min-width: 50px;"></span> 個月內召集臨時區分所有權人會議），將申請人所提「修正富宇大地社區規約第二條管理範圍（將報備戶數 241 戶修正規約排除沙鹿區龍社路 593、595、597、599、601、603 號共 6 戶，變更為 235 戶）」議案，正式列為大會審議之特別決議議案。</li>
+              <li><strong>專案定存單歸屬之確認與移交</strong>：確認相對人以新光銀行專單列卷保管之「A2 大境區定存單」本金新臺幣（下同）220,231 元及其自存入日起至解約日止之法定孳息（<span class="fill-line-inline" style="min-width: 80px;"></span> 元），其權利專屬申請人 6 戶全體共有，俟前開規約修正完成報備後，由相對人會同申請人代理人辦理解約，並全數匯入申請人 6 戶所指定之「富宇大境 A2 雙人簽章共管專戶」。</li>
               <li><strong>交屋管理基金與合併期間費用之結算</strong>：相對人應就起造人富宇建設提撥交付之 A2 區 6 戶交屋管理基金計 60,000 元（每戶 10,000 元），與申請人自民國 115 年 5 月 14 日合併報備起至管理範圍變更完成備查日止，實際應分攤之必要維護管理費用進行對帳結算；扣除合理分攤費用後之賸餘款，連同前項定存本息，全數移交解算。</li>
             </ol>
 
             <h4>三、事實及理由</h4>
             <p><strong>（一）法律架構之定性：集居地區管理範圍之界定，以「共同設施具備整體不可分性」為實質法定要件</strong><br>
-            按《公寓大廈管理條例》第 53 條明定：「多數各自獨立使用之建築物、公寓大廈，其共同設施之使用與管理具有整體不可分性之集居地區者，其管理及組織準用本條例之規定。」申言之，數個別獨立使用之建築基地得否合併受單一管委會統籌規約管轄，法理上係以各區「共同設施之使用與管理客觀上具有整體不可分性」為實質合法性前提。查「富宇大地社區」係於民國 115 年 5 月 14 日由主管機關【待查證：龍井區或沙鹿區公所】以 241 戶規模完成合併報備備查。惟查，坐落於臺中市沙鹿區龍社路 593、595、597、599、601、603 號之「富宇大境 A2 區」（即申請人 6 戶透天別墅），地緣位處整體基地最外側，與內部集合住宅聚落截然有別。</p>
+            按《公寓大廈管理條例》第 53 條明定：「多數各自獨立使用之建築物、公寓大廈，其共同設施之使用與管理具有整體不可分性之集居地區者，其管理及組織準用本條例之規定。」申言之，數個別獨立使用之建築基地得否合併受單一管委會統籌規約管轄，法理上係以各區「共同設施之使用與管理客觀上具有整體不可分性」為實質合法性前提。查「富宇大地社區」係於民國 115 年 5 月 14 日由主管機關 <span class="fill-line-inline" style="min-width: 90px;"></span> 區公所以 241 戶規模完成合併報備備查。惟查，坐落於臺中市沙鹿區龍社路 593、595、597、599、601、603 號之「富宇大境 A2 區」（即申請人 6 戶透天別墅），地緣位處整體基地最外側，與內部集合住宅聚落截然有別。</p>
 
             <p><strong>（二）客觀設施與生活機能：申請人 6 戶各項民生設施具備完全物理獨立性，自始欠缺「整體不可分性」</strong><br>
             1. <strong>道路出入之獨立性</strong>：申請人 6 戶透天均面臨直通臺中市公有計畫道路「龍社路」，住戶出入直接銜接市區幹道，日常生活完全無須途經或利用富宇大地內部封閉私設巷道（如 642 巷等），出入路網完全獨立，絕無袋地通行問題。<br>
@@ -2054,7 +2182,7 @@
             3. <strong>廢棄物清運與公共設施之自理承諾</strong>：申請人 6 戶日常生活廢棄物，歷來均於門前龍社路定點等候臺中市政府環境保護局公有垃圾車定時清運，從未使用富宇大地封閉社區內部之收費垃圾子母車；申請人全體並已共同簽署《共用設施無依賴切結與生活垃圾自行清運承諾書》，自願切結永久放棄內部各項休閒公設與子母車使用權，物理與管理上毫無糾葛。</p>
 
             <p><strong>（三）財務會計事實：相對人自始將 A2 款項專單列卷保管，財務獨立性客觀明確</strong><br>
-            查相對人於民國 115 年 5 月 6 日第二屆第 X 次例會【待查證：會議日期早於合併報備日，標示待查】決議事項，以及民國 115 年 9 月份公布之財務報表中，明確記載相對人將臺中市政府核退公款於新光銀行開立分區定存，其中編號第 2 筆即獨立記載為「A2 大境區定存單 NT$ 220,231 元」專單保管，足徵相對人於財務會計實務上，自始肯認該筆款項歸屬之獨立性。另起造人富宇建設當初按戶提撥之交屋管理基金（每戶 10,000 元，A2 區 6 戶合計 60,000 元），自合併報備以來亦未與 A2 區日常管理消耗產生實質關聯。本件兩項專案款項本金合計為 280,231 元（220,231 元 ＋ 60,000 元，未計利息），款項界限客觀清晰，移交處置分毫未損及大社區其餘 235 戶既有之公共基金營運老本。</p>
+            查相對人於民國 115 年 5 月 6 日第二屆第 <span class="fill-line-inline" style="min-width: 40px;"></span> 次例會決議事項，以及民國 115 年 9 月份公布之財務報表中，明確記載相對人將臺中市政府核退公款於新光銀行開立分區定存，其中編號第 2 筆即獨立記載為「A2 大境區定存單 NT$ 220,231 元」專單保管，足徵相對人於財務會計實務上，自始肯認該筆款項歸屬之獨立性。另起造人富宇建設當初按戶提撥之交屋管理基金（每戶 10,000 元，A2 區 6 戶合計 60,000 元），自合併報備以來亦未與 A2 區日常管理消耗產生實質關聯。本件兩項專案款項本金合計為 280,231 元（220,231 元 ＋ 60,000 元，未計利息），款項界限客觀清晰，移交處置分毫未損及大社區其餘 235 戶既有之公共基金營運老本。</p>
 
             <p><strong>（四）爭議解決策略：藉由公部門調處化解對立，促成依法循《條例》第 31 條特別決議落實管理最適化</strong><br>
             申請人深知管理範圍之縮減涉及社區規約第二條之修訂，依現行法制應由全體區權會獲致特別決議。爰依《公寓大廈管理條例》第 59 條之 1 規定申請調處，期能藉由貴委員會公正專家之協調，使兩造達成和解：由相對人管委會以中立客觀立場，將管理範圍修正案正式排入大會議程，促成兩造平穩分流，共創雙贏。</p>
@@ -2100,12 +2228,95 @@
               <tr>
                 <td><strong>證物六</strong></td>
                 <td>區公所 115 年 5 月 14 日合併報備證明公文</td>
-                <td>影本【尚待調閱原本】</td>
+                <td>影本（待依第 35 條調取）</td>
                 <td>證明富宇大地現行合併報備管轄效力與 241 戶基準。</td>
               </tr>
             </table>
 
-            <!-- 紙本簽章由全體區權人線下簽署備查 -->
+            
+            <!-- EXECUTIVE APPLICANT SIGNATURE BLOCK (專業美觀申請人簽章欄) -->
+            <div class="sig-block-executive">
+              <div class="sig-block-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                <span>申請人全體簽章名冊（共 6 戶區分所有權人・含全體共有人）</span>
+              </div>
+              <p class="sig-block-note">※ 依《公寓大廈管理條例》第 59 條之 1 調處實務，產權若為共有，全體共有人均須簽章委任。</p>
+              
+              <div class="sig-table-wrapper">
+                <table class="sig-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 8%; text-align: center;">編號</th>
+                      <th style="width: 28%;">建物門牌標示</th>
+                      <th style="width: 22%;">區分所有權人姓名<br><span style="font-size:11px; font-weight:normal; color:var(--text-muted);">（含全體共有人正楷）</span></th>
+                      <th style="width: 22%;">國民身分證統一編號</th>
+                      <th style="width: 20%; text-align: center;">親筆簽名與印鑑<br><span style="font-size:11px; font-weight:normal; color:var(--text-muted);">（簽名蓋章處）</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">01</td>
+                      <td>臺中市沙鹿區龍社路 593 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">02</td>
+                      <td>臺中市沙鹿區龍社路 595 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">03</td>
+                      <td>臺中市沙鹿區龍社路 597 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">04</td>
+                      <td>臺中市沙鹿區龍社路 599 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">05</td>
+                      <td>臺中市沙鹿區龍社路 601 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">06</td>
+                      <td>臺中市沙鹿區龍社路 603 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 共同受任人 / 代理人核章卡 -->
+              <div class="agent-sig-row">
+                <div class="agent-sig-details">
+                  <div><strong>共同受任人（代理人）：</strong>廖倫豪（親筆簽名捺印）</div>
+                  <div><strong>國民身分證統一編號：</strong><span class="fill-line-inline" style="min-width: 160px;"></span></div>
+                  <div><strong>通訊及送達處所：</strong>臺中市沙鹿區龍社路 595 號</div>
+                </div>
+                <div class="agent-stamp-area">
+                  <div class="stamp-box-large">〔 代理人<br>印鑑 〕</div>
+                </div>
+              </div>
+
+              <div class="sig-footer-date">
+                中華民國 115 年 <span class="fill-line-inline" style="min-width: 50px;"></span> 月 <span class="fill-line-inline" style="min-width: 50px;"></span> 日
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -2177,7 +2388,7 @@
             </ol>
 
             <h4>第二條（特別權限限制與款項禁止個人代收）</h4>
-            <p>1. <strong>嚴禁私人代收處分公款</strong>：受任人<strong>絕無代受任人個人收受、受領或提領任何本案返還款項之權限</strong>。所有因本案結算所返還之定存單款項（220,231 元及孳息【待查證】）或交屋管理基金（60,000 元），<strong>一律必須直接電匯入委任人全體設立之「富宇大境 A2 雙人簽章共管專戶」</strong>，不得流入受任人或任何個別區權人之私人帳戶。<br>
+            <p>1. <strong>嚴禁私人代收處分公款</strong>：受任人<strong>絕無代受任人個人收受、受領或提領任何本案返還款項之權限</strong>。所有因本案結算所返還之定存單款項（220,231 元及孳息 <span class="fill-line-inline" style="min-width: 80px;"></span> 元）或交屋管理基金（60,000 元），<strong>一律必須直接電匯入委任人全體設立之「富宇大境 A2 雙人簽章共管專戶」</strong>，不得流入受任人或任何個別區權人之私人帳戶。<br>
             2. <strong>不動產私權限制</strong>：本委任純限於公寓大廈管理維護爭議之協商與程序代理，受任人<strong>絕對不得處分委任人名下之不動產物權</strong>（包含買賣、移轉、設定負擔或租賃等物權處分行為，委任人均未授權）。</p>
 
             <h4>第三條（委任期限、禁止複委任與報告義務）</h4>
@@ -2186,7 +2397,90 @@
             3. <strong>誠信報告與結算義務</strong>：受任人應於處理每階段重大事務（調處會議期日、管委會回函、區公所函覆）後 3 日內向委任人據實報告進度。於調處成立、大會決議通過或本委任終止時，應於 14 日內提出完整書面結算報告及憑證供委任人全體查核。<br>
             4. <strong>個人資料保護專用</strong>：委任人所提供之個人身分資料，僅限本案向主管機關申報、調處送件及向管委會核對身分之特定目的使用，嚴禁外流。</p>
 
-            <!-- 紙本簽章由全體區權人線下簽署備查 -->
+            
+            <!-- EXECUTIVE APPLICANT SIGNATURE BLOCK (專業美觀申請人簽章欄) -->
+            <div class="sig-block-executive">
+              <div class="sig-block-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                <span>委任人簽署名冊（含共有持分人全體親筆簽名印鑑）</span>
+              </div>
+              <p class="sig-block-note">※ 依民法第 528 條、第 534 條特別授權，全體委任人親自簽名蓋章備查。</p>
+              
+              <div class="sig-table-wrapper">
+                <table class="sig-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 8%; text-align: center;">編號</th>
+                      <th style="width: 28%;">建物門牌標示</th>
+                      <th style="width: 22%;">區分所有權人姓名<br><span style="font-size:11px; font-weight:normal; color:var(--text-muted);">（含全體共有人正楷）</span></th>
+                      <th style="width: 22%;">國民身分證統一編號</th>
+                      <th style="width: 20%; text-align: center;">親筆簽名與印鑑<br><span style="font-size:11px; font-weight:normal; color:var(--text-muted);">（簽名蓋章處）</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">01</td>
+                      <td>臺中市沙鹿區龍社路 593 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">02</td>
+                      <td>臺中市沙鹿區龍社路 595 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">03</td>
+                      <td>臺中市沙鹿區龍社路 597 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">04</td>
+                      <td>臺中市沙鹿區龍社路 599 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">05</td>
+                      <td>臺中市沙鹿區龍社路 601 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">06</td>
+                      <td>臺中市沙鹿區龍社路 603 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 共同受任人 / 代理人核章卡 -->
+              <div class="agent-sig-row">
+                <div class="agent-sig-details">
+                  <div><strong>共同受任人（代理人）：</strong>廖倫豪（親筆簽名捺印）</div>
+                  <div><strong>國民身分證統一編號：</strong><span class="fill-line-inline" style="min-width: 160px;"></span></div>
+                  <div><strong>通訊及送達處所：</strong>臺中市沙鹿區龍社路 595 號</div>
+                </div>
+                <div class="agent-stamp-area">
+                  <div class="stamp-box-large">〔 代理人<br>印鑑 〕</div>
+                </div>
+              </div>
+
+              <div class="sig-footer-date">
+                中華民國 115 年 <span class="fill-line-inline" style="min-width: 50px;"></span> 月 <span class="fill-line-inline" style="min-width: 50px;"></span> 日
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -2215,7 +2509,7 @@
             3. 存摺由代表人甲保管，印鑑章由代表人乙保管，嚴禁一人兼管存摺與全數印章。</p>
 
             <h4>第三條（專案款項注入與專款專用原則）</h4>
-            <p>1. 自富宇大地社區管委會結算移交返還之本金 280,231 元（含 A2 定存單本金 220,231 元及孳息【待查證】、交屋管理基金 60,000 元，扣除應分攤款項後之淨額），應於收受當日全額存入共管專戶。<br>
+            <p>1. 自富宇大地社區管委會結算移交返還之本金 280,231 元（含 A2 定存單本金 220,231 元及孳息 <span class="fill-line-inline" style="min-width: 70px;"></span> 元、交屋管理基金 60,000 元，扣除應分攤款項後之淨額），應於收受當日全額存入共管專戶。<br>
             2. <strong>專款專用範圍限制</strong>：嚴格限定僅得支應門前 6 戶公用路燈照明電費/修繕、門前公用水溝疏濬清潔消毒、帳戶規費等公共支出。<br>
             3. <strong>禁止非公用分配</strong>：非經全體立約人一致書面決議，<strong>共管帳戶之本金與孳息嚴禁瓜分轉入任何個人私帳</strong>，亦不得挪用於個別住戶之私人支出。</p>
 
@@ -2225,6 +2519,90 @@
             3. 立約人若有轉讓、贈與或繼承房產時，承諾將本協議列為買賣點交附件，由受讓人簽署遵守，拘束繼受人。</p>
           </div>
         </div>
+
+        
+            <!-- EXECUTIVE APPLICANT SIGNATURE BLOCK (專業美觀申請人簽章欄) -->
+            <div class="sig-block-executive">
+              <div class="sig-block-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                <span>立協議書人全體簽署名冊（專款共管帳戶全體立約人）</span>
+              </div>
+              <p class="sig-block-note">※ 全體 6 戶立約人簽署用印，確立雙人簽章專戶共同管理之法律效力。</p>
+              
+              <div class="sig-table-wrapper">
+                <table class="sig-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 8%; text-align: center;">編號</th>
+                      <th style="width: 28%;">建物門牌標示</th>
+                      <th style="width: 22%;">區分所有權人姓名<br><span style="font-size:11px; font-weight:normal; color:var(--text-muted);">（含全體共有人正楷）</span></th>
+                      <th style="width: 22%;">國民身分證統一編號</th>
+                      <th style="width: 20%; text-align: center;">親筆簽名與印鑑<br><span style="font-size:11px; font-weight:normal; color:var(--text-muted);">（簽名蓋章處）</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">01</td>
+                      <td>臺中市沙鹿區龍社路 593 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">02</td>
+                      <td>臺中市沙鹿區龍社路 595 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">03</td>
+                      <td>臺中市沙鹿區龍社路 597 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">04</td>
+                      <td>臺中市沙鹿區龍社路 599 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">05</td>
+                      <td>臺中市沙鹿區龍社路 601 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: center; font-weight: 800; color: var(--accent);">06</td>
+                      <td>臺中市沙鹿區龍社路 603 號</td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td><span class="sig-fill-line"></span></td>
+                      <td style="text-align: center;"><div class="stamp-box">〔印鑑〕</div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- 共同受任人 / 代理人核章卡 -->
+              <div class="agent-sig-row">
+                <div class="agent-sig-details">
+                  <div><strong>共同受任人（代理人）：</strong>廖倫豪（親筆簽名捺印）</div>
+                  <div><strong>國民身分證統一編號：</strong><span class="fill-line-inline" style="min-width: 160px;"></span></div>
+                  <div><strong>通訊及送達處所：</strong>臺中市沙鹿區龍社路 595 號</div>
+                </div>
+                <div class="agent-stamp-area">
+                  <div class="stamp-box-large">〔 代理人<br>印鑑 〕</div>
+                </div>
+              </div>
+
+              <div class="sig-footer-date">
+                中華民國 115 年 <span class="fill-line-inline" style="min-width: 50px;"></span> 月 <span class="fill-line-inline" style="min-width: 50px;"></span> 日
+              </div>
+            </div>
 
         <!-- PANEL 5: 款項計算書 -->
         <div id="doc5" class="doc-view-panel">
@@ -2250,7 +2628,7 @@
               <tr>
                 <td><strong>新光銀行 A2 大境定存單（第 2 筆）</strong></td>
                 <td><strong>NT$ 220,231 元</strong></td>
-                <td>富宇大地管委會 115 年 5 月例會決議及 9 月財報專單保管之市府核退公款，孳息【待查證】。</td>
+                <td>富宇大地管委會 115 年 5 月例會決議及 9 月財報專單保管之市府核退公款，孳息 <span class="fill-line-inline" style="min-width: 70px;"></span> 元。</td>
               </tr>
               <tr>
                 <td><strong>起造人富宇建設交屋管理基金</strong></td>
@@ -2335,7 +2713,7 @@
                 <td><strong>第二條（本公寓大廈之法定範圍）</strong><br>
                 本公寓大廈管理之範圍包括基地、建築物共用部分、約定共用部分及附屬公共設施。<br>
                 本社區共計 <strong>235 戶</strong>，涵蓋上境、悠境、澄境等棟別區分所有權範圍。<br>
-                <strong>坐落於臺中市沙鹿區龍社路 593、595、597、599、601、603 號共 6 戶透天別墅（原稱 A2 區），因共同設施與出入交通均具實質獨立性，自中華民國 115 年【待查】月【待查】日起正式排除於本規約管理範圍之外，其門前設施由各該住戶自律維護管理，不適用本規約之權利義務。</strong></td>
+                <strong>坐落於臺中市沙鹿區龍社路 593、595、597、599、601、603 號共 6 戶透天別墅（原稱 A2 區），因共同設施與出入交通均具實質獨立性，自中華民國 115 年 <span class="fill-line-inline" style="min-width: 40px;"></span> 月 <span class="fill-line-inline" style="min-width: 40px;"></span> 日起正式排除於本規約管理範圍之外，其門前設施由各該住戶自律維護管理，不適用本規約之權利義務。</strong></td>
               </tr>
             </table>
 
@@ -2531,7 +2909,7 @@
               <tr>
                 <td><strong>專案金額</strong></td>
                 <td>新光銀行 A2 專單定存 220,231 元 ＋ 交屋基金 60,000 元 ＝ 基準本金 280,231 元。</td>
-                <td>全卷金額以 280,231 元客觀基準本金嚴格對齊，利息標註【待查證】。</td>
+                <td>全卷金額以 280,231 元客觀基準本金嚴格對齊，利息預留填寫欄位。</td>
                 <td><span class="status-tag tag-green">通過</span></td>
               </tr>
               <tr>
@@ -2549,7 +2927,7 @@
               <tr>
                 <td><strong>文字語氣</strong></td>
                 <td>全篇採取客觀中性公文法言語氣，訴求雙方互利、管理單純化。</td>
-                <td>刪除對抗性宣傳詞，待查事項忠實標註【待查證】，符合調處委員會審查標準。</td>
+                <td>刪除對抗性宣傳詞，待查事項預留填寫欄位，符合調處委員會審查標準。</td>
                 <td><span class="status-tag tag-green">通過</span></td>
               </tr>
             </table>
@@ -2574,7 +2952,7 @@
               <span class="sc-title">方案 A：最優全額返還方案</span>
               <span class="sc-amount">$280,231+</span>
             </div>
-            <div class="sc-desc">相對人全額返還新光銀行定存單 220,231 元（及孳息【待查證】）＋交屋款 60,000 元。A2 切結水電自理免除大社區民事責任。</div>
+            <div class="sc-desc">相對人全額返還新光銀行定存單 220,231 元（及孳息 <span class="fill-line-inline" style="min-width: 70px;"></span> 元）＋交屋款 60,000 元。A2 切結水電自理免除大社區民事責任。</div>
           </div>
 
           <div class="scenario-card" onclick="selectScenario('B', this)">
@@ -2608,7 +2986,7 @@
             </div>
             <div class="res-metric-row">
               <span class="text-muted">法定孳息收益</span>
-              <span style="font-weight: 700;" id="resInterest">依約計息【待查證】</span>
+              <span style="font-weight: 700;" id="resInterest">依約計息（待核算）</span>
             </div>
             <div class="res-metric-row">
               <span class="text-muted">扣抵物業過渡與行政公攤</span>
